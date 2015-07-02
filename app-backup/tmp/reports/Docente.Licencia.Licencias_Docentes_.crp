@@ -1,0 +1,127 @@
+<?php $reportFields=array (
+  'Docente' => 
+  array (
+    'primerNombre' => 
+    array (
+      'Add' => '1',
+      'Position' => '1',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'apellido' => 
+    array (
+      'Add' => '1',
+      'Position' => '2',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'dni' => 
+    array (
+      'Add' => '1',
+      'Position' => '3',
+      'Type' => 'integer',
+      'Length' => '9',
+      'Not' => '0',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'direccion' => 
+    array (
+      'Add' => '0',
+      'Position' => '4',
+      'Type' => 'string',
+      'Length' => '200',
+      'Not' => '1',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'telefono' => 
+    array (
+      'Add' => '0',
+      'Position' => '5',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '1',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'email' => 
+    array (
+      'Add' => '0',
+      'Position' => '6',
+      'Type' => 'string',
+      'Length' => '100',
+      'Not' => '1',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+    'ciudad' => 
+    array (
+      'Add' => '0',
+      'Position' => '7',
+      'Type' => 'string',
+      'Length' => '50',
+      'Not' => '1',
+      'Filter' => '=',
+      'Example' => '',
+    ),
+  ),
+  'Licencia' => 
+  array (
+    'articulo' => 
+    array (
+      'Add' => '1',
+      'Position' => '8',
+      'Type' => 'string',
+      'Length' => '100',
+    ),
+    'descripcion' => 
+    array (
+      'Add' => '1',
+      'Position' => '9',
+      'Type' => 'string',
+      'Length' => '200',
+    ),
+    'fechaDesde' => 
+    array (
+      'Add' => '1',
+      'Position' => '10',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'fechaHasta' => 
+    array (
+      'Add' => '1',
+      'Position' => '11',
+      'Type' => 'date',
+      'Length' => '10',
+    ),
+    'observacion' => 
+    array (
+      'Add' => '0',
+      'Position' => '12',
+      'Type' => 'text',
+      'Length' => '10',
+    ),
+  ),
+  'Report' => 
+  array (
+    'Logical' => 'AND',
+    'OrderDirection' => 'ASC',
+    'OrderBy2' => 'Docente.primerNombre',
+    'OrderBy1' => 'Docente.apellido',
+    'ReportName' => 'Licencias Docentes ',
+    'Style' => 'executive',
+    'Output' => 'xls',
+    'ShowRecordCounter' => '0',
+    'ShowNoRelated' => '0',
+    'SaveReport' => '1',
+    'OneToManyOption' => 'Licencia',
+  ),
+); ?>
