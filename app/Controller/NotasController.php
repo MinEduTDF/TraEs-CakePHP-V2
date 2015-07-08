@@ -3,11 +3,13 @@ class NotasController extends AppController {
 
 	var $name = 'Notas';
 
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		$this->Nota->recursive = 0;

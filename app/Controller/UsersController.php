@@ -1,15 +1,16 @@
 <?php
 class UsersController extends AppController {
 
-	var $name = 'users';
+	var $name = 'Users';
 
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		
-		$this->Auth->allow('index');
+		//$this->Auth->allow('index');
 	}
-	
+	*/
     /*                      
     function isAuthorized($user){
 	
@@ -52,15 +53,15 @@ class UsersController extends AppController {
     }
 
 	function index() {
-		$this->User->recursive = 0;
+		//$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
 	}
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->flashWarnings('Usuario no valido', 'index');
-                        /*$this->Session->setFlash(__('Invalid usuario'));
-			$this->redirect(array('action' => 'index'));*/
+			//$this->Session->flashWarnings('Usuario no valido', 'index');
+            $this->Session->setFlash(__('Invalid usuario'));
+			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
 	}
@@ -72,8 +73,8 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('El usuario ha sido grabado.'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->flashWarnings('El usuario no ha sido grabado. Favor, intente nuevamente.', 'index');
-                                //$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
+				//$this->flashWarnings('El usuario no ha sido grabado. Favor, intente nuevamente.', 'index');
+                                $this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
 			}
 		}
 		$centros = $this->User->Centro->find('list');

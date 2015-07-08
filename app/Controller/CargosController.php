@@ -3,17 +3,17 @@ class CargosController extends AppController {
 
 	var $name = 'Cargos';
     var $paginate = array('Cargo' => array('limit' => 5, 'order' => 'Cargo.id DESC'));
-		
+	/*	
     function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }	
-	
+	*/
 	function index() {
 		//$this->Cargo->recursive = 0;
 		$this->set('cargos', $this->paginate());
-		$estados = $this->Cargo->Estado->find('list');
+		//$estados = $this->Cargo->Estado->find('list');
 		$centros = $this->Cargo->Centro->find('list');
 		$materias = $this->Cargo->Materia->find('list');
 		//$docentes = $this->Cargo->Docente->find('list');
