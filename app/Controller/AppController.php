@@ -1,27 +1,5 @@
 <?php
 /**
- * Application level Controller
- *
- * This file is application-wide controller file. You can put all
- * application-wide controller-related methods here.
- *
- * PHP versions 4 and 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2010, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.app
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-/**
  * Application Controller
  *
  * Add your application-wide methods in the class below, your controllers
@@ -32,8 +10,32 @@
  */
 class AppController extends Controller {
 
-
-    //var $components = array('Email', 'Auth', 'Session');
+    var $components = array(
+	  'Session', 
+	  'Auth'=> array(
+	      /*'loginAction' => array(
+		      'controller' => 'users',
+			  'action' => 'login'
+		  ),*/
+	      'loginRedirect' => array(
+		      'controller' => 'centros',
+			  'action' => 'index'
+		  ),
+		  'logoutRedirect' => array(
+		      'controller' => 'pages',
+			  'action' => 'display'
+		  ),
+		)
+	);
+    	
+      	  
+	public function beforeFilter(){
+   
+        $this->Auth->allow('*');
+		$this->Session->write('Auth.redirect', null);
+	    				                     
+    } // fin de function beforeFilter() }
+			 
     
     /**
     * Mensaje de exito para las vistas
@@ -62,4 +64,39 @@ class AppController extends Controller {
             $this->redirect($url, null, true);
        }
     }
+	
+	/**
+	* ejecuta acciones cuando el id se encuentra vacio
+	* @param int $id
+	* @param string $url
+	* @return bool
+	*/
+	function idEmpty($id, $url)
+	{
+		if (empty($id)) {
+			$this->flashWarnings('ID incorrecto',$url);
+		}
+	}
+	
+	/**
+	* Recarga la pÃ¡gina ubicando los valores de la matriz 'params[url]' 
+	* dentro de la matriz 'params[named]'
+	*/
+	function redirectToNamed()
+	{
+		$urlArray = $this->params['url'];
+		unset($urlArray['url']);
+		if(!empty($urlArray))
+		{
+			$this->redirect($urlArray,null,true);
+		}
+	}
+    
+	function __deleteFile($file)
+	{
+	  if (file_exists($file)) 
+		{
+			unlink($file);
+		}
+	}
 }

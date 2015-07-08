@@ -4,11 +4,13 @@ class InventariosController extends AppController {
 	var $name = 'Inventarios';
     var $paginate = array('Inventario' => array('limit' => 5, 'order' => 'Inventario.id DESC'));
 	
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		//$this->Inventario->recursive = 0;

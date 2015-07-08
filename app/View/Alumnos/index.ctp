@@ -24,14 +24,14 @@
  <div id="sidebar">
 		
 		<div id="invoice-stats">
-   		<?php /*
+   		<?php 
 			
 			echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
    			foreach($letters as $letter)
 			{
 				echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,'index/letter:'.$letter) : $letter);
 			}
-*/		?>
+		?>
         </div>
 		<br></br>
     <div class="actions">

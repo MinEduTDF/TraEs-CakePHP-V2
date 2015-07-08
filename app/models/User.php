@@ -1,6 +1,12 @@
 <?php
+
+App::uses('AppModel', 'Model');
+
 class User extends AppModel {
+	
 	var $name = 'User';
+	public $displayField = 'username';
+	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -80,7 +86,6 @@ class User extends AppModel {
 	                     )
 	            )
            );
-		   
-		
+		  		   
 }
 ?>

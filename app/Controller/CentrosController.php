@@ -3,34 +3,13 @@ class CentrosController extends AppController {
 
 	var $name = 'Centros';
     var $paginate = array('Centro' => array('limit' => 3, 'order' => 'Centro.id DESC'));
-		
+	/*	
 	function beforeFilter(){
 	
 	    parent::beforeFilter();
-		$this->Auth->allowedActions = array('index', 'view');
-        //$this->Auth->authorize = 'controller';
+		$this->Auth->authorize = 'controller';
 	}
-    
-	/*
-	function isAuthorized() {
-        $user = $this->Auth->user();
-		
-		if ($this->action == 'view') {
-            if ($user['User']['role'] == 'administrativo_institucional_docentes') {
-                return true;
-            } else if($user['User']['role'] == 'administrativo_institucional_docentes'){
-			    return true;
-			}
-		else if($this->action == 'edit')	
-			{
-                $this->Session->setFlash('No tiene permiso para editar', 'default', array('class'=>'notice'));
-				return false;
-            }
-        }
-
-        return true;
-    }
-	*/
+    */
 	/*
 	function isAuthorized($user){
 	
@@ -51,9 +30,9 @@ class CentrosController extends AppController {
 		   }
 		     
 		}
-		//return parent::isAuthorized($user);
-	}*/
-		
+		return parent::isAuthorized($user);
+	}
+	*/	
 	function index() {
 		//$this->Centro->recursive = 0;
 		$this->set('centros', $this->paginate());
