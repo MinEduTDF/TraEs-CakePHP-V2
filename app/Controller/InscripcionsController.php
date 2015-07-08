@@ -4,16 +4,19 @@ class InscripcionsController extends AppController {
 	var $name = 'Inscripcions';
     var $paginate = array('Inscripcion' => array('limit' => 5, 'order' => 'Inscripcion.id DESC'));
 	
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		//$this->Inscripcion->recursive = 0;
 		$this->set('inscripcions', $this->paginate());
-		$alumnos = $this->Inscripcion->Alumno->find('list');
+		//$tipos = $this->Inscripcion->TipoInscripcion->find('list');
+		//$alumnos = $this->Inscripcion->Alumno->find('list');
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
@@ -48,7 +51,7 @@ class InscripcionsController extends AppController {
 		
 		$inscripcions = $this->paginate('Inscripcion',$conditions);
 		
-		$this->set(compact('ciclos', 'centros', 'materias', 'empleados'));
+		$this->set(compact('alumnos', 'ciclos', 'centros', 'materias', 'empleados'));
 		
 	}
 

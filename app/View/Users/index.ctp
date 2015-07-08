@@ -14,28 +14,28 @@
 	</tr>
 	<?php
 	$i = 0;
-	foreach ($users as $users):
+	foreach ($users as $user):
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $users['User']['id']; ?>&nbsp;</td>
-		<td><?php echo $users['User']['username']; ?>&nbsp;</td>
-		<!--<td><?php echo $users['User']['password']; ?>&nbsp;</td>-->
-		<td><?php echo $users['User']['role']; ?>&nbsp;</td>
-		<td><?php echo $users['User']['puesto']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['id']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+		<!--<td><?php //echo $user['User']['password']; ?>&nbsp;</td>-->
+		<td><?php echo $user['User']['role']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['puesto']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($users['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $users['Centro']['sigla'])); ?>
+			<?php echo $this->Html->link($user['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $user['Centro']['sigla'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($users['Empleado']['apellido'], array('controller' => 'empleados', 'action' => 'view', $users['Empleado']['apellido'])); ?>
+			<?php echo $this->Html->link($user['Empleado']['apellido'], array('controller' => 'empleados', 'action' => 'view', $user['Empleado']['apellido'])); ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $users['User']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $users['User']['id'])); ?>
-			<!--<?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $users['User']['id']), null, sprintf(__('Està seguro de borrar # %s?'), $users['User']['id'])); ?>-->
+			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $user['User']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $user['User']['id'])); ?>
+			<!--<?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Està seguro de borrar # %s?'), $user['User']['id'])); ?>-->
 		</td>
 	</tr>
 <?php endforeach; ?>

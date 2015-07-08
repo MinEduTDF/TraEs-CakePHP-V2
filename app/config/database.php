@@ -2,11 +2,11 @@
 class DATABASE_CONFIG {
 
 	var $default = array(
-                'datasource' => 'Database/Mysql'
+                'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'elAlari2',
+		'password' => '',
 		'database' => 'sigedu',
 	);
 }

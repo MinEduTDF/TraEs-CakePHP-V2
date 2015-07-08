@@ -3,11 +3,13 @@ class LicenciasController extends AppController {
 
 	var $name = 'Licencias';
 
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		$this->Licencia->recursive = 0;
