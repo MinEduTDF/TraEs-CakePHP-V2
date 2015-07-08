@@ -4,11 +4,13 @@ class AlumnosController extends AppController {
 	var $name = 'Alumnos';
 	var $paginate = array('Alumno' => array('limit' => 3, 'order' => 'Alumno.id DESC'));
 
+	/*
 	function beforeFilter(){
 
         parent::beforeFilter();
 	//	$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		$this->Alumno->recursive = 0;
@@ -46,8 +48,8 @@ class AlumnosController extends AppController {
 			}
 		}
 		
-        /*$centros = $this->Alumno->Centro->find('list');
-		$cursos = $this->Alumno->Curso->find('list');*/
+        $centros = $this->Alumno->Centro->find('list');
+		$cursos = $this->Alumno->Curso->find('list');
 		$this->set(compact('centros', 'cursos'));
 	}
 

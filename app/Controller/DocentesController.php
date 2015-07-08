@@ -4,11 +4,13 @@ class DocentesController extends AppController {
 	var $name = 'Docentes';
 	var $paginate = array('Docente' => array('limit' => 3, 'order' => 'Docente.id DESC'));
 
+    /*
 	function beforeFilter(){
 
         parent::beforeFilter();
 		$this->Auth->allowedActions = array('index', 'view');
     }
+	*/
 	
 	function index() {
 		$this->Docente->recursive = 0;
