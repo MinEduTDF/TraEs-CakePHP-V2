@@ -47,10 +47,6 @@ class AlumnosController extends AppController {
 				$this->Session->setFlash(__('El alumno no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
 		}
-		
-        $centros = $this->Alumno->Centro->find('list');
-		$cursos = $this->Alumno->Curso->find('list');
-		$this->set(compact('centros', 'cursos'));
 	}
 
 	function edit($id = null) {
