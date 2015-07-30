@@ -13,10 +13,10 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('Borrar Nota'), array('action' => 'delete', $this->Form->value('Nota.id')), null, sprintf(__('Está seguro de borrar la nota # %s?'), $this->Form->value('Nota.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Notas'), array('action' => 'index'));?></li>
+		<!--<li><?php echo $this->Html->link(__('Listar Notas'), array('action' => 'index'));?></li>-->
 		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
 	</ul>
 </div>

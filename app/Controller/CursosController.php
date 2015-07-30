@@ -27,10 +27,11 @@ class CursosController extends AppController {
 			}
 		}
 		$centros = $this->Curso->Centro->find('list');
-		$orientacions = $this->Curso->Orientacion->find('list');
+		$titulacions = $this->Curso->Titulacion->find('list');
 		$modalidads = $this->Curso->Modalidad->find('list');
+		$materias = $this->Curso->Materia->find('list');
 		$ciclos = $this->Curso->Ciclo->find('list');
-		$this->set(compact('centros', 'orientacions', 'modalidads', 'ciclos'));
+		$this->set(compact('centros', 'titulacions', 'modalidads', 'materias', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -50,10 +51,10 @@ class CursosController extends AppController {
 			$this->data = $this->Curso->read(null, $id);
 		}
 		$centros = $this->Curso->Centro->find('list');
-		$orientacions = $this->Curso->Orientacion->find('list');
-		$modalidads = $this->Curso->Modalidad->find('list');
+		$titulacions = $this->Curso->Titulacion->find('list');
+		//$modalidads = $this->Curso->Modalidad->find('list');
 		$ciclos = $this->Curso->Ciclo->find('list');
-		$this->set(compact('centros', 'orientacions', 'modalidads', 'ciclos'));
+		$this->set(compact('centros', 'titulacions', 'modalidads', 'ciclos'));
 	}
 
 	function delete($id = null) {
