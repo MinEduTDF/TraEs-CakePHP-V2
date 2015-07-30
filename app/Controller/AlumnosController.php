@@ -2,7 +2,7 @@
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
-	var $paginate = array('Alumno' => array('limit' => 3, 'order' => 'Alumno.id DESC'));
+	var $paginate = array('Alumno' => array('limit' => 5, 'order' => 'Alumno.id DESC'));
 
 	/*
 	function beforeFilter(){
@@ -13,19 +13,26 @@ class AlumnosController extends AppController {
 	*/
 	
 	function index() {
-		$this->Alumno->recursive = 0;
+		//$this->Alumno->recursive = 0;
+        $this->set('alumnos', $this->paginate());
+		$this->redirectToNamed();
+		$conditions = array();	
 		
 		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
 		$letters = array('A','B','C','D','E','F','G','H',
 						 'I','J','K','L','M','N','O','P',
 						 'Q','R','S','T','U','V','W','X','Y','Z');
 		
-		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellido LIKE ' => 
+		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellidos LIKE ' => 
 		                                                  $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['documento_nro']))
+		{
+			$conditions['Alumno.documento_nro ='] = $this->params['named']['documento_nro'];
+		}
+		$alumnos = $this->paginate('Alumno',$conditions);
 		$this->set(compact('alumnos','letters','activeLetter','urlArgs'));
-		
 	}
 
 	function view($id = null) {
@@ -65,9 +72,6 @@ class AlumnosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Alumno->read(null, $id);
 		}
-		/*$centros = $this->Alumno->Centro->find('list');
-		$cursos = $this->Alumno->Curso->find('list');*/
-		$this->set(compact('centros', 'cursos'));
 	}
 
 	function delete($id = null) {

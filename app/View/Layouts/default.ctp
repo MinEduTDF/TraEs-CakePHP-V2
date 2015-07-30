@@ -27,20 +27,23 @@
                 
 						<!--<li><?php echo $this->Html->link(__('Usuarios'), '/users'); ?></li>-->
 						<li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>
-						<li><?php echo $this->Html->link(__('Docentes'), '/docentes'); ?></li>
-						<li><?php echo $this->Html->link(__('Cargos'), '/cargos'); ?></li>
-						<li><?php echo $this->Html->link(__('Alumnos'), '/alumnos'); ?></li>
-						<li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
-						<li><?php echo $this->Html->link(__('Empleados'), '/empleados'); ?></li>
-						<li><?php echo $this->Html->link(__('Inventarios'), '/inventarios'); ?></li>
 						<!--<li><?php echo $this->Html->link(__('Ciclos'), '/ciclos'); ?></li>-->
                         <!--<li><?php echo $this->Html->link(__('Modalidades'), '/modalidads'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Orientaciones'), '/orientacions'); ?></li>-->
-				        <!--<li><?php echo $this->Html->link(__('Reportes'), '/report_manager/reports'); ?></li>-->	
-					    <!--<li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>-->
+                        <!--<li><?php echo $this->Html->link(__('Titulaciones'), '/titulacions'); ?></li>-->
+                        <!--<li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>-->
                         <!--<li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>-->
                         <!--<li><?php echo $this->Html->link(__('Horarios'), '/horarios'); ?></li>-->
-						                      							
+                        <!--<li><?php echo $this->Html->link(__('Empleados'), '/empleados'); ?></li>-->
+						<!--<li><?php echo $this->Html->link(__('Inventarios'), '/inventarios'); ?></li>-->
+						<!--<li><?php echo $this->Html->link(__('Docentes'), '/docentes'); ?></li>-->
+						<!--<li><?php echo $this->Html->link(__('Cargos'), '/cargos'); ?></li>-->
+						<li><?php echo $this->Html->link(__('Alumnos'), '/alumnos'); ?></li>
+						<li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
+                        <li><?php echo $this->Html->link(__('Inasistencias'), '/'); ?></li>
+                        <!--<li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>-->
+                        <!--<li><?php echo $this->Html->link(__('Intervenciones'), '/'); ?></li>-->
+						<li><?php echo $this->Html->link(__('Reportes'), 'plugins/report_manager/reports'); ?></li>	
+					           							
 	        			<?php //if($this->Html->loggedIn()) { ?>
                         <li><?php echo $this->Html->link(__('Cerrar Sesion'), '/users/logout'); ?></li>
                 <?php //} ?>

@@ -15,13 +15,13 @@ class Materia extends AppModel {
 	);
 
 	var $belongsTo = array(
-		'Curso' => array(
+	     'Curso' => array(
 			'className' => 'Curso',
 			'foreignKey' => 'curso_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		)
+		) 	
 	);
 
 	var $hasMany = array(

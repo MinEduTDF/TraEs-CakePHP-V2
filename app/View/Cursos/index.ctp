@@ -3,14 +3,16 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<!--<th><?php echo $this->Paginator->sort('id');?></th>-->
-			<th><?php echo $this->Paginator->sort('anio');?></th>
+			<th><?php echo $this->Paginator->sort('tipo');?></th>
+            <th><?php echo $this->Paginator->sort('anio');?></th>
 			<th><?php echo $this->Paginator->sort('division');?></th>
 			<th><?php echo $this->Paginator->sort('turno');?></th>
 			<th><?php echo $this->Paginator->sort('aula Nro');?></th>
-			<th><?php echo $this->Paginator->sort('observacion');?></th>
-			<th><?php echo $this->Paginator->sort('centro_id');?></th>
-			<th><?php echo $this->Paginator->sort('orientacion_id');?></th>
-			<th><?php echo $this->Paginator->sort('modalidad_id');?></th>
+			<th><?php echo $this->Paginator->sort('plazas');?></th>
+            <th><?php echo $this->Paginator->sort('organizacion_cursada');?></th>
+			<!--<th><?php echo $this->Paginator->sort('centro_id');?></th>-->
+			<th><?php echo $this->Paginator->sort('titulacion_id');?></th>
+			<!--<th><?php echo $this->Paginator->sort('modalidad_id');?></th>-->
 			<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -23,20 +25,22 @@
 	?>
 	<tr<?php echo $class;?>>
 		<!--<td><?php echo $curso['Curso']['id']; ?>&nbsp;</td>-->
-		<td><?php echo $curso['Curso']['anio']; ?>&nbsp;</td>
+		<td><?php echo $curso['Curso']['tipo']; ?>&nbsp;</td>
+        <td><?php echo $curso['Curso']['anio']; ?>&nbsp;</td>
 		<td><?php echo $curso['Curso']['division']; ?>&nbsp;</td>
 		<td><?php echo $curso['Curso']['turno']; ?>&nbsp;</td>
 		<td><?php echo $curso['Curso']['aulaNro']; ?>&nbsp;</td>
-		<td><?php echo $curso['Curso']['observacion']; ?>&nbsp;</td>
-		<td>
+		<td><?php echo $curso['Curso']['plazas']; ?>&nbsp;</td>
+		<td><?php echo $curso['Curso']['organizacion_cursada']; ?>&nbsp;</td>
+        <!--<td>
 			<?php echo $this->Html->link($curso['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $curso['Centro']['sigla'])); ?>
-		</td>
+		</td>-->
 		<td>
-			<?php echo $this->Html->link($curso['Orientacion']['nombre'], array('controller' => 'orientacions', 'action' => 'view', $curso['Orientacion']['nombre'])); ?>
+			<?php echo $this->Html->link($curso['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['nombre'])); ?>
 		</td>
-		<td>
+		<!--<td>
 			<?php echo $this->Html->link($curso['Modalidad']['nombre'], array('controller' => 'modalidads', 'action' => 'view', $curso['Modalidad']['nombre'])); ?>
-		</td>
+		</td>-->
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $curso['Curso']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id'])); ?>
@@ -65,8 +69,8 @@
 		<li><?php echo $this->Html->link(__('Nuevo Curso'), array('action' => 'add')); ?></li>
 		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Orientaciones'), array('controller' => 'orientacions', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Orientacion'), array('controller' => 'orientacions', 'action' => 'add')); ?> </li>-->
+		<!--<li><?php echo $this->Html->link(__('Listar Titulaciones'), array('controller' => 'titulacions', 'action' => 'index')); ?> </li>-->
+		<!--<li><?php echo $this->Html->link(__('Agregar Titulación'), array('controller' => 'titulacions', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Modalidades'), array('controller' => 'modalidads', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Modalidad'), array('controller' => 'modalidads', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>-->
