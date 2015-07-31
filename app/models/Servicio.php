@@ -79,7 +79,7 @@ class Servicio extends AppModel {
                    ),
 				   'observaciones' => array(
                            'maxLength' => array(
-                           'rule' => array('minLength',100),
+                           'rule' => array('maxLength',100),
                            'allowEmpty' => true,
                            'message' => 'No debe exceder las 100 letras (incluídos espacios).'
                            )

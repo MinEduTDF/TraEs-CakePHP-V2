@@ -1,7 +1,7 @@
 <!-- start main -->
  <div id="main">
  </br>
- <h2>Servicios</h2>
+ <h2>Servicios Complementarios</h2>
 			<!-- start second nav -->
  <div id="second-nav">
  	  <ul>
@@ -11,17 +11,12 @@
  <!-- end second nav -->
  
     <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Fecha de creación del registro: '); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('ID | Fecha de creación del registro: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['creado']; ?>
+			<?php echo ($servicio['Servicio']['id'])." | ".($this->Html->formatTime($servicio['Servicio']['creado'])); ?>
 			&nbsp;
 		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Id: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de servicio: '); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de servicio: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $servicio['Servicio']['tipo_servicio']; ?>
 			&nbsp;
@@ -31,34 +26,19 @@
 			<?php echo $servicio['Servicio']['estado']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Prestador: '); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Prestador | Docente/Profesional a cargo: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['prestador']; ?>
+			<?php echo ($servicio['Servicio']['prestador'])." | ".($servicio['Servicio']['docente_profesional_acargo']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Docente/Profesional a cargo: '); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de alta | Fecha de alta: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['docente_profesional_acargo']; ?>
+			<?php echo ($servicio['Servicio']['tipo_alta'])." | ".($this->Html->formatTime($servicio['Servicio']['fecha_alta'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de alta: '); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de baja | Fecha de baja: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['tipo_alta']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Fecha de alta: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['fecha_alta']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Fecha de baja: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['fecha_baja']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de baja: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['tipo_baja']; ?>
+			<?php echo ($servicio['Servicio']['tipo_baja'])." | ".($this->Html->formatTime($servicio['Servicio']['fecha_baja'])); ?>
 			&nbsp;
 		</dd>
         <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Observaciones: '); ?></strong></dt>
