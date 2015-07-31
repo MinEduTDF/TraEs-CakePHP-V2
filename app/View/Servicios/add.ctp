@@ -1,10 +1,10 @@
-<div class="familiars form">
+<div class="servicios form">
 
-<?php echo $this->Form->create('Familiar');?>
+<?php echo $this->Form->create('Servicio');?>
 	<fieldset>
- 		<legend><?php echo __('Agregar Familiar'); ?></legend>
+ 		<legend><?php echo __('Agregar Servicio'); ?></legend>
 	         <div id="main">
-                    <?php echo $this->element('form_familiar'); ?>
+                    <?php echo $this->element('form_servicio'); ?>
              </div>
 	</fieldset>
 <?php echo $this->Form->end(__('Grabar'));?>
