@@ -15,7 +15,7 @@ class FamiliarsController extends AppController {
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Familiar no valido'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->set('familiar', $this->Familiar->read(null, $id));
 				
@@ -26,7 +26,7 @@ class FamiliarsController extends AppController {
 			$this->Familiar->create();
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash(__('El familiar ha sido grabado'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El familiar no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
@@ -38,12 +38,12 @@ class FamiliarsController extends AppController {
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Familiar no valido'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash(__('El familiar ha sido grabado'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El familiar no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
@@ -58,14 +58,14 @@ class FamiliarsController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Id no valido para familiar'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if ($this->Familiar->delete($id)) {
 			$this->Session->setFlash(__('Familiar borrado'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->Session->setFlash(__('Familiar no fue borrado'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 	}
 }
 ?>

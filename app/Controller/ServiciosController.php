@@ -15,7 +15,7 @@ class ServiciosController extends AppController {
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Servicio no valido'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->set('servicio', $this->Servicio->read(null, $id));
 				
@@ -26,7 +26,7 @@ class ServiciosController extends AppController {
 			$this->Servicio->create();
 			if ($this->Servicio->save($this->data)) {
 				$this->Session->setFlash(__('El servicio ha sido grabado'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El servicio no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
@@ -38,12 +38,12 @@ class ServiciosController extends AppController {
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Servicio no valido'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Servicio->save($this->data)) {
 				$this->Session->setFlash(__('El servicio ha sido grabado'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El servicio no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
@@ -58,14 +58,14 @@ class ServiciosController extends AppController {
 	function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Id no valido para servicio'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if ($this->Servicio->delete($id)) {
 			$this->Session->setFlash(__('Servicio borrado'));
-			$this->redirect(array('action'=>'index'));
+			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->Session->setFlash(__('Servicio no fue borrado'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 	}
 }
 ?>

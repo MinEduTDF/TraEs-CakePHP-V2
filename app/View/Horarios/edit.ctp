@@ -11,7 +11,9 @@
 		echo $this->Form->input('Cargo');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Grabar'));?>
+<?php  echo $this->Form->input('id', array('type' => 'hidden'));
+       echo $this->Form->end(__('Grabar'));
+?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
