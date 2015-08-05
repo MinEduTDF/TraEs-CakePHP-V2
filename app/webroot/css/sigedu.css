@@ -84,6 +84,16 @@ font-family: 'Crete Round', serif;
  	box-shadow: 6px 6px 0px rgba(32, 32, 32, 0.20);
 }
 
+.subtitulo {
+	font-size: 16px;
+
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #FF8646;
+	color: #FFFFFF;
+	padding: 5px;
+}
 
 .unit {
 	width: 100%;

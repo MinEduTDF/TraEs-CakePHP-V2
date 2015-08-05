@@ -13,7 +13,7 @@ class CargosController extends AppController {
 	function index() {
 		//$this->Cargo->recursive = 0;
 		$this->set('cargos', $this->paginate());
-		//$estados = $this->Cargo->Estado->find('list');
+		$estados = $this->Cargo->Estado->find('list');
 		$centros = $this->Cargo->Centro->find('list');
 		$materias = $this->Cargo->Materia->find('list');
 		//$docentes = $this->Cargo->Docente->find('list');
@@ -45,7 +45,6 @@ class CargosController extends AppController {
 			$conditions['Cargo.fechaAltaPersona <='] = $this->params['named']['year_t'].'-'.$this->params['named']['month_t'].'-'.$this->params['named']['day_t'];
 		}
 		$cargos = $this->paginate('Cargo',$conditions);
-		
 		$this->set(compact('cargos', 'centros', 'materias', 'estados'));
 	}
 

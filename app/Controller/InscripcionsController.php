@@ -15,16 +15,37 @@ class InscripcionsController extends AppController {
 	function index() {
 		//$this->Inscripcion->recursive = 0;
 		$this->set('inscripcions', $this->paginate());
-		//$tipos = $this->Inscripcion->TipoInscripcion->find('list');
-		//$alumnos = $this->Inscripcion->Alumno->find('list');
-		$ciclos = $this->Inscripcion->Ciclo->find('list');
+		$this->loadModel('Alumno');
+		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		/*$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
 		$empleados = $this->Inscripcion->Empleado->find('list');
+		*/
 		$this->redirectToNamed();
 		$conditions = array();
 		
-		if(!empty($this->params['named']['ciclo_id']))
+		if(!empty($this->params['named']['legajo_nro']))
+		{
+			$conditions['Inscripcion.legajo_nro ='] = $this->params['named']['legajo_nro'];
+		}
+		if(!empty($this->params['named']['alumno_id']))
+		{
+			$conditions['Inscripcion.alumno_id ='] = $this->params['named']['alumno_id'];
+		}
+		if(!empty($this->params['named']['fecha_alta']))
+		{
+			$conditions['Inscripcion.fecha_alta ='] = $this->params['named']['fecha_alta'];
+		}
+		if(!empty($this->params['named']['fecha_baja']))
+		{
+			$conditions['Inscripcion.fecha_baja ='] = $this->params['named']['fecha_baja'];
+		}
+		if(!empty($this->params['named']['fecha_egreso']))
+		{
+			$conditions['Inscripcion.fecha_egreso ='] = $this->params['named']['fecha_egreso'];
+		}
+		/*if(!empty($this->params['named']['ciclo_id']))
 		{
 			$conditions['Inscripcion.ciclo_id ='] = $this->params['named']['ciclo_id'];
 		}
@@ -48,10 +69,9 @@ class InscripcionsController extends AppController {
 		{
 			$conditions['Inscripcion.fechaInscripcion <='] = $this->params['named']['year_t'].'-'.$this->params['named']['month_t'].'-'.$this->params['named']['day_t'];
 		}
-		
+		*/
 		$inscripcions = $this->paginate('Inscripcion',$conditions);
-		
-		$this->set(compact('alumnos', 'ciclos', 'centros', 'materias', 'empleados'));
+		$this->set(compact('alumnos'));
 		
 	}
 
@@ -70,14 +90,14 @@ class InscripcionsController extends AppController {
 				$this->Session->setFlash(__('La inscripcion ha sido grabada.'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La inscripcion no ha sido grabada. Favor, intente nuevamente.'));
+				$this->Session->setFlash(__('La inscripcion no ha sido grabada. Favor, intente                                             nuevamente.'));
 			}
 		}
-		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
-		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado')));
+		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
 		$this->set(compact('alumnos', 'ciclos', 'centros','materias', 'empleados'));
 	}
 
@@ -97,11 +117,11 @@ class InscripcionsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Inscripcion->read(null, $id);
 		}
-		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                     'nombre_completo_alumno')));
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
-		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado')));
+		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
 		$this->set(compact('alumnos', 'ciclos', 'centros','materias', 'empleados'));
 	}
 

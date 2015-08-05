@@ -5,7 +5,7 @@
 			<!-- start second nav -->
  <div id="second-nav">
  	  <ul>
-        <li><?php echo $this->Html->link(__('Nueva Materia'), array('action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Agregar Materia'), array('action' => 'add')); ?></li>
  	  </ul>
  </div>
  <!-- end second nav -->
@@ -16,27 +16,37 @@
 			<?php echo $materia['Materia']['id']; ?>
 			&nbsp;
 		</dd>-->
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nombre'); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nombre | Alia: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $materia['Materia']['nombre']; ?>
+			<?php echo ($materia['Materia']['nombre'])." | ".($materia['Materia']['alia']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Alia'); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Campo de formación | Dictado | Obligatoriedad: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $materia['Materia']['alia']; ?>
+			<?php echo ($materia['Materia']['campo_formacion'])." | ".($materia['Materia']['dictado'])." | ".($materia['Materia']['dictado'])." | ".($materia['Materia']['obligatoriedad']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Contenido'); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Contenido'); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $materia['Materia']['contenido']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('HsSemanal'); ?></strong></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Carga horaria en | Carga horaria semanal: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $materia['Materia']['hsSemanal']; ?>
+			<?php echo ($materia['Materia']['carga_horaria_en'])." | ".($materia['Materia']['carga_horaria_semanal']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Curso'); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Duración en | Duración: '); ?></strong></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo ($materia['Materia']['duracion_en'])." | ".($materia['Materia']['duracion']); ?>
+			&nbsp;
+		</dd>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Escala numérica | Nota mínima: '); ?></strong></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo ($materia['Materia']['escala_numerica'])." | ".($materia['Materia']['nota_minima']); ?>
+			&nbsp;
+		</dd>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Curso'); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($materia['Curso']['division'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['division'])); ?>
 			&nbsp;
@@ -44,11 +54,6 @@
 		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Cargo'); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($materia['Cargo']['nombre'], array('controller' => 'cargos', 'action' => 'view', $materia['Cargo']['nombre'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Observacion'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $materia['Materia']['observacion']; ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -66,18 +71,18 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('Editar Materia'), array('action' => 'edit', $materia['Materia']['id'])); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('Borrar Materia'), array('action' => 'delete', $materia['Materia']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $materia['Materia']['id'])); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Materias'), array('action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Materia'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Calificaciones'), array('controller' => 'notas', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Nota'), array('controller' => 'notas', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>-->
+		<li><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Calificaciones'), array('controller' => 'notas', 'action' => 'index')); ?> </li>-->
+		<li><?php echo $this->Html->link(__('Agregar calificación'), array('controller' => 'notas', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('Listar Ciclos'), array('controller' => 'ciclos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Ciclo'), array('controller' => 'ciclos', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Docentes'), array('controller' => 'docentes', 'action' => 'index')); ?> </li>-->
@@ -139,14 +144,19 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<!--<th><?php echo __('Id'); ?></th>-->
-		<th><?php echo __('TipoInscripcion'); ?></th>
-		<th><?php echo __('FechaInscripcion'); ?></th>
+		<th><?php echo __('Tipo de alta'); ?></th>
+		<th><?php echo __('Fecha de alta'); ?></th>
+		<th><?php echo __('Cursa'); ?></th>
+		<th><?php echo __('Fecha de baja'); ?></th>
+        <th><?php echo __('Tipo de baja'); ?></th>
+        <th><?php echo __('Fecha de egreso'); ?></th>
+        <th><?php echo __('Nota'); ?></th>
 		<th><?php echo __('Alumno Id'); ?></th>
 		<th><?php echo __('Ciclo Id'); ?></th>
-		<th><?php echo __('Centro Id'); ?></th>
-		<th><?php echo __('Curso Id'); ?></th>
+		<!--<th><?php echo __('Centro Id'); ?></th>-->
+		<!--<th><?php echo __('Curso Id'); ?></th>-->
 		<!--<th><?php echo __('Materia Id'); ?></th>-->
-		<th><?php echo __('Empleado Id'); ?></th>
+		<!--<th><?php echo __('Empleado Id'); ?></th>-->
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -159,14 +169,19 @@
 		?>
 		<tr<?php echo $class;?>>
 			<!--<td><?php echo $inscripcion['id'];?></td>-->
-			<td><?php echo $inscripcion['tipoInscripcion'];?></td>
-			<td><?php echo $inscripcion['fechaInscripcion'];?></td>
+			<td><?php echo $inscripcion['tipo_alta'];?></td>
+			<td><?php echo $this->Html->formatTime($inscripcion['fecha_alta']);?></td>
+            <td><?php echo $inscripcion['cursa'];?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_baja']);?></td>
+            <td><?php echo $inscripcion['tipo_baja'];?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_egreso']);?></td>
+			<td><?php echo $inscripcion['nota'];?></td>
 			<td><?php echo ($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?></td>
 			<td><?php echo ($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?></td>
-			<td><?php echo ($this->Html->link($inscripcion['centro_id'], array('controller' => 'centros', 'action' => 'view', $inscripcion['centro_id'])));?></td>
-			<td><?php echo ($this->Html->link($inscripcion['curso_id'], array('controller' => 'cursos', 'action' => 'view', $inscripcion['curso_id'])));?></td>
+			<!--<td><?php echo ($this->Html->link($inscripcion['centro_id'], array('controller' => 'centros', 'action' => 'view', $inscripcion['centro_id'])));?></td>-->
+			<!--<td><?php echo ($this->Html->link($inscripcion['curso_id'], array('controller' => 'cursos', 'action' => 'view', $inscripcion['curso_id'])));?></td>-->
 			<!--<td><?php echo ($this->Html->link($inscripcion['materia_id'], array('controller' => 'materias', 'action' => 'view', $inscripcion['materia_id'])));?></td>-->
-			<td><?php echo ($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?></td>
+			<!--<td><?php echo ($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?></td>-->
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id'])); ?>
@@ -252,7 +267,7 @@
 		<th><?php echo __('NotaDic'); ?></th>
 		<th><?php echo __('NotaMar'); ?></th>
 		<th><?php echo __('PromFinal'); ?></th>
-		<th><?php echo __('Observaciones'); ?></th>
+		<!--<th><?php echo __('Observaciones'); ?></th>-->
 		<!--<th><?php echo __('Materia Id'); ?></th>-->
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
@@ -277,7 +292,7 @@
 			<td><?php echo $nota['notaDic'];?></td>
 			<td><?php echo $nota['notaMar'];?></td>
 			<td><?php echo $nota['promFinal'];?></td>
-			<td><?php echo $nota['observaciones'];?></td>
+			<!--<td><?php echo $nota['observaciones'];?></td>-->
 			<!--<td><?php echo ($this->Html->link($nota['materia_id'], array('controller' => 'materias', 'action' => 'view', $nota['materia_id'])));?></td>-->
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $nota['id'])); ?>
@@ -295,7 +310,7 @@
 		</ul>
 	</div>-->
 </div>
-<!--<div class="related">
+<div class="related">
 	<h3><?php echo __('Docentes Relacionados');?></h3>
 	<?php if (!empty($materia['Docente'])):?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -337,7 +352,7 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
+	<!--<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Docente'), array('controller' => 'docentes', 'action' => 'add'));?> </li>
 		</ul>

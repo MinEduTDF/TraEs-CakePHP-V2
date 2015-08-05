@@ -11,6 +11,7 @@
 <!-- ************* Jquery.js *******************-->
  		<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'); ?>
   		<?php echo $this->Html->script('https://code.jquery.com/ui/1.11.1/jquery-ui.js'); ?>
+  		<?php echo $this->Html->css('https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'); ?>
 <!-- **************************************** -->
 
 <!-- ************* Bootstrap.js *******************-->
@@ -22,10 +23,11 @@
         <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
 
-		<title>S.I.G.E.D.U.</title>
+		<title>S.I.G.E.D.U_TDF</title>
 </head>
 <body>
 	<div class="content">
+
 
 <!-- ******* menu principal ******* -->
 <?php 

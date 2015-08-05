@@ -56,7 +56,7 @@ class NotasController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Nota->read(null, $id);
 		}
-		$alumnos = $this->Nota->Alumno->find('list');
+		$alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
 		$materias = $this->Nota->Materia->find('list');
 		$ciclos = $this->Nota->Ciclo->find('list');
 		$this->set(compact('alumnos', 'materias', 'ciclos'));

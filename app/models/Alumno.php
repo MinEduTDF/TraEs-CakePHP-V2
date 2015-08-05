@@ -3,11 +3,60 @@ class Alumno extends AppModel {
 	
 	var $name = 'Alumno';
     //var $displayField = 'apellido';
-	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.primerNombre, " ", Alumno.apellido)');
+	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.nombres, " ", Alumno.apellidos)');
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-    var $hasMany = array(
+    /*var $belongsTo = array(
+		'Persona' => array(
+			'className' => 'Persona',
+			'foreignKey' => 'persona_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);*/
+	
+	var $hasMany = array(
+		'Familiar' => array(
+			'className' => 'Familiar',
+			'foreignKey' => 'alumno_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Integracion' => array(
+			'className' => 'Integracion',
+			'foreignKey' => 'alumno_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Servicio' => array(
+			'className' => 'Servicio',
+			'foreignKey' => 'alumno_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Inscripcion' => array(
 			'className' => 'Inscripcion',
 			'foreignKey' => 'alumno_id',
@@ -34,26 +83,34 @@ class Alumno extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-);
+   );
+   
 
-  //Validaciones
+//Validaciones
 
         var $validate = array(
-                   'primerNombre' => array(
+                   'nombres' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),
                            'allowEmpty' => false,
-                           'message' => 'El Nombre no es valido. Indicar uno igual o mayor a tres letras.'
+                           'message' => 'El Nombre no es valido. Indicar uno igual o mayor a tres                                         letras.'
                            )
                    ),
-                   'apellido' => array(
+                   'apellidos' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),
                            'allowEmpty' => false,
-                           'message' => 'El Apellido no es valido. Indicar uno igual o mayor a tres letras.'
+                           'message' => 'El Apellido no es valido. Indicar uno igual o mayor a                                         tres letras.'
                            )
                    ),
-                   'dni' => array(
+				   'documento_tipo' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',3),                          
+                           'allowEmpty' => false,
+                           'message' => 'El tipo de dni no es valida. Indicar una de las opciones.'
+                           )
+                   ),
+                   'documento_nro' => array(
                            'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
@@ -64,21 +121,41 @@ class Alumno extends AppModel {
 	                       'message' => 'Este DNI de alumno esta siendo usado.'
 	                     )
                    ),
-                   'direccion' => array(
+				   'ocupacion' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',4),                          
+                           'allowEmpty' => false,
+                           'message' => 'La ocupacion no es valida. Indicar una de las opciones.'
+                           )
+                   ),
+				   'pcia_nac' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => 'La direccion no es valida. Indicar una que contenga numeros y letras.'
+                           'message' => 'El lugar no es valida.'
                            )
                    ),
-                   'telefono' => array(
+				   'nacionalidad' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',5),                          
+                           'allowEmpty' => false,
+                           'message' => 'La nacionalidad no es valida. Indicar una de las                                         opciones.'
+                           )
+                   ),
+				   'indigena' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',3),                          
+                           'allowEmpty' => true,
+                           'message' => 'El nombre de comunidad indigena no es valida. Indicar una                                         de las opciones.'
+                           )
+                   ),
+				   'telefono_nro' => array(
                            'minLength' => array(
                            'rule' => array('minLength',6),
                            'allowEmpty' => false,
-                           'message' => 'El telefono no es valido. Indicar uno de referencia solo con numeros y sin espacios.'
+                           'message' => 'El telefono no es valido. Indicar uno de referencia solo                                         con numeros y sin espacios.'
                            )
                    ),
-                                       
                    'email' => array(
                            'email' => array(
                            'rule' => 'email',
@@ -86,15 +163,37 @@ class Alumno extends AppModel {
                            'message' => 'El email no es valido. Indicar email valido.'
                            )
                    ),
+                   'calle_nombre' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',4),                          
+                           'allowEmpty' => false,
+                           'message' => 'La direccion no es valida.'
+                           )
+                   ),
+				   'calle_nro' => array(
+                           'numeric' => array(
+                           'rule' => 'numeric',
+                           'allowEmpty' => false,
+                           'message' => 'El numero no es valido.'
+                           )
+					),
+					'barrio' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',5),                          
+                           'allowEmpty' => false,
+                           'message' => 'El nombre del barrio no es valida.'
+                           )
+                   ),	   
                    'ciudad' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
                            'message' => 'La ciudad no es valida. Indicar una de las opciones.'
                            )
-                   ),
+                   )
                          
         );
 
+        
 }
 ?>
