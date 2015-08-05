@@ -1,7 +1,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<!--        <?php echo $this->Html->css('internet_services', 'stylesheet', array("media"=>"all" ));?>  -->
 
 <!-- ************ Bootstrap Css *********** -->
         <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
@@ -22,6 +21,7 @@
          <?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>
         <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
+
 
 		<title>S.I.G.E.D.U_TDF</title>
 </head>
