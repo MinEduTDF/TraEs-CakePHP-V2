@@ -25,7 +25,7 @@
 		echo $this->Form->input('condicion_aprobacion', array('options' => $condiciones_aprobacion                                , 'empty' => ''));
 		echo $this->Form->input('ciclo_id');
 		echo $this->Form->input('centro_id');
-		//echo $this->Form->input('curso_id');
+		echo $this->Form->input('Curso');
 		echo $this->Form->input('Materia');
 		echo $this->Form->input('empleado_id');
 ?>

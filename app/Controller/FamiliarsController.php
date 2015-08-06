@@ -43,7 +43,8 @@ class FamiliarsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash(__('El familiar ha sido grabado'));
-				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				$this->redirect($this->referer());
+				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El familiar no ha sido grabado. Favor, intentelo nuevamente.'));
 			}
