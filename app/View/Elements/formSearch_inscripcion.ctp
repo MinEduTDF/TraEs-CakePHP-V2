@@ -5,7 +5,7 @@
         
 	<?php
 		echo $this->Form->input('legajo_nro', array('empty' => ''));
-		//echo $this->Form->input('alumno_id', array('empty' => ''));
+		echo $this->Form->input('alumno_id', array('empty' => ''));
 		echo $this->Form->input('fecha_alta', array('label' => 'Fecha de alta:', 'type' => 'date',                                'dateFormat' => 'DMY', 'empty' => ' '));
 		echo $this->Form->input('fecha_baja', array('label' => 'Fecha de baja:', 'type' => 'date',                                'dateFormat' => 'DMY', 'empty' => ' '));
 		echo $this->Form->input('fecha_egreso', array('label' => 'Fecha de egreso:', 'type' =>                                'date', 'dateFormat' => 'DMY', 'empty' => ' '));

@@ -1,6 +1,5 @@
 <!-- start main -->
  <div id="main">
- 
  <h2>Titulaciones</h2>
 			<!-- start second nav -->
  <div id="second-nav">
@@ -11,34 +10,18 @@
  <!-- end second nav -->
  
     <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<!--<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id: '); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id | Nombre | Orientación: '); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['id']; ?>
-			&nbsp;
-		</dd>-->
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nombre: '); ?></strong></dt>
+			<?php echo ($titulacions['Titulacion']['id']).' | '.($titulacions['Titulacion']['nombre']).' | '.($titulacions['Titulacion']['orientacion']); ?>&nbsp;
+		</dd>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Edad mínima | Certificación | Condición de ingreso: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['nombre']; ?>
+			<?php echo ($titulacions['Titulacion']['edad_minima']).' | '.($titulacions['Titulacion']['certificacion']).' | '.($titulacions['Titulacion']['condicion_ingreso']); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Certificación: '); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Ciclo de: implementación | finalización: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['certificacion']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Condición de ingreso: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['condicion_ingreso']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Ciclo de implementación: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['ciclo_implementacion']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Ciclo de finalización: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['ciclo_finalizacion']; ?>
+			<?php echo ($titulacions['Titulacion']['ciclo_implementacion']).' | '.($titulacions['Titulacion']['ciclo_finalizacion']); ?>
 			&nbsp;
 		</dd>
         <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('A término: '); ?></strong></dt>
@@ -46,41 +29,17 @@
 			<?php echo $titulacions['Titulacion']['a_termino']; ?>
 			&nbsp;
 		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Orientación: '); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Organización: del Plan | de la cursada: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['orientacion']; ?>
+			<?php echo ($titulacions['Titulacion']['organizacion_plan']).' | '.($titulacions['Titulacion']['organizacion_cursada']); ?>
 			&nbsp;
 		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Organización del Plan: '); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Forma del dictado | Carga horaria en | Carga horaria: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['organizacion_plan']; ?>
+			<?php echo ($titulacions['Titulacion']['forma_dictado']).' | '.($titulacions['Titulacion']['carga_horaria_en']).' | '.($titulacions['Titulacion']['carga_horaria']); ?>
 			&nbsp;
 		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Organización de la cursada: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['organizacion_cursada']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Forma del dictado: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['forma_dictado']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Carga horaria en: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['carga_horaria_en']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Carga horaria: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['carga_horaria']; ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Edad mínima: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $titulacions['Titulacion']['edad_minima']; ?>
-			&nbsp;
-		</dd>
+        
         <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tiene articulación: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $titulacions['Titulacion']['tiene_articulacion']; ?>

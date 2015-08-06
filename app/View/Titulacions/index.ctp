@@ -1,6 +1,16 @@
-<div class="titulacions index">
-	<h2><?php echo __('Titulaciones');?></h2>
-	<table cellpadding="0" cellspacing="0">
+<!-- start main -->
+ <div id="main">
+ <?php echo $this->Session->flash(); ?>
+ <h2>Titulaciones</h2>
+			<!-- start second nav -->
+ <div id="second-nav">
+ 	  <ul>
+        <li><?php echo $this->Html->link(__('Agregar Titulación'), array('action' => 'add')); ?></li>
+ 	  </ul>
+ </div>
+ <!-- end second nav -->
+
+    <table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('nombre');?></th>
@@ -55,13 +65,14 @@
 		<?php echo $this->Paginator->next(__('siguiente') . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Agregar Titulación'), array('action' => 'add')); ?></li>
-		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
+		<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>
 	</ul>
+</div>-->
 </div>

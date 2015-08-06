@@ -54,7 +54,5 @@
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
 	</ul>
 </div>
-         
-
 </div>
 <!-- end sidebar -->

@@ -96,9 +96,10 @@ class InscripcionsController extends AppController {
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
+		$cursos = $this->Inscripcion->Curso->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
 		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
-		$this->set(compact('alumnos', 'ciclos', 'centros','materias', 'empleados'));
+		$this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 
 	function edit($id = null) {
@@ -120,9 +121,10 @@ class InscripcionsController extends AppController {
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                     'nombre_completo_alumno')));
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
+		$cursos = $this->Inscripcion->Curso->find('list');
 		$materias = $this->Inscripcion->Materia->find('list');
 		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
-		$this->set(compact('alumnos', 'ciclos', 'centros','materias', 'empleados'));
+		$this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 
 	function delete($id = null) {

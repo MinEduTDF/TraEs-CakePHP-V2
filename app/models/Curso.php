@@ -41,7 +41,7 @@ class Curso extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		)
 	);
 
     var $hasAndBelongsToMany = array(
@@ -50,6 +50,21 @@ class Curso extends AppModel {
 			'joinTable' => 'ciclos_cursos',
 			'foreignKey' => 'curso_id',
 			'associationForeignKey' => 'ciclo_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
+		'Inscripcion' => array(
+			'className' => 'Inscripcion',
+			'joinTable' => 'cursos_inscripcions',
+			'foreignKey' => 'curso_id',
+			'associationForeignKey' => 'inscripcion_id',
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',

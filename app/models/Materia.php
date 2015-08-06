@@ -55,6 +55,21 @@ class Materia extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
+		),
+		'Inasistencia' => array(
+			'className' => 'Inasistencia',
+			'joinTable' => 'inasistencias_materias',
+			'foreignKey' => 'materia_id',
+			'associationForeignKey' => 'inasistencia_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
 		)
 	);
 

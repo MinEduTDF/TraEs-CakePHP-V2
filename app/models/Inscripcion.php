@@ -25,13 +25,6 @@ class Inscripcion extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		/*'Curso' => array(
-			'className' => 'Curso',
-			'foreignKey' => 'curso_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),*/
 		'Empleado' => array(
 			'className' => 'Empleado',
 			'foreignKey' => 'empleado_id',
@@ -42,6 +35,21 @@ class Inscripcion extends AppModel {
 	);
 	
 	var $hasAndBelongsToMany = array(
+		'Curso' => array(
+			'className' => 'Curso',
+			'joinTable' => 'cursos_inscripcions',
+			'foreignKey' => 'inscripcion_id',
+			'associationForeignKey' => 'curso_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
 		'Materia' => array(
 			'className' => 'Materia',
 			'joinTable' => 'inscripcions_materias',

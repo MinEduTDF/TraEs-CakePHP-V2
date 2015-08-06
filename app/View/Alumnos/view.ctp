@@ -69,6 +69,7 @@
 		<li><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('Listar Calificaciones'), array('controller' => 'notas', 'action' => 'index')); ?> </li>-->
 		<li><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>-->
@@ -265,7 +266,6 @@
 		</ul>
 	</div>-->
 </div>
-
 <div class="related">
 	<h3><?php echo __('calificaciones Relacionadas');?></h3>
 	<?php if (!empty($alumno['Nota'])):?>
@@ -328,4 +328,46 @@
 		</ul>
 	</div>-->
 </div>
+<div class="related">
+	<h3><?php echo __('Inasistencias Relacionadas');?></h3>
+	<?php if (!empty($alumno['Inasistencia'])):?>
+	<table cellpadding = "0" cellspacing = "0">
+	<tr>
+		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('tipo'); ?></th>
+		<th><?php echo __('causa'); ?></th>
+		<th><?php echo __('justificado'); ?></th>
+		<th><?php echo __('creado'); ?></th>
+		<th><?php echo __('materia_id'); ?></th>
+		<th class="actions"><?php echo __('Opciones');?></th>
+	</tr>
+	<?php
+		$i = 0;
+		foreach ($alumno['Inasistencia'] as $inasistencia):
+			$class = null;
+			if ($i++ % 2 == 0) {
+				$class = ' class="altrow"';
+			}
+		?>	
+		<tr<?php echo $class;?>>
+			<td><?php echo $inasistencia['tipo'];?></td>
+			<td><?php echo $inasistencia['causa'];?></td>
+			<td><?php echo $inasistencia['justificado'];?></td>
+            <td><?php echo $inasistencia['creado'];?></td>
+			<td><?php echo $this->Html->link(array('controller' => 'materias', 'action' => 'view', $inasistencia['materia_id']));?></td>
+            <td class="actions">
+				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['id'])); ?>
+				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id'])); ?>
+				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inscripcion['id'])); ?>-->
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+<?php endif; ?>
 
+	<!--<div class="actions">
+		<ul>
+			<li><?php echo $this->Html->link(__('Nuevo Familiar'), array('controller' => 'familiars', 'action' => 'add'));?> </li>
+		</ul>
+	</div>-->
+</div>
