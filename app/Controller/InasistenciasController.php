@@ -2,11 +2,8 @@
 class InasistenciasController extends AppController {
 
 	//public $uses = array('Curso', 'Materia', 'Alumno', 'Inasistencia');
-    public $helpers = array('Js');
-    public $components = array('RequestHandler');
-	
-	var $name = 'Inasistencias';
-	var $paginate = array('Inasistencia' => array('limit' => 5, 'order' => 'Inasistencia.id DESC'));
+    var $name = 'Inasistencias';
+	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.id DESC'));
 
 	/*
 	function beforeFilter(){

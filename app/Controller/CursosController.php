@@ -2,6 +2,7 @@
 class CursosController extends AppController {
 
 	var $name = 'Cursos';
+    var $paginate = array('Curso' => array('limit' => 4, 'order' => 'Curso.id DESC'));
 
 	function index() {
 		$this->Curso->recursive = 0;

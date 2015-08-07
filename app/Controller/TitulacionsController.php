@@ -2,6 +2,7 @@
 class TitulacionsController extends AppController {
 
 	var $name = 'Titulacions';
+	var $paginate = array('Titulacion' => array('limit' => 4, 'order' => 'Titulacion.id DESC'));
 
 	/*function beforeFilter() {
 	    $this->centro_id = $this->Session->centro('id'); 
