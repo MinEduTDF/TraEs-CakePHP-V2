@@ -1,6 +1,14 @@
-<div class="materias index">
-	</br></br>
-	<h2><?php echo __('Materias');?></h2>
+<!-- start main -->
+ <div id="main">
+ <?php echo $this->Session->flash(); ?>
+ <h2>Materias</h2>
+			<!-- start second nav -->
+ <div id="second-nav">
+ 	  <ul>
+        <li><?php echo $this->Html->link(__('Agregar Materia'), array('action' => 'add')); ?></li>
+ 	  </ul>
+ </div>
+ <!-- end second nav -->
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('Alia');?></th>
@@ -51,7 +59,7 @@
 <div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Agregar Materia'), array('action' => 'add')); ?></li>
+		<!--<li><?php echo $this->Html->link(__('Agregar Materia'), array('action' => 'add')); ?></li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->
@@ -67,4 +75,5 @@
 		<!--<li><?php echo $this->Html->link(__('Listar Docentes'), array('controller' => 'docentes', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Docente'), array('controller' => 'docentes', 'action' => 'add')); ?> </li>-->
 	</ul>
+</div>
 </div>

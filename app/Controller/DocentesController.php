@@ -2,7 +2,7 @@
 class DocentesController extends AppController {
 
 	var $name = 'Docentes';
-	var $paginate = array('Docente' => array('limit' => 3, 'order' => 'Docente.id DESC'));
+	var $paginate = array('Docente' => array('limit' => 4, 'order' => 'Docente.id DESC'));
 
     /*
 	function beforeFilter(){

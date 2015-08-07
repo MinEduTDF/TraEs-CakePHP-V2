@@ -2,7 +2,7 @@
 class InscripcionsController extends AppController {
 
 	var $name = 'Inscripcions';
-    var $paginate = array('Inscripcion' => array('limit' => 5, 'order' => 'Inscripcion.id DESC'));
+    var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.id DESC'));
 	
 	/*
 	function beforeFilter(){

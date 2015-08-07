@@ -2,7 +2,7 @@
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
-	var $paginate = array('Alumno' => array('limit' => 5, 'order' => 'Alumno.id DESC'));
+	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.id DESC'));
 
 	/*
 	function beforeFilter(){

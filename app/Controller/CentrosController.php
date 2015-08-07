@@ -2,7 +2,7 @@
 class CentrosController extends AppController {
 
 	var $name = 'Centros';
-    var $paginate = array('Centro' => array('limit' => 3, 'order' => 'Centro.id DESC'));
+    var $paginate = array('Centro' => array('limit' => 4, 'order' => 'Centro.id DESC'));
 	/*	
 	function beforeFilter(){
 	
@@ -66,7 +66,7 @@ class CentrosController extends AppController {
 				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'warnings'));
 			  }
 		}
-		$empleados = $this->Centro->Empleado->find('list');
+		$empleados = $this->Centro->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado')));
 		$this->set(compact('empleados'));
 	}
 
