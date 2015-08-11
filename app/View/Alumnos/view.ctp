@@ -130,7 +130,7 @@
 	<?php if (!empty($alumno['Inscripcion'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('Ciclo_id'); ?></th>
 		<th><?php echo __('Tipo de alta'); ?></th>
 		<th><?php echo __('Fecha de alta'); ?></th>
 		<th><?php echo __('Cursa'); ?></th>
@@ -138,8 +138,7 @@
         <th><?php echo __('Tipo de baja'); ?></th>
         <th><?php echo __('Fecha de egreso'); ?></th>
         <th><?php echo __('Nota'); ?></th>
-        <th><?php echo __('Ciclo_id'); ?></th>
-		<!--<th><?php echo __('Centro_id'); ?></th>-->
+        <!--<th><?php echo __('Centro_id'); ?></th>-->
 		<!--<th><?php echo __('Curso_id'); ?></th>-->
 		<!--<th><?php echo __('Materia_id'); ?></th>-->
 		<!--<th><?php echo __('Empleado_id'); ?></th>-->
@@ -154,8 +153,8 @@
 			}
 		?>	
 		<tr<?php echo $class;?>>
-			<!--<td><?php echo $inscripcion['id'];?></td>-->
-			<td><?php echo $inscripcion['tipo_alta'];?></td>
+			<td><?php echo ($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?></td>
+            <td><?php echo $inscripcion['tipo_alta'];?></td>
 			<td><?php echo $this->Html->formatTime($inscripcion['fecha_alta']);?></td>
             <td><?php echo $inscripcion['cursa'];?></td>
             <td><?php echo $this->Html->formatTime($inscripcion['fecha_baja']);?></td>
@@ -163,7 +162,6 @@
             <td><?php echo $this->Html->formatTime($inscripcion['fecha_egreso']);?></td>
 			<td><?php echo $inscripcion['nota'];?></td>
             <!--<td><?php echo $inscripcion['alumno_id'];?></td>-->
-			<td><?php echo ($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?></td>
 			<!--<td><?php echo ($this->Html->link($inscripcion['centro_id'], array('controller' => 'centros', 'action' => 'view', $inscripcion['centro_id'])));?></td>-->
 			<!--<td><?php echo ($this->Html->link($inscripcion['curso_id'], array('controller' => 'cursos', 'action' => 'view', $inscripcion['curso_id'])));?></td>-->
 			<!--<td><?php echo ($this->Html->link($inscripcion['materia_id'], array('controller' => 'materias', 'action' => 'view', $inscripcion['materia_id'])));?></td>-->
@@ -189,7 +187,8 @@
 	<?php if (!empty($alumno['Integracion'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Centro integrador'); ?></th>
+		<th><?php echo __('Ciclo_ID'); ?></th>
+        <th><?php echo __('Centro integrador'); ?></th>
         <th><?php echo __('Docente integrador'); ?></th>
 		<th><?php echo __('Fecha de inicio'); ?></th>
         <th><?php echo __('Fecha de fin'); ?></th>
@@ -204,7 +203,8 @@
 			}
 		?>	
 		<tr<?php echo $class;?>>
-			<td><?php echo ($this->Html->link($integracion['centro_id'], array('controller' => 'centros', 'action' => 'view', $integracion['centro_id'])));?></td>
+			<td><?php echo ($this->Html->link($integracion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $integracion['ciclo_id'])));?></td>
+            <td><?php echo ($this->Html->link($integracion['centro_id'], array('controller' => 'centros', 'action' => 'view', $integracion['centro_id'])));?></td>
 			<td><?php echo $integracion['docente_nombre_completo'];?></td>
             <td><?php echo $this->Html->formatTime($integracion['fecha_inicio']);?></td>
             <td><?php echo $this->Html->formatTime($integracion['fecha_fin']);?></td>
@@ -229,7 +229,8 @@
 	<?php if (!empty($alumno['Servicio'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Tipo'); ?></th>
+		<th><?php echo __('Ciclo_ID'); ?></th>
+        <th><?php echo __('Tipo'); ?></th>
         <th><?php echo __('Estado'); ?></th>
         <th><?php echo __('Docente/Profesional a cargo'); ?></th>
 		<th><?php echo __('Fecha de alta'); ?></th>
@@ -245,7 +246,8 @@
 			}
 		?>	
 		<tr<?php echo $class;?>>
-			<td><?php echo $servicio['tipo_servicio'];?></td>
+			<td><?php echo ($this->Html->link($servicio['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $servicio['ciclo_id'])));?></td>
+            <td><?php echo $servicio['tipo_servicio'];?></td>
 			<td><?php echo $servicio['estado'];?></td>
             <td><?php echo $servicio['docente_profesional_acargo'];?></td>
             <td><?php echo $this->Html->formatTime($servicio['fecha_alta']);?></td>
@@ -333,12 +335,11 @@
 	<?php if (!empty($alumno['Inasistencia'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('Ciclo_ID'); ?></th>
 		<th><?php echo __('tipo'); ?></th>
 		<th><?php echo __('causa'); ?></th>
 		<th><?php echo __('justificado'); ?></th>
 		<th><?php echo __('creado'); ?></th>
-		<th><?php echo __('materia_id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -350,12 +351,12 @@
 			}
 		?>	
 		<tr<?php echo $class;?>>
-			<td><?php echo $inasistencia['tipo'];?></td>
+			<td><?php echo ($this->Html->link($inasistencia['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['ciclo_id'])));?></td>
+            <td><?php echo $inasistencia['tipo'];?></td>
 			<td><?php echo $inasistencia['causa'];?></td>
 			<td><?php echo $inasistencia['justificado'];?></td>
-            <td><?php echo $inasistencia['creado'];?></td>
-			<td><?php echo $this->Html->link(array('controller' => 'materias', 'action' => 'view', $inasistencia['materia_id']));?></td>
-            <td class="actions">
+            <td><?php echo $this->Html->formatTime($inasistencia['creado']);?></td>
+			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id'])); ?>
 				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inscripcion['id'])); ?>-->

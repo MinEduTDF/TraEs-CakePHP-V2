@@ -5,39 +5,19 @@ class InasistenciasController extends AppController {
     var $name = 'Inasistencias';
 	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.id DESC'));
 
-	/*
-	function beforeFilter(){
-
-        parent::beforeFilter();
-	//	$this->Auth->allowedActions = array('index', 'view');
-    }
-	*/
-	
 	function index() {
 		
 		//$this->Inasistencia->recursive = 0;
 		$this->set('inasistencias', $this->paginate());
-		$this->loadModel('Curso');
-		$cursos = $this->Curso->find('list');
-		$this->loadModel('Materia');
-		$materias = $this->Materia->find('list');
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-				
 		$this->redirectToNamed();
 		$conditions = array();
-		if(!empty($this->params['named']['curso_id']))
-		{
-			$conditions['Inasistencia.curso_id ='] = $this->params['named']['curso_id'];
-		}
-		if(!empty($this->params['named']['materia_id']))
-		{
-			$conditions['Inasistencia.materia_id ='] = $this->params['named']['materia_id'];
-		}
+		
 		if(!empty($this->params['named']['alumno_id']))
 		{
 			$conditions['Inasistencia.alumno_id ='] = $this->params['named']['alumno_id'];
 		}
-		if(!empty($this->params['named']['creado']))
+		/*if(!empty($this->params['named']['creado']))
 		{
 			$conditions['Inasistencia.creado ='] = $this->params['named']['creado'];
 		}
@@ -45,6 +25,7 @@ class InasistenciasController extends AppController {
 		{
 			$conditions['Inasistencia.modificado ='] = $this->params['named']['modificado'];
 		}
+		*/
 		if(!empty($this->params['named']['tipo']))
 		{
 			$conditions['Inasistencia.tipo ='] = $this->params['named']['tipo'];
@@ -67,7 +48,7 @@ class InasistenciasController extends AppController {
 		}
 		*/
 		$inasistencias = $this->paginate('Inasistencia',$conditions);
-		$this->set(compact('cursos', 'materias', 'alumnos'));
+		$this->set(compact('inasistencias', 'alumnos'));
 	}
 	
 	function view($id = null) {
@@ -91,7 +72,8 @@ class InasistenciasController extends AppController {
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
 		$materias = $this->Inasistencia->Materia->find('list');
-		$this->set(compact('alumnos', 'materias'));
+		$ciclos = $this->Inasistencia->Ciclo->find('list');
+		$this->set(compact('alumnos', 'materias', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -111,8 +93,10 @@ class InasistenciasController extends AppController {
 			$this->data = $this->Inasistencia->read(null, $id);
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		//$cursos = $this->Inasistencia->Curso->find('list');
 		$materias = $this->Inasistencia->Materia->find('list');
-		$this->set(compact('alumnos','materias'));
+		$ciclos = $this->Inasistencia->Ciclo->find('list');
+		$this->set(compact('alumnos', 'materias', 'ciclos'));
 	}
 
 	function delete($id = null) {

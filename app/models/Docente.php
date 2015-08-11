@@ -110,9 +110,8 @@ class Docente extends AppModel {
                            'allowEmpty' => false,
                            'message' => 'La ciudad no es valida. Indicar una de las opciones.'
                            )
-                   ),
-                
+                   )
         );
-
+   
 }
 ?>

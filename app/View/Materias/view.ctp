@@ -46,16 +46,16 @@
 			<?php echo ($materia['Materia']['escala_numerica'])." | ".($materia['Materia']['nota_minima']); ?>
 			&nbsp;
 		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Curso'); ?></strong></dt>
+        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Curso: Año | División: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($materia['Curso']['division'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['division'])); ?>
+			<?php echo ($this->Html->link($materia['Curso']['anio'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['anio']))).' | '.($this->Html->link($materia['Curso']['division'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['division']))); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Cargo'); ?></strong></dt>
+		<!--<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Cargo'); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($materia['Cargo']['nombre'], array('controller' => 'cargos', 'action' => 'view', $materia['Cargo']['nombre'])); ?>
 			&nbsp;
-		</dd>
+		</dd>-->
 	</dl>
  
  </div>

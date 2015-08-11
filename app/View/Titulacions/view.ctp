@@ -10,7 +10,7 @@
  <!-- end second nav -->
  
     <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id | Nombre | Orientación: '); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Id | Nombre | Orientación: '); ?></strong></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo ($titulacions['Titulacion']['id']).' | '.($titulacions['Titulacion']['nombre']).' | '.($titulacions['Titulacion']['orientacion']); ?>&nbsp;
 		</dd>

@@ -234,14 +234,15 @@
 </div>-->
 <div class="related">
 	<h3><?php echo __('Titulaciones Relacionadas');?></h3>
-	<?php if (!empty($centro['Orientacion'])):?>
+	<?php if (!empty($centro['Titulacion'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Descripcion'); ?></th>
-		<!--<th><?php echo __('Centro Id'); ?></th>-->
-		<th class="actions"><?php echo __('Actions');?></th>
+		<th><?php echo __('Orientación'); ?></th>
+		<th><?php echo __('Plan'); ?></th>
+        <th><?php echo __('Cursada'); ?></th>
+		<th><?php echo __('Dictado'); ?></th>
+        <th class="actions"><?php echo __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
@@ -252,10 +253,11 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $titulacion['id'];?></td>
 			<td><?php echo $titulacion['nombre'];?></td>
-			<td><?php echo $titulacion['descripcion'];?></td>
-			<!--<td><?php echo $titulacion['centro_id'];?></td>-->
+			<td><?php echo $titulacion['orientacion'];?></td>
+			<td><?php echo $titulacion['organizacion_plan'];?></td>
+            <td><?php echo $titulacion['organizacion_cursada'];?></td>
+            <td><?php echo $titulacion['forma_dictado'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'titulacions', 'action' => 'view', $titulacion['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'titulacions', 'action' => 'edit', $titulacion['id'])); ?>

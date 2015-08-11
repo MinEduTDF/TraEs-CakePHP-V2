@@ -40,9 +40,9 @@
 						<li><?php echo $this->Html->link(__('Alumnos'), '/alumnos'); ?></li>
 						<li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
                         <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
-                        <!--<li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>-->
+                        <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
                         <!--<li><?php echo $this->Html->link(__('Intervenciones'), '/'); ?></li>-->
-						<li><?php echo $this->Html->link(__('Reportes'), 'plugins/report_manager/reports'); ?></li>	
+						<!--<li><?php echo $this->Html->link(__('Reportes'), 'plugins/report_manager/reports'); ?></li>-->	
 					           							
 	        			<?php //if($this->Html->loggedIn()) { ?>
                         <li><?php echo $this->Html->link(__('Cerrar Sesion'), '/users/logout'); ?></li>

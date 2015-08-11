@@ -73,8 +73,8 @@ class Titulacion extends AppModel {
                            )
                    ),
 				   'a_termino' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
+                           'maxLength' => array(
+                           'rule' => array('maxLength', 2), 
                            'allowEmpty' => false,       
                            'message' => 'Indicar una opcion.'
                            )
@@ -164,8 +164,8 @@ class Titulacion extends AppModel {
                            )
                    ),
 				   'norma_aprob_jur_anio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
+                           'numeric' => array(
+                           'rule' => 'numeric', 
                            'allowEmpty' => true,       
                            'message' => 'Indicar el anio de la norma jurisdiccional.'
                            )
@@ -185,8 +185,8 @@ class Titulacion extends AppModel {
                            )
                    ),
 				   'norma_val_nac_anio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
+                           'numeric' => array(
+                           'rule' => 'numeric', 
                            'allowEmpty' => true,       
                            'message' => 'Indicar el anio de validez nacional de la norma.'
                            )
@@ -206,8 +206,8 @@ class Titulacion extends AppModel {
                            )
                    ),
 				   'norma_ratif_jur_anio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
+                           'numeric' => array(
+                           'rule' => 'numeric', 
                            'allowEmpty' => true,       
                            'message' => 'Indicar el anio de ratificación jurisdiccional de la                                         norma.'
                            )
@@ -227,8 +227,8 @@ class Titulacion extends AppModel {
                            )
                    ),
 				   'norma_homologacion_anio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
+                           'numeric' => array(
+                           'rule' => 'numeric', 
                            'allowEmpty' => true,       
                            'message' => 'Indicar el anio en que se homologó la norma.'
                            )

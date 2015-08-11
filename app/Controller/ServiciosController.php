@@ -4,14 +4,6 @@ class ServiciosController extends AppController {
 	var $name = 'Servicios';
 	var $paginate = array('Servicio' => array('limit' => 3, 'order' => 'Servicio.id DESC'));
 
-	/*
-	function beforeFilter(){
-
-        parent::beforeFilter();
-	//	$this->Auth->allowedActions = array('index', 'view');
-    }
-	*/
-	
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Servicio no valido'));
@@ -32,7 +24,8 @@ class ServiciosController extends AppController {
 			}
 		}
 		$alumnos = $this->Servicio->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-		$this->set(compact('alumnos'));
+		$ciclos = $this->Servicio->Ciclo->find('list');
+		$this->set(compact('alumnos', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -52,7 +45,9 @@ class ServiciosController extends AppController {
 			$this->data = $this->Servicio->read(null, $id);
 		}
 		$alumnos = $this->Servicio->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-		$this->set(compact('alumnos'));
+		$ciclos = $this->Servicio->Ciclo->find('list');
+		$this->set(compact('alumnos', 'ciclos'));
+
 	}
 
 	function delete($id = null) {

@@ -5,8 +5,35 @@ class CursosController extends AppController {
     var $paginate = array('Curso' => array('limit' => 4, 'order' => 'Curso.id DESC'));
 
 	function index() {
-		$this->Curso->recursive = 0;
+		//$this->Curso->recursive = 0;
 		$this->set('cursos', $this->paginate());
+		$this->redirectToNamed();
+		$conditions = array();
+		
+		if(!empty($this->params['named']['anio']))
+		{
+			$conditions['Curso.anio ='] = $this->params['named']['anio'];
+		}
+		if(!empty($this->params['named']['division']))
+		{
+			$conditions['Curso.division ='] = $this->params['named']['division'];
+		}
+		if(!empty($this->params['named']['turno']))
+		{
+			$conditions['Curso.turno ='] = $this->params['named']['turno'];
+		}
+		/*if(!empty($this->params['named']['day_f']) && !empty($this->params['named']['month_f']) && !empty($this->params['named']['year_f']))
+		{
+			$conditions['Inscripcion.fechaInscripcion >='] = $this->params['named']['year_f'].'-'.$this->params['named']['month_f'].'-'.$this->params['named']['day_f'];
+		}
+		if(!empty($this->params['named']['day_t']) && !empty($this->params['named']['month_t']) && !empty($this->params['named']['year_t']))
+		{
+			$conditions['Inscripcion.fechaInscripcion <='] = $this->params['named']['year_t'].'-'.$this->params['named']['month_t'].'-'.$this->params['named']['day_t'];
+		}
+		*/
+		$cursos = $this->paginate('Curso',$conditions);
+		$this->set(compact('cursos'));
+		
 	}
 
 	function view($id = null) {

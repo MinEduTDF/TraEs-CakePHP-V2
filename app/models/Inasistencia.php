@@ -13,6 +13,13 @@ class Inasistencia extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Ciclo' => array(
+			'className' => 'Ciclo',
+			'foreignKey' => 'ciclo_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 	var $hasAndBelongsToMany = array(
@@ -30,7 +37,7 @@ class Inasistencia extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
-		)
+		),
 	);
 	
    
