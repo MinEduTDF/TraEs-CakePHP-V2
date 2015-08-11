@@ -20,8 +20,7 @@ class DocentesController extends AppController {
 						 'I','J','K','L','M','N','O','P',
 						 'Q','R','S','T','U','V','W','X','Y','Z');
 		
-		$docentes = isset($activeLetter)? $this->paginate('Docente', array('Docente.apellido LIKE ' => 
-		                                                  $activeLetter.'%')) : $this->paginate();
+		$docentes = isset($activeLetter)? $this->paginate('Docente', array('Docente.apellido LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
 		$this->set(compact('docentes','letters','activeLetter','urlArgs'));

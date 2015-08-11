@@ -22,8 +22,9 @@ class IntegracionsController extends AppController {
 			}
 		}
 		$alumnos = $this->Integracion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
-		$centros = $this->Integracion->Centro->find('list');
-		$this->set(compact('alumnos', 'centros'));
+		$centros = $this->Integracion->Centro->find('list', array('fields' => array('id', 'sigla')));
+		$ciclos = $this->Integracion->Ciclo->find('list');
+		$this->set(compact('alumnos', 'centros', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -44,7 +45,9 @@ class IntegracionsController extends AppController {
 		}
 		$alumnos = $this->Integracion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
 		$centros = $this->Integracion->Centro->find('list', array('fields' => array('id', 'sigla')));
-		$this->set(compact('alumnos', 'centros'));
+		$ciclos = $this->Integracion->Ciclo->find('list');
+		$this->set(compact('alumnos', 'centros', 'ciclos'));
+
 	}
 
 	function delete($id = null) {

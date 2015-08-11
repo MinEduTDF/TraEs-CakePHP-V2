@@ -30,8 +30,47 @@ class Ciclo extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Integracion' => array(
+			'className' => 'Integracion',
+			'foreignKey' => 'integracion_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Servicio' => array(
+			'className' => 'Servicio',
+			'foreignKey' => 'servicio_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Inasistencia' => array(
+			'className' => 'Inasistencia',
+			'foreignKey' => 'inasistencia_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
-	);
+    );
 
 	var $hasAndBelongsToMany = array(
 		'Cargo' => array(

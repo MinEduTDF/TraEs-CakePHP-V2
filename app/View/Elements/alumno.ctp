@@ -1,8 +1,7 @@
 <div class="unit">
-   	   <span class="id"><?php echo $alumno['Alumno']['id']; ?></span>
-       <span class="name"><?php echo $alumno['Alumno']['apellidos'].' '.$alumno['Alumno']['nombres']; ?></span><br/>
-       <span class="text">Tel: <?php echo $alumno['Alumno']['telefono_nro']; ?></span><br/>
-       <span class="text">Email: <?php echo $this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email']); ?></span><br/>
+   	   <b>Documento Tipo | Número: </b><span class="name"><?php echo ($alumno['Alumno']['documento_tipo']).' | '.($alumno['Alumno']['documento_nro']); ?></span><br/>
+       <b>Apellido | Nombre: </b><span class="name"><?php echo $alumno['Alumno']['apellidos'].' '.$alumno['Alumno']['nombres']; ?></span><br/>
+       <b>Tel | Email: </b><span class="text"><?php echo ($alumno['Alumno']['telefono_nro']).' | '.($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></span><br/>
        <span class="text">Ciudad: <?php echo $alumno['Alumno']['ciudad']; ?></span><br/>
        <!--<span class="link"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Esta seguro que desea borrar al alumno %s?'), $alumno['Alumno']['apellidos'])); ?></span>-->
 	   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'alumnos', 'action' => 'edit', $alumno['Alumno']['id'])); ?></span>

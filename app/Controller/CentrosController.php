@@ -3,49 +3,19 @@ class CentrosController extends AppController {
 
 	var $name = 'Centros';
     var $paginate = array('Centro' => array('limit' => 4, 'order' => 'Centro.id DESC'));
-	/*	
-	function beforeFilter(){
-	
-	    parent::beforeFilter();
-		$this->Auth->authorize = 'controller';
-	}
-    */
-	/*
-	function isAuthorized($user){
-	
-	    if($user['User']['role'] == 'administrativo_institucional_docentes')
-		{
-           if(in_array($this->action, array('index')))
-		   {
-		      return true;
-		   }
-		   else
-		   {
-		      if($this->Auth->user('id'))
-			  {
-			     $this->Session->setFlash('No tiene permiso para acceder a esta seccion', 'default', array('class'=>'success'));
-				 $this->redirect($this->Auth->redirect());
-			  }
-			  
-		   }
-		     
-		}
-		return parent::isAuthorized($user);
-	}
-	*/	
+		
 	function index() {
-		//$this->Centro->recursive = 0;
-		$this->set('centros', $this->paginate());
-		$this->redirectToNamed();
-		$conditions = array();	
+		$this->Centro->recursive = 0;
 		
+		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
+		$letters = array('A','B','C','D','E','F','G','H',
+						 'I','J','K','L','M','N','O','P',
+						 'Q','R','S','T','U','V','W','X','Y','Z');
 		
-		if(!empty($this->params['named']['sigla']))
-		{
-			$conditions['sigla ='] = $this->params['named']['sigla'];
-		}
-		$centros = $this->paginate('Centro',$conditions);
-		$this->set(compact('centros'));
+		$centros = isset($activeLetter)? $this->paginate('Centro', array('Centro.ciudad LIKE ' => $activeLetter.'%')) : $this->paginate();
+		$urlArgs = array('url' => $this->params['named']);
+		
+		$this->set(compact('centros','letters','activeLetter','urlArgs'));
 	}
 	
 	function view($id = null) {

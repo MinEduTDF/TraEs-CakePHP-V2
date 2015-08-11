@@ -26,9 +26,21 @@
  
  <!-- start sidebar -->
  <div id="sidebar">
+				
 		<div id="invoice-stats">
-   		
-		    <?php echo $this->element('formSearch_centro'); ?>
+   		<h3><?php echo __('Ciudad'); ?></h3><br>
+		<?php 
+			
+			echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
+   			foreach($letters as $letter)
+			{
+				echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
+			}
+		?>
+        </div>
+		<br></br>
+        
+			<?php echo $this->element('formSearch_centro'); ?>
 		
         </div>
 		

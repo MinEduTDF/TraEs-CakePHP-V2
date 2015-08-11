@@ -1,7 +1,9 @@
 <?php
 class Curso extends AppModel {
 	var $name = 'Curso';
-    var $displayField = 'division';
+    //var $displayField = 'division';
+	public $virtualFields = array('nombre_completo_curso'=> 'CONCAT(Curso.anio, " ", Curso.division)');
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $belongsTo = array(
@@ -41,7 +43,7 @@ class Curso extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
 	);
 
     var $hasAndBelongsToMany = array(
@@ -65,6 +67,21 @@ class Curso extends AppModel {
 			'joinTable' => 'cursos_inscripcions',
 			'foreignKey' => 'curso_id',
 			'associationForeignKey' => 'inscripcion_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
+		'Inasistencia' => array(
+			'className' => 'Inasistencia',
+			'joinTable' => 'cursos_inasistencias',
+			'foreignKey' => 'curso_id',
+			'associationForeignKey' => 'inasistencia_id',
 			'unique' => true,
 			'conditions' => '',
 			'fields' => '',
@@ -99,11 +116,7 @@ class Curso extends AppModel {
                            'rule' => array('maxLength',11),
                            'allowEmpty' => false,
                            'message' => 'Indicar una opcion.'
-                           ),
-						   'isUnique' => array(
-	                       'rule' => 'isUnique',
-	                       'message' => 'Este nombre de curso esta siendo usado.'
-	                     )
+                           )
                    ),
                    'turno' => array(
                            'allowedChoice' => array(
