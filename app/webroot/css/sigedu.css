@@ -86,7 +86,9 @@ font-family: 'Crete Round', serif;
 
 .subtitulo {
 	font-size: 16px;
-
+	border-style: solid;
+	border-width: 1px;
+	border-color: #D66F39;
 	margin-bottom: 10px;
 	text-align: center;
 	font-weight: bold;
@@ -104,6 +106,10 @@ font-family: 'Crete Round', serif;
 	padding:20px;
 	background-color: #ECECEC;
 
+}
+
+#acordeon {
+	display: none;
 }
 
 #ContenidoSec {
@@ -124,6 +130,22 @@ font-family: 'Crete Round', serif;
 	background-color: #F2F2F2;
 }
 
+.error-message {
+	font-size: 12px;
+	font-weight: bold;
+	color: #F3661C;
+}
+
+.message {
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 15px;
+	color: rgb(210, 243, 255);
+	background: #6FA7C3;
+	padding: 5px;
+	border-radius: 10px;
+	box-shadow: 6px 6px 0px rgba(32, 32, 32, 0.20);
+}
 /********************************/
 
 /************ FOOTER *************/

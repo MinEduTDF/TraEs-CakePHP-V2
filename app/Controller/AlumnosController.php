@@ -50,10 +50,10 @@ class AlumnosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Alumno->create();
 			if ($this->Alumno->save($this->data)) {
-				$this->Session->setFlash(__('El alumno ha sido grabado'));
+				$this->alert('El alumno ha sido grabado.');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El alumno no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El alumno no ha sido grabado. Complete los campos obligatorio e Intentelo nuevamente.');
 			}
 		}
 

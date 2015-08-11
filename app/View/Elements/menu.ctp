@@ -1,5 +1,5 @@
 <!-- ************ bootstrap navbar ************ -->
-<br>
+<p>
 <nav class="navbar navbar-custom navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
