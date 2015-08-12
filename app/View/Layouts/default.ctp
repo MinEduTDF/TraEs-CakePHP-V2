@@ -1,68 +1,50 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
-        <?php echo $this->Html->css('internet_services', 'stylesheet', array("media"=>"all" ));?>
-	<title>S.I.G.E.D.U. - <?php echo $title_for_layout?></title>
-        <?php echo $scripts_for_layout;?>
-	    
+
+<!-- ************ Bootstrap Css *********** -->
+        <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
+        <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'); ?>
+<!-- ************************************** -->
+
+<!-- ************* Jquery.js *******************-->
+ 		<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'); ?>
+  		<?php echo $this->Html->script('https://code.jquery.com/ui/1.11.1/jquery-ui.js'); ?>
+  		<?php echo $this->Html->css('https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'); ?>
+<!-- **************************************** -->
+
+<!-- ************* Bootstrap.js *******************-->
+ 		<?php echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'); ?>
+<!-- **************************************** -->
+
+<!-- ************ Sigedu Css *********** -->
+         <?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>
+        <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
+<!-- ************************************** -->
+
+
+		<title>S.I.G.E.D.U_TDF</title>
 </head>
 <body>
 	<div class="content">
-	
-		<div class="header">
+
+<!-- ******* menu principal ******* -->
+<?php 
+	 if(!$this->Html->loggedIn()) { 
+			echo $this->element('menu');
 			
-			<div class="logo">
-				<h1><a href="#" title="Centralized Internet Services"><span class="dark">SIGIEdu_TDF</span></a></h1>
-			</div>
-		</div>
-		
-		
-		<div class="bar">
-			<ul>
-				<li class="browse_category">Seleccionar seccion:</li>
-				<?php if(!$this->Html->loggedIn()) { ?>
-                        <li><?php echo $this->Html->link(__('Inicio'), '/'); ?></li> 
-                <?php } ?>
-                
-						<!--<li><?php echo $this->Html->link(__('Usuarios'), '/users'); ?></li>-->
-						<li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>
-						<!--<li><?php echo $this->Html->link(__('Ciclos'), '/ciclos'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Modalidades'), '/modalidads'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Titulaciones'), '/titulacions'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Horarios'), '/horarios'); ?></li>-->
-                        <!--<li><?php echo $this->Html->link(__('Empleados'), '/empleados'); ?></li>-->
-						<!--<li><?php echo $this->Html->link(__('Inventarios'), '/inventarios'); ?></li>-->
-						<!--<li><?php echo $this->Html->link(__('Docentes'), '/docentes'); ?></li>-->
-						<!--<li><?php echo $this->Html->link(__('Cargos'), '/cargos'); ?></li>-->
-						<li><?php echo $this->Html->link(__('Alumnos'), '/alumnos'); ?></li>
-						<li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
-                        <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
-                        <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
-                        <!--<li><?php echo $this->Html->link(__('Intervenciones'), '/'); ?></li>-->
-						<!--<li><?php echo $this->Html->link(__('Reportes'), 'plugins/report_manager/reports'); ?></li>-->	
-					           							
-	        			<?php //if($this->Html->loggedIn()) { ?>
-                        <li><?php echo $this->Html->link(__('Cerrar Sesion'), '/users/logout'); ?></li>
-                <?php //} ?>
-						
-			</ul>              
-		</div>
-		
-		<div class="left">
+	 }
+?>
+<!-- ******************************* -->
 
-                 	<?php //debug($current_user); ?>
-					
-					</br></br><?php echo $this->Session->flash(); ?>
+<?php echo $scripts_for_layout;?>
 
-			</br><?php echo $content_for_layout; ?>
-
-    	</div>	
-		
+		<div id="bg" class="animated fadeIn"></div>			
+					<?php echo $this->Session->flash(); ?>
+					<?php echo $content_for_layout; ?>
+		<br>
 		<div class="footer">
-			<p>GNU General Public License</p>
+			<p>&copy;GNU General Public license</p>
 		</div>
 	</div>
 
