@@ -20,7 +20,7 @@ class CentrosController extends AppController {
 	
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'notice'));
+			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('centro', $this->Centro->read(null, $id));
@@ -30,10 +30,10 @@ class CentrosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Centro->create();
 			if ($this->Centro->save($this->data)) {
-				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'success'));
+				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'succes'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'warnings'));
+				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'error'));
 			  }
 		}
 		$empleados = $this->Centro->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado')));
@@ -43,15 +43,15 @@ class CentrosController extends AppController {
 		
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'notice'));
+			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Centro->save($this->data)) {
-				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'success'));
+				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'succes'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'warnings'));
+				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'error'));
 			}
 		}
 		if (empty($this->data)) {

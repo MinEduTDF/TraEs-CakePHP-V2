@@ -1,13 +1,22 @@
-<div class="ciclos index">
-	<h2><?php echo __('Ciclos');?></h2>
+<!-- start main -->
+ <div id="main">
+ <h2>Ciclos</h2>
+			<!-- start second nav -->
+ <div id="second-nav">
+ 	  <ul>
+        <li><?php echo $this->Html->link(__('Agregar Ciclo'), array('action' => 'add')); ?></li>
+ 	  </ul>
+ </div>
+ <!-- end second nav -->
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('ciclo');?></th>
 			<th><?php echo $this->Paginator->sort('fechaInicio');?></th>
 			<th><?php echo $this->Paginator->sort('fechaFinal');?></th>
-			<th><?php echo $this->Paginator->sort('primerCuatrimestre');?></th>
-			<th><?php echo $this->Paginator->sort('segundoCuatrimestre');?></th>
+			<th><?php echo $this->Paginator->sort('primerPeríodo');?></th>
+			<th><?php echo $this->Paginator->sort('segundoPeríodo');?></th>
+            <th><?php echo $this->Paginator->sort('tercerPeríodo');?></th>
 			<th><?php echo $this->Paginator->sort('observaciones');?></th>
 			<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
@@ -24,8 +33,9 @@
 		<td><?php echo $ciclo['Ciclo']['ciclo']; ?>&nbsp;</td>
 		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['fechaInicio']); ?>&nbsp;</td>
 		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['fechaFinal']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['primerCuatrimestre']); ?>&nbsp;</td>
-		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['segundoCuatrimestre']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['primer_periodo']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->formatTime($ciclo['Ciclo']['segundo_periodo']); ?>&nbsp;</td>
+        <td><?php echo $this->Html->formatTime($ciclo['Ciclo']['tercer_periodo']); ?>&nbsp;</td>
 		<td><?php echo $ciclo['Ciclo']['observaciones']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $ciclo['Ciclo']['id'])); ?>
@@ -52,7 +62,7 @@
 <div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Nuevo Ciclo'), array('action' => 'add')); ?></li>
+		<!--<li><?php echo $this->Html->link(__('Agregar Ciclo'), array('action' => 'add')); ?></li>-->
 		<!--<li><?php echo $this->Html->link(__('List Inscripcions'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->

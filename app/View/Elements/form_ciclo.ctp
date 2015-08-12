@@ -3,9 +3,10 @@
         echo $this->Form->input('ciclo', array('options' => $ciclos, 'empty' => ''));
 		echo $this->Form->input('fechaInicio', array('type' => 'date', 'dateFormat' => 'DMY'));
 		echo $this->Form->input('fechaFinal', array('type' => 'date', 'dateFormat' => 'DMY'));
-		echo $this->Form->input('primerCuatrimestre', array('type' => 'date', 'dateFormat' => 'DMY'));
-		echo $this->Form->input('segundoCuatrimestre', array('type' => 'date', 'dateFormat' => 'DMY'));
+		echo $this->Form->input('primer_periodo', array('type' => 'date', 'dateFormat' => 'DMY'));
+		echo $this->Form->input('segundo_periodo', array('type' => 'date', 'dateFormat' => 'DMY'));
+		echo $this->Form->input('tercer_periodo', array('type' => 'date', 'dateFormat' => 'DMY'));
 		echo $this->Form->input('observaciones');
-		echo $this->Form->input('Cargo');
+		//echo $this->Form->input('Cargo');
 		//echo $this->Form->input('Curso');
 ?>
