@@ -2,6 +2,7 @@
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
+
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.id DESC'));
 
 	function index() {
@@ -26,6 +27,7 @@ class AlumnosController extends AppController {
 		$this->set('alumno', $this->Alumno->read(null, $id));
 				
 	}
+	
 
 	function add() {
 		if (!empty($this->data)) {
@@ -37,6 +39,7 @@ class AlumnosController extends AppController {
 				$this->Session->setFlash('El alumno no ha sido grabado. Favor, intentelo nuevamente.', 'default', array('class' => 'error'));
 			}
 		}
+
 	}
 
 	function edit($id = null) {

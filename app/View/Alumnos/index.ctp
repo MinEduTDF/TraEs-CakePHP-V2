@@ -1,61 +1,42 @@
 <!-- start main -->
+ <div class="TituloSec">Alumnos</div>
+<div id="ContenidoSec">
  <div id="main">
- <?php echo $this->Session->flash(); ?>
- <h2>Alumnos</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Alumno'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
+<!-- start second nav -->
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+
  <!-- end second nav -->
- 
-    <?php foreach ($alumnos as $alumno): ?>
-    
-    <?php echo $this->element('alumno',array( 'alumno' => $alumno )); ?>
-    
-    <?php endforeach; ?>
-    
-    <?php echo $this->element('pagination'); ?>
- 
- </div>
+
+	<div class="row">
+			    <?php foreach ($alumnos as $alumno): ?>
+			    
+			    <?php echo $this->element('alumno',array( 'alumno' => $alumno )); ?>
+			    
+			    <?php endforeach; ?>
+			    
+
+			 </div>
+			 <div class="unit text-center">
+			 	 <?php echo $this->element('pagination'); ?> 
+			 </div>
+	 </div>
  <!-- end main -->
  
- <!-- start sidebar -->
- <div id="sidebar">
-		
-		<div id="invoice-stats">
-   		<h3><?php echo __('Apellido'); ?></h3><br>
-		<?php 
-			
-			echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
-   			foreach($letters as $letter)
-			{
-				echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
-			}
-		?>
-        </div>
-		<br></br>
-        <div id="invoice-stats">
-   		
-		    <?php echo $this->element('formSearch_alumno'); ?>
-		
-        </div><br></br>
-    <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<!--<li><?php echo $this->Html->link(__('Nuevo Alumno'), array('action' => 'add')); ?></li>-->
-		<li><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Nueva Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Calificaciones'), array('controller' => 'notas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Nueva Calificación'), array('controller' => 'notas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
-		</ul>
-    </div>
-</div>	
-<!-- end sidebar -->
+  <div class="col-xs-12 col-sm-6 col-md-4">
+  	<div class="unit">
+  			 <div class="subtitulo">Buscar</div>
+				<?php 
+					
+					echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
+		   			foreach($letters as $letter)
+					{
+						echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
+					}
+				?>
+			 <?php echo $this->element('formSearch_alumno'); ?>
+  	      </div>
+		</div>
+	</div>
+</div>
+
