@@ -3,6 +3,7 @@
 <head>
 	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
         <?php echo $this->Html->css('internet_services', 'stylesheet', array("media"=>"all" ));?>
+        <?php //$this->html->script(array('', ''));?>
 	<title>S.I.G.E.D.U. - <?php echo $title_for_layout?></title>
         <?php echo $scripts_for_layout;?>
 	    
@@ -55,7 +56,7 @@
 
                  	<?php //debug($current_user); ?>
 					
-					</br></br><?php echo $this->Session->flash(); ?>
+					</br><?php echo $this->Session->flash();?>
 
 			</br><?php echo $content_for_layout; ?>
 

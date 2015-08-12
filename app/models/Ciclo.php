@@ -20,7 +20,7 @@ class Ciclo extends AppModel {
 		),
 		'Nota' => array(
 			'className' => 'Nota',
-			'foreignKey' => 'nota_id',
+			'foreignKey' => 'ciclo_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -33,7 +33,7 @@ class Ciclo extends AppModel {
 		),
 		'Integracion' => array(
 			'className' => 'Integracion',
-			'foreignKey' => 'integracion_id',
+			'foreignKey' => 'ciclo_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -46,7 +46,7 @@ class Ciclo extends AppModel {
 		),
 		'Servicio' => array(
 			'className' => 'Servicio',
-			'foreignKey' => 'servicio_id',
+			'foreignKey' => 'ciclo_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -59,7 +59,7 @@ class Ciclo extends AppModel {
 		),
 		'Inasistencia' => array(
 			'className' => 'Inasistencia',
-			'foreignKey' => 'inasistencia_id',
+			'foreignKey' => 'ciclo_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

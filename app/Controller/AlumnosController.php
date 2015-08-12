@@ -20,7 +20,7 @@ class AlumnosController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Alumno no valido'));
+			$this->Session->setFlash('Alumno no valido', 'default', array('class' => 'warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('alumno', $this->Alumno->read(null, $id));
@@ -31,25 +31,25 @@ class AlumnosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Alumno->create();
 			if ($this->Alumno->save($this->data)) {
-				$this->Session->setFlash(__('El alumno ha sido grabado'));
+				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'succes'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El alumno no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El alumno no ha sido grabado. Favor, intentelo nuevamente.', 'default', array('class' => 'error'));
 			}
 		}
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Alumno no valido'));
+			$this->Session->setFlash('Alumno no valido', 'default', array('class' => 'warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Alumno->save($this->data)) {
-				$this->Session->setFlash(__('El alumno ha sido grabado'));
+				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'succes'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El alumno no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El alumno no ha sido grabado. Favor, intentelo nuevamente.', 'default', array('class' => 'error'));
 			}
 		}
 		if (empty($this->data)) {
@@ -59,14 +59,14 @@ class AlumnosController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valido para alumno'));
+			$this->Session->setFlash('Id no valido para alumno', 'default', array('class' => 'warning'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Alumno->delete($id)) {
-			$this->Session->setFlash(__('Alumno borrado'));
+			$this->Session->setFlash('Alumno borrado', 'default', array('class' => 'succes'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Alumno no fue borrado'));
+		$this->Session->setFlash('Alumno no fue borrado', 'default', array('class' => 'error'));
 		$this->redirect(array('action' => 'index'));
 	}
 }

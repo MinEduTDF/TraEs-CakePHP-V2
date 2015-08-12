@@ -12,7 +12,7 @@
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('curso_id');?></th>
-            <th><?php echo $this->Paginator->sort('Alia');?></th>
+            <th><?php echo $this->Paginator->sort('Alia', null, array('direction' => 'desc'));?></th>
 			<th><?php echo $this->Paginator->sort('Carga horaria');?></th>
 			<th><?php echo $this->Paginator->sort('Contenido');?></th>
 			<th><?php echo $this->Paginator->sort('Nota mínima');?></th>

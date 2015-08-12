@@ -1,5 +1,6 @@
 <!-- start main -->
  <div id="main">
+ <?php echo $this->Session->flash(); ?>
  <h2>Alumnos</h2>
 			<!-- start second nav -->
  <div id="second-nav">

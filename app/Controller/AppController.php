@@ -10,7 +10,7 @@
  */
 class AppController extends Controller {
 
-    var $components = array(
+    public $components = array(
 	  'Session', 
 	  'Auth'=> array(
 	      /*'loginAction' => array(
@@ -27,8 +27,8 @@ class AppController extends Controller {
 		  ),
 		)
 	);
-    	
-      	  
+	
+	      	  
 	public function beforeFilter(){
    
         $this->Auth->allow('*');
