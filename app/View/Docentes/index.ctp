@@ -41,11 +41,11 @@
 	<h3><?php echo __('Opciones'); ?></h3>
 	  <ul>
 		<!--<li><?php echo $this->Html->link(__('Nuevo Docente'), array('action' => 'add')); ?></li>-->
-		<li><?php echo $this->Html->link(__('Listar Titulos'), array('controller' => 'titulos', 'action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Titulos'), array('controller' => 'titulos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Titulo'), array('controller' => 'titulos', 'action' => 'add')); ?> </li>-->
 		<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Licencias'), array('controller' => 'licencias', 'action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Licencias'), array('controller' => 'licencias', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add')); ?> </li>-->

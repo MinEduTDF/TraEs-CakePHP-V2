@@ -1,11 +1,31 @@
 <?php
-		$tipoInscripciones = array('Regular' => 'Regular', 'Semipresencial' => 'Semipresencial', 'Fines' => 'Fines', 'Proyecto Adolescentes' => 'Proyecto Adolescentes', 'Contexto de Encierro' => 'Contexto de Encierro');
-        echo $this->Form->input('tipoInscripcion', array('options' => $tipoInscripciones, 'empty' => ''));
-		echo $this->Form->input('fechaInscripcion', array('type' => 'date', 'dateFormat' => 'DMY'));
 		echo $this->Form->input('alumno_id');
+		echo $this->Form->input('legajo_nro');
+		$tipos_alta = array('Regular' => 'Regular');
+        echo $this->Form->input('tipo_alta', array('options' => $tipos_alta, 'empty' => ''));
+		echo $this->Form->input('fecha_alta', array('type' => 'date', 'dateFormat' => 'DMY'));
+		$tipos_cursa = array('Cursa algun espacio curricular.' => 'Cursa algun espacio curricular.                             ', 'Sólo se inscribe a rendir final.' => 'Sólo se inscribe a rendir                              final.');
+		echo $this->Form->input('cursa', array('options' => $tipos_cursa, 'empty' => ''));
+		$tipos_fines = array('No' => 'No', 'Sí línea deudores de materias.' => 'Sí línea deudores                              de materias.', 'Sí línea trayectos educativos.' => 'Sí línea                              trayectos educativos.');
+		echo $this->Form->input('fines', array('options' => $tipos_fines, 'empty' => ''));
+		echo $this->Form->input('fecha_baja', array('type' => 'date', 'dateFormat' => 'DMY',                                 'empty' => ''));
+		$tipos_baja = array('Salido con pase' => 'Salido con pase', 'Salido sin pase' => 'Salido                              sin pase', 'Pérdida de regularidad' => 'Pérdida de regularidad',                              'Fallecimiento' => 'Fallecimiento');
+		echo $this->Form->input('tipo_baja', array('options' => $tipos_baja, 'empty' => ' '));
+		$motivos_baja = array('Mudanza de la familia' => 'Mudanza de la familia', 'Pasó a                               educación de jóvenes y adultos' => 'Pasó a educación de jóvenes y                               adultos', 'Pasó a educación especial' => 'Pasó a educación especial'                              , 'No le gustaba la escuela' => 'No le gustaba la escuela', 'Tenía                               muchas materias previas' => 'Tenía muchas materias previas',                               'Problemas disciplinarios' => 'Problemas disciplinarios', 'Decisión                               de la escuela' => 'Decisión de la escuela', 'Problemas de salud' =>                              'Problemas de salud', 'Cambio en la situación económica' => 'Cambio                               en la situación económica', 'Comenzó a trabajar' => 'Comenzó a                               trabajar', 'Quedó embarazada' => 'Quedó embarazada', 'Debe                                colaborar en la casa' => 'Debe colaborar en la casa');
+		echo $this->Form->input('motivo_baja', array('options' => $motivos_baja, 'empty' => ''));
+		echo $this->Form->input('fecha_egreso', array('type' => 'date', 'dateFormat' => 'DMY',                                 'empty' => ''));
+		echo $this->Form->input('libro_matriz');
+		echo $this->Form->input('acta');
+		echo $this->Form->input('folio');
+		echo $this->Form->input('fecha_emision_titulo', array('type' => 'date', 'dateFormat' =>                                'DMY', 'empty' => ''));
+		$tipos_recursante = array('Si' => 'Si', 'No' => 'No');
+		echo $this->Form->input('recursante', array('options' => $tipos_recursante, 'empty' => ''                                ));		
+		echo $this->Form->input('nota', array('empty' => ''));
+		$condiciones_aprobacion = array('Promocion directa' => 'Promocion directa', 'Examen                                         regular' => 'Examen regular', 'Examen libre' => 'Examen                                         libre', 'Examen de reválida' => 'Examen de reválida',                                         'Equivalencia' => 'Equivalencia', 'Saberes adquiridos'                                          => 'Saberes adquiridos');
+		echo $this->Form->input('condicion_aprobacion', array('options' => $condiciones_aprobacion                                , 'empty' => ''));
 		echo $this->Form->input('ciclo_id');
 		echo $this->Form->input('centro_id');
-		//echo $this->Form->input('curso_id');
+		echo $this->Form->input('Curso');
 		echo $this->Form->input('Materia');
 		echo $this->Form->input('empleado_id');
 ?>

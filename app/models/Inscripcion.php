@@ -25,13 +25,6 @@ class Inscripcion extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		/*'Curso' => array(
-			'className' => 'Curso',
-			'foreignKey' => 'curso_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),*/
 		'Empleado' => array(
 			'className' => 'Empleado',
 			'foreignKey' => 'empleado_id',
@@ -42,6 +35,21 @@ class Inscripcion extends AppModel {
 	);
 	
 	var $hasAndBelongsToMany = array(
+		'Curso' => array(
+			'className' => 'Curso',
+			'joinTable' => 'cursos_inscripcions',
+			'foreignKey' => 'inscripcion_id',
+			'associationForeignKey' => 'curso_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
+		),
 		'Materia' => array(
 			'className' => 'Materia',
 			'joinTable' => 'inscripcions_materias',
@@ -61,20 +69,108 @@ class Inscripcion extends AppModel {
 
 	//Validaciones
                 var $validate = array(
-                   'tipoInscripcion' => array(
+                   'legajo_nro' => array(
                            'minLength' => array(
-                           'rule' => array('minLength', 6), 
+                           'rule' => array('minLength', 3), 
                            'allowEmpty' => false,       
-                           'message' => 'Indicar una opcion.'
+                           'message' => 'El nro de legajo no es valido. Indicarlo sin puntos.'
+                           ),
+						   'isUnique' => array(
+	                       'rule' => 'isUnique',
+	                       'message' => 'Este nro de legajo de alumno esta siendo usado.'
+	                     )
+                   ),
+				   'tipo_alta' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => false,       
+                           'message' => 'Indicar una opcion de la lista.'
                            )
                    ),
-                   'fechaInscripcion' => array(
+                   'fecha_alta' => array(
                            'date' => array(
                            'rule' => 'date',
                            'allowEmpty' => false,
                            'message' => 'Indicar fecha valida de inscripcion del alumno.'
                            )
-                   )
+                   ),
+				   'cursa' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => false,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'fines' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 2), 
+                           'allowEmpty' => false,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'fecha_baja' => array(
+                           'date' => array(
+                           'rule' => 'date',
+                           'allowEmpty' => true,
+                           'message' => 'Indicar fecha valida de baja de inscripcion del alumno.'
+                           )
+                   ),
+				   'tipo_baja' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => true,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'motivo_baja' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => true,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'fecha_egreso' => array(
+                           'date' => array(
+                           'rule' => 'date',
+                           'allowEmpty' => true,
+                           'message' => 'Indicar fecha valida de egreso del alumno.'
+                           )
+                   ),
+				   'libro_matriz' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => true,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'fecha_emision_titulo' => array(
+                           'date' => array(
+                           'rule' => 'date',
+                           'allowEmpty' => true,
+                           'message' => 'Indicar fecha valida de emisión del título.'
+                           )
+                   ),
+				   'recursante' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 2), 
+                           'allowEmpty' => false,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'condicion_aprobacion' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength', 3), 
+                           'allowEmpty' => false,       
+                           'message' => 'Indicar una opcion de la lista.'
+                           )
+                   ),
+				   'fecha_nota' => array(
+                           'date' => array(
+                           'rule' => 'date',
+                           'allowEmpty' => true,
+                           'message' => 'Indicar fecha valida de nota.'
+                           )
+                   ),
          );              
 }
 ?>

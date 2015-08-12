@@ -4,7 +4,7 @@
  		<legend><?php echo __('Buscar'); ?></legend>
         
 	<?php
-		echo $this->Form->input('sigla');
+		echo $this->Form->input('cue', array('label' => 'CUE: '));
 				
     ?>
     

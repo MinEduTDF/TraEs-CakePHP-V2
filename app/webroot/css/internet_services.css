@@ -385,8 +385,6 @@ h3.heading {
   color: #FF9148;
 }
 
-
-
 .unit .id {
   width: 70px;
   height: 43px;
@@ -630,4 +628,31 @@ div.paging span a {
 
 #total{
 	float:right;
+}
+
+/* flash-messages */
+
+.error {
+    width:100%; border-style: solid; border-width:1px; border-color:#B84D17; 
+    margin-right:2px; color:#000000; margin-bottom:8px;
+    background: url(/img/css/layout/icon_error.gif) left center no-repeat;
+    background-color:#F7C6A5;
+}
+.warning {
+    width:100%; border-style: solid; border-width:1px; border-color:#D0C130; 
+    margin-right:2px; color:#000000; margin-bottom:8px;
+    background: url(/img/css/layout/icon_warning.gif) left center no-repeat;
+    background-color:#F6F3A4;
+}
+.succes {
+    width:100%; border-style: solid; border-width:1px; border-color:#009900; 
+    margin-right:2px; color:#000000; margin-bottom:8px;
+    background: url(/img/css/layout/icon_success.gif) left center no-repeat;
+    background-color:#A5F7A8;
+}
+.info {
+    width:100%; border-style: solid; border-width:1px; border-color:#cccccc; 
+    margin-right:2px; color:#000000; margin-bottom:8px;
+    background: url(/img/css/layout/icon_info.gif) left center no-repeat;
+    background-color:#ffffff;
 }

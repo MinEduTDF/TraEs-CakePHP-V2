@@ -5,6 +5,19 @@ class Centro extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
+		'Integracion' => array(
+			'className' => 'Integracion',
+			'foreignKey' => 'centro_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Cargo' => array(
 			'className' => 'Cargo',
 			'foreignKey' => 'centro_id',
@@ -57,8 +70,8 @@ class Centro extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Orientacion' => array(
-			'className' => 'Orientacion',
+		'Titulacion' => array(
+			'className' => 'Titulacion',
 			'foreignKey' => 'centro_id',
 			'dependent' => false,
 			'conditions' => '',

@@ -4,7 +4,7 @@
 			<!-- start second nav -->
  <div id="second-nav">
  	  <ul>
-        <li><?php echo $this->Html->link(__('Nueva Calificacion'), array('action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Agregar Calificacion'), array('action' => 'add')); ?></li>
  	  </ul>
  </div>
  <!-- end second nav -->
@@ -39,8 +39,8 @@
 	<tr<?php echo $class;?>>
 		<!--<td><?php echo $nota['Nota']['id']; ?>&nbsp;</td>-->
 		<td>
-			<?php echo ($this->Html->link($nota['Alumno']['apellido'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['apellido']))
-			." ".($this->Html->link($nota['Alumno']['primerNombre'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['primerNombre']))));
+			<?php echo ($this->Html->link($nota['Alumno']['apellidos'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['apellidos']))
+			." ".($this->Html->link($nota['Alumno']['nombres'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['nombres']))));
 			?>
 		</td>
 		<td>
@@ -85,9 +85,9 @@
 	</br>
 	<ul>
 		<!--<li><?php echo $this->Html->link(__('Nueva Calificacion'), array('action' => 'add')); ?></li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
 	</ul>
 </div>

@@ -1,18 +1,23 @@
 <?php
-		$nombres = array('Ninguna_3' => 'Ninguna_3','Ninguna_15' => 'Ninguna_15','Ninguna_302' => 'Ninguna_302',
-		                 'Matematica de primero' => 'Matematica de primero', 'Matematica de segundo' => 'Matematica de segundo', 'Matematica de tercero' => 'Matematica de tercero',
-						 'Lengua de primero' => 'Lengua de primero', 'Lengua de segundo' => 'Lengua de segundo', 'Lengua de tercero' => 'Lengua de tercero',
-		                 'Historia de primero' => 'Historia de primero','Historia de segundo' => 'Historia de segundo','Historia de tercero' => 'Historia de tercero');
-        echo $this->Form->input('nombre', array('options' => $nombres, 'empty' => ''));
-		$alias = array('Ninguno_3' => 'Ninguno_3', 'Ninguno_15' => 'Ninguno_15', 'Ninguno_302' => 'Ninguno_302', 
-		               'MAT1A_3' => 'MAT1A_3', 'MAT1A_15' => 'MAT1A_15', 'MAT1A_302' => 'MAT1A_302', 'MAT1A_364' => 'MAT1A_364',
-					   'MAT_MOD1_364' => 'MAT_MOD1_364',
-					   'LEN1A_3' => 'LEN1A_3', 'LEN1A_15' => 'LEN1A_15', 'LEN1A_302' => 'LEN1A_302', 'LEN1A_364' => 'LEN1A_364',
-		               'HIS1A_3' => 'HIS1A_3', 'HIS1A_15' => 'HIS1A_15', 'HIS1A_302' => 'HIS1A_302','HIS1A_364' => 'HIS1A_364',);
-		echo $this->Form->input('alia', array('options' => $alias, 'empty' => ''));
-		echo $this->Form->input('contenido');
-		echo $this->Form->input('hsSemanal');
-		echo $this->Form->input('observacion');
 		echo $this->Form->input('curso_id');
-		//echo $this->Form->input('Alumno');
+		$nombres = array('Matematica de primero' => 'Matematica de primero',          'Matematica de segundo' => 'Matematica de segundo', 'Matematica de tercero' => 'Matematica de tercero', 'Lengua de primero' => 'Lengua de primero', 'Lengua de segundo' => 'Lengua de segundo', 'Lengua de tercero' => 'Lengua de tercero', 'Historia de primero' => 'Historia de primero', 'Historia de segundo' => 'Historia de segundo','Historia de tercero' => 'Historia de tercero');
+        echo $this->Form->input('nombre', array('options' => $nombres, 'empty' => ''));
+		$alias = array('MAT1_1' => 'MAT1_1', 'MAT1_2' => 'MAT1_2', 'MAT1_3' => 'MAT1_3', 'MAT1_4' => 'MAT1_4','LEN1_1' => 'LEN1_1', 'LEN1_2' => 'LEN1_2', 'LEN1_3' => 'LEN1_3', 'LEN1_4' => 'LEN1_4', 'HIS1_1' => 'HIS1_1', 'HIS1_2' => 'HIS1_2', 'HIS1_3' => 'HIS1_3','HIS1_4' => 'HIS1_4', 'MAT2_1' => 'MAT2_1', 'MAT2_2' => 'MAT2_2', 'MAT2_3' => 'MAT2_3', 'MAT2_4' => 'MAT2_4','LEN2_1' => 'LEN2_1', 'LEN2_2' => 'LEN2_2', 'LEN2_3' => 'LEN2_3', 'LEN2_4' => 'LEN2_4', 'HIS2_1' => 'HIS2_1', 'HIS2_2' => 'HIS2_2', 'HIS2_3' => 'HIS2_3','HIS2_4' => 'HIS2_4', 'MAT3_1' => 'MAT3_1', 'MAT3_2' => 'MAT3_2', 'MAT3_3' => 'MAT3_3', 'MAT3_4' => 'MAT3_4','LEN3_1' => 'LEN3_1', 'LEN3_2' => 'LEN3_2', 'LEN3_3' => 'LEN3_3', 'LEN3_4' => 'LEN3_4', 'HIS3_1' => 'HIS3_1', 'HIS3_2' => 'HIS3_2', 'HIS3_3' => 'HIS3_3','HIS3_4' => 'HIS3_4');
+		echo $this->Form->input('alia', array('options' => $alias, 'empty' => ''));
+        echo $this->Form->input('campo_formacion');
+		$tipos_dictado = array('Presencial' => 'Presencial', 'A Distancia - Semipresencial' => 'A                                Distancia - Semipresencial', 'A Distancia - Asistida' => 'A                                Distancia - Asistida', 'A Distancia - Abierta' => 'A Distancia -                                Abierta', 'A Distancia - Virtual' => 'A Distancia - Virtual');
+		echo $this->Form->input('dictado', array('options' => $tipos_dictado, 'empty' => ''));
+        $tipos_obligatoriedad = array('Obligatoria' => 'Obligatoria', 'Elegible' => 'Elegible',                                      'Optativa' => 'Optativa', 'Obligatoria reemplazable por otra                                      ' => 'Obligatoria reemplazable por otra');
+		echo $this->Form->input('obligatoriedad', array('options' => $tipos_obligatoriedad,                                 'empty' => ''));
+        $tipos_carga_horaria = array('Hora Cátedra' => 'Hora Cátedra', 'Hora Reloj' => 'Hora Reloj                                    ');
+		echo $this->Form->input('carga_horaria', array('options' => $tipos_carga_horaria, 'empty'                                => ''));
+		echo $this->Form->input('carga_horaria_semanal');
+        $tipos_duracion_en = array('Años' => 'Años', 'Cuatrimestres' => 'Cuatrimestres');
+		echo $this->Form->input('duracion_en', array('options' => $tipos_duracion_en, 'empty' => '                               '));
+		echo $this->Form->input('duracion');
+		$tipos_escala_numerica = array('Si' => 'Si', 'No' => 'No');
+		echo $this->Form->input('escala_numerica', array('options' => $tipos_escala_numerica,                                'empty' => ''));
+		echo $this->Form->input('nota_minima');
+		echo $this->Form->input('contenido');
+		
 ?>
