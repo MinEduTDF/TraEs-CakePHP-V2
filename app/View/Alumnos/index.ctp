@@ -26,8 +26,17 @@
   <div class="col-xs-12 col-sm-6 col-md-4">
   	<div class="unit">
   			 <div class="subtitulo">Buscar</div>
+				<?php 
+					
+					echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
+		   			foreach($letters as $letter)
+					{
+						echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
+					}
+				?>
 			 <?php echo $this->element('formSearch_alumno'); ?>
   	      </div>
 		</div>
 	</div>
 </div>
+

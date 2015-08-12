@@ -26,7 +26,7 @@ class MateriasController extends AppController {
 				$this->Session->setFlash(__('La materia no ha sido grabada. Favor, intente nuevamente.'));
 			}
 		}
-		$cursos = $this->Materia->Curso->find('list');
+		$cursos = $this->Materia->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
 		$this->set(compact('cursos', 'alumnos'));
 	}
 
@@ -46,7 +46,7 @@ class MateriasController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Materia->read(null, $id);
 		}
-		$cursos = $this->Materia->Curso->find('list');
+		$cursos = $this->Materia->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
 		$this->set(compact('cursos', 'alumnos'));
 	}
 

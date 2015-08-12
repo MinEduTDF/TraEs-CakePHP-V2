@@ -147,15 +147,14 @@
 	<?php if (!empty($curso['Inscripcion'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
-		<th><?php echo __('Tipo'); ?></th>
-		<th><?php echo __('Inscripcion'); ?></th>
-		<th><?php echo __('Alumno Id'); ?></th>
-		<th><?php echo __('Ciclo Id'); ?></th>
-		<th><?php echo __('Centro Id'); ?></th>
-		<!--<th><?php echo __('Curso Id'); ?></th>-->
-		<!--<th><?php echo __('Materia Id'); ?></th>-->
-		<th><?php echo __('Empleado Id'); ?></th>
+		<th><?php echo __('Legajo'); ?></th>
+		<th><?php echo __('Ciclo_Id'); ?></th>
+        <th><?php echo __('Alumno_Id'); ?></th>
+        <th><?php echo __('Fecha_alta'); ?></th>
+		<th><?php echo __('Fecha_baja'); ?></th>
+		<th><?php echo __('Fecha_egreso'); ?></th>
+		<th><?php echo __('Fecha_emisión_título'); ?></th>
+		<th><?php echo __('Empleado_Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -167,16 +166,15 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<!--<td><?php echo $inscripcion['id'];?></td>-->
-			<td><?php echo $inscripcion['tipoInscripcion'];?></td>
-			<td><?php echo $this->Html->formatTime($inscripcion['fechaInscripcion']);?></td>
-			<td><?php echo ($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?></td>
+			<td><?php echo $inscripcion['legajo_nro'];?></td>
 			<td><?php echo ($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?></td>
-			<td><?php echo ($this->Html->link($inscripcion['centro_id'], array('controller' => 'centros', 'action' => 'view', $inscripcion['centro_id'])));?></td>
-			<!--<td><?php echo ($this->Html->link($inscripcion['curso_id'], array('controller' => 'cursos', 'action' => 'view', $inscripcion['curso_id'])));?></td>-->
-			<!--<td><?php echo ($this->Html->link($inscripcion['materia_id'], array('controller' => 'materias', 'action' => 'view', $inscripcion['materia_id'])));?></td>-->
+            <td><?php echo ($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_alta']);?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_baja']);?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_egreso']);?></td>
+            <td><?php echo $this->Html->formatTime($inscripcion['fecha_emision_titulo']);?></td>
 			<td><?php echo ($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?></td>
-			<td class="actions">
+            <td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id'])); ?>
 				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inscripcion['id'])); ?>-->
@@ -201,7 +199,6 @@
 		<th><?php echo __('Carga horaria en'); ?></th>
 		<th><?php echo __('Carga horaria semanal'); ?></th>
         <th><?php echo __('Contenido'); ?></th>
-		<th><?php echo __('Curso Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -217,8 +214,7 @@
 			<td><?php echo $materia['carga_horaria_en'];?></td>
 			<td><?php echo $materia['carga_horaria_semanal'];?></td>
 			<td><?php echo $materia['contenido'];?></td>
-            <td><?php echo ($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?></td>
-			<td class="actions">
+            <td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'materias', 'action' => 'view', $materia['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'materias', 'action' => 'edit', $materia['id'])); ?>
 			</td>

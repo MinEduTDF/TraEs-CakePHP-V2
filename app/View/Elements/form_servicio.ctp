@@ -1,6 +1,7 @@
 <?php
 		echo $this->Form->input('creado', array('type' => 'date', 'dateFormat' => 'DMY', 'empty' => ''));
 		echo $this->Form->input('alumno_id');
+		echo $this->Form->input('ciclo_id');
 		$tipos_servicio = array('Gabinete' => 'Gabinete', 'Domiciliaria' => 'Domiciliaria', 'Hospitalaria' => 'Hospitalaria', 'Comedor' => 'Comedor', 'Beca' => 'Beca');
         echo $this->Form->input('tipo_servicio', array('options' => $tipos_servicio, 'empty' => ''));
 		$estados = array('Activo' => 'Activo', 'Desactivo' => 'Desactivo', 'Pendiente' => 'Pendiente');

@@ -70,6 +70,19 @@ class Alumno extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Inasistencia' => array(
+			'className' => 'Inasistencia',
+			'foreignKey' => 'alumno_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Nota' => array(
 			'className' => 'Nota',
 			'foreignKey' => 'alumno_id',

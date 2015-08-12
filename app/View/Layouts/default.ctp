@@ -28,7 +28,6 @@
 <body>
 	<div class="content">
 
-
 <!-- ******* menu principal ******* -->
 <?php 
 	 if(!$this->Html->loggedIn()) { 
@@ -45,7 +44,7 @@
 					<?php echo $content_for_layout; ?>
 		<br>
 		<div class="footer">
-			<p>&copy; Copyright 2014 PABLO ANDRES GAY</p>
+			<p>&copy;GNU General Public license</p>
 		</div>
 	</div>
 

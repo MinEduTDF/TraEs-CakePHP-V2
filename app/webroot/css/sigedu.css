@@ -97,6 +97,20 @@ font-family: 'Crete Round', serif;
 	padding: 5px;
 }
 
+.titulo_acordeon {
+	cursor:pointer;
+	font-size: 16px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #D66F39;
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;
+	background-color: #FF8646;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
 .unit {
 	width: 100%;
 	margin: 5px;
@@ -106,10 +120,6 @@ font-family: 'Crete Round', serif;
 	padding:20px;
 	background-color: #ECECEC;
 
-}
-
-#acordeon {
-	display: none;
 }
 
 #ContenidoSec {

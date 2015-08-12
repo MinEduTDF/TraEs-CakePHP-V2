@@ -1,6 +1,7 @@
 <?php
 		echo $this->Form->input('creado', array('type' => 'date', 'dateFormat' => 'DMY', 'empty' => ''));
 		echo $this->Form->input('centro_id');
+		echo $this->Form->input('ciclo_id');
 		echo $this->Form->input('alumno_id');
 		$tipos_discapacidad = array('Motriz' => 'Motriz', 'Visual' => 'Visual', 'Mental' =>                          'Mental', 'Auditiva' => 'Auditiva', 'De lenguaje' => 'De lenguaje');
         echo $this->Form->input('tipo_discapacidad', array('options' => $tipos_discapacidad, 'empty' => ''));

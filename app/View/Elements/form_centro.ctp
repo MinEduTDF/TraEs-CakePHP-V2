@@ -1,4 +1,5 @@
 <?php
+		echo $this->Form->input('cue', array('id'=>'cue'));
 		echo $this->Form->input('nombre', array('id'=>'nombre'));
 		echo $this->Form->input('sigla', array('id'=>'sigla'));
 		echo $this->Form->input('fechaFundacion', array('type' => 'date', 'dateFormat' => 'DMY', 'id'=>'fechaFundacion'));

@@ -5,7 +5,7 @@
 			<!-- start second nav -->
  <div id="second-nav">
  	  <ul>
-        <li><?php echo $this->Html->link(__('Nuevo Docente'), array('action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('Agregar Docente'), array('action' => 'add')); ?></li>
  	  </ul>
  </div>
  <!-- end second nav -->
@@ -67,9 +67,9 @@
 		<!--<li><?php echo $this->Html->link(__('Borrar Docente'), array('action' => 'delete', $docente['Docente']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $docente['Docente']['id'])); ?> </li>-->
 		<li><?php echo $this->Html->link(__('Listar Docentes'), array('action' => 'index')); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('New Docente'), array('action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Titulos'), array('controller' => 'titulos', 'action' => 'index')); ?> </li>
+		<!--<li><?php echo $this->Html->link(__('Listar Titulos'), array('controller' => 'titulos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Titulo'), array('controller' => 'titulos', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add')); ?> </li>-->

@@ -24,7 +24,19 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inscripciones <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Probando</a></li>
+            <li><li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inasistencias <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Calificaciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
           </ul>
         </li>
       </ul>
