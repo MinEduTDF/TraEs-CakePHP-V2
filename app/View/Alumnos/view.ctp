@@ -42,32 +42,22 @@
 
  	</div>
  </div>
-</div><div class="col-md-4">
- <div class="unit">
- 			<div class="titulo_acordeon">Opciones</div>
-		<ul>
-			<li><?php echo $this->Html->link(__('Editar Alumno'), array('action' => 'edit', $alumno['Alumno']['id'])); ?> </li>
-			<!--<li><?php echo $this->Html->link(__('Borrar Alumno'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $alumno['Alumno']['id'])); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('Nuevo Alumno'), array('action' => 'add')); ?> </li>-->
-			<li><?php echo $this->Html->link(__('Agregar Familiar'), array('controller' => 'familiars', 'action' => 'add')); ?> </li>
-	        <li><?php echo $this->Html->link(__('Agregar Integracion'), array('controller' => 'integracions', 'action' => 'add')); ?> </li>
-	        <li><?php echo $this->Html->link(__('Agregar Servicio'), array('controller' => 'servicios', 'action' => 'add')); ?> </li>
-	        <!--<li><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>-->
-			<li><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>
-			<!--<li><?php echo $this->Html->link(__('Listar Calificaciones'), array('controller' => 'notas', 'action' => 'index')); ?> </li>-->
-			<li><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?> </li>
-	        <li><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?> </li>
-			<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>-->
-			<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
-			</ul> 	
 </div>
- </div>
- </div>
+
+<div class="col-md-4">
+ <div class="unit">
+ 			<div class="subtitulo">Opciones</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Editar Alumno'), array('action' => 'edit', $alumno['Alumno']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Agregar Familiar'), array('controller' => 'familiars', 'action' => 'add')); ?></div>
+	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Integracion'), array('controller' => 'integracions', 'action' => 'add')); ?></div>
+	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Servicio'), array('controller' => 'servicios', 'action' => 'add')); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?></div>
+	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?></div>
+
+	</div>
+</div>
+</div>
  <!-- end main -->
 
 
@@ -75,8 +65,8 @@
 <div id="click_01" class="titulo_acordeon">Familiares Relacionadas</div>
 <div id="acordeon_01">
 		<div class="row">
-  			<div class="col-xs-12 col-sm-6 col-md-8">
 	<?php if (!empty($alumno['Familiar'])):?>
+  			<div class="col-xs-12 col-sm-6 col-md-8">
 	<?php foreach ($alumno['Familiar'] as $familiar): ?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -94,9 +84,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Familiares Relacionados -->
@@ -105,8 +95,8 @@
 	<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
 	<div id="acordeon_02">
 		<div class="row">
+			<?php if (!empty($alumno['Inscripcion'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php if (!empty($alumno['Inscripcion'])):?>
 	<?php foreach ($alumno['Inscripcion'] as $inscripcion):	?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -126,9 +116,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Inscripciones Relacionadas -->
@@ -137,8 +127,8 @@
 	<div id="click_03" class="titulo_acordeon">Integraciones Relacionadas</div>
 	<div id="acordeon_03">
 		<div class="row">
+		<?php if (!empty($alumno['Integracion'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php if (!empty($alumno['Integracion'])):?>
 	<?php foreach ($alumno['Integracion'] as $integracion):	?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -155,9 +145,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Integraciones Relacionadas -->
@@ -167,8 +157,8 @@
 	<div id="click_04" class="titulo_acordeon">Servicios Complementarios Relacionadas</div>
 	<div id="acordeon_04">
 		<div class="row">
+			<?php if (!empty($alumno['Servicio'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php if (!empty($alumno['Servicio'])):?>
 	<?php foreach ($alumno['Servicio'] as $servicio): ?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -186,9 +176,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Servicios Complementarios Relacionadas -->
@@ -197,8 +187,8 @@
 	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas</div>
 	<div id="acordeon_05">
 		<div class="row">
+		<?php if (!empty($alumno['Nota'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php if (!empty($alumno['Nota'])):?>
 	<?php foreach ($alumno['Nota'] as $nota): ?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -220,9 +210,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Calificaciones Relacionadas -->
@@ -232,8 +222,8 @@
 	<div id="click_06" class="titulo_acordeon">Inasistencias Relacionadas</div>
 	<div id="acordeon_06">
 		<div class="row">
+		<?php if (!empty($alumno['Inasistencia'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php if (!empty($alumno['Inasistencia'])):?>
 	<?php foreach ($alumno['Inasistencia'] as $inasistencia): ?>
 	<div class="col-md-6">
 		<div class="unit">
@@ -250,9 +240,9 @@
 		</div>
 	</div>
 		<?php endforeach; ?>
-		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-		</div>
 	</div>
 </div>
 <!-- end Inasistencias Relacionadas -->
