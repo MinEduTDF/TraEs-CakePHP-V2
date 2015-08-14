@@ -13,10 +13,10 @@ class AppController extends Controller {
     public $components = array(
 	  'Session', 
 	  'Auth'=> array(
-	      /*'loginAction' => array(
-		      'controller' => 'users',
-			  'action' => 'login'
-		  ),*/
+        'loginAction' => array(
+          'controller' => 'users',
+        'action' => 'login'
+      ),
 	      'loginRedirect' => array(
 		      'controller' => 'centros',
 			  'action' => 'index'
@@ -30,10 +30,7 @@ class AppController extends Controller {
 	
 	      	  
 	public function beforeFilter(){
-   
-        $this->Auth->allow('*');
-		$this->Session->write('Auth.redirect', null);
-	    				                     
+$this->Auth->authenticate = array('Form');	    				                     
     } // fin de function beforeFilter() }
 			 
     
