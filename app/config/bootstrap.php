@@ -48,3 +48,5 @@ Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), '
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+/** Carga el plugin Tools para hacer disponible Tiny Auth (remplazo de ACL) */
+CakePlugin::load('Tools');
