@@ -4,7 +4,7 @@
 
 
 <!-- start main -->
-<div class="TituloSec">Alumno <?php echo $alumno['Alumno']['apellidos']; ?></div>
+<div class="TituloSec"><?php echo ($alumno['Alumno']['apellidos']).' '.($alumno['Alumno']['nombres']); ?></div>
 <div id="ContenidoSec">
 
 <div class="row">
@@ -35,11 +35,11 @@
 			<b><?php echo __('Telefono: '); ?></b>
 
 			<?php echo $alumno['Alumno']['telefono_nro']; ?></p>
-			<b><?php echo __('Email: '); ?></b>
+			
+            <b><?php echo __('Email: '); ?></b>
 
-			<?php echo $alumno['Alumno']['email']; ?></p>
-		</div>
-
+			<?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
+		  </div>
  	</div>
  </div>
 </div><div class="col-md-4">

@@ -23,7 +23,7 @@
 <!-- ************************************** -->
 
 
-		<title>S.I.G.E.D.U_TDF</title>
+		<title>SIGIedu_TDF</title>
 </head>
 <body>
 	<div class="content">
