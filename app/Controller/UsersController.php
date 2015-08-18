@@ -1,50 +1,34 @@
 <?php
 class UsersController extends AppController {
 
-	var $name = 'Users';
+public $name = 'Users';
 
-	/*
-	function beforeFilter(){
+  
+public  function beforeFilter(){
 
         parent::beforeFilter();
-		
-		//$this->Auth->allow('index');
-	}
-	*/
-    /*                      
-    function isAuthorized($user){
-	
-	    if($user['User']['role'] = 'administrativo')
-		{
-           if(in_array($this->action, array('index')))
-		   {
-		      return true;
-		   }
-		   else
-		   {
-		      if($this->Auth->user('id'))
-			  {
-			     $this->Session->setFlash('No tiene permiso para acceder a esta seccion', 'default', array('class'=>'success'));
-				 $this->redirect($this->Auth->redirect());
-			  }
-			  
-		   }
-		     
-		}
-		return parent::isAuthorized($user);
-	}
-	*/
-    	
-	function login() {
-        /*if($this->request->is('post'))
-		{
-		   if($this->Auth->login())
-		   {
-		      return $this->redirect($this->Auth->redirectUrl());
-		   }
-		   $this->Session->setFlash('Usuario y/o contraseña incorrectos', 'default');
-		}
-		*/
+    
+    $this->Auth->allow('login', 'logout');
+  }
+  
+   	
+public	function login() {
+    if ($this->request->is('post')) {
+        // Important: Use login() without arguments! See warning below.
+        if ($this->Auth->login($this->request->data)) {
+$this->set('current_user', $this->Auth->user());
+            return $this->redirect($this->Auth->redirectUrl());
+            // Prior to 2.3 use
+            // `return $this->redirect($this->Auth->redirect());`
+        }
+        $this->Session->setFlash(
+            __('Username or password is incorrect'),
+            'default',
+            array(),
+            'auth'
+        );
+    } 
+    
 	}	
      
     function logout() {
