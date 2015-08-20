@@ -3,7 +3,7 @@
 <?php echo $this->Html->script('datepicker'); ?>
 <!-- ************************************** -->
 
-  <div class="row"><div class="subtitulo">Datos Personales</div>
+  <div class="row">
   <div class="col-md-4 col-sm-6 col-xs-12">
    
 <?php 

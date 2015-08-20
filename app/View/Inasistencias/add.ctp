@@ -1,17 +1,11 @@
-<div class="inasistencias form">
-
+<div class="TituloSec"><?php echo __('Agregar Inasistencia'); ?></div>
+<div id="ContenidoSec">
 <?php echo $this->Form->create('Inasistencia');?>
-	<fieldset>
- 		<legend><?php echo __('Agregar Inasistencia'); ?></legend>
-	         <div id="main">
-                    <?php echo $this->element('form_inasistencia'); ?>
+
+	         <div class="unit">
+               <?php echo $this->element('form_inasistencia'); ?><p>
              </div>
-	</fieldset>
-<?php echo $this->Form->end(__('Grabar'));?>
-</div>
-<!--<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index'));?></li>
-	</ul>
-</div>-->
+             <div class="text-center">
+          	   <?php echo $this->Form->end(array('label' => 'GUARDAR', 'class' => 'btn btn-success'));?>
+          	  </div>
+	</div>
