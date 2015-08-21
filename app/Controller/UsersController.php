@@ -1,45 +1,43 @@
 <?php
 class UsersController extends AppController {
-
-public $name = 'Users';
-
-  
-public  function beforeFilter(){
-
-        parent::beforeFilter();
-    
-    $this->Auth->allow('login', 'logout');
-  }
-  
-   	
-public	function login() {
-    if ($this->request->is('post')) {
-        // Important: Use login() without arguments! See warning below.
-        if ($this->Auth->login($this->request->data)) {
-$this->set('current_user', $this->Auth->user());
-            return $this->redirect($this->Auth->redirectUrl());
-            // Prior to 2.3 use
-            // `return $this->redirect($this->Auth->redirect());`
-        }
-        $this->Session->setFlash(
-            __('Username or password is incorrect'),
-            'default',
-            array(),
-            'auth'
-        );
-    } 
-    
-	}	
+ 
+    public $paginate = array(
+        'limit' => 25,
+        'conditions' => array('status' => '1'),
+        'order' => array('User.username' => 'asc' ) 
+    );
      
-    function logout() {
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('login','add'); 
+    }
+     
+     public function login() {
+        if ($this->request->is('post')) {
+            /* login and redirect to url set in app controller */
+            if ($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirect());
+            } else {
+            		$this->Session->setFlash( 'Usuario y contraseña invalidos');
+             }
             
-			$this->redirect($this->Auth->logout());
+        }
     }
 
-	function index() {
-		//$this->User->recursive = 0;
-		$this->set('users', $this->paginate());
-	}
+    public function logout() {
+         /* logout and redirect to url set in app controller */
+        return $this->redirect($this->Auth->logout());
+    }
+
+ 
+    public function index() {
+        $this->paginate = array(
+            'limit' => 6,
+            'order' => array('User.username' => 'asc' )
+        );
+        $users = $this->paginate('User');
+        $this->set(compact('users'));
+    }
 
 	function view($id = null) {
 		if (!$id) {

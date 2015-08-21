@@ -4,7 +4,7 @@
 	<div id="login" class="animated bounceInDown">
 		<div class="titulo">S.I.G.E.D.U</div><br>
 	<div class="animated fadeIn"><span  class="img_login glyphicon glyphicon-user"></span></div>
-		<?php echo $this->Form->create('User', array('action' => 'login'), array('class' => 'form-horizontal'));?>
+		<?php echo $this->Form->create('User', array('action'=> 'login'));?>
 
 		 	<div id="resultado"></div>	
 
