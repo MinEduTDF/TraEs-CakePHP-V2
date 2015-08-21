@@ -30,9 +30,8 @@
 
 <!-- ******* menu principal ******* -->
 <?php 
-	 if(!$this->Html->loggedIn()) { 
+	 if($this->Html->loggedIn()) { 
 			echo $this->element('menu');
-			
 	 }
 ?>
 <!-- ******************************* -->
@@ -42,11 +41,11 @@
 		<div id="bg" class="animated fadeIn"></div>			
 					<?php echo $this->Session->flash(); ?>
 					<?php echo $content_for_layout; ?>
-		<br>
+		
+	</div><br>
 		<div class="footer">
 			<p>&copy;GNU General Public license</p>
 		</div>
-	</div>
 
 </body>
 </html>

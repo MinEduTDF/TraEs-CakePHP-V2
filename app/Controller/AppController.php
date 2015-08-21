@@ -9,30 +9,31 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+public $components = array(
+            'Auth' => array('authenticate' => array('Form' => array( 'userModel' => 'User',
+                                    'fields' => array(
+                                                        'username' => 'username',
+                                                        'password' => 'password'
+                                                        )
+                                                )
+                            ),
+                    'authorize' => array('Controller'),
+                    'loginAction' => array('controller' => 'users', 'action' => 'login'),
+                    'loginRedirect' => array('controller' => 'alumnos', 'action' => 'index'),
+                    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+                    'authError' => 'You don\'t have access here.',
+            ),
+        );
 
-    public $components = array(
-	  'Session', 
-	  'Auth'=> array(
-        'loginAction' => array(
-          'controller' => 'users',
-        'action' => 'login'
-      ),
-	      'loginRedirect' => array(
-		      'controller' => 'centros',
-			  'action' => 'index'
-		  ),
-		  'logoutRedirect' => array(
-		      'controller' => 'pages',
-			  'action' => 'display'
-		  ),
-		)
-	);
+    public function beforeFilter() {
+        /* set actions that will not require login */
+        $this->Auth->allow('index','display', 'view');
+    }
 	
-	      	  
-	public function beforeFilter(){
-$this->Auth->authenticate = array('Form');	    				                     
-    } // fin de function beforeFilter() }
-			 
+    public function isAuthorized($user) {
+    	return true;
+    }
+	 
     
     /**
     * Mensaje de exito para las vistas
