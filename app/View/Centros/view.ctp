@@ -1,49 +1,55 @@
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
- <div id="main">
- </br>
- <h2>Centro</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Centro'), array('action' => 'add')); ?></li>
- 	  </ul>
+<div class="TituloSec"><?php echo ($centro['Centro']['sigla']); ?></div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+  		
+  	<!--<div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+  		<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
+  	</div>-->
+
+   <div class="col-md-8 col-sm-6 col-xs-8">	
+			<b><?php echo __('Nombre: '); ?></b>
+			<?php echo ($centro['Centro']['sigla']); ?></p>
+
+			<b><?php echo __('Director: '); ?></b>
+    		<?php echo $centro['Centro']['equipoDirectivo']; ?></p>
+
+			<b><?php echo __('Ciudad: '); ?></b>
+
+			<?php echo $centro['Centro']['ciudad']; ?></p>
+
+            <b><?php echo __('Domicilio: '); ?></b>
+
+			<?php echo $centro['Centro']['direccion']; ?></p>
+
+   </div><div class="col-md-8 col-sm-6 col-xs-8">
+						
+            <b><?php echo __('Telefono: '); ?></b>
+
+			<?php echo $centro['Centro']['telefono']; ?></p>
+            
+            <b><?php echo __('Email: '); ?></b>
+
+			<?php echo ($this->Html->link($centro['Centro']['email'],'mailto:'.$centro['Centro']['email'])); ?></p>
+            
+            <b><?php echo __('URL: '); ?></b>
+
+			<?php echo ($this->Html->link($centro['Centro']['url'],'href:'.$centro['Centro']['url'])); ?></p>
+          </div>
+ 	</div>
  </div>
- <!-- end second nav -->
- 
-    <!--<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $centro['Centro']['id']; ?>
-			&nbsp;
-		</dd>-->
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nombre | Sigla | Fecha de fundación: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($centro['Centro']['nombre'])." | ".($centro['Centro']['sigla'])." | ".($this->Html->formatTime($centro['Centro']['fechaFundacion'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Director: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $centro['Centro']['equipoDirectivo']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Ciudad | Domicilio | Teléfono | Email | URL: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($centro['Centro']['ciudad'])." | ".($centro['Centro']['direccion'])." | ".($centro['Centro']['telefono'])." | ".($this->Html->link($centro['Centro']['email'],'mailto:'.$centro['Centro']['email']))." | ".($this->Html->link($centro['Centro']['url'],'href:'.$centro['Centro']['url'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
- 
- </div>
- <!-- end main -->
- <!-- start sidebar -->
- <div id="sidebar">
-		
-		<div id="invoice-stats">
-   		
-        </div>
-  <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
+</div><div class="col-md-4">
+ <div class="unit">
+ 			<div class="titulo_acordeon">Opciones</div>
+    <ul>
 		<li><?php echo $this->Html->link(__('Editar Centro'), array('action' => 'edit', $centro['Centro']['id'])); ?> </li>
 		<!--<li><?php echo $this->Html->link(__('Imprimir Centro'), array('action' => 'imprimir', $centro['Centro']['id'])); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Cancelar Centro'), array('action' => 'cancel', $centro['Centro']['id'])); ?> </li>-->
@@ -70,7 +76,8 @@
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
 	</ul>
   </div>
-</div>	
+ </div>
+</div> 	
 <!-- end sidebar -->
 <!--<div class="related">
 	<h3><?php echo __('Cargos Relacionados');?></h3>
@@ -232,48 +239,37 @@
 		</ul>
 	</div>
 </div>-->
-<div class="related">
-	<h3><?php echo __('Titulaciones Relacionadas');?></h3>
-	<?php if (!empty($centro['Titulacion'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Nombre'); ?></th>
-		<th><?php echo __('Orientación'); ?></th>
-		<th><?php echo __('Plan'); ?></th>
-        <th><?php echo __('Cursada'); ?></th>
-		<th><?php echo __('Dictado'); ?></th>
-        <th class="actions"><?php echo __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($centro['Titulacion'] as $titulacion):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $titulacion['nombre'];?></td>
-			<td><?php echo $titulacion['orientacion'];?></td>
-			<td><?php echo $titulacion['organizacion_plan'];?></td>
-            <td><?php echo $titulacion['organizacion_cursada'];?></td>
-            <td><?php echo $titulacion['forma_dictado'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('Ver'), array('controller' => 'titulacions', 'action' => 'view', $titulacion['id'])); ?>
-				<?php echo $this->Html->link(__('Editar'), array('controller' => 'titulacions', 'action' => 'edit', $titulacion['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'titulacions', 'action' => 'delete', $titulacion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $titulacion['id'])); ?>-->
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<!--<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('Agregar Titulacion'), array('controller' => 'titulacions', 'action' => 'add'));?> </li>
-		</ul>
-	</div>-->
+<!-- Titulaciones Relacionadas -->
+<div id="click_01" class="titulo_acordeon">Titulaciones Relacionadas</div>
+<div id="acordeon_01">
+		<div class="row">
+  			<div class="col-xs-8 col-sm-6 col-md-8">
+	<?php if (!empty($centro['Titulacion'])):?>
+	<?php foreach ($centro['Titulacion'] as $titulacion): ?>
+	<div class="col-md-6">
+		<div class="unit">
+			<?php echo '<b>Nombre:</b> '.$titulacion['nombre'];?><br>
+			<?php echo '<b>Orientación:</b> '.$titulacion['orientacion'];?><br>
+            <?php echo '<b>Organización del plan:</b> '.$titulacion['organizacion_plan'];?><br>
+			<?php echo '<b>Plan de estudio:</b> '.$titulacion['plan_estudio'];?><br>
+			<?php echo '<b>Organización de la cursada:</b> '.$titulacion['organizacion_cursada'];?><br>
+            <?php echo '<b>Forma del dictado:</b> '.$titulacion['forma_dictado'];?><br>
+
+        <div class="text-right">
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'titulacions', 'action' => 'edit', $titulacion['id']), array('class' => 'btn btn-danger')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'titulacions', 'action' => 'view', $titulacion['id']), array('class' => 'btn btn-success')); ?>
+			</div>
+		</div>
+	</div>
+		<?php endforeach; ?>
+		<?php else: echo '<div class="unit">No se encuentran relaciones</div>'; ?>
+		<?php endif; ?>
+		</div>
+	</div>
 </div>
+<!-- end Titulaciones Relacionadas -->
+
 <!--<div class="related">
 	<h3><?php echo __('Inscripciones Relacionadas');?></h3>
 	<?php if (!empty($centro['Inscripcion'])):?>
@@ -470,3 +466,6 @@
 		</ul>
 	</div>
 </div>-->
+
+
+

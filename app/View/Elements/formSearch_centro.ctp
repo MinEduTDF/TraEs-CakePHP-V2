@@ -1,13 +1,6 @@
-<div class="centros form">
+
 <?php echo $this->Form->create('Centro',array('type'=>'get','action'=>'index'));?>
-	<fieldset>
- 		<legend><?php echo __('Buscar'); ?></legend>
-        
-	<?php
-		echo $this->Form->input('cue', array('label' => 'CUE: '));
-				
-    ?>
-    
-	</fieldset>
-<?php echo $this->Form->end(__('Buscar'));?>
-</div>
+<?php echo $this->Form->input('cue', array('label' => 'CUE: ','class' => 'form-control'));	?>
+</p><div class="text-center">
+			<?php echo $this->Form->end(array('label' => 'BUSCAR', 'class' => 'btn btn-success'));?>
+	</div>
