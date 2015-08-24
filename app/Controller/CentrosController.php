@@ -6,6 +6,9 @@ class CentrosController extends AppController {
 		
 	function index() {
 		$this->Centro->recursive = 0;
+		$this->set('centros', $this->paginate());
+		$this->redirectToNamed();
+		$conditions = array();
 		
 		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
 		$letters = array('A','B','C','D','E','F','G','H',
@@ -15,12 +18,18 @@ class CentrosController extends AppController {
 		$centros = isset($activeLetter)? $this->paginate('Centro', array('Centro.ciudad LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['cue']))
+		{
+			$conditions['Centro.cue ='] = $this->params['named']['cue'];
+		}
+		
+		$centros = $this->paginate('Centro', $conditions);
 		$this->set(compact('centros','letters','activeLetter','urlArgs'));
 	}
 	
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'warning'));
+			$this->Session->setFlash('Centro no valido', 'default', array('class' => 'alert alert-danger'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('centro', $this->Centro->read(null, $id));
@@ -30,10 +39,10 @@ class CentrosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Centro->create();
 			if ($this->Centro->save($this->data)) {
-				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'succes'));
+				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'error'));
+				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			  }
 		}
 		$empleados = $this->Centro->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado')));
@@ -43,15 +52,15 @@ class CentrosController extends AppController {
 		
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash('Centro no valido', 'default', array('class'=>'warning'));
+			$this->Session->setFlash('Centro no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Centro->save($this->data)) {
-				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class'=>'succes'));
+				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class'=>'error'));
+				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -63,14 +72,14 @@ class CentrosController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash('id no valido para centro', 'default', array('class'=>'notice'));
+			$this->Session->setFlash('id no valido para centro', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Centro->delete($id)) {
-			$this->Session->setFlash('El centro ha sido borrado', 'default', array('class'=>'success'));
+			$this->Session->setFlash('El centro ha sido borrado', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash('El centro no fue borrado. Intentelo nuevamente.', 'default', array('class'=>'warnings'));
+		$this->Session->setFlash('El centro no fue borrado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
 	}
 	

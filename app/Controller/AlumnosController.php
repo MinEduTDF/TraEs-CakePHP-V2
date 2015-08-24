@@ -5,8 +5,11 @@ class AlumnosController extends AppController {
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.id DESC'));
 
 	function index() {
-		$this->Alumno->recursive = 0;
-		
+		//$this->Alumno->recursive = 0;
+		$this->set('alumnos', $this->paginate());
+		$this->redirectToNamed();
+		$conditions = array();
+
 		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
 		$letters = array('A','B','C','D','E','F','G','H',
 						 'I','J','K','L','M','N','O','P',
@@ -15,6 +18,12 @@ class AlumnosController extends AppController {
 		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellidos LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['documento_nro']))
+		{
+			$conditions['Alumno.documento_nro ='] = $this->params['named']['documento_nro'];
+		}
+		
+		$alumnos = $this->paginate('Alumno', $conditions);
 		$this->set(compact('alumnos','letters','activeLetter','urlArgs'));
 	}
 
@@ -35,7 +44,7 @@ class AlumnosController extends AppController {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El alumno no ha sido grabado. Favor, intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('El alumno no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 
@@ -51,7 +60,7 @@ class AlumnosController extends AppController {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('El alumno no ha sido grabado. Favor, intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('El alumno no ha sido grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {

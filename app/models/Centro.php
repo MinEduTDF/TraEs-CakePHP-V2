@@ -119,11 +119,22 @@ class Centro extends AppModel {
 	//Validaciones
 
         var $validate = array(
-                   'nombre' => array(
+                   'cue' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',9),
+                           'allowEmpty' => false,
+                           'message' => 'Indicar número de 9 dígitos.'
+                           ),
+                           'isUnique' => array(
+	                       'rule' => 'isUnique',
+	                       'message' => 'Este CUE esta siendo usado.'
+	                     )    						   
+                   ),
+				   'nombre' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),
                            'allowEmpty' => false,
-                           'message' => 'Indicar un nombre (Ejemplo: Centro Educativo de Nivel Secundario 1).'
+                           'message' => 'Indicar un nombre (Ejemplo: Centro Educativo de Nivel Secundario 1 o Colegio Provincial Los Andes).'
                            ),
                            'isUnique' => array(
 	                       'rule' => 'isUnique',
@@ -134,7 +145,7 @@ class Centro extends AppModel {
                            'minLength' => array(
                            'rule' => array('minLength', 5), 
                            'allowEmpty' => false,       
-                           'message' => 'Indicar una sigla (Ejemplo: C.E.N.S. Nº 1).'
+                           'message' => 'Indicar una sigla (Ejemplo: CENS 1 o CP Los Andes).'
                            ),
                            'isUnique' => array(
 	                       'rule' => 'isUnique',

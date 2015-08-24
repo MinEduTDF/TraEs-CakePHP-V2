@@ -1,28 +1,50 @@
 <!-- start main -->
- <div id="main">
- <h2>Inscripciones</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Inscripcion'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
- <!-- end second nav -->
- 
-   
-   
-   	<?php foreach ($inscripcions as $inscripcion): ?>
-    
-    <?php echo $this->element('inscripcion',array( 'inscripcion' => $inscripcion )); ?>
-    
-    <?php endforeach; ?>
-    
-    <?php echo $this->element('pagination'); ?>
- 
+<div class="TituloSec">Inscripciones</div>
+<div id="ContenidoSec">
+<div id="main">
+<!-- start second nav -->
+<div class="row">
+  <div class="col-xs-8 col-sm-2 col-md-8">
 
- </div>
- <!-- end main -->
- 
+ <!-- end second nav -->
+
+	<div class="row">
+			    <?php foreach ($inscripcions as $inscripcion): ?>
+			    
+			    <?php echo $this->element('inscripcion',array( 'inscripcion' => $inscripcion )); ?>
+    
+                <?php endforeach; ?>
+			    
+   </div>
+			 <div class="unit text-center">
+			 	 <?php echo $this->element('pagination'); ?> 
+			 </div>
+  </div>
+
+  <div class="col-xs-10 col-sm-4 col-md-4">
+  	 <div class="unit">
+  			 <div class="subtitulo">Buscar</div>
+				 
+				<strong><?php echo 'Ciudad: '; ?></strong>
+				<?php	
+					echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
+		   			foreach($letters as $letter)
+					{
+						echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
+					}
+				?>
+                <br></br>
+			 <?php echo $this->element('formSearch_centro'); ?>
+  	      </div>
+	 </div>
+  </div>
+</div>
+<!-- end main -->
+
+
+
+   	    
+    
  <!-- start sidebar -->
  <div id="sidebar">
 		<div id="invoice-stats">

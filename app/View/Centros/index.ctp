@@ -24,14 +24,16 @@
   <div class="col-xs-10 col-sm-4 col-md-4">
   	 <div class="unit">
   			 <div class="subtitulo">Buscar</div>
-				<?php 
-					
+				 
+				<strong><?php echo 'Ciudad: '; ?></strong>
+				<?php	
 					echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
 		   			foreach($letters as $letter)
 					{
 						echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
 					}
 				?>
+                <br></br>
 			 <?php echo $this->element('formSearch_centro'); ?>
   	      </div>
 	 </div>

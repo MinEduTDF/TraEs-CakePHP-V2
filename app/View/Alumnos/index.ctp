@@ -26,6 +26,9 @@
   <div class="col-xs-10 col-sm-4 col-md-4">
   	<div class="unit">
   			 <div class="subtitulo">Buscar</div>
+				
+                <strong><?php echo 'Apellido: '; ?></strong>
+				
 				<?php 
 					
 					echo ($activeLetter == '') ? 'ALL' : $this->Html->link('ALL','index/letter:');
