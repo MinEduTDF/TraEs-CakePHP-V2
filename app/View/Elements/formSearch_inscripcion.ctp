@@ -1,11 +1,12 @@
-<div class="inscripcions form">
+
 <?php echo $this->Form->create('Inscripcion',array('type'=>'get','action'=>'index'));?>
-	<fieldset>
- 		<legend><?php echo __('Buscar'); ?></legend>
-    	
-	<?php
-		echo $this->Form->input('legajo_nro', array('empty' => ''));
-		echo $this->Form->input('alumno_id', array('empty' => ''));
+<?php echo $this->Form->input('legajo_nro', array('label' => 'Legajo Nro: ','class' => 'form-control'));	?>
+</p><div class="text-center">
+			<?php echo $this->Form->end(array('label' => 'BUSCAR', 'class' => 'btn btn-success'));?>
+	</div>
+
+<?php
+//echo $this->Form->input('alumno_id', array('empty' => ''));
 		//echo $this->Form->input('fecha_alta', array('label' => 'Fecha de alta:', 'type' => 'date',                                'dateFormat' => 'DMY', 'empty' => ' '));
 		//echo $this->Form->input('fecha_baja', array('label' => 'Fecha de baja:', 'type' => 'date',                                'dateFormat' => 'DMY', 'empty' => ' '));
 		//echo $this->Form->input('fecha_egreso', array('label' => 'Fecha de egreso:', 'type' =>                                'date', 'dateFormat' => 'DMY', 'empty' => ' '));
@@ -20,7 +21,3 @@ array('name'=>'year_f','empty'=>false));
 		echo $this->Form->year('year_t',date('Y') - 5,date('Y') + 5, isset($this->params['named']['year_t'])? $this->params['named']['year_t']:date('Y')+5,array('name'=>'year_t','empty'=>false));
 		*/
 ?>
-    
-	</fieldset>
-<?php echo $this->Form->end(__('Buscar'));?>
-</div>
