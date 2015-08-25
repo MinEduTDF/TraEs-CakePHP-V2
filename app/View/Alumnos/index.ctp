@@ -4,7 +4,7 @@
   <div id="main">
 <!-- start second nav -->
 <div class="row">
-  <div class="col-xs-8 col-sm-2 col-md-8">
+  <div class="col-xs-12 col-sm-8 col-md-8">
 
  <!-- end second nav -->
 
@@ -23,7 +23,7 @@
 	 </div>
  <!-- end main -->
  
-  <div class="col-xs-10 col-sm-4 col-md-4">
+  <div class="col-xs-12 col-sm-4 col-md-4">
   	<div class="unit">
   			 <div class="subtitulo">Buscar</div>
 				

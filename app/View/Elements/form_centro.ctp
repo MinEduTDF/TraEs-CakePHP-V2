@@ -4,7 +4,7 @@
 <!-- ************************************** -->
 
 <div class="row"><div class="subtitulo">Datos del centro</div>
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-6 col-sm-6 col-xs-12">
 <?php
 		echo $this->Form->input('cue', array('id'=>'cue', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('nombre', array('id'=>'nombre', 'between' => '<br>', 'class' => 'form-control'));
@@ -14,7 +14,7 @@
 ?>
 </div>
 
-<div class="col-md-4 col-sm-6 col-xs-12">
+<div class="col-md-6 col-sm-6 col-xs-12">
 <!--<div class="subtitulo">Datos de contacto</div>-->
 <?php
 		echo $this->Form->input('direccion', array('id'=>'direccion', 'between' => '<br>', 'class' => 'form-control'));

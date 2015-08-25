@@ -1,6 +1,8 @@
 <?php
 class UsersController extends AppController {
  
+ var $components = array('Session');
+ 
     public $paginate = array(
         'limit' => 25,
         'conditions' => array('status' => '1'),
