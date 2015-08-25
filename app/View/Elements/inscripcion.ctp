@@ -1,4 +1,4 @@
-<div class="col-md-5">
+<div class="col-md-6">
 		<div class="unit">
    	           <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Legajo Nro:</b> <?php echo $inscripcion['Inscripcion']['legajo_nro']; ?></span><br/>
 
