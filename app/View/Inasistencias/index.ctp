@@ -1,40 +1,33 @@
 <!-- start main -->
- <div id="main">
- <h2>Inasistencias</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Inasistencia'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
+<div class="TituloSec">Inasistencias</div>
+<div id="ContenidoSec">
+<div id="main">
+<!-- start second nav -->
+<div class="row">
+  <div class="col-xs-8 col-sm-2 col-md-8">
+
  <!-- end second nav -->
 
+	<div class="row">
             <?php foreach ($inasistencias as $inasistencia): ?>
     
             <?php echo $this->element(('inasistencia'), array( 'inasistencia' => $inasistencia )); ?>
     
             <?php endforeach; ?>
     
-            <?php echo $this->element('pagination'); ?>
- 
+    </div>
+			 <div class="unit text-center">
+			 	 <?php echo $this->element('pagination'); ?> 
+			 </div>
+  </div>
 
- </div>
- <!-- end main -->
-  
-<!-- start sidebar -->
-<div id="sidebar">
-		<div id="invoice-stats">
-   		
-		    <?php echo $this->element('formSearch_inasistencia'); ?>
-		
-        </div>
-		
-   <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-	</ul>
-   </div>
+  <div class="col-xs-10 col-sm-4 col-md-4">
+  	 <div class="unit">
+  			 <div class="subtitulo">Buscar</div>
+				 
+			     <?php echo $this->element('formSearch_inasistencia'); ?>
+  	         </div>
+	 </div>
+  </div>
 </div>
-<!-- end sidebar -->
+<!-- end main -->

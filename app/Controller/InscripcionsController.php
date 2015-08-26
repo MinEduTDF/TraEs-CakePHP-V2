@@ -1,9 +1,10 @@
 <?php
 class InscripcionsController extends AppController {
 
+	var $components = array('Session');
 	var $name = 'Inscripcions';
     var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.id DESC'));
-	
+		
 	function index() {
 		//$this->Inscripcion->recursive = 0;
 		$this->set('inscripcions', $this->paginate());
