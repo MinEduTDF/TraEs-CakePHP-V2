@@ -3,6 +3,8 @@ class CentrosController extends AppController {
 
 	var $name = 'Centros';
     var $paginate = array('Centro' => array('limit' => 4, 'order' => 'Centro.id DESC'));
+
+ 	var $components = array('Session');
 		
 	function index() {
 		$this->Centro->recursive = 0;

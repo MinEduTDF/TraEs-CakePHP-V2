@@ -3,18 +3,18 @@
 <head>
 
 <!-- ************ Bootstrap Css *********** -->
-        <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'); ?>
-        <?php echo $this->Html->css('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css'); ?>
+        <?php echo $this->Html->css('bootstrap.min.css'); ?>
+        <?php echo $this->Html->css('bootstrap-theme.min.css'); ?>
 <!-- ************************************** -->
 
 <!-- ************* Jquery.js *******************-->
- 		<?php echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'); ?>
-  		<?php echo $this->Html->script('https://code.jquery.com/ui/1.11.1/jquery-ui.js'); ?>
-  		<?php echo $this->Html->css('https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'); ?>
+ 		<?php echo $this->Html->script('jquery.min.js'); ?>
+  		<?php echo $this->Html->script('jquery-ui.js'); ?>
+  		<?php echo $this->Html->css('jquery-ui.css'); ?>
 <!-- **************************************** -->
 
 <!-- ************* Bootstrap.js *******************-->
- 		<?php echo $this->Html->script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'); ?>
+ 		<?php echo $this->Html->script('bootstrap.min.js'); ?>
 <!-- **************************************** -->
 
 <!-- ************ Sigedu Css *********** -->
