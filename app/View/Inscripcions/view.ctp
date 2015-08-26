@@ -20,11 +20,15 @@
 			." ".($this->Html->link($inscripcion['Alumno']['nombres'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['Alumno']['nombres']))));
 			?></p>
 
-			<b><?php echo __('Ciclo | Centro: '); ?></b>
+			<b><?php echo __('Ciclo:'); ?></b>
 			
-			<?php echo ($this->Html->link($inscripcion['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['Ciclo']['ciclo'])))." | ".($this->Html->link($inscripcion['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $inscripcion['Centro']['sigla']))); ?></p>
+			<?php echo ($this->Html->link($inscripcion['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['Ciclo']['ciclo']))); ?></p>
+			
+			<!--<b><?php echo __('Centro:'); ?></b>
+			
+			<?php echo($this->Html->link($inscripcion['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $inscripcion['Centro']['sigla']))); ?></p>-->
                 
-			
+            		
 	<!--<h3>Datos previos</h3>-->
     <div class="subtitulo">Datos previos</div>
         
@@ -91,9 +95,13 @@
         
 		<?php echo ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_emision_titulo'])); ?></p>
 		
-        <b><?php echo __('Nota: | Fecha de nota:'); ?></b>
+        <b><?php echo __('Nota:'); ?></b>
 		
-		<?php ($inscripcion['Inscripcion']['nota'])." | ".($inscripcion['Inscripcion']['fecha_nota']); ?></p>
+		<?php ($inscripcion['Inscripcion']['nota']); ?></p>
+        
+        <b><?php echo __('Fecha Nota:'); ?></b>
+        
+        <?php echo ($inscripcion['Inscripcion']['fecha_nota']); ?></p>
 		        
         <b><?php echo __('Empleado: '); ?></b>
         
@@ -122,7 +130,7 @@
 		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
 		<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </div>
 		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-		<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>
+		<!--<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>-->
 		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
@@ -166,8 +174,8 @@
 
 <!-- Materias Relacionados -->
 
-<div id="click_01" class="titulo_acordeon">Materias Relacionadas</div>
-<div id="acordeon_01">
+<div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
+<div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($inscripcion['Materia'])):?>
   			<div class="col-xs-12 col-sm-6 col-md-8">
