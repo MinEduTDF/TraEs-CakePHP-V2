@@ -3,6 +3,7 @@
 <head>
 
 <!-- ************ Bootstrap Css *********** -->
+        <?php echo $this->Html->css('bootstrap.css'); ?>
         <?php echo $this->Html->css('bootstrap.min.css'); ?>
         <?php echo $this->Html->css('bootstrap-theme.min.css'); ?>
 <!-- ************************************** -->
