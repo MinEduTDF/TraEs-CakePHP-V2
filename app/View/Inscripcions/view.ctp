@@ -118,6 +118,7 @@
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
 		    <div class="opcion"><?php echo $this->Html->link(__('Editar Inscripcion'), array('action' => 'edit', $inscripcion['Inscripcion']['id'])); ?> </div>
+<<<<<<< HEAD
 		    <!--<div class="opcion"><?php echo $this->Html->link(__('Enviar Inscripcion PDF'), array('action' => 'sendPDF', $inscripcion['Inscripcion']['id'])); ?> </div>-->
 			<!--<li><?php echo $this->Html->link(__('Borrar Inscripcion'), array('action' => 'delete', $inscripcion['Inscripcion']['id']), null, sprintf(__('Esta seguro de borrar la inscripcion numero %s?'), $inscripcion['Inscripcion']['id'])); ?> </li>-->
 		    <!--<div class="opcion"><?php echo $this->Html->link(__('Listar Inscripciones'), array('action' => 'index')); ?> </div>-->
@@ -135,6 +136,12 @@
 		<!--<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'index')); ?> </li>-->
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
 
+=======
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>
+>>>>>>> 8985b74a9d1094f2cd9a14123f1a0c415902d5f9
 	</div>
 </div>
 </div>

@@ -1,7 +1,9 @@
-<div class="col-md-5">
+<div class="col-md-6">
 		<div class="unit">
-		       <span class="name"><span class="glyphicon glyphicon-user"></span> <b>CUE | Nombre:</b> <?php echo ($centro['Centro']['cue']).' | '.($centro['Centro']['sigla']); ?></span><br/>
-   	           <span class="name"><span class="glyphicon glyphicon-map-marker"></span> <b>Dirección | Ciudad:</b> <?php echo ($centro['Centro']['direccion']).' | '.($centro['Centro']['ciudad']); ?></span><br/>  
+		       <span class="name"><span class="glyphicon glyphicon-user"></span> <b>CUE:</b> <?php echo ($centro['Centro']['cue']); ?></span><br/>
+		     	<span class="name"><span class="glyphicon glyphicon-user"></span> <b>Nombre:</b> <?php echo ($centro['Centro']['sigla']); ?></span><br/>
+   	           <span class="name"><span class="glyphicon glyphicon-map-marker"></span> <b>Dirección:</b> <?php echo ($centro['Centro']['direccion']); ?></span><br/> 
+   	           <span class="name"><span class="glyphicon glyphicon-map-marker"></span> <b>Ciudad:</b> <?php echo ($centro['Centro']['ciudad']); ?></span><br/>
   
                <span class="name"><span class="glyphicon glyphicon-earphone"></span> <b>Tel:</b> <?php echo ($centro['Centro']['telefono']); ?> </span><br/>
 
