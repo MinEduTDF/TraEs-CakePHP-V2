@@ -16,8 +16,8 @@
   	</div>-->
 
    <div class="col-md-8 col-sm-6 col-xs-8">	
-			<b><?php echo __('Nombre: '); ?></b>
-			<?php echo ($centro['Centro']['sigla']); ?></p>
+			<!--<b><?php echo __('Nombre: '); ?></b>
+			<?php echo ($centro['Centro']['sigla']); ?></p>-->
 
 			<b><?php echo __('Director: '); ?></b>
     		<?php echo $centro['Centro']['equipoDirectivo']; ?></p>

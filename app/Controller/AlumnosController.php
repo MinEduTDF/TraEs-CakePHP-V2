@@ -2,6 +2,7 @@
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
+	var $components = array('Session');
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.id DESC'));
 
 	function index() {

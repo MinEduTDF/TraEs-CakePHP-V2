@@ -1,9 +1,9 @@
 <?php
 class InscripcionsController extends AppController {
 
-	var $components = array('Session');
 	var $name = 'Inscripcions';
-    var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.id DESC'));
+    var $components = array('Session');
+	var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.id DESC'));
 		
 	function index() {
 		//$this->Inscripcion->recursive = 0;
@@ -48,7 +48,7 @@ class InscripcionsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Inscripcion no valida.'));
+			$this->Session->setFlash('Inscripcion no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('inscripcion', $this->Inscripcion->read(null, $id));
@@ -61,7 +61,7 @@ class InscripcionsController extends AppController {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('La inscripcion no ha sido grabada. Intente                                             nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('La inscripcion no fue grabada. Intente           nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
@@ -83,7 +83,7 @@ class InscripcionsController extends AppController {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('La inscripcion no ha sido grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('La inscripcion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {

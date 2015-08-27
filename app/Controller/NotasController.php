@@ -2,15 +2,8 @@
 class NotasController extends AppController {
 
 	var $name = 'Notas';
+    var $components = array('Session');
 
-	/*
-	function beforeFilter(){
-
-        parent::beforeFilter();
-		$this->Auth->allowedActions = array('index', 'view');
-    }
-	*/
-	
 	function index() {
 		$this->Nota->recursive = 0;
 		$this->set('notas', $this->paginate());
@@ -18,7 +11,7 @@ class NotasController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Nota no valida.'));
+			$this->Session->setFlash('Calificación no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('nota', $this->Nota->read(null, $id));
@@ -28,10 +21,10 @@ class NotasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Nota->create();
 			if ($this->Nota->save($this->data)) {
-				$this->Session->setFlash(__('La nota ha sido grabada.'));
+				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La nota no ha sido grabada. Favor, intente nuevamente.'));
+				$this->Session->setFlash('La calificación no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
@@ -42,15 +35,15 @@ class NotasController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Nota no valida.'));
+			$this->Session->setFlash('Calificación no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Nota->save($this->data)) {
-				$this->Session->setFlash(__('La nota ha sido grabada.'));
+				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La nota no ha sido grabada. Favor, intente nuevamente.'));
+				$this->Session->setFlash('La calificación no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -64,17 +57,15 @@ class NotasController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valida para nota.'));
+			$this->Session->setFlash('Id no valida para calificación.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Nota->delete($id)) {
-			$this->Session->setFlash(__('Nota borrada.'));
+			$this->Session->setFlash('La calificación ha sido borrada.', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Nota no fue borrada.'));
+		$this->Session->setFlash('La calificación no fue borrada.', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
 	}
-	
-	
 }
 ?>
