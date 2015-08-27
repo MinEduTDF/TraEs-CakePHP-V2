@@ -5,22 +5,23 @@
 
 
 	<div class="unit perfil">
-		 <div class="subtitulo"><?php echo ($familiar['Familiar']['nombre_completo']); ?></div>
+		 <div class="subtitulo"><?php echo ($familiar['Familiar']['vinculo']); ?></div>
 	 <div class="row">
 	 <div class="col-md-6 col-sm-6">
- 	<b>Id:</b>
-	<?php echo $familiar['Familiar']['id']; ?><br>
-	
-    <b>Nombres y apellidos del Alumno:</b>
-	<?php echo $this->Html->link($familiar['Alumno']['nombres'], array('controller' => 'centros', 'action' => 'view', $familiar['Alumno']['nombres']))."  ".($this->Html->link($familiar['Alumno']['apellidos'], array('controller' => 'centros', 'action' => 'view', $familiar['Alumno']['apellidos']))); ?><br>
-	
-	<b>Nombre completo:</b>	
+ 	
+	<b>Nombre completo:</b>		
 	<?php echo ($familiar['Familiar']['nombre_completo']); ?><br>
+    
+    <b>Nacionalidad:</b>		
+	<?php echo ($familiar['Familiar']['nacionalidad']); ?><br>
 
-	<b>Cuil/Cuit:</b>		
+    <b>Cuil/Cuit:</b>		
 	<?php echo ($familiar['Familiar']['cuit_cuil']); ?><br>
 
-	</div><div class="col-md-6 col-sm-6">
+	<b>Ocupación:</b>		
+	<?php echo ($familiar['Familiar']['ocupacion']); ?><br>
+    
+    </div><div class="col-md-6 col-sm-6">
 
 	<b>Ciudad:</b>
 	<?php echo ($familiar['Familiar']['ciudad']); ?><br>

@@ -1,55 +1,58 @@
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
- <div id="main">
- </br>
- <h2>Integraciones</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Integracion'), array('action' => 'add')); ?></li>
- 	  </ul>
+<div class="TituloSec">Integración</div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+  		
+
+   <div class="col-md-4 col-sm-6 col-xs-8">	
+	
+    		<b><?php echo __('Institución integradora:'); ?></b>
+			
+			<?php echo ($this->Html->link($integracion['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $integracion['Centro']['id']))); ?></p>
+
+            <b><?php echo __('Docente integrador:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['docente_nombre_completo']); ?></p>
+
+
+            <b><?php echo __('Discapacidad trabajada:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['tipo_discapacidad']); ?></p>
+
+            <b><?php echo __('Fecha de inicio:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['fecha_inicio']); ?></p>
+
+            <b><?php echo __('Fecha de finalización:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['fecha_fin']); ?></p>
+
+            <b><?php echo __('Descripción:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['observaciones']); ?></p>
+
+		  </div>
+ 	</div>
  </div>
- <!-- end second nav -->
- 
-    <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Id: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $integracion['Integracion']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Institución integradora | Docente integrador | Discapacidad trabajada: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($integracion['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $integracion['Centro']['id']))." | ".($integracion['Integracion']['docente_nombre_completo'])." | ".($integracion['Integracion']['tipo_discapacidad']); ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Fechas: Inicio | Fin: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($integracion['Integracion']['fecha_inicio'])." | ".($integracion['Integracion']['fecha_fin']); ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Observaciones: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($integracion['Integracion']['observaciones']); ?>
-			&nbsp;
-		</dd>
-    </dl>
- </div>
- <!-- end main -->
- <!-- start sidebar -->
- <div id="sidebar">
-		
-		<div id="invoice-stats">
-   		
-        </div>
-  <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Integracion'), array('action' => 'edit', $integracion['Integracion']['id'])); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Borrar Integracion'), array('action' => 'delete', $integracion['Integracion']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $integracion['Integracion']['id'])); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index')); ?> </li>
-		<!--<li><?php //echo $this->Html->link(__('Nuevo Alumno'), array('action' => 'add')); ?> </li>-->
-		</ul>
-</div>
-</div>	
-<!-- end sidebar -->
 </div>
 
+<div class="col-md-4">
+ <div class="unit">
+ 			<div class="subtitulo">Opciones</div>
+		    <div class="opcion"><?php echo $this->Html->link(__('Editar Integración'), array('action' => 'edit', $integracion['Integracion']['id'])); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>
+	</div>
+</div>
+</div>
+ <!-- end main -->
