@@ -1,13 +1,13 @@
 <?php
 class InasistenciasController extends AppController {
 
-	//public $uses = array('Curso', 'Materia', 'Alumno', 'Inasistencia');
-    var $name = 'Inasistencias';
+	var $name = 'Inasistencias';
+	var $components = array('Session');
 	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.id DESC'));
 
 	function index() {
 		
-		//$this->Inasistencia->recursive = 0;
+		$this->Inasistencia->recursive = 0;
 		$this->set('inasistencias', $this->paginate());
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
 		$this->redirectToNamed();
@@ -53,7 +53,7 @@ class InasistenciasController extends AppController {
 	
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Inasistencia no valida'));
+			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('inasistencia', $this->Inasistencia->read(null, $id));
@@ -64,10 +64,10 @@ class InasistenciasController extends AppController {
 		if (!empty($this->data)) {
 			$this->Inasistencia->create();
 			if ($this->Inasistencia->save($this->data)) {
-				$this->Session->setFlash(__('La inasistencia ha sido grabada'));
+				$this->Session->setFlash('La inasistencia ha sido grabada', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La inasistencia no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('La inasistencia no fue grabada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
@@ -78,15 +78,15 @@ class InasistenciasController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Inasistencia no valida'));
+			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Inasistencia->save($this->data)) {
-				$this->Session->setFlash(__('La inasistencia ha sido grabado'));
+				$this->Session->setFlash('La inasistencia ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La inasistencia no ha sido grabada. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('La inasistencia no fue grabada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -101,14 +101,14 @@ class InasistenciasController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valido para inasistencia'));
+			$this->Session->setFlash('Id no valido para inasistencia', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
 		}
 		if ($this->Inasistencia->delete($id)) {
-			$this->Session->setFlash(__('Inasistencia borrado'));
+			$this->Session->setFlash('La inasistencia ha sido borrada', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Inasistencia no fue borrado'));
+		$this->Session->setFlash('La inasistencia no fue borrado', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
 	}
 }

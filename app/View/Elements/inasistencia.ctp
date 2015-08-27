@@ -10,7 +10,7 @@
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Justificada:</b> <?php echo ($inasistencia['Inasistencia']['justificado']);?></span><br/>
 
-               <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Creada el:</b> <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['creado']));?></span><br/>
+               <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Fecha:</b> <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['creado']));?></span><br/>
      
               <!--<span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Modificada el:</b> <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['modificado']));?></span><br/>-->    
                

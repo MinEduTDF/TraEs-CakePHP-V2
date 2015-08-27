@@ -2,10 +2,11 @@
 class IntegracionsController extends AppController {
 
 	var $name = 'Integracions';
+    var $components = array('Session');
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Integracion no valido'));
+			$this->Session->setFlash('Integracion no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->set('integracion', $this->Integracion->read(null, $id));
@@ -15,10 +16,10 @@ class IntegracionsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Integracion->create();
 			if ($this->Integracion->save($this->data)) {
-				$this->Session->setFlash(__('La Integracion ha sido grabada.'));
+				$this->Session->setFlash('La Integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La Integracion no fue grabada. Favor, intente nuevamente.'));
+				$this->Session->setFlash('La Integracion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Integracion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
@@ -29,15 +30,15 @@ class IntegracionsController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Integracion no valida'));
+			$this->Session->setFlash('Integracion no valida', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Integracion->save($this->data)) {
-				$this->Session->setFlash(__('La integracion ha sido grabada.'));
+				$this->Session->setFlash('La integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La integracion no fue grabada. Favor, intente nuevamente.'));
+				$this->Session->setFlash('La integracion no fue grabada. Intente nuevamente.', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -52,14 +53,14 @@ class IntegracionsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valido para integracion.'));
+			$this->Session->setFlash('Id no valido para integracion.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if ($this->Integracion->delete($id)) {
-			$this->Session->setFlash(__('Integracion borrada.'));
+			$this->Session->setFlash('La Integracion ha sido borrada.', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
-		$this->Session->setFlash(__('Integracion no fue borrado.'));
+		$this->Session->setFlash('La Integracion no fue borrado.', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 	}
 }

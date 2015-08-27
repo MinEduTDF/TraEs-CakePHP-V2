@@ -2,6 +2,7 @@
 class FamiliarsController extends AppController {
 
 	var $name = 'Familiars';
+	var $components = array('Session');
 	var $paginate = array('Familiar' => array('limit' => 3, 'order' => 'Familiar.id DESC'));
 
 	/*
@@ -14,7 +15,7 @@ class FamiliarsController extends AppController {
 	
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Familiar no valido'));
+			$this->Session->setFlash('Familiar no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->set('familiar', $this->Familiar->read(null, $id));
@@ -25,10 +26,10 @@ class FamiliarsController extends AppController {
 		if (!empty($this->data)) {
 			$this->Familiar->create();
 			if ($this->Familiar->save($this->data)) {
-				$this->Session->setFlash(__('El familiar ha sido grabado'));
+				$this->Session->setFlash('El familiar ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El familiar no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El familiar no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Familiar->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
@@ -37,16 +38,16 @@ class FamiliarsController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Familiar no valido'));
+			$this->Session->setFlash('Familiar no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Familiar->save($this->data)) {
-				$this->Session->setFlash(__('El familiar ha sido grabado'));
+				$this->Session->setFlash('El familiar ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect($this->referer());
 				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El familiar no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El familiar no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -58,14 +59,14 @@ class FamiliarsController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valido para familiar'));
+			$this->Session->setFlash('Id no valido para familiar', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if ($this->Familiar->delete($id)) {
-			$this->Session->setFlash(__('Familiar borrado'));
+			$this->Session->setFlash('El Familiar ha sido borrado', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
-		$this->Session->setFlash(__('Familiar no fue borrado'));
+		$this->Session->setFlash('Familiar no fue borrado', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 	}
 }

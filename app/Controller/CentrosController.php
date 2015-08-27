@@ -2,11 +2,10 @@
 class CentrosController extends AppController {
 
 	var $name = 'Centros';
-    var $paginate = array('Centro' => array('limit' => 4, 'order' => 'Centro.id DESC'));
+    var $components = array('Session');
+	var $paginate = array('Centro' => array('limit' => 4, 'order' => 'Centro.id DESC'));
 
- 	var $components = array('Session');
-		
-	function index() {
+ 	function index() {
 		$this->Centro->recursive = 0;
 		$this->set('centros', $this->paginate());
 		$this->redirectToNamed();
@@ -59,10 +58,10 @@ class CentrosController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Centro->save($this->data)) {
-				$this->Session->setFlash(__('El centro ha sido grabado', 'default', array('class' => 'alert alert-success')));
+				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger')));
+				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {

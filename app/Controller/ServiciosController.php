@@ -2,11 +2,12 @@
 class ServiciosController extends AppController {
 
 	var $name = 'Servicios';
+	var $components = array('Session');
 	var $paginate = array('Servicio' => array('limit' => 3, 'order' => 'Servicio.id DESC'));
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Servicio no valido'));
+			$this->Session->setFlash('Servicio no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		$this->set('servicio', $this->Servicio->read(null, $id));
@@ -17,10 +18,10 @@ class ServiciosController extends AppController {
 		if (!empty($this->data)) {
 			$this->Servicio->create();
 			if ($this->Servicio->save($this->data)) {
-				$this->Session->setFlash(__('El servicio ha sido grabado'));
+				$this->Session->setFlash('El servicio ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El servicio no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El servicio no ha sido grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$alumnos = $this->Servicio->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
@@ -30,15 +31,15 @@ class ServiciosController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Servicio no valido'));
+			$this->Session->setFlash('Servicio no valido', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->Servicio->save($this->data)) {
-				$this->Session->setFlash(__('El servicio ha sido grabado'));
+				$this->Session->setFlash('El servicio ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El servicio no ha sido grabado. Favor, intentelo nuevamente.'));
+				$this->Session->setFlash('El servicio no ha sido grabado. Intentelo nuevamente.', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {
@@ -52,14 +53,14 @@ class ServiciosController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Id no valido para servicio'));
+			$this->Session->setFlash('Id no valido para servicio', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if ($this->Servicio->delete($id)) {
-			$this->Session->setFlash(__('Servicio borrado'));
+			$this->Session->setFlash('El Servicio ha sido borrado', 'default', array('class' => 'alert alert-success'));
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
-		$this->Session->setFlash(__('Servicio no fue borrado'));
+		$this->Session->setFlash('El Servicio no fue borrado', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 	}
 }
