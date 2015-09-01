@@ -12,7 +12,7 @@
  		<div class="row perfil">
   		
    <!--<h3>Datos del Alumno</h3>-->
-   <div class="col-md-4 col-sm-6 col-xs-8">	
+   <div class="col-md-4 col-sm-4 col-xs-12">	
 		
    			<b><?php echo __('Alumno:'); ?></b>
 			
@@ -50,7 +50,7 @@
 		
         
      <!--<h3>Datos del alta baja y egreso del Alumno</h3>-->
-     </div><div class="col-md-4 col-sm-6 col-xs-8"><div class="subtitulo">Alta</div>
+     </div><div class="col-md-4 col-sm-4 col-xs-12"><div class="subtitulo">Alta</div>
         
         <b><?php echo __('Tipo:'); ?></b>
         
@@ -75,7 +75,7 @@
 		<?php echo $inscripcion['Inscripcion']['motivo_baja']; ?></p>
 		
         <!--<h3>Datos del egreso</h3>-->
-        </div><div class="col-md-4 col-sm-6 col-xs-8"><div class="subtitulo">Egreso</div>
+        </div><div class="col-md-4 col-sm-4 col-xs-12"><div class="subtitulo">Egreso</div>
                 
         <b><?php echo __('Fecha:'); ?></b>
         
