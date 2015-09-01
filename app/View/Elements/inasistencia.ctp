@@ -1,4 +1,4 @@
-<div class="col-md-5">
+<div class="col-md-6">
 		<div class="unit">
    	           <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Alumno:</b> <?php echo ($this->Html->link($inasistencia['Inasistencia']['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inasistencia['Inasistencia']['alumno_id']))); ?></span><br/>
 
