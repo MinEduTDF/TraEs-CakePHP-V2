@@ -4,6 +4,23 @@ class Alumno extends AppModel {
 	var $name = 'Alumno';
     //var $displayField = 'apellido';
 	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.nombres, " ", Alumno.apellidos)');
+	public $actsAs = array(
+	     'Upload.Upload' => array(
+		     'foto' => array(
+			    'fields' => array(
+				   'dir' => 'foto_dir'
+				),
+				'thumbnailSizes' => array(
+				    'big' => '200x200',
+					'small' => '120x120',
+					'thumb' => '80x80'
+				),
+				'thumbnailMethod' => 'php',
+				//'deleteOnUpdate' => 'true',
+				//'deleteFolderOnDelete' => 'true'
+			 )
+		 )
+	);
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

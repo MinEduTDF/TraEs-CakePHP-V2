@@ -59,7 +59,9 @@ class AlumnosController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Alumno->id;
+				//$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('El alumno no ha sido grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

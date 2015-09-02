@@ -1,77 +1,104 @@
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
- <div id="main">
- 
- <h2>Calificaciones</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Calificacion'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
- <!-- end second nav -->
- 
-    <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<!--<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Id'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $nota['Nota']['id']; ?>
-			&nbsp;
-		</dd>-->
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Alumno: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($this->Html->link($nota['Alumno']['apellidos'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['apellidos'])) ." ". ($this->Html->link($nota['Alumno']['nombres'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['nombres'])))); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Materia | Ciclo: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($this->Html->link($nota['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $nota['Materia']['alia'])))." | ".($this->Html->link($nota['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['ciclo']))); ?>
-			&nbsp;
-		</dd>
-		<h3>Primer período</h3>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nota 1 | Nota 2 | PROMEDIO: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($nota['Nota']['notaPrimeraCuatPrimero'])." | ".($nota['Nota']['notaSegundaCuatPrimero'])." | ";?><strong><?php echo $nota['Nota']['promCuatPrimero'];?></strong>
-			&nbsp;
-		</dd>
-        <h3>Segundo período</h3>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Nota 1 | Nota 2 | PROMEDIO: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($nota['Nota']['notaPrimeraCuatSegundo'])." | ".($nota['Nota']['notaSegundaCuatSegundo'])." | "; ?><strong><?php ($nota['Nota']['promCuatSegundo'])?></strong>
-			&nbsp;
-		</dd>
-        <h3>Calificación de cierre</h3>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Promedio a Termino | Nota en Diciembre | Nota en Marzo | PROMEDIO FINAL'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($nota['Nota']['promTermino'])." | ".($nota['Nota']['notaDic'])." | ";?><strong><?php echo ($nota['Nota']['promFinal']); ?></strong>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Observaciones: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $nota['Nota']['observaciones']; ?>
-			&nbsp;
-		</dd>
-	</dl>
- </div>
- <!-- end main -->
- <!-- start sidebar -->
- <div id="sidebar">
+<div class="TituloSec">Calificaciones</div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+  		
+   <div class="col-md-4 col-sm-6 col-xs-8">	
 		
-		<div id="invoice-stats">
-   		
-        </div>
-  <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Calificacion'), array('action' => 'edit', $nota['Nota']['id'])); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Enviar Calificacion PDF'), array('action' => 'sendPDF', $nota['Nota']['id'])); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Cancelar Calificacion'), array('action' => 'cancel', $nota['Nota']['id'])); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Borrar Calificacion'), array('action' => 'delete', $nota['Nota']['id']), null, sprintf(__('Esta seguro de borrar la nota numero %s?'), $nota['Nota']['id'])); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Notas'), array('action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Nueva Nota'), array('action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
-	</ul>
-  </div>
-</div>	
-<!-- end sidebar -->
+        <b>Alumno:</b>		
+	    <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
+  
+        <!--<b>Curso:</b>		
+	    <?php echo ($this->Html->link($nota['Curso']['nombre_completo_curso'], array('controller' => 'materias', 'action' => 'view', $nota['Curso']['id']))); ?></p>-->
+      
+        <b>Materia:</b>		
+	    <?php echo ($this->Html->link($nota['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $nota['Materia']['alia']))); ?></p>
+	
+        <b>Ciclo:</b>		
+	    <?php echo ($this->Html->link($nota['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['ciclo']))); ?></p>
+	
+<div class="subtitulo">Primer período</div>
+
+        <b>Nota 1:</b>		
+	    <?php echo ($nota['Nota']['nota_uno_primer_periodo']); ?></p>
+
+        <b>Nota 2:</b>		
+	    <?php echo ($nota['Nota']['nota_dos_primer_periodo']); ?></p>
+
+        <b>Nota 3:</b>		
+	    <?php echo ($nota['Nota']['nota_tres_primer_periodo']); ?></p>
+
+        <b>Promedio:</b>		
+	    <?php echo ($nota['Nota']['promedio_primer_periodo']); ?></p>
+
+</div><div class="col-md-4 col-sm-6 col-xs-8">	
+
+<div class="subtitulo">Segundo período</div>
+ 
+        <b>Nota 1:</b>		
+	    <?php echo ($nota['Nota']['nota_uno_segundo_periodo']); ?></p>
+
+        <b>Nota 2:</b>		
+	    <?php echo ($nota['Nota']['nota_dos_segundo_periodo']); ?></p>
+
+        <b>Nota 3:</b>		
+	    <?php echo ($nota['Nota']['nota_tres_segundo_periodo']); ?></p>
+
+        <b>Promedio:</b>		
+	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
+  
+
+<div class="subtitulo">Tercer período</div>
+ 
+        <b>Nota 1:</b>		
+	    <?php echo ($nota['Nota']['nota_uno_tercer_periodo']); ?></p>
+
+        <b>Nota 2:</b>		
+	    <?php echo ($nota['Nota']['nota_dos_tercer_periodo']); ?></p>
+
+        <b>Nota 3:</b>		
+	    <?php echo ($nota['Nota']['nota_tres_tercer_periodo']); ?></p>
+
+        <b>Promedio:</b>		
+	    <?php echo ($nota['Nota']['promedio_tercer_periodo']); ?></p>
+
+</div><div class="col-md-4 col-sm-6 col-xs-8">	
+
+<div class="subtitulo">Cierre</div>
+
+        <b>Promedio a término:</b>		
+	    <?php echo ($nota['Nota']['promedio_a_termino']); ?></p>
+ 
+        <b>Nota en diciembre:</b>		
+	    <?php echo ($nota['Nota']['nota_en_diciembre']); ?></p>
+   
+        <b>Nota en marzo:</b>		
+	    <?php echo ($nota['Nota']['nota_en_marzo']); ?></p>
+   
+        <b>Promedio final:</b>		
+	    <?php echo ($nota['Nota']['promedio_final']); ?></p>
+
+        <b>Observaciones:</b>		
+	    <?php echo ($nota['Nota']['observaciones']); ?></p>
+              </div>
+			</div>
+		</div>
+	</div>
+
+</div><div class="col-md-4">
+		 <div class="unit">
+	 			<div class="subtitulo">Opciones</div>
+				<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
+				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
+		</div>	
+	</div>
+</div>
+ <!-- end main -->

@@ -12,11 +12,7 @@
 	 <div class="unit">
  		<div class="row perfil">
   		
-  	<div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-  		<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
-  	</div>
-
-   <div class="col-md-4 col-sm-6 col-xs-8">	
+  <div class="col-md-4 col-sm-6 col-xs-8">	
 			<b><?php echo __('Nombre: '); ?></b>
 			<?php echo $alumno['Alumno']['nombres']; ?></p>
 
@@ -183,41 +179,6 @@
 </div>
 <!-- end Servicios Complementarios Relacionadas -->
 
-<!-- Calificaciones Relacionadas -->
-	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas</div>
-	<div id="acordeon_05">
-		<div class="row">
-		<?php if (!empty($alumno['Nota'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php foreach ($alumno['Nota'] as $nota): ?>
-	<div class="col-md-6">
-		<div class="unit">
-			<!--<?php echo '<b>Ciclo Id:</b> '.($this->Html->link($nota['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $nota['ciclo_id'])));?><br>-->
-			<?php echo '<b>Materia Id:</b> '. ($this->Html->link($nota['materia_id'], array('controller' => 'materias', 'action' => 'view', $nota['materia_id'])));?><br>
-			<?php echo '<b>PromCuatPrimero:</b> '.$nota['promCuatPrimero'];?><br>
-            <?php echo '<b>PromCuatSegundo:</b> '.$nota['promCuatSegundo'];?><br>
-            <?php echo '<b>PromTermino:</b> '.$nota['promTermino'];?><br>
-			<?php echo '<b>NotaDic:</b> '.$nota['notaDic'];?><br>
-			<?php echo '<b>NotaMar:</b> '.$nota['promFinal'];?><br>
-			<?php echo '<b>PromFinal:</b> '.$nota['promFinal'];?><br>
-			<!--<?php echo '<b>Observaciones:</b> '.$nota['observaciones'];?><br>-->
-
-
-            <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-danger')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success')); ?>
-			</div>
-		</div>
-	</div>
-		<?php endforeach; ?>
-			</div>
-		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
-		<?php endif; ?>
-	</div>
-</div>
-<!-- end Calificaciones Relacionadas -->
-
-
 <!-- Inasistencias Relacionadas -->
 	<div id="click_06" class="titulo_acordeon">Inasistencias Relacionadas</div>
 	<div id="acordeon_06">
@@ -234,8 +195,8 @@
             <?php echo '<b>Fecha:</b> '.$this->Html->formatTime($inasistencia['creado']);?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'notas', 'action' => 'edit', $inasistencia['id']), array('class' => 'btn btn-danger')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $inasistencia['id']), array('class' => 'btn btn-success')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id']), array('class' => 'btn btn-danger')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['id']), array('class' => 'btn btn-success')); ?>
 			</div>
 		</div>
 	</div>
@@ -247,4 +208,38 @@
 </div>
 <!-- end Inasistencias Relacionadas -->
 
+<!-- Calificaciones Relacionadas -->
+	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas</div>
+	<div id="acordeon_05">
+		<div class="row">
+		<?php if (!empty($alumno['Nota'])):?>
+  			<div class="col-xs-12 col-sm-6 col-md-8">
+	<?php foreach ($alumno['Nota'] as $nota): ?>
+	<div class="col-md-6">
+		<div class="unit">
+			<!--<?php echo '<b>Ciclo Id:</b> '.($this->Html->link($nota['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $nota['ciclo_id'])));?><br>-->
+			<?php echo '<b>Materia Id:</b> '. ($this->Html->link($nota['materia_id'], array('controller' => 'materias', 'action' => 'view', $nota['materia_id'])));?><br>
+			<?php echo '<b>Promedio primer período:</b> '.$nota['promedio_primer_periodo'];?><br>
+            <?php echo '<b>Promedio segundo período:</b> '.$nota['promedio_segundo_periodo'];?><br>
+            <?php echo '<b>Promedio tercer período:</b> '.$nota['promedio_tercer_periodo'];?><br>
+
+            <?php echo '<b>Promedio a término:</b> '.$nota['promedio_a_termino'];?><br>
+			<?php echo '<b>Nota en diciembre:</b> '.$nota['nota_en_diciembre'];?><br>
+			<?php echo '<b>Nota en marzo:</b> '.$nota['nota_en_marzo'];?><br>
+			<?php echo '<b>Promedio final:</b> '.$nota['promedio_final'];?><br>
+			<!--<?php echo '<b>Observaciones:</b> '.$nota['observaciones'];?><br>-->
+
+
+            <div class="text-right">
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-danger')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success')); ?>
+			</div>
+		</div>
+	</div>
+		<?php endforeach; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+		<?php endif; ?>
+	</div>
 </div>
+<!-- end Calificaciones Relacionadas -->

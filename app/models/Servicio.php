@@ -5,6 +5,24 @@ class Servicio extends AppModel {
     var $displayField = 'tipo_servicio';
 	//public $virtualFields = array('nombre_completo_familiar'=> 'CONCAT(Familiar.primerNombre, " ", Familiar.apellido)');
 	
+	public $actsAs = array(
+	     'Upload.Upload' => array(
+		     'informe' => array(
+			    'fields' => array(
+				   'dir' => 'informe_dir'
+				),
+				'thumbnailSizes' => array(
+				    'big' => '200x200',
+					'small' => '120x120',
+					'thumb' => '80x80'
+				),
+				'thumbnailMethod' => 'php',
+				//'deleteOnUpdate' => 'true',
+				//'deleteFolderOnDelete' => 'true'
+			 )
+		 )
+	);
+	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
     
     var $belongsTo = array(

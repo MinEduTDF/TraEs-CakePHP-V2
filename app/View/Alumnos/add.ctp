@@ -1,7 +1,7 @@
 <div class="TituloSec"><?php echo __('Agregar Alumno'); ?></div>
 <div id="ContenidoSec">
 <div class="alumnos form">
-<?php echo $this->Form->create('Alumno');?>
+<?php echo $this->Form->create('Alumno', array('type' => 'file'/*, 'novalidate' => 'novalidate'*/));?>
 
 	         <div class="unit">
                <?php echo $this->element('form_alumno'); ?><p>
