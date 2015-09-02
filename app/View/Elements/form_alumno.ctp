@@ -10,6 +10,8 @@
         echo $this->Form->input('creado', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
 		echo $this->Form->input('nombres', array('label'=>'Nombre', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('apellidos', array('label'=>'Apellido', 'between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('foto', array('type' => 'file', 'label'=>'Foto', 'between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('foto_dir', array('type' => 'hidden'));
 		$documentosTipos = array('DNI' => 'DNI', 'CI' => 'CI', 'LC' => 'LC', 'LE' => 'LE', 'Cédula                                 Mercosur' => 'Cédula Mercosur', 'Pasaporte extranjero' =>                                 'Pasaporte extranjero', 'Cédula de identidad extranjera' =>                                 'Cédula de identidad extranjera', 'Otro documento extranjero' =>                                 'Otro documento extranjero', 'No posee' => 'No posee', 'En                                  trámite' => 'En trámite','between' => '<br>', 'class' => 'form-control');
         echo $this->Form->input('documento_tipo', array('label' => 'Tipo de Documento','options' => $documentosTipos, 'empty' => '','between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('documento_nro', array('label'=>'Numero de Documento:', 'between' => '<br>', 'class' => 'form-control'));

@@ -10,6 +10,7 @@
         echo $this->Form->input('creado', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
 		echo $this->Form->input('alumno_id', array('between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('ciclo_id', array('between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('Curso', array('between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('Materia', array('between' => '<br>', 'class' => 'form-control'));
 		$tipos_causa = array('Sin causa' => 'Sin causa', 'Razones particulares' => 'Razones particulares', 'Enfermedad' => 'Enfermedad', 'Fenómenos meteorológicos' => 'Fenómenos meteorológicos', 'Donación de sangre' => 'Donación de sangre', 'Obligaciones cívico_militares' => 'Obligaciones cívico_militares', 'Paro de transporte' => 'Paro de transporte');
 

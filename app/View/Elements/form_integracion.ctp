@@ -18,7 +18,7 @@
 
 		echo $this->Form->input('docente_nombre_completo', array('label' => 'Nombre completo del docente integrador', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('fecha_inicio', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
-		echo $this->Form->input('fecha_fin', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
+		echo $this->Form->input('fecha_fin', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'empty' => ''));
 		echo $this->Form->input('observaciones', array('label'=>'Centro ID', 'between' => '<br>', 'class' => 'form-control'));
 ?>
 </div>

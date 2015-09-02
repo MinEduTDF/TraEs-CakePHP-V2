@@ -71,9 +71,10 @@ class InasistenciasController extends AppController {
 			}
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+$cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
 		$materias = $this->Inasistencia->Materia->find('list');
 		$ciclos = $this->Inasistencia->Ciclo->find('list');
-		$this->set(compact('alumnos', 'materias', 'ciclos'));
+		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -93,10 +94,10 @@ class InasistenciasController extends AppController {
 			$this->data = $this->Inasistencia->read(null, $id);
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-		//$cursos = $this->Inasistencia->Curso->find('list');
+		$cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
 		$materias = $this->Inasistencia->Materia->find('list');
 		$ciclos = $this->Inasistencia->Ciclo->find('list');
-		$this->set(compact('alumnos', 'materias', 'ciclos'));
+		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));
 	}
 
 	function delete($id = null) {

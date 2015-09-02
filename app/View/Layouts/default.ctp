@@ -1,6 +1,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<?php echo $this->Html->charset(); ?>
 
 <!-- ************ Bootstrap Css *********** -->
         <?php echo $this->Html->css('bootstrap.css'); ?>
