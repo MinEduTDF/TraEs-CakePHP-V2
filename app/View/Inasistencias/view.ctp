@@ -3,7 +3,7 @@
 <!-- ************************************** -->
 
 <!-- start main -->
-<div class="TituloSec">Legajo Nro: <?php //echo ($inscripcion['Inscripcion']['legajo_nro']); ?></div>
+<div class="TituloSec">Detalle<?php //echo ($inscripcion['Inscripcion']['legajo_nro']); ?></div>
 <div id="ContenidoSec">
 
 <div class="row">

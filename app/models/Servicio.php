@@ -53,6 +53,13 @@ class Servicio extends AppModel {
                            'message' => 'Indicar una de las opciones de la lista.'
                            )
                    ),
+				   'fecha_solicitud_servicio' => array(
+                           'date' => array(
+                           'rule' => 'date',                          
+                           'allowEmpty' => false,
+                           'message' => 'Indicar fecha de inicio del servicio.'
+                           )
+                   ),
 				   'estado' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),
