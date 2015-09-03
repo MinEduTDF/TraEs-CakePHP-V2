@@ -3,7 +3,7 @@
 
 <?php echo $this->Form->input('alumno_id', array('empty' => '','class' => 'form-control'));	?>
 
-<?php echo $this->Form->input('creado', array('empty' => '','class' => 'form-control'));	?>
+<?php echo $this->Form->input('creado', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));	?>
 
 <?php $tipos = array('un cuarto' => 'un cuarto' ,'media' => 'media', 'completa' => 'completa');
       echo $this->Form->input('tipo', array('options' => $tipos, 'empty' => '','class' => 'form-control'));
