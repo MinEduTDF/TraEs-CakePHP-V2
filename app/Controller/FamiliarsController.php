@@ -5,14 +5,6 @@ class FamiliarsController extends AppController {
 	var $components = array('Session');
 	var $paginate = array('Familiar' => array('limit' => 3, 'order' => 'Familiar.id DESC'));
 
-	/*
-	function beforeFilter(){
-
-        parent::beforeFilter();
-	//	$this->Auth->allowedActions = array('index', 'view');
-    }
-	*/
-	
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Familiar no valido', 'default', array('class' => 'alert alert-warning'));
@@ -27,7 +19,9 @@ class FamiliarsController extends AppController {
 			$this->Familiar->create();
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash('El familiar ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				$inserted_id = $this->Familiar->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('El familiar no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
@@ -44,8 +38,10 @@ class FamiliarsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash('El familiar ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				$this->redirect($this->referer());
+				//$this->redirect($this->referer());
 				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				$inserted_id = $this->Familiar->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('El familiar no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

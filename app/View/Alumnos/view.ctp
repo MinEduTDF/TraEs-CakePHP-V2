@@ -17,23 +17,20 @@
 			<?php echo $alumno['Alumno']['nombres']; ?></p>
 
 			<b><?php echo __('Apellido: '); ?></b>
-
 			<?php echo $alumno['Alumno']['apellidos']; ?></p>
 
 			<b><?php echo __('Dni: '); ?></b>
-
 			<?php echo $alumno['Alumno']['documento_nro']; ?></p>
 
 	</div><div class="col-md-4 col-sm-6 col-xs-8">
+
 			<b><?php echo __('Direccion: '); ?></b>
-
 			<?php echo $alumno['Alumno']['calle_nombre'].' N° '.$alumno['Alumno']['calle_nro']; ?></p>
-			<b><?php echo __('Telefono: '); ?></b>
 
+			<b><?php echo __('Telefono: '); ?></b>
 			<?php echo $alumno['Alumno']['telefono_nro']; ?></p>
 			
             <b><?php echo __('Email: '); ?></b>
-
 			<?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
 		  </div>
  	</div>
@@ -135,7 +132,7 @@
             <?php echo '<b>Fecha de fin:</b> '.$this->Html->formatTime($integracion['fecha_fin']);?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $integracion['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'integracions', 'action' => 'edit', $integracion['id']), array('class' => 'btn btn-danger')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'integracions', 'action' => 'view', $integracion['id']), array('class' => 'btn btn-success')); ?>
 			</div>
 		</div>

@@ -22,7 +22,9 @@ class NotasController extends AppController {
 			$this->Nota->create();
 			if ($this->Nota->save($this->data)) {
 				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Nota->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La calificación no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
@@ -41,7 +43,9 @@ class NotasController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Nota->save($this->data)) {
 				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Nota->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La calificación no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

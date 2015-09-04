@@ -4,7 +4,7 @@ class Servicio extends AppModel {
 	var $name = 'Servicio';
     var $displayField = 'tipo_servicio';
 	//public $virtualFields = array('nombre_completo_familiar'=> 'CONCAT(Familiar.primerNombre, " ", Familiar.apellido)');
-	
+	/*
 	public $actsAs = array(
 	     'Upload.Upload' => array(
 		     'informe' => array(
@@ -22,7 +22,7 @@ class Servicio extends AppModel {
 			 )
 		 )
 	);
-	
+	*/
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
     
     var $belongsTo = array(
@@ -109,11 +109,25 @@ class Servicio extends AppModel {
                            'message' => 'Indicar una de las opciones de la lista.'
                            )
                    ),
+				   'total_dias_asistencia' => array(
+                           'numeric' => array(
+                           'rule' => 'numeric',
+                           'allowEmpty' => false,
+                           'message' => 'Indicar con número la cantidad de días que asistió al servicio.'
+                           )
+                   ),
+				   'total_dias_inasistencia' => array(
+                           'numeric' => array(
+                           'rule' => 'numeric',
+                           'allowEmpty' => false,
+                           'message' => 'Indicar con número la cantidad de días que no asistió al servicio.'
+                           )
+                   ),
 				   'observaciones' => array(
                            'maxLength' => array(
-                           'rule' => array('maxLength',100),
-                           'allowEmpty' => true,
-                           'message' => 'No debe exceder las 100 letras (incluídos espacios).'
+                           'rule' => array('maxLength',200),
+                           'allowEmpty' => false,
+                           'message' => 'Describa brevemente el servicio prestado y de ser el caso, características especiales del alumno en situación de aprendizaje y aspectos socios-familiares a tener en cuenta.'
                            )
                    ),
                    'creado' => array(

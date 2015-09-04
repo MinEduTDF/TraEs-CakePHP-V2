@@ -4,6 +4,7 @@ class Alumno extends AppModel {
 	var $name = 'Alumno';
     //var $displayField = 'apellido';
 	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.nombres, " ", Alumno.apellidos)');
+    /*
 	public $actsAs = array(
 	     'Upload.Upload' => array(
 		     'foto' => array(
@@ -21,7 +22,7 @@ class Alumno extends AppModel {
 			 )
 		 )
 	);
-	
+	*/
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
     /*var $belongsTo = array(

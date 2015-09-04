@@ -39,7 +39,7 @@ class ServiciosController extends AppController {
 				$this->Session->setFlash('El servicio ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 			} else {
-				$this->Session->setFlash('El servicio no ha sido grabado. Intentelo nuevamente.', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('El servicio no ha sido grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		if (empty($this->data)) {

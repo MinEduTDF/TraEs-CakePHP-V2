@@ -65,7 +65,9 @@ class InasistenciasController extends AppController {
 			$this->Inasistencia->create();
 			if ($this->Inasistencia->save($this->data)) {
 				$this->Session->setFlash('La inasistencia ha sido grabada', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Inasistencia->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La inasistencia no fue grabada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
@@ -80,7 +82,9 @@ $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', '
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
-			$this->redirect(array('action' => 'index'));
+			//$this->redirect(array('action' => 'index'));
+			$inserted_id = $this->Inasistencia->id;
+			$this->redirect(array('action' => 'view', $inserted_id));
 		}
 		if (!empty($this->data)) {
 			if ($this->Inasistencia->save($this->data)) {

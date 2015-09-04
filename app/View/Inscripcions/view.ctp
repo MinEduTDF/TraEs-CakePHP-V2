@@ -58,7 +58,9 @@
 		
 		<b><?php echo __('Fecha:'); ?></b>
 		
-		<?php ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta'])); ?></p>
+		<?php //echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
+		echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
+		 ?></p>
 		
         <div class="subtitulo">Baja</div>
         
@@ -68,7 +70,7 @@
 		
 		<b><?php echo __('Fecha:'); ?></b>
 		
-		<?php ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_baja'])); ?></p>
+		<?php echo ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_baja'])); ?></p>
 		
 		<b><?php echo __('Motivo:'); ?></b>
 		
