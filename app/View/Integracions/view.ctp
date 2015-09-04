@@ -22,15 +22,13 @@
 			
 			<?php echo ($integracion['Integracion']['docente_nombre_completo']); ?></p>
 
-   </div><div class="col-md-4 col-sm-6 col-xs-8">	
-
-            <b><?php echo __('Inicio:'); ?></b>
+             <b><?php echo __('Inicio:'); ?></b>
 			
-			<?php echo ($integracion['Integracion']['fecha_inicio']); ?></p>
+			<?php echo ($this->Html->formatTime($integracion['Integracion']['fecha_inicio'])); ?></p>
 
             <b><?php echo __('Finalización:'); ?></b>
 			
-			<?php echo ($integracion['Integracion']['fecha_fin']); ?></p>
+			<?php echo ($this->Html->formatTime($integracion['Integracion']['fecha_fin'])); ?></p>
 
     </div><div class="col-md-4 col-sm-6 col-xs-8">
             
@@ -41,6 +39,10 @@
             <b><?php echo __('Descripción:'); ?></b>
 			
 			<?php echo ($integracion['Integracion']['observaciones']); ?></p>
+            
+            <b><?php echo __('Informe adjunto:'); ?></b>
+			
+			<?php echo ($integracion['Integracion']['informe']); ?></p>
 
 		  </div>
  	</div>

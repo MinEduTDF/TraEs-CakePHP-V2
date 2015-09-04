@@ -41,7 +41,9 @@ class CentrosController extends AppController {
 			$this->Centro->create();
 			if ($this->Centro->save($this->data)) {
 				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Centro->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			  }
@@ -59,7 +61,9 @@ class CentrosController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Centro->save($this->data)) {
 				$this->Session->setFlash('El centro ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Centro->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('El centro no fue grabado. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

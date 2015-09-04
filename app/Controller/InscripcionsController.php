@@ -59,7 +59,9 @@ class InscripcionsController extends AppController {
 			$this->Inscripcion->create();
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Inscripcion->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La inscripcion no fue grabada. Intente           nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
@@ -81,7 +83,9 @@ class InscripcionsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Inscripcion->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La inscripcion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}

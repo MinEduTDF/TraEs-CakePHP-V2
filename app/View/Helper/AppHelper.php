@@ -51,7 +51,10 @@ class AppHelper extends Helper {
  */
  function formatTime($time){
     
-	return strftime('%d-%m-%Y',strtotime($time));    
+	if(!$time){
+		return ' ';
+	}
+	return strftime('%d-%m-%Y',strtotime($time));
  }
 
  /**

@@ -17,7 +17,9 @@ class IntegracionsController extends AppController {
 			$this->Integracion->create();
 			if ($this->Integracion->save($this->data)) {
 				$this->Session->setFlash('La Integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				$inserted_id = $this->Integracion->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash('La Integracion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
@@ -36,8 +38,10 @@ class IntegracionsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Integracion->save($this->data)) {
 				$this->Session->setFlash('La integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
-			} else {
+				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				$inserted_id = $this->Integracion->id;
+    			$this->redirect(array('action' => 'view', $inserted_id));
+ 			} else {
 				$this->Session->setFlash('La integracion no fue grabada. Intente nuevamente.', array('class' => 'alert alert-danger'));
 			}
 		}

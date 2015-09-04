@@ -1,70 +1,73 @@
-<!-- start main -->
- <div id="main">
- </br>
- <h2>Servicios Complementarios</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Servicio'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
- <!-- end second nav -->
- 
-    <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('ID | Fecha de creación del registro: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($servicio['Servicio']['id'])." | ".($this->Html->formatTime($servicio['Servicio']['creado'])); ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de servicio: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['tipo_servicio']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Estado: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['estado']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Prestador | Docente/Profesional a cargo: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($servicio['Servicio']['prestador'])." | ".($servicio['Servicio']['docente_profesional_acargo']); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de alta | Fecha de alta: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($servicio['Servicio']['tipo_alta'])." | ".($this->Html->formatTime($servicio['Servicio']['fecha_alta'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Tipo de baja | Fecha de baja: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo ($servicio['Servicio']['tipo_baja'])." | ".($this->Html->formatTime($servicio['Servicio']['fecha_baja'])); ?>
-			&nbsp;
-		</dd>
-        <dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Observaciones: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $servicio['Servicio']['observaciones']; ?>
-			&nbsp;
-		</dd>
-	</dl>
- </div>
- <!-- end main -->
- <!-- start sidebar -->
- <div id="sidebar">
-		
-		<div id="invoice-stats">
-   		
-        </div>
-  <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Servicio'), array('action' => 'edit', $servicio['Servicio']['id'])); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Borrar Servicio'), array('action' => 'delete', $servicio['Servicio']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $servicio['Servicio']['id'])); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Agregar Alumno'), array('action' => 'add')); ?> </li>
-		</ul>
-</div>
-</div>	
-<!-- end sidebar -->
-</div>
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
 
+<!-- start main -->
+<div class="TituloSec">Servicio de <?php echo $servicio['Servicio']['tipo_servicio']; ?></div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+  		
+
+   <div class="col-md-6 col-sm-6 col-xs-5">	
+	
+	 <b>Fecha de creación del registro:</b>		
+     <?php echo ($this->Html->formatTime($servicio['Servicio']['creado'])); ?></p>
+
+     <!--<b>Tipo de servicio:</b>		
+     <?php echo $servicio['Servicio']['tipo_servicio']; ?></p>-->
+ 
+     <b>Fecha de solicitud:</b>		  
+     <?php echo ($this->Html->formatTime(($servicio['Servicio']['fecha_solicitud_servicio']))); ?></p>
+     
+     <b>Estado:</b>		
+     <?php echo $servicio['Servicio']['estado']; ?></p>
+
+     <b>Institución prestadora:</b>		  
+     <?php echo ($servicio['Servicio']['prestador']); ?></p>
+
+     <b>Referente a cargo:</b>		  
+     <?php echo ($servicio['Servicio']['docente_profesional_acargo']); ?></p>
+
+  </div><div class="col-md-6 col-sm-6 col-xs-5">	
+
+     <b>Tipo de alta:</b>		  
+     <?php echo ($servicio['Servicio']['tipo_alta']); ?></p>
+
+     <b>Fecha de alta:</b>		  
+     <?php echo ($this->Html->formatTime(($servicio['Servicio']['fecha_alta']))); ?></p>
+
+     <b>Tipo de baja:</b>		  
+     <?php echo ($servicio['Servicio']['tipo_baja']); ?></p>
+
+     <b>Fecha de baja:</b>		  
+     <?php echo ($this->Html->formatTime(($servicio['Servicio']['fecha_baja']))); ?></p> 
+
+     <b>Total de días que asistió:</b>		  
+     <?php echo ($servicio['Servicio']['total_dias_asistencia']); ?></p>
+
+     <b>Total de días que no asistió:</b>		  
+     <?php echo ($servicio['Servicio']['total_dias_inasistencia']); ?></p>
+
+     <b>Descripción:</b>		  
+     <?php echo $servicio['Servicio']['observaciones']; ?></p>
+     
+     <b>Informe adjunto:</b>		
+     <?php echo $servicio['Servicio']['informe']; ?></p> 
+			  </div>
+            </div>
+		</div>
+	</div>
+
+<div class="col-md-4">
+ <div class="unit">
+ 			<div class="subtitulo">Opciones</div>
+		    <div class="opcion"><?php echo $this->Html->link(__('Editar Servicio'), array('action' => 'edit', $servicio['Servicio']['id'])); ?> </div>
+				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $servicio['Servicio']['id'] ), null, sprintf(__('Esta seguro de borrar el servicio "'.$servicio['Servicio']['id'].'"'), $this->Form->value('Servicio.id'))); ?></div>
+	</div>
+</div>
+</div>
+ <!-- end main -->

@@ -1398,3 +1398,21 @@
 2015-09-03 16:53:50 Error: [MissingControllerException] Controller class CssController could not be found.
 #0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-09-03 22:02:57 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-03 22:59:38 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-03 22:59:38 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-03 22:59:38 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-03 22:59:38 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-03 22:59:41 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

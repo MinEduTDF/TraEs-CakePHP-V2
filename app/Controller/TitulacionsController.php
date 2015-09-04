@@ -4,11 +4,6 @@ class TitulacionsController extends AppController {
 	var $name = 'Titulacions';
 	var $paginate = array('Titulacion' => array('limit' => 4, 'order' => 'Titulacion.id DESC'));
 
-	/*function beforeFilter() {
-	    $this->centro_id = $this->Session->centro('id'); 
-	     
-	}*/
-	
 	function index() {
 		$this->Titulacion->recursive = 0;
 		$this->set('titulacions', $this->paginate());
@@ -27,7 +22,9 @@ class TitulacionsController extends AppController {
 		    $this->Titulacion->create();
 			if ($this->Titulacion->save($this->data)) {
 				$this->Session->setFlash(__('La titulacion ha sido grabada.'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Titulacion->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash(__('La titulacion no ha sido grabada. Favor, intente nuevamente.'));
 			}
@@ -44,7 +41,9 @@ class TitulacionsController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Titulacion->save($this->data)) {
 				$this->Session->setFlash(__('La titulación ha sido grabada.'));
-				$this->redirect(array('action' => 'index'));
+				//$this->redirect(array('action' => 'index'));
+				$inserted_id = $this->Titulacion->id;
+				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
 				$this->Session->setFlash(__('La titulación no ha sido grabada. Favor, intente nuevamente.'));
 			}
