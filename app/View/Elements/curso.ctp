@@ -1,13 +1,23 @@
-<div class="unit">
-   	   <span class="id"><?php echo $curso['Curso']['id']; ?></span>
-	   <b>Tipo: </b><span class="name"><?php echo $curso['Curso']['tipo']; ?></span>
-       <b>Año: </b><span class="name"><?php echo $curso['Curso']['anio']; ?></span><br>
-       <b>División: </b><span class="name"><?php echo $curso['Curso']['division']; ?></span><br>
-	   <b>Turno: </b><span class="name"><?php echo $curso['Curso']['turno']; ?></span><br>
-       <b>Titulación: </b><span class="name"><?php echo $this->Html->link($curso['Titulacion']['id'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['id'])); ?></span><br>
-       <b>Plazas: </b><span class="name"><?php echo $curso['Curso']['plazas']; ?></span><br>
-       <!--<span class="link"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $inscripcion['Inscripcion']['id']), null, sprintf(__('Esta seguro que desea eliminar la inscripcion nº %s?'), $inscripcion['Inscripcion']['id'])); ?></span>-->
-	   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'cursos', 'action' => 'edit', $curso['Curso']['id'])); ?></span>
-	   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'cursos', 'action' => 'view', $curso['Curso']['id'])); ?></span>
-     
+<div class="col-md-6">
+		<div class="unit">
+
+		       <!--<span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Año: </b> <?php echo $curso['Curso']['id']; ?></span><br/>-->
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Año: </b> <?php echo $curso['Curso']['anio']; ?></span><br/>
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>División: </b> <?php echo $curso['Curso']['division']; ?></span><br/>
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Turno: </b> <?php echo $curso['Curso']['turno']; ?></span><br/>
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Tipo: </b> <?php echo $curso['Curso']['tipo']; ?></span><br/>
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Titulación: </b> <?php echo $curso['Curso']['titulacion_id']; ?></span><br/>
+
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Plazas: </b> <?php echo $curso['Curso']['plazas']; ?></span><br/>
+                 
+		       <div class="text-right">
+			   <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id']), array('class' => 'btn btn-danger')); ?></span>
+			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'cursos', 'action' => 'view', $curso['Curso']['id']), array('class' => 'btn btn-success')); ?></span>
+			   </div>
+		</div>
 </div>

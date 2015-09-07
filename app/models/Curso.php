@@ -125,7 +125,7 @@ class Curso extends AppModel {
                            'message' => 'Indicar una opcion.'
                            )
                    ),
-                   'aulaNro' => array(
+                   'aula_nro' => array(
                            'allowedChoice' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
