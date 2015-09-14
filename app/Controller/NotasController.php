@@ -7,6 +7,28 @@ class NotasController extends AppController {
 	function index() {
 		$this->Nota->recursive = 0;
 		$this->set('notas', $this->paginate());
+		$alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+        $materias = $this->Nota->Materia->find('list', array('fields'=>array('id', 'alia')));
+		$ciclos = $this->Nota->Ciclo->find('list', array('fields'=>array('id', 'ciclo')));
+		$this->redirectToNamed();
+		$conditions = array();
+		
+		if(!empty($this->params['named']['alumno_id']))
+		{
+			$conditions['Nota.alumno_id ='] = $this->params['named']['alumno_id'];
+		}
+		if(!empty($this->params['named']['ciclo_id']))
+		{
+			$conditions['Nota.ciclo_id ='] = $this->params['named']['ciclo_id'];
+		}
+		if(!empty($this->params['named']['materia_id']))
+		{
+			$conditions['Nota.materia_id ='] = $this->params['named']['materia_id'];
+		}
+		
+		$notas = $this->paginate('Nota',$conditions);
+		$this->set(compact('notas', 'alumnos', 'ciclos', 'materias'));
+
 	}
 
 	function view($id = null) {

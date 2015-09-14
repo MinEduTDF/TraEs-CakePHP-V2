@@ -2,7 +2,6 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
-
 <!-- start main -->
 <div class="TituloSec">Materia: <?php echo ($materia['Materia']['alia']); ?></div>
 <div id="ContenidoSec">
@@ -26,14 +25,14 @@
             <b><?php echo __('Campo de formación:'); ?></b>
 			<?php echo ($materia['Materia']['campo_formacion']); ?></p>
 
-			<b><?php echo __('Contenido:'); ?></b>
-			<?php echo ($materia['Materia']['contenido']); ?></p>
-
 			<b><?php echo __('Obligatoriedad:'); ?></b>
 			<?php echo ($materia['Materia']['obligatoriedad']); ?></p>
 
 			<b><?php echo __('Dictado:'); ?></b>
 			<?php echo ($materia['Materia']['dictado']); ?></p>
+
+			<b><?php echo __('Contenido:'); ?></b>
+			<?php echo ($materia['Materia']['contenido']); ?></p>
 
   </div><div class="col-md-4 col-sm-6 col-xs-8">	
 
