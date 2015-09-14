@@ -25,5 +25,4 @@
 		echo $this->Form->input('aula_nro', array('between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('plazas', array('between' => '<br>', 'class' => 'form-control'));
 ?>
-
 </div>

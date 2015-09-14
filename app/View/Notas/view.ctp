@@ -9,9 +9,9 @@
 <div class="row">
    <div class="col-md-8">	
 	 <div class="unit">
- 		<div class="row perfil">
+ 		<div class="row">
   		
-   <div class="col-md-4 col-sm-6 col-xs-8">	
+   <div class="col-md-4 col-sm-4 col-xs-4">	
 		
         <b>Alumno:</b>		
 	    <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
@@ -39,7 +39,6 @@
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_primer_periodo']); ?></p>
 
-</div><div class="col-md-4 col-sm-6 col-xs-8">	
 
 <div class="subtitulo">Segundo período</div>
  
@@ -56,6 +55,8 @@
 	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
   
 
+</div><div class="col-md-4 col-sm-4 col-xs-4">
+
 <div class="subtitulo">Tercer período</div>
  
         <b>Nota 1:</b>		
@@ -70,7 +71,6 @@
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_tercer_periodo']); ?></p>
 
-</div><div class="col-md-4 col-sm-6 col-xs-8">	
 
 <div class="subtitulo">Cierre</div>
 
@@ -91,14 +91,14 @@
               </div>
 			</div>
 		</div>
-	</div>
 
 </div><div class="col-md-4">
 		 <div class="unit">
 	 			<div class="subtitulo">Opciones</div>
 				<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
 				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
-		</div>	
-	</div>
-</div>
- <!-- end main -->
+         </div>
+      </div>
+   </div>
+</div>                  
+<!-- end main -->

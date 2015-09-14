@@ -1,6 +1,6 @@
-<div class="TituloSec"><?php echo __('Editar Nota'); ?></div>
+<div class="TituloSec"><?php echo __('Editar Calificación'); ?></div>
 <div id="ContenidoSec">
-<div class="alumnos form">
+<div class="notas form">
 <?php echo $this->Form->create('Nota');?>
 
 	         <div class="unit">

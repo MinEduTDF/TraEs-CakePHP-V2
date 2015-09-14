@@ -15,35 +15,29 @@
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Centros <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Listar'),'/centros'); ?></li>
-            <li><?php echo $this->Html->link(__('Agregar'), '/centros/add'); ?></li>
+            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
+            <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
+            <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
+            <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnos <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caja curricular <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Listar'),'/alumnos'); ?></li>
-            <li><?php echo $this->Html->link(__('Agregar'), '/alumnos/add'); ?></li>
+            <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
+            <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
+            <li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inscripciones <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Listar'), '/inscripcions'); ?></li>
-            <li><?php echo $this->Html->link(__('Agregar'), '/inscripcions/add'); ?></li>
+           <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
+           <li><?php echo $this->Html->link(__('Tablas'), '/'); ?></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inasistencias <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-           <li><?php echo $this->Html->link(__('Listar'), '/inasistencias'); ?></li>
-           <li><?php echo $this->Html->link(__('Agregar'), '/inasistencias/add'); ?></li>
-          </ul>
-        </li>
-      </ul>
-
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cerrar Sesión <span class="caret"></span></a>

@@ -7,6 +7,18 @@ class TitulacionsController extends AppController {
 	function index() {
 		$this->Titulacion->recursive = 0;
 		$this->set('titulacions', $this->paginate());
+		$titulacions = $this->Titulacion->find('list', array('fields'=>array('id', 'nombre')));
+		$this->redirectToNamed();
+		$conditions = array();
+
+		if(!empty($this->params['named']['nombre']))
+		{
+			$conditions['Titulacion.nombre ='] = $this->params['named']['nombre'];
+		}
+		
+		$titulacions = $this->paginate('Titulacion', $conditions);
+		$this->set(compact('titulacions'));
+
 	}
 
 	function view($id = null) {

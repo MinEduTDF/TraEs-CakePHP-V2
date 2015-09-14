@@ -19,6 +19,11 @@ class AlumnosController extends AppController {
 		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellidos LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['nombre_completo_alumno']))
+		{
+			$conditions['Alumno.nombre_completo_alumno ='] = $this->params['named']['nombre_completo_alumno'];
+		}
+
 		if(!empty($this->params['named']['documento_nro']))
 		{
 			$conditions['Alumno.documento_nro ='] = $this->params['named']['documento_nro'];
