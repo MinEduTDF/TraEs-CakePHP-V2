@@ -8,31 +8,42 @@
  * @package       cake
  * @subpackage    cake.app
  */
-class AppController extends Controller {
-public $components = array(
-            'Auth' => array('authenticate' => array('Form' => array( 'userModel' => 'User',
-                                    'fields' => array(
-                                                        'username' => 'username',
-                                                        'password' => 'password'
-                                                        )
-                                                )
-                            ),
-                    'authorize' => array('Controller'),
-                    'loginAction' => array('controller' => 'users', 'action' => 'login'),
-                    'loginRedirect' => array('controller' => 'alumnos', 'action' => 'index'),
-                    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-                    'authError' => 'You don\'t have access here.',
-            ),
-        );
+App::uses('Controller', 'Controller');
 
-    public function beforeFilter() {
-        /* set actions that will not require login */
-        $this->Auth->allow('index','display', 'view');
+class AppController extends Controller {
+    // added the debug toolkit
+	// sessions support
+	// authorization for login and logut redirect
+    public $components = array(
+            //'DebugKit.Toolbar',
+			'Session',
+		    'Auth' => array(
+                        'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+					    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),                        'authError' => 'Debes estar logueado para continuar.', 
+					    'loginError' => 'Nombre de usuario o contraseña incorrectos.',
+						'authorize' => array('Controller'),
+    ));
+
+    // only allow the login controllers only
+	public function beforeFilter() {
+        $this->Auth->allow('login');
     }
 	
     public function isAuthorized($user) {
-    	return true;
-    }
+		// Admin puede acceder a todo
+		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
+		// En este caso a la acción usuario del controller users
+	    if (isset($user['role']) && $user['role'] === 'admin' && $this->action='index') {
+	        return true;
+	    }
+		elseif ($user['status'] == 1){
+            $this->Session->setFlash('Hola, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
+            $this->redirect('usuario');
+            return true;
+        }
+	 	//Por defecto se deniega el acceso
+	    return false;
+	}
 	 
     
     /**

@@ -2,7 +2,9 @@
 class TitulacionsController extends AppController {
 
 	var $name = 'Titulacions';
-	var $paginate = array('Titulacion' => array('limit' => 4, 'order' => 'Titulacion.id DESC'));
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+	var $paginate = array('Titulacion' => array('limit' => 4, 'order' => 'Titulacion.nombre DESC'));
 
 	function index() {
 		$this->Titulacion->recursive = 0;

@@ -43,7 +43,7 @@
 <br/>-->
 <?php //echo $this->Html->link( "Logout",   array('action'=>'logout') ); ?>
 <blockquote>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+  <p>Si buscas resultados distintos, no hagas siempre lo mismo.</p>
+  <footer>Frase célebre de<cite title="Source Title">Albert Einstein</cite></footer>
 </blockquote>
 </div>

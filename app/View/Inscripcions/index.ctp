@@ -6,9 +6,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-8 col-md-8">
 
+<div id="second-nav">
+ 	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></span>
+</div>
  <!-- end second nav -->
 
 	<div class="row">
+
 			    <?php foreach ($inscripcions as $inscripcion): ?>
 			    
 			    <?php echo $this->element('inscripcion',array( 'inscripcion' => $inscripcion )); ?>

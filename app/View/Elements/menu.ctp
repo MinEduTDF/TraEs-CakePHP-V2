@@ -29,6 +29,7 @@
             <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>
+            <li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>
           </ul>
         </li>
         <li class="dropdown">
@@ -38,14 +39,9 @@
            <li><?php echo $this->Html->link(__('Tablas'), '/'); ?></li>
           </ul>
         </li>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cerrar Sesión <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Cerrar</a></li>
-          </ul>
+        <li>
+		<?php echo $this->Html->link(__('Cerrar Sessión'),'/logout', array('class' => 'btn btn-success navbar-btn')); ?>
         </li>
-      </ul>
-    </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

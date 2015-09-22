@@ -2,7 +2,9 @@
 class NotasController extends AppController {
 
 	var $name = 'Notas';
-    var $components = array('Session');
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+    var $paginate = array('Nota' => array('limit' => 4, 'order' => 'Nota.creado DESC'));
 
 	function index() {
 		$this->Nota->recursive = 0;

@@ -6,6 +6,9 @@
 <div class="row">
   <div class="col-xs-8 col-sm-6 col-md-8">
 
+<div id="second-nav">
+ 	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></span>
+</div>
  <!-- end second nav -->
 
 	<div class="row">

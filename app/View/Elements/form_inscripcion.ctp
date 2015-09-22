@@ -35,11 +35,11 @@
 			
 		$condiciones_aprobacion = array('Promocion directa' => 'Promocion directa', 'Examen                                         regular' => 'Examen regular', 'Examen libre' => 'Examen                                         libre', 'Examen de reválida' => 'Examen de reválida',                                         'Equivalencia' => 'Equivalencia', 'Saberes adquiridos'                                          => 'Saberes adquiridos');
 		echo $this->Form->input('condicion_aprobacion', array('options' => $condiciones_aprobacion, 'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('ciclo_id', array('label'=>'Ciclo ID', 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('centro_id', array('label'=>'Centro ID', 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('Curso', array('label'=>'Curso ID', 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('ciclo_id', array('label'=>'Ciclo', 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('centro_id', array('label'=>'Centro', 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('Curso', array('label'=>'Curso', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('Materia', array('label'=>'Materia', 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('empleado_id', array('label'=>'Empleado ID', 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('empleado_id', array('label'=>'Empleado', 'between' => '<br>', 'class' => 'form-control'));
 ?>
 
 </div></div>

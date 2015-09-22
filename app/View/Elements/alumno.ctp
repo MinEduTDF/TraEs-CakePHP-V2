@@ -7,8 +7,9 @@
 		       <span class="text"><span class="glyphicon glyphicon-map-marker"></span> <b>Ciudad:</b> <?php echo $alumno['Alumno']['ciudad']; ?></span><br/>
 		       <!--<span class="link"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Esta seguro que desea borrar al alumno %s?'), $alumno['Alumno']['apellidos'])); ?></span>-->
 		       <div class="text-right">
-			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'alumnos', 'action' => 'edit', $alumno['Alumno']['id']), array('class' => 'btn btn-danger')); ?></span>
+			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'alumnos', 'action' => 'edit', $alumno['Alumno']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'alumnos', 'action' => 'view', $alumno['Alumno']['id']), array('class' => 'btn btn-success')); ?></span>
+  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'alumnos', 'action' => 'delete', $alumno['Alumno']['id']), array('class' => 'btn btn-danger')); ?></span>
 			   </div>
 		</div>
 </div>

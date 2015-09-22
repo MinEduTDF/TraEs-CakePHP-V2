@@ -2,8 +2,9 @@
 class InscripcionsController extends AppController {
 
 	var $name = 'Inscripcions';
-    var $components = array('Session');
-	var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.id DESC'));
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+	var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.fecha_alta DESC'));
 		
 	function index() {
 		//$this->Inscripcion->recursive = 0;

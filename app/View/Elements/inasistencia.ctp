@@ -15,9 +15,9 @@
               <!--<span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Modificada el:</b> <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['modificado']));?></span><br/>-->    
                
 	   <div class="text-right">
-			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['Inasistencia']['id']), array('class' => 'btn btn-danger')); ?></span>
+			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['Inasistencia']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['Inasistencia']['id']), array('class' => 'btn btn-success')); ?></span>
-               	   <!--<span class="link"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $inasistencia['Inasistencia']['id']), null, sprintf(__('Esta seguro que desea eliminar la inasistencia nº %s?'), $inasistencia['Inasistencia']['id'])); ?></span>-->
+  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'inasistencias', 'action' => 'delete', $inasistencia['Inasistencia']['id']), array('class' => 'btn btn-danger')); ?></span> 
 
 			   </div>
 		</div>
