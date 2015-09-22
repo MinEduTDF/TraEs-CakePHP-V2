@@ -2,8 +2,9 @@
 class InasistenciasController extends AppController {
 
 	var $name = 'Inasistencias';
-	var $components = array('Session');
-	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.id DESC'));
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.creado DESC'));
 
 	function index() {
 		

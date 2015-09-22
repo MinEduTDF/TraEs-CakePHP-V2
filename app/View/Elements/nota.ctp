@@ -43,8 +43,9 @@
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Promedio Final: </b> <?php echo $nota['Nota']['promedio_final']; ?></span><br/>
 
 		       <div class="text-right">
-			   <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id']), array('class' => 'btn btn-danger')); ?></span>
+			   <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'notas', 'action' => 'view', $nota['Nota']['id']), array('class' => 'btn btn-success')); ?></span>
+   			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'notas', 'action' => 'delete', $nota['Nota']['id']), array('class' => 'btn btn-danger')); ?></span> 
 			   </div>
 		</div>
 </div>

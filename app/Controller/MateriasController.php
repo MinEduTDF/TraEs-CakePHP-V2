@@ -2,8 +2,9 @@
 class MateriasController extends AppController {
 
 	var $name = 'Materias';
-    var $components = array('Session');
-	var $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.id DESC'));
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+	var $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.alia DESC'));
 
 	
 	function index() {

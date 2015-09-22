@@ -52,5 +52,4 @@ Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'un
 // CakePlugin::load('Tools');
 
 /** Carga el plugin Upload para cargar archivos */
-CakePlugin::load('Upload');
-//CakePlugin::loadAll();
+//CakePlugin::load('Upload');

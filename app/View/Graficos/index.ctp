@@ -7,10 +7,9 @@
 
    <div class="TituloSec"><?php echo __('Reportes gráficos'); ?></div>
 <div id="ContenidoSec">
-   <div class="unit">
 
-<!-- Alumnos por curso -->
-<div id="click_01" class="titulo_acordeon">Alumnos por Curso</div>
+<!-- Alumnos Inscriptos por curso -->
+<div id="click_01" class="titulo_acordeon">Inscriptos por Curso</div>
 <div id="acordeon_01">
     <script>
 		graficos('torta');
@@ -21,7 +20,21 @@
 		});
     </script>
      <div id="grafico" style="width:100%; height:300px"></div>
-		</div>
-	</div>
 </div>
-<!-- end Alumnos por curso -->
+<!-- end Alumnos Inscriptos por curso -->
+
+<!-- Alumnos Inscriptos por curso -->
+<div id="click_02" class="titulo_acordeon">Abandonos por Curso</div>
+<div id="acordeon_02">
+    <script>
+		graficos('barra');
+		$(document).ready(function () {
+		    $(window).resize(function(){
+		        graficos('barra');
+		    });
+		});
+    </script>
+     <div id="grafico" style="width:100%; height:300px"></div>
+</div>
+<!-- end Alumnos Inscriptos por curso -->
+</div>

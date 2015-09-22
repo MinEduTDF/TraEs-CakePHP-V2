@@ -2,6 +2,8 @@
 class CiclosController extends AppController {
 
 	var $name = 'Ciclos';
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
 
 	function index() {
 		$this->Ciclo->recursive = 0;
