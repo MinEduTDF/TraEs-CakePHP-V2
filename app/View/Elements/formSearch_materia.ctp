@@ -6,3 +6,6 @@
 		$tipos_dictado = array('Presencial' => 'Presencial', 'A Distancia - Semipresencial' => 'A                                Distancia - Semipresencial', 'A Distancia - Asistida' => 'A                                Distancia - Asistida', 'A Distancia - Abierta' => 'A Distancia -                                Abierta', 'A Distancia - Virtual' => 'A Distancia - Virtual');
 		echo $this->Form->input('dictado', array('options' => $tipos_dictado, 'empty' => '','class' => 'form-control'));
 ?>
+</p><div class="text-center">
+			<?php echo $this->Form->end(array('label' => 'BUSCAR', 'class' => 'btn btn-success'));?>
+	</div>

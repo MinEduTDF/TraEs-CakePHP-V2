@@ -35,10 +35,10 @@
     </fieldset>
 <?php echo $this->Form->end(); ?>
 </div>-->
-<?php 
-echo $this->Html->link( "Volver a página principal",   array('action'=>'index') ); 
-?>
+<!--<?php 
+echo $this->Html->link( "Volver a página principal", array('action'=>'index') ); 
+?>-->
 <br/>
-<?php 
+<!--<?php 
 echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-?>
+?>-->

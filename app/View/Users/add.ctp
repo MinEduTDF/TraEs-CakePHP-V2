@@ -28,7 +28,7 @@
     </fieldset>
 <?php echo $this->Form->end(); ?>
 </div>-->
-<?php 
+<!--<?php 
 if($this->Session->check('Auth.User')){
 echo $this->Html->link( "Volver a página principal",   array('action'=>'index') ); 
 echo "<br>";
@@ -36,3 +36,4 @@ echo $this->Html->link( "Logout",   array('action'=>'logout') );
 }else{
 echo $this->Html->link( "Volver a login",   array('action'=>'login') ); 
 }
+?>-->

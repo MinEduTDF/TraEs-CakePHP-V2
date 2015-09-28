@@ -14,6 +14,15 @@
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <?php if($current_user['role'] == 'admin'): ?>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><?php echo $this->Html->link(__('Listar'),'/users'); ?></li>
+            <li><?php echo $this->Html->link(__('Agregar'), '/users/add'); ?></li>
+          </ul>
+        </li>
+		<?php endif; ?>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -36,7 +45,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
-           <li><?php echo $this->Html->link(__('Tablas'), '/'); ?></li>
+           <li><?php echo $this->Html->link(__('Tablas'), '/alumnos'); ?></li>
           </ul>
         </li>
         <li>
