@@ -52,13 +52,13 @@
 </table>
 </div>
 
-<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
+<!--<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
 <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
-<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
+<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>-->
 </div>				
-<div id="second-nav">
+<!--<div id="second-nav">
  	  <span class="link"><?php echo $this->Html->link('Agregar usuario', array('action' => 'add'), array('escape' => false, 'class' => 'btn btn-primary')); ?></span>
-</div>
+</div>-->
 
 <!--<?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
 <br/>
@@ -107,22 +107,25 @@
 		</td>
 	</tr>
 <?php endforeach; ?>
-	</table>
-	<p>
-	<?php
+	</table>-->
+			 <div class="unit text-center">
+			 	 <?php echo $this->element('pagination'); ?> 
+			 </div>
+
+    <!--<p><?php
 	echo $this->Paginator->counter(array(
 	'format' => __('Page %page% of %pages%, showing %current% records out of %count% total, starting on record %start%, ending on %end%')
 	));
-	?>	</p>
+	?></p>
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('anterior'), array(), null, array('class'=>'disabled'));?>
 	  	<?php echo $this->Paginator->numbers();?>
  
 		<?php echo $this->Paginator->next(__('siguiente') . ' >>', array(), null, array('class' => 'disabled'));?>
-	</div>
+	</div>-->
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Nuevo Usuario'), array('action' => 'add')); ?></li>

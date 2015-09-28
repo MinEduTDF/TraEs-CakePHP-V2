@@ -10,13 +10,13 @@
 
 		              <div class="form-inline">
 		                <?php echo $this->Form->input('username', 
-		            			    array('label'=>'', 'between' => '<br>', 'placeholder' => 'Nombre de usuario','class' => 'form-control')); ?>
+		            			    array('label'=>'Nombre de usuario', 'between' => '<br>', 'placeholder' => 'Nombre de usuario','class' => 'form-control')); ?>
 		              </div><br>
 
 		              <div class="form-inline">
 		                <?php echo $this->Form->input('password', 
-		             			   array('label'=>'', 'between' => '<br>', 'placeholder' => 'Contraseña','class' => 'form-control')); ?>
+		             			   array('label'=>'Contraseña', 'between' => '<br>', 'placeholder' => 'Contraseña','class' => 'form-control')); ?>
 		              </div><br>
 
-		<?php echo $this->Form->end(array('label' => 'INGRESAR', 'style'=>'width:70%;', 'class' => 'btn btn-success'));?>
+		<?php echo $this->Form->end(array('label' => 'INICIAR SESIÓN', 'style'=>'width:70%;', 'class' => 'btn btn-success'));?>
  </div>
