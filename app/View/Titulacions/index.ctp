@@ -1,43 +1,37 @@
 <!-- start main -->
- <div id="main">
- <h2>Titulaciones</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Agregar Titulación'), array('action' => 'add')); ?></li>
- 	  </ul>
- </div>
+<div class="TituloSec">Titulaciones</div>
+<div id="ContenidoSec">
+  <div id="main">
+<!-- start second nav -->
+<div class="row">
+  <div class="col-xs-8 col-sm-6 col-md-8">
+
+<div id="second-nav">
+ 	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></span>
+</div>
  <!-- end second nav -->
 
-            <?php foreach ($titulacions as $titulacion): ?>
-    
-            <?php echo $this->element(('titulacion'), array( 'titulacion' => $titulacion )); ?>
-    
-            <?php endforeach; ?>
-    
-            <?php echo $this->element('pagination'); ?>
- 
+	<div class="row">
+			    <?php foreach ($titulacions as $titulacion): ?>
+			    
+			    <?php echo $this->element('titulacion',array( 'titulacion' => $titulacion )); ?>
+			    
+			    <?php endforeach; ?>
+			    
 
- </div>
+			 </div>
+			 <div class="unit text-center">
+			 	 <?php echo $this->element('pagination'); ?> 
+			 </div>
+	 </div>
  <!-- end main -->
-  
-<!-- start sidebar -->
-<div id="sidebar">
-	<div id="invoice-stats">
-   		
-		    <?php echo $this->element('formSearch_titulacion'); ?>
-		
-    </div>
-    			
-   <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<!--<li><?php echo $this->Html->link(__('Agregar Titulación'), array('action' => 'add')); ?></li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-	</ul>
-   </div>
+ 
+  <div class="col-xs-12 col-sm-4 col-md-4">
+  	<div class="unit">
+  			 <div class="subtitulo">Buscar</div>
+				
+                <?php echo $this->element('formSearch_titulacion'); ?>
+  	      </div>
+		</div>
+	</div>
 </div>
-<!-- end sidebar -->

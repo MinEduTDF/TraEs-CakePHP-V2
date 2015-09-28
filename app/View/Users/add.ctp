@@ -1,32 +1,39 @@
+<div class="TituloSec"><?php echo __('Agregar Usuario'); ?></div>
+<div id="ContenidoSec">
 <div class="users form">
 <?php echo $this->Form->create('User');?>
-	</br>
-	<fieldset>
- 		<legend><?php echo __('Agregar Usuario'); ?></legend>
-	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		$roles = array('administrador' => 'administrador',
-		               'administrativo_jurisdiccional' => 'administrativo_jurisdiccional', 
-					   'administrativo_institucional_docentes' => 'administrativo_institucional_docentes',
-					   'administrativo_institucional_alumnos' => 'administrativo_institucional_alumnos');
-        echo $this->Form->input('role', array('options' => $roles, 'empty' => ''));
-		$puestos = array('Altas_Bajas' => 'Altas_Bajas', 'Licencias' => 'Licencias');
-        echo $this->Form->input('puesto', array('options' => $puestos, 'empty' => ''));
-		echo $this->Form->input('centro_id');
-		echo $this->Form->input('empleado_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Grabar'));?>
-</div>
-<!--<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
 
-		<li><?php echo $this->Html->link(__('Listar Usuarios'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>
-	</ul>
+	         <div class="unit">
+               <?php echo $this->element('form_user'); ?><p>
+             </div>
+             <div class="text-center">
+        	   <?php //echo $this->Form->submit('Añadir usuario', array('class' => 'form-submit', 'title' => 'Click para añadir')); 
+                     echo $this->Form->end(array('label' => 'GUARDAR', 'class' => 'btn btn-success'));?>
+          	  </div>
+		</div>
+	</div>
+
+<!-- app/View/Users/add.ctp -->
+<!--<div class="users form">
+
+<?php echo $this->Form->create('User');?>
+    <fieldset>
+        <legend><?php echo __('Añadir usuario'); ?></legend>
+        <?php echo $this->Form->input('username', array('label' => 'Nombre usuario', 'maxLength' => 255, 'title' => 'Nombre usuario'));
+		echo $this->Form->input('email', array('label' => 'Email', 'maxLength' => 255, 'title' => 'Email'));
+        echo $this->Form->input('password', array('label' => 'Contraseña', 'maxLength' => 255, 'title' => 'Contraseña'));
+		echo $this->Form->input('password_confirm', array('label' => 'Confirmar contraseña', 'maxLength' => 255, 'title' => 'Confirmar contraseña', 'type'=>'password'));
+		echo $this->Form->submit('Añadir usuario', array('class' => 'form-submit',  'title' => 'Click para añadir') ); 
+?>
+    </fieldset>
+<?php echo $this->Form->end(); ?>
 </div>-->
+<!--<?php 
+if($this->Session->check('Auth.User')){
+echo $this->Html->link( "Volver a página principal",   array('action'=>'index') ); 
+echo "<br>";
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+}else{
+echo $this->Html->link( "Volver a login",   array('action'=>'login') ); 
+}
+?>-->

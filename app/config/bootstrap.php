@@ -48,9 +48,11 @@ Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), '
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-/** Carga el plugin Tools para hacer disponible Tiny Auth (remplazo de ACL) */
-// CakePlugin::load('Tools');
-
-/** Carga el plugin Upload para cargar archivos */
-CakePlugin::load('Upload');
-//CakePlugin::loadAll();
+/** Carga los plugins */
+CakePlugin::loadAll(array(
+    //'DebugKit' => array('bootstrap' => true),
+	//'report_manager', array('bootstrap' => true, 'routes' => true)
+	//'Upload' => array('bootstrap' => true),
+	//'ContactManager' => array('bootstrap' => true),
+    //'WebmasterTools' => array('bootstrap' => true, 'routes' => true),
+));

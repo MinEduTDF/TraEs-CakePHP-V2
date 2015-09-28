@@ -1,36 +1,44 @@
+<div class="TituloSec"><?php echo __('Editar Usuario'); ?></div>
+<div id="ContenidoSec">
 <div class="users form">
 <?php echo $this->Form->create('User');?>
-	</br>
-	<fieldset>
- 		<legend><?php echo __('Editar User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		//echo $this->Form->input('password');
-		$roles = array('administrador' => 'administrador',
-		               'administrativo_jurisdiccional' => 'administrativo_jurisdiccional', 
-					   'administrativo_institucional_docentes' => 'administrativo_institucional_docentes',
-					   'administrativo_institucional_alumnos' => 'administrativo_institucional_alumnos');
-        echo $this->Form->input('role', array('options' => $roles, 'empty' => ''));
-		echo $this->Form->input('centro_id');
-		echo $this->Form->input('empleado_id');
-		echo $this->Form->input('puesto');
-				
-	?>
-	</fieldset>
-<?php  echo $this->Form->input('id', array('type' => 'hidden'));
-       echo $this->Form->end(__('Grabar'));
-?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
 
-		<!--<li><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $this->Form->value('User.id')), null, sprintf(__('Esta seguro de borrar # %s?'), $this->Form->value('User.id'))); ?></li>-->
-		<li><?php echo $this->Html->link(__('Listar Usuarios'), array('action' => 'index'));?></li>
-		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
-	</ul>
-</div>
+	         <div class="unit">
+               <?php echo $this->element('form_user_edit'); ?><p>
+             </div>
+             <div class="text-center">
+        	   <?php //echo $this->Form->submit('Añadir usuario', array('class' => 'form-submit', 'title' => 'Click para añadir'));
+                     echo $this->Form->input('id', array('type' => 'hidden'));
+			         echo $this->Form->end(array('label' => 'GUARDAR', 'class' => 'btn btn-success'));?>
+          	  </div>
+		</div>
+	</div>
+
+<!-- app/View/Users/edit.ctp -->
+<!--<div class="users form">
+<?php echo $this->Form->create('User'); ?>
+    <fieldset>
+        <legend><?php echo __('Editar usuario'); ?></legend>
+        <?php 
+		echo $this->Form->hidden('id', array('value' => $this->data['User']['id']));
+		echo $this->Form->input('username', array('label' => 'Nombre usuario', 'readonly' => 'readonly', 'label' => 'Los usuarios no pueden cambiarse!'));
+		echo $this->Form->input('email');
+        echo $this->Form->input('password_update', array( 'label' => 'Nueva contraseña', 'maxLength' => 255, 'type'=>'password', 'required' => 0));
+		echo $this->Form->input('password_confirm_update', array('label' => 'Repetir contraseña', 'maxLength' => 255, 'title' => 'Repite la contraseña', 'type'=>'password', 'required' => 0));
+		
+		echo $this->Form->input('role', array(
+            'options' => array( 'usuario' => 'usuario', 'admin' => 'admin')
+        ));
+		
+		echo $this->Form->submit('Editar usuario', array('class' => 'form-submit',  'title' => 'Click para modificar') ); 
+?>
+    </fieldset>
+<?php echo $this->Form->end(); ?>
+</div>-->
+<!--<?php 
+echo $this->Html->link( "Volver a página principal", array('action'=>'index') ); 
+?>-->
+<br/>
+<!--<?php 
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+?>-->

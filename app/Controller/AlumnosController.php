@@ -2,8 +2,9 @@
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
-	var $components = array('Session');
-	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.id DESC'));
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
+	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.creado DESC'));
 
 	function index() {
 		//$this->Alumno->recursive = 0;
@@ -19,6 +20,11 @@ class AlumnosController extends AppController {
 		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellidos LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['nombre_completo_alumno']))
+		{
+			$conditions['Alumno.nombre_completo_alumno ='] = $this->params['named']['nombre_completo_alumno'];
+		}
+
 		if(!empty($this->params['named']['documento_nro']))
 		{
 			$conditions['Alumno.documento_nro ='] = $this->params['named']['documento_nro'];
@@ -43,7 +49,6 @@ class AlumnosController extends AppController {
 			$this->Alumno->create();
 			if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
 				$inserted_id = $this->Alumno->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
@@ -61,7 +66,6 @@ class AlumnosController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
 				$inserted_id = $this->Alumno->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {

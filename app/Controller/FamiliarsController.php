@@ -2,7 +2,8 @@
 class FamiliarsController extends AppController {
 
 	var $name = 'Familiars';
-	var $components = array('Session');
+    var $helpers = array('Session');
+	var $components = array('Auth','Session');
 	var $paginate = array('Familiar' => array('limit' => 3, 'order' => 'Familiar.id DESC'));
 
 	function view($id = null) {

@@ -3,7 +3,7 @@ class Alumno extends AppModel {
 	
 	var $name = 'Alumno';
     //var $displayField = 'apellido';
-	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.nombres, " ", Alumno.apellidos)');
+	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.apellidos, " ", Alumno.nombres)');
     /*
 	public $actsAs = array(
 	     'Upload.Upload' => array(
@@ -120,12 +120,18 @@ class Alumno extends AppModel {
 //Validaciones
 
         var $validate = array(
-                   'nombres' => array(
-
+                   'creado*' => array(
+                           'date' => array(
+                           'rule' => 'date',
+                           'allowEmpty' => false,
+                           'message' => 'Indicar fecha de creación del registro.'
+                           )
+                   ),
+				   'nombres' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),
                            'allowEmpty' => false,
-                           'message' => '*El Nombre no es valido. Indicar uno igual o mayor a tres                                         letras.'
+                           'message' => 'El Nombre no es valido. Indicar uno igual o mayor a tres                                         letras.'
 
                            )
                    ),
@@ -133,100 +139,112 @@ class Alumno extends AppModel {
                            'minLength' => array(
                            'rule' => array('minLength',3),
                            'allowEmpty' => false,
-                           'message' => '*El Apellido no es valido. Indicar uno igual o mayor a                                         tres letras.'
+                           'message' => 'El Apellido no es valido. Indicar uno igual o mayor a                                         tres letras.'
                            )
                    ),
 				   'documento_tipo' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),                          
                            'allowEmpty' => false,
-                           'message' => '*El tipo de dni no es valida. Indicar una de las opciones.'
+                           'message' => 'El tipo de documento no es valido. Indicar una opción de la lista.'
                            )
                    ),
                    'documento_nro' => array(
                            'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
-                           'message' => '*El DNI no es valido. Indicar DNI sin puntos.'
+                           'message' => 'El número no es valido. Indicar número sin puntos.'
                            ),
 						   'isUnique' => array(
 	                       'rule' => 'isUnique',
-	                       'message' => '*Este DNI de alumno esta siendo usado.'
+	                       'message' => 'Este documento de alumno esta siendo usado.'
 	                     )
                    ),
-				   'ocupacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),                          
+                   'fecha_nac' => array(
+                           'date' => array(
+                           'rule' => 'date',
                            'allowEmpty' => false,
-                           'message' => '*La ocupacion no es valida. Indicar una de las opciones.'
+                           'message' => 'Indicar fecha de nacimiento.'
                            )
                    ),
 				   'pcia_nac' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => '*El lugar no es valida.'
+                           'message' => 'El nombre no es valido. Indicar un nombre con más de 5 letras'
                            )
                    ),
 				   'nacionalidad' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => '*La nacionalidad no es valida. Indicar una de las                                         opciones.'
+                           'message' => 'La nacionalidad no es valida. Indicar una opción de la lista.'
                            )
                    ),
 				   'indigena' => array(
                            'minLength' => array(
                            'rule' => array('minLength',3),                          
                            'allowEmpty' => true,
-                           'message' => '*El nombre de comunidad indigena no es valida. Indicar una                                         de las opciones.'
+                           'message' => 'El nombre de comunidad indigena no es valido. Indicar una opción de la lista.'
+                           )
+                   ),
+				  'estado_civil' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',4),                          
+                           'allowEmpty' => false,
+                           'message' => 'El estado civil no es valido. Indicar una opción de la lista.'
+                           )
+                   ), 
+				   'ocupacion' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',4),                          
+                           'allowEmpty' => false,
+                           'message' => 'La ocupación no es valida. Indicar una opción de la lista.'
                            )
                    ),
 				   'telefono_nro' => array(
                            'minLength' => array(
                            'rule' => array('minLength',6),
                            'allowEmpty' => false,
-                           'message' => '*El telefono no es valido. Indicar uno de referencia solo                                         con numeros y sin espacios.'
+                           'message' => 'El número de teléfono no es valido. Indicar uno solo  con números y sin espacios.'
                            )
                    ),
                    'email' => array(
                            'email' => array(
                            'rule' => 'email',
                            'allowEmpty' => true,
-                           'message' => '*El email no es valido. Indicar email valido.'
+                           'message' => 'El email no es valido. Indicar uno con el formato correcto.'
                            )
                    ),
                    'calle_nombre' => array(
                            'minLength' => array(
                            'rule' => array('minLength',4),                          
                            'allowEmpty' => false,
-                           'message' => '*La direccion no es valida.'
+                           'message' => 'El nombre de la calle no es valida. Indicar uno con más de 4 letras.'
                            )
                    ),
 				   'calle_nro' => array(
                            'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
-                           'message' => '*El numero no es valido.'
+                           'message' => 'El número de la calle no es valido. Indicar uno solo con números y sin espacios.'
                            )
 					),
 					'barrio' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => '*El nombre del barrio no es valida.'
+                           'message' => 'El nombre del barrio no es valido. Indicar uno con más de 5 letras.'
                            )
                    ),	   
                    'ciudad' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => '*La ciudad no es valida. Indicar una de las opciones.'
-                           )
+                           'message' => 'La ciudad no es valida. Indicar una opción de la lista.'                           )
                    )
-                         
+         
         );
-
-        
+       
 }
 ?>
