@@ -20,6 +20,12 @@ $(document).ready(function(){
 	acordeon('04');
 	acordeon('05');
 	acordeon('06');
+	acordeon('07');
+	acordeon('08');
+	acordeon('09');
+	acordeon('10');
+	acordeon('11');
+	acordeon('12');
 });
 
 

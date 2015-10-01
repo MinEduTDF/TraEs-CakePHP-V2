@@ -1,6 +1,6 @@
 <?php
-class AlumnosController extends AppController {
 
+class AlumnosController extends AppController {
 	var $name = 'Alumnos';
     var $helpers = array('Session');
 	var $components = array('Auth','Session');

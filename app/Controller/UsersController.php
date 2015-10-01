@@ -2,7 +2,7 @@
 class UsersController extends AppController {
  
  var $components = array('Session');
- 
+
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('login','add');

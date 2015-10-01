@@ -11,7 +11,7 @@
 	 <div class="unit">
  		<div class="row">
   		
-   <div class="col-md-4 col-sm-4 col-xs-4">	
+   <div class="col-md-6 col-sm-12 col-xs-12">	
 		
         <b>Alumno:</b>		
 	    <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
@@ -55,7 +55,7 @@
 	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
   
 
-</div><div class="col-md-4 col-sm-4 col-xs-4">
+</div><div class="col-md-6 col-sm-12 col-xs-12">
 
 <div class="subtitulo">Tercer período</div>
  
