@@ -8,7 +8,6 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => '',
 		'database' => 'sigedu',
-		'prefix' => ''	
 	);
 }
 ?>

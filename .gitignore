@@ -1,0 +1,16 @@
+CakePHP 3
+
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+
+CakePHP 2
+
+/app/tmp/*
+!/app/Config/database.php
+/vendors/*
+
+!.htaccess
+!app/.htaccess
+!app/webroot/.htaccess
