@@ -37,9 +37,7 @@ class AppController extends Controller {
 	//    if (isset($user['status']) == ) {
 	  //       $this->redirect('usuario');
 	     //}
-    		if ($user['status'] == 1 ) { if (isset($user['username']) == "usuario") { $this->redirect('usuario'); } } 
-
-       		else { echo '<script>alert("El usuario no esta habilitado")</script>'; }
+    		if (isset($user['username']) == "usuario") { $this->redirect('usuario'); }
     	
     	return true;
 }
