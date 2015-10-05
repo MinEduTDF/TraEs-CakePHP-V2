@@ -34,18 +34,15 @@ class AppController extends Controller {
 		// Admin puede acceder a todo
 		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
 		// En este caso a la acción usuario del controller users
-	    if (isset($user['role']) && $user['role'] === 'admin' && $this->action='index') {
-	        return true;
-	    }
-		elseif ($user['status'] == 1){
-            $this->Session->setFlash('Hola, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
-            $this->redirect('usuario');
-            return true;
-        }
-	 	//Por defecto se deniega el acceso
-	    return false;
-	}
-	 
+	//    if (isset($user['status']) == ) {
+	  //       $this->redirect('usuario');
+	     //}
+    		if ($user['status'] == 1 ) { if (isset($user['username']) == "usuario") { $this->redirect('usuario'); } } 
+
+       		else { echo '<script>alert("El usuario no esta habilitado")</script>'; }
+    	
+    	return true;
+}
     
     /**
     * Mensaje de exito para las vistas

@@ -1,4 +1,4 @@
-      function graficos(modo) {
+      function graficos(modo,id) {
             var jsonData = $.ajax({
 				        url : "graficos/json",
                 dataType: "json",
@@ -11,13 +11,13 @@
               var chart;
               switch(modo) { 
                 case 'torta':
-                  chart = new google.visualization.PieChart(document.getElementById('grafico'));
+                  chart = new google.visualization.PieChart(document.getElementById(id));
                 break;
                 case 'lineal':
-                  chart = new google.visualization.LineChart(document.getElementById('grafico'));
+                  chart = new google.visualization.LineChart(document.getElementById(id));
                 break;
                 case 'barra':
-                  chart = new google.visualization.ColumnChart(document.getElementById('grafico'));
+                  chart = new google.visualization.ColumnChart(document.getElementById(id));
                 break;
               }
 

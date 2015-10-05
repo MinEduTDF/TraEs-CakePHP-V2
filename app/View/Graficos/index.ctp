@@ -12,29 +12,29 @@
 <div id="click_01" class="titulo_acordeon">Inscriptos por Curso</div>
 <div id="acordeon_01">
     <script>
-		graficos('torta');
+		graficos('torta','inscripcion');
 		$(document).ready(function () {
 		    $(window).resize(function(){
-		        graficos('torta');
+		        graficos('torta','inscripcion');
 		    });
 		});
     </script>
-     <div id="grafico" style="width:100%; height:300px"></div>
+     <div id="inscripcion" style="width:100%; height:300px"></div>
 </div>
 <!-- end Alumnos Inscriptos por curso -->
 
-<!-- Alumnos Inscriptos por curso -->
+<!-- Abandono por curso -->
 <div id="click_02" class="titulo_acordeon">Abandonos por Curso</div>
 <div id="acordeon_02">
     <script>
-		graficos('barra');
+		graficos('barra','abandono');
 		$(document).ready(function () {
 		    $(window).resize(function(){
-		        graficos('barra');
+		        graficos('barra','abandono');
 		    });
 		});
     </script>
-     <div id="grafico" style="width:100%; height:300px"></div>
+     <div id="abandono" style="width:100%; height:300px"></div>
 </div>
-<!-- end Alumnos Inscriptos por curso -->
+<!-- end Abandono por curso -->
 </div>
