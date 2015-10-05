@@ -1966,3 +1966,323 @@
 2015-09-28 16:12:58 Error: [MissingControllerException] Controller class CssController could not be found.
 #0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-09-28 22:18:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:03 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:03 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:03 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:03 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:04 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:29:52 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-28 23:52:59 Error: [MissingPluginException] Plugin FileUpload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('FileUpload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('FileUpload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'FileUpload')
+#3 [internal function]: App::load('FileUploadBehav...')
+#4 [internal function]: spl_autoload_call('FileUploadBehav...')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('FileUploadBehav...')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('FileUpload.File...', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-28 23:54:14 Error: [MissingPluginException] Plugin FileUpload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('FileUpload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('FileUpload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'FileUpload')
+#3 [internal function]: App::load('FileUploadBehav...')
+#4 [internal function]: spl_autoload_call('FileUploadBehav...')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('FileUploadBehav...')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('FileUpload.File...', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-29 18:32:53 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-30 03:12:40 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-09-30 18:19:58 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-30 18:50:42 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-30 18:51:09 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-30 18:51:14 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-09-30 18:51:43 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-10-01 16:55:01 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(670): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(366): Controller->loadModel('Alumno')
+#11 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(245): Controller->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(117): PaginatorComponent->_getObject(NULL)
+#13 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#14 C:\wamp\www\sigedu\app\Controller\AlumnosController.php(11): Controller->paginate()
+#15 [internal function]: AlumnosController->index()
+#16 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(AlumnosController), Array)
+#17 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#18 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(AlumnosController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 {main}
+2015-10-01 16:59:52 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(947): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(779): Model->_constructLinkedModel('Alumno', 'Alumno', NULL)
+#11 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(802): Model->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Model\Datasource\DboSource.php(1023): Model->__get('Alumno')
+#13 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(2458): DboSource->read(Object(Nota), Array)
+#14 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#15 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#16 C:\wamp\www\sigedu\app\Controller\NotasController.php(11): Controller->paginate()
+#17 [internal function]: NotasController->index()
+#18 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(NotasController), Array)
+#19 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#20 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(NotasController), Object(CakeRequest), Object(CakeResponse))
+#21 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#22 {main}
+2015-10-01 16:59:57 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(947): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(779): Model->_constructLinkedModel('Alumno', 'Alumno', NULL)
+#11 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(802): Model->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Model\Datasource\DboSource.php(1023): Model->__get('Alumno')
+#13 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(2458): DboSource->read(Object(Nota), Array)
+#14 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#15 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#16 C:\wamp\www\sigedu\app\Controller\NotasController.php(11): Controller->paginate()
+#17 [internal function]: NotasController->index()
+#18 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(NotasController), Array)
+#19 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#20 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(NotasController), Object(CakeRequest), Object(CakeResponse))
+#21 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#22 {main}
+2015-10-01 17:03:54 Error: [MissingPluginException] Plugin Upload could not be found.
+#0 C:\wamp\www\sigedu\lib\Cake\Core\App.php(328): CakePlugin::path('Upload')
+#1 C:\wamp\www\sigedu\lib\Cake\Core\App.php(216): App::pluginPath('Upload')
+#2 C:\wamp\www\sigedu\lib\Cake\Core\App.php(502): App::path('Model/Behavior', 'Upload')
+#3 [internal function]: App::load('UploadBehavior')
+#4 [internal function]: spl_autoload_call('UploadBehavior')
+#5 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(117): class_exists('UploadBehavior')
+#6 C:\wamp\www\sigedu\lib\Cake\Model\BehaviorCollection.php(67): BehaviorCollection->load('Upload.Upload', Array)
+#7 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(704): BehaviorCollection->init('Alumno', Array)
+#8 C:\wamp\www\sigedu\lib\Cake\Utility\ClassRegistry.php(136): Model->__construct(Array)
+#9 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(947): ClassRegistry::init(Array)
+#10 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(779): Model->_constructLinkedModel('Alumno', 'Alumno', NULL)
+#11 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(802): Model->__isset('Alumno')
+#12 C:\wamp\www\sigedu\lib\Cake\Model\Datasource\DboSource.php(1023): Model->__get('Alumno')
+#13 C:\wamp\www\sigedu\lib\Cake\Model\Model.php(2458): DboSource->read(Object(Nota), Array)
+#14 C:\wamp\www\sigedu\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#15 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(1023): PaginatorComponent->paginate(NULL, Array, Array)
+#16 C:\wamp\www\sigedu\app\Controller\NotasController.php(11): Controller->paginate()
+#17 [internal function]: NotasController->index()
+#18 C:\wamp\www\sigedu\lib\Cake\Controller\Controller.php(473): ReflectionMethod->invokeArgs(Object(NotasController), Array)
+#19 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(107): Controller->invokeAction(Object(CakeRequest))
+#20 C:\wamp\www\sigedu\lib\Cake\Routing\Dispatcher.php(89): Dispatcher->_invoke(Object(NotasController), Object(CakeRequest), Object(CakeResponse))
+#21 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#22 {main}
+2015-10-01 17:04:45 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:05:19 Error: [MissingControllerException] Controller class FilesController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:08:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:08:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:08:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:08:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-01 17:08:53 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:13 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:16 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:16 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:16 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:16 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:17 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-03 02:31:27 Error: [MissingControllerException] Controller class CssController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-05 16:23:13 Error: [MissingControllerException] Controller class GestionController could not be found.
+#0 C:\wamp\www\sigedu\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

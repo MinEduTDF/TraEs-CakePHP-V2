@@ -1,4 +1,3 @@
-
 <!-- *********** DatePicker ************* -->
 <?php echo $this->Html->script('datepicker'); ?>
 <!-- ************************************** -->
@@ -6,18 +5,17 @@
 <?php echo $this->Html->script('tooltip'); ?>
 <!-- ************************************** -->
 
-
-  <div class="row">
+<div class="row">
   <div class="col-md-4 col-sm-6 col-xs-12">
    
 <?php 
-        echo $this->Form->input('creado', array('label' => 'Creado*', 'type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca fecha de creación del registro'));
-		echo $this->Form->input('nombres', array('label' => 'Nombres*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca Nombre completo'));
-		echo $this->Form->input('apellidos', array('label'=>'Apellidos*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca Apellido completo'));
-        echo $this->Form->input('foto', array('type' => 'file', 'label'=>'Foto', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Adjunte imagen de 640 x 480'));
-        echo $this->Form->input('foto_dir', array('type' => 'hidden'));
+        echo $this->Form->input('creado', array('readonly' => 'readonly', 'label' => 'Creado*', 'type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'No se permite modificar la fecha de creación del registro'));
+		echo $this->Form->input('nombres', array('label' => 'Nombres*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca todos los nombres', 'placeholder' => 'Nombre completo'));
+		echo $this->Form->input('apellidos', array('label'=>'Apellidos*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca todos los apellidos', 'placeholder' => 'Apellido completo'));
+        echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto', 'id' => 'foto', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));
+		echo $this->Form->input('foto_dir', array('type' => 'hidden'));        	
 		$documentosTipos = array('DNI' => 'DNI', 'CI' => 'CI', 'LC' => 'LC', 'LE' => 'LE', 'Cédula                                 Mercosur' => 'Cédula Mercosur', 'Pasaporte extranjero' =>                                 'Pasaporte extranjero', 'Cédula de identidad extranjera' =>                                 'Cédula de identidad extranjera', 'Otro documento extranjero' =>                                 'Otro documento extranjero', 'No posee' => 'No posee', 'En                                  trámite' => 'En trámite','between' => '<br>', 'class' => 'form-control');
-        echo $this->Form->input('documento_tipo', array('label' => 'Tipo de Documento*','options' => $documentosTipos, 'empty' => '','between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
+        echo $this->Form->input('documento_tipo', array('label' => 'Tipo de Documento*','options' => $documentosTipos, 'empty' => '','between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista', 'placeholder' => 'Tipo de documento'));
 		echo $this->Form->input('documento_nro', array('label'=>'Número de Documento*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique el número sin puntos ni espacios'));
 		echo $this->Form->input('cuil_cuit', array('label'=>'CUIL / CUIT', 'between' => '<br>', 'class' => 'form-control', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique el número sin puntos ni espacios'));
 

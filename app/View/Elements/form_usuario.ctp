@@ -18,5 +18,5 @@
 		             			   array('label'=>'Contraseña', 'between' => '<br>', 'placeholder' => 'Contraseña','class' => 'form-control')); ?>
 		              </div><br>
 
-		<?php echo $this->Form->end(array('label' => 'INICIAR SESIÓN', 'style'=>'width:70%;', 'class' => 'btn btn-success'));?>
+		<?php echo $this->Form->end(array('label' => 'INICIAR SESIÓN', 'style'=>'width:70%;', 'class' => 'btn btn-success btn-lg'));?>
  </div>

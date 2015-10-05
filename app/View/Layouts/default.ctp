@@ -46,7 +46,7 @@
 		
 	</div><br>
 		<div class="footer">
-			<p>&copy;GNU General Public license</p>
+			<p>license  Creative Commons: by-nc-sa http://creativecommons.org/licenses/by-nc-sa/3.0</p>
 		</div>
 
 </body>

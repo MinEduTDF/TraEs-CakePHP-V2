@@ -1,9 +1,11 @@
 <?php
+App::uses('AppController', 'Controller');
+
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
     var $helpers = array('Session');
-	var $components = array('Auth','Session');
+	public $components = array('Auth','Session', 'RequestHandler');
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.creado DESC'));
 
 	function index() {
@@ -47,7 +49,7 @@ class AlumnosController extends AppController {
 	function add() {
 		if (!empty($this->data)) {
 			$this->Alumno->create();
-			if ($this->Alumno->save($this->data)) {
+			if ($this->Alumno->save($this->request->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Alumno->id;
 				$this->redirect(array('action' => 'view', $inserted_id));

@@ -11,18 +11,20 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
+
     // added the debug toolkit
 	// sessions support
 	// authorization for login and logut redirect
     public $components = array(
             //'DebugKit.Toolbar',
+			'RequestHandler',
 			'Session',
 		    'Auth' => array(
                         'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
 					    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),                        'authError' => 'Debes estar logueado para continuar.', 
 					    'loginError' => 'Nombre de usuario o contraseña incorrectos.',
 						'authorize' => array('Controller'),
-    ));
+			));
 
     // only allow the login controllers only
 	public function beforeFilter() {

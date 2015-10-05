@@ -1,28 +1,29 @@
 <?php
+App::uses('AppModel', 'Model');
+
 class Alumno extends AppModel {
 	
 	var $name = 'Alumno';
     //var $displayField = 'apellido';
 	public $virtualFields = array('nombre_completo_alumno'=> 'CONCAT(Alumno.apellidos, " ", Alumno.nombres)');
-    /*
+    
 	public $actsAs = array(
-	     'Upload.Upload' => array(
-		     'foto' => array(
-			    'fields' => array(
-				   'dir' => 'foto_dir'
-				),
-				'thumbnailSizes' => array(
-				    'big' => '200x200',
-					'small' => '120x120',
-					'thumb' => '80x80'
-				),
-				'thumbnailMethod' => 'php',
-				//'deleteOnUpdate' => 'true',
-				//'deleteFolderOnDelete' => 'true'
-			 )
-		 )
-	);
-	*/
+			'Upload.Upload' => array(
+				'foto' => array(
+					'fields' => array(
+						'dir' => 'foto_dir'
+					),
+					'thumbnailMethod' => 'php',
+					'thumbnailSizes' => array(
+						'vga' => '640x480',
+						'thumb' => '150x150'
+					),
+					'deleteOnUpdate' => true,
+					'deleteFolderOnDelete' => true
+				)
+			)
+		);
+	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
     /*var $belongsTo = array(
@@ -120,7 +121,7 @@ class Alumno extends AppModel {
 //Validaciones
 
         var $validate = array(
-                   'creado*' => array(
+                   'creado' => array(
                            'date' => array(
                            'rule' => 'date',
                            'allowEmpty' => false,
@@ -242,8 +243,36 @@ class Alumno extends AppModel {
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
                            'message' => 'La ciudad no es valida. Indicar una opción de la lista.'                           )
-                   )
-         
+                   ),
+				   'foto' => array(
+        	'uploadError' => array(
+				'rule' => 'uploadError',
+				'message' => 'Algo anda mal, intente nuevamente',
+				'on' => 'create'
+			),
+	    	'isUnderPhpSizeLimit' => array(
+	    		'rule' => 'isUnderPhpSizeLimit',
+	        	'message' => 'Archivo excede el límite de tamaño de archivo de subida'
+	        ),
+		    'isValidMimeType' => array(
+	    		'rule' => array('isValidMimeType', array('image/jpeg', 'image/png'), false),
+        		'message' => 'La imagen no es jpg ni png',
+	    	),
+		    'isBelowMaxSize' => array(
+	    		'rule' => array('isBelowMaxSize', 1048576),
+        		'message' => 'El tamaño de imagen es demasiado grande'
+	    	),
+		    'isValidExtension' => array(
+	    		'rule' => array('isValidExtension', array('jpg', 'png'), false),
+        		'message' => 'La imagen no tiene la extension jpg o png'
+	    	),
+		    'checkUniqueName' => array(
+                'rule' => array('checkUniqueName'),
+                'message' => 'La imagen ya se encuentra registrada',
+                'on' => 'update'
+        	),		
+			)
+    
         );
        
 }

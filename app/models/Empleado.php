@@ -2,7 +2,7 @@
 class Empleado extends AppModel {
 	
 	var $name = 'Empleado';
-    var $displayField = 'apellido';
+    //var $displayField = 'apellido';
 	public $virtualFields = array('nombre_completo_empleado'=>'CONCAT(Empleado.primerNombre, " ", Empleado.apellido)');
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
