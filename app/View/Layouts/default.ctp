@@ -1,12 +1,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-	<!-- Smartphones, tablet -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- ******************* -->
-
 <?php echo $this->Html->charset(); ?>
 
 <!-- ************ Bootstrap Css *********** -->
@@ -21,10 +15,6 @@
   		<?php echo $this->Html->css('jquery-ui.css'); ?>
 <!-- **************************************** -->
 
-<!-- ************* fastclick.js *******************-->
- 		<?php echo $this->Html->script('fastclick.js'); ?>
-<!-- **************************************** -->
-
 <!-- ************* Bootstrap.js *******************-->
  		<?php echo $this->Html->script('bootstrap.min.js'); ?>
 <!-- **************************************** -->
@@ -33,11 +23,7 @@
          <?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>
         <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
-<script>
-	$(function() {
-	    FastClick.attach(document.body);
-	});
-</script>
+
 
 		<title>SIGIedu_TDF</title>
 </head>
@@ -60,7 +46,8 @@
 		
 	</div><br>
 		<div class="footer">
-			<p>&copy;GNU General Public license</p>
+			<p>license  Creative Commons: by-nc-sa http://creativecommons.org/licenses/by-nc-sa/3.0</p>
 		</div>
+
 </body>
 </html>

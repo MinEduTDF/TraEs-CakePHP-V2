@@ -1,54 +1,47 @@
-<div class="users view">
-</br></br>
-<h2><?php echo __('User');?></h2>
-	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Id: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['id']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('NombreUsuario: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['username']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Clave: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['password']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Rol: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['role']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Puesto: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $user['User']['puesto']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Centro: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($user['Centro']['id'], array('controller' => 'centros', 'action' => 'view', $$user['Centro']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Empleado: '); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($$user['Empleado']['id'], array('controller' => 'empleados', 'action' => 'view', $$user['Empleado']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
+
+<!-- start main -->
+<div class="TituloSec">Usuario: <?php echo ($user['User']['username']); ?></div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+  		
+  <div class="col-md-4 col-sm-6 col-xs-8">	
+
+			<b><?php echo __('Id:'); ?></b>
+			<?php echo ($user['User']['id']); ?></p>
+
+            <b><?php echo __('Empleado:'); ?></b>
+			<?php echo $this->Html->link($user['Empleado']['nombre_completo_empleado'], array('controller' => 'empleados', 'action' => 'view', $user['Empleado']['id'])); ?></p>
+
+			<b><?php echo __('Rol:'); ?></b>
+			<?php echo ($user['User']['role']); ?></p>
+
+			<b><?php echo __('Puesto:'); ?></b>
+			<?php echo ($user['User']['puesto']); ?></p>
+
+            <b><?php echo __('Centro:'); ?></b>
+			<?php echo $this->Html->link($user['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $user['Centro']['id'])); ?></p>
+ 	  </div>
+    </div>
+ </div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Usuario'), array('action' => 'edit', $user['User']['id'])); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Borrar Usuario'), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Esta seguro de borrar # %s?'), $user['User']['id'])); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Usuarios'), array('action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Usuario'), array('action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'index')); ?> </li>
+
+<div class="col-md-4">
+ <div class="unit">
+ 			<div class="subtitulo">Opciones</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Editar Usuario'), array('action' => 'edit', $user['User']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar Usuario'), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Esta seguro de borrar al usuario %s?'), $user['User']['username'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Export to PDF'), array('action' => 'view', $user['User']['id'], 'ext' => 'pdf')); ?></div>
+		<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'view', $user['User']['empleado_id'])); ?> 
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
-	</ul>
+	</div>
+	</div>
+  </div>
 </div>
+ <!-- end main -->   

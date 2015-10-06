@@ -11,18 +11,20 @@
 App::uses('Controller', 'Controller');
 
 class AppController extends Controller {
+
     // added the debug toolkit
 	// sessions support
 	// authorization for login and logut redirect
     public $components = array(
             //'DebugKit.Toolbar',
+			'RequestHandler',
 			'Session',
 		    'Auth' => array(
                         'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
 					    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),                        'authError' => 'Debes estar logueado para continuar.', 
 					    'loginError' => 'Nombre de usuario o contraseña incorrectos.',
 						'authorize' => array('Controller'),
-    ));
+			));
 
     // only allow the login controllers only
 	public function beforeFilter() {
@@ -34,13 +36,18 @@ class AppController extends Controller {
 		// Admin puede acceder a todo
 		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
 		// En este caso a la acción usuario del controller users
-	//    if (isset($user['status']) == ) {
-	  //       $this->redirect('usuario');
-	     //}
-    		if (isset($user['username']) == "usuario") { $this->redirect('usuario'); }
-    	
-    	return true;
-}
+	    if (isset($user['role']) && $user['role'] === 'admin' && $this->action='index') {
+	        return true;
+	    }
+		elseif ($user['status'] == 1){
+            $this->Session->setFlash('Hola, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
+            $this->redirect('usuario');
+            return true;
+        }
+	 	//Por defecto se deniega el acceso
+	    return false;
+	}
+	 
     
     /**
     * Mensaje de exito para las vistas

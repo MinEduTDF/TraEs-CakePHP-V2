@@ -1,8 +1,11 @@
 <?php
+App::uses('AppController', 'Controller');
+
 class UsersController extends AppController {
  
- var $components = array('Session');
-
+ public $helpers = array('Text', 'Js', 'Time');
+ public $components = array('Paginator', 'RequestHandler', 'Session');
+  
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('login','add');
@@ -20,7 +23,7 @@ class UsersController extends AppController {
 	//Acción para redirigir a los usuarios con rol usuario común
     public function usuario() {
     	$this->paginate = array(
-			'limit' => 10,
+			'limit' => 5,
 			'order' => array('User.username' => 'asc' )
 		);
     	$users = $this->paginate('User');
@@ -51,7 +54,7 @@ class UsersController extends AppController {
 
     public function index() {
         $this->paginate = array(
-            'limit' => 6,
+            'limit' => 5,
             'order' => array('User.username' => 'asc' )
         );
         $users = $this->paginate('User');
@@ -63,7 +66,13 @@ class UsersController extends AppController {
 			$this->Session->setFlash('Usuario no válido', 'default', array('class' => 'alert alert-danger'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+        $this->pdfConfig = array(
+            'download' => true,
+            'filename' => 'user_' . $id .'.pdf'
+        );
 		$this->set('user', $this->User->read(null, $id));
+		$this->set('user', $this->User->find('first', $options));
 	}
 
 	function add() {

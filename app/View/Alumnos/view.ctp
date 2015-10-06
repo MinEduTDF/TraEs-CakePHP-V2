@@ -11,18 +11,23 @@
    <div class="col-md-8">	
 	 <div class="unit">
  		<div class="row perfil">
-  		
-  <div class="col-md-4 col-sm-6 col-xs-8">	
-			<b><?php echo __('Nombre: '); ?></b>
-			<?php echo $alumno['Alumno']['nombres']; ?></p>
 
-			<b><?php echo __('Apellido: '); ?></b>
-			<?php echo $alumno['Alumno']['apellidos']; ?></p>
+    <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+  	    <!--<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'vga_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>-->
+	   	<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
+  	</div>
 
-			<b><?php echo __('Dni: '); ?></b>
-			<?php echo $alumno['Alumno']['documento_nro']; ?></p>
+  <div class="col-md-8 col-sm-6 col-xs-8">	
+			<b><?php echo __('Nombres: '); ?></b>
+			<?php echo ($alumno['Alumno']['nombres']); ?></p>
 
-	</div><div class="col-md-4 col-sm-6 col-xs-8">
+			<b><?php echo __('Apellidos: '); ?></b>
+			<?php echo ($alumno['Alumno']['apellidos']); ?></p>
+
+			<b><?php echo __('Documento: '); ?></b>
+			<?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
+
+	</div><div class="col-md-8 col-sm-6 col-xs-8">
 
 			<b><?php echo __('Direccion: '); ?></b>
 			<?php echo $alumno['Alumno']['calle_nombre'].' N° '.$alumno['Alumno']['calle_nro']; ?></p>
@@ -32,11 +37,12 @@
 			
             <b><?php echo __('Email: '); ?></b>
 			<?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
-		  </div>
+          </div>
  	</div>
  </div>
 </div>
 
+<!-- star sidebar -->
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
@@ -47,10 +53,9 @@
 			<div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
 			<div class="opcion"><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?></div>
 	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?></div>
-
 	</div>
-</div>
-</div>
+  </div>
+</div> 
  <!-- end main -->
 
 

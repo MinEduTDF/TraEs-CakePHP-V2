@@ -46,7 +46,10 @@
           </div>
  	</div>
  </div>
-</div><div class="col-md-4">
+</div>
+
+<!-- star sidebar -->
+<div class="col-md-4">
  <div class="unit">
  		<div class="subtitulo">Opciones</div>
 		<div class="opcion"><?php echo $this->Html->link(__('Editar Centro'), array('action' => 'edit', $centro['Centro']['id'])); ?></div>
@@ -60,6 +63,7 @@
  </div>
 </div> 	
 <!-- end sidebar -->
+
 <!--<div class="related">
 	<h3><?php echo __('Cargos Relacionados');?></h3>
 	<?php if (!empty($centro['Cargo'])):?>

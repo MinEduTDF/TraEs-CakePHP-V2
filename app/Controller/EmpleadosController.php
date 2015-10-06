@@ -2,7 +2,9 @@
 class EmpleadosController extends AppController {
 
 	var $name = 'Empleados';
-    var $paginate = array('Empleado' => array('limit' => 3, 'order' => 'Empleado.id DESC'));
+    var $helpers = array('Session');
+	public $components = array('Auth','Session', 'RequestHandler');
+	var $paginate = array('Empleado' => array('limit' => 3, 'order' => 'Empleado.id DESC'));
 	
     function index() {
 		$this->Empleado->recursive = 0;
@@ -12,7 +14,7 @@ class EmpleadosController extends AppController {
 						 'I','J','K','L','M','N','O','P',
 						 'Q','R','S','T','U','V','W','X','Y','Z');
 		
-		$empleados = isset($activeLetter)? $this->paginate('Empleado', array('Empleado.apellido LIKE ' => 
+		$empleados = isset($activeLetter)? $this->paginate('Empleado', array('Empleado.apellidos LIKE ' => 
 		                                                  $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
