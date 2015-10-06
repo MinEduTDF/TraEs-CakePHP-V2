@@ -330,6 +330,7 @@
 </div>-->
 <!-- Fin Inventarios Relacionados -->
 
+<!-- Usuarios Relacionados -->
 <div class="related">
 	<h3><?php echo __('Usuarios relacionados');?></h3>
 	<?php if (!empty($empleado['Usuario'])):?>
@@ -376,3 +377,4 @@
 		</ul>
 	</div>
 </div>
+<!-- Fin Usuarios Relacionados -->

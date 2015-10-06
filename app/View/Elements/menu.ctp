@@ -49,6 +49,7 @@
           </ul>
         </li>
         <li>
+
 		<?php echo $this->Html->link(__('Cerrar Sessión'),'/logout', array('class' => 'btn btn-success navbar-btn btn-lg')); ?>
         </li>
       </div> <!-- /.navbar-collapse -->
