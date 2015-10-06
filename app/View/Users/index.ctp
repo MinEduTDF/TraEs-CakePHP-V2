@@ -3,6 +3,9 @@
 <!-- start main -->
 <div class="TituloSec">Administracion de Usuarios</div>
 <div id="ContenidoSec">
+<div id="second-nav">
+ 	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></span>
+</div>
 <div class="table-responsive">
   <table class="table table-condensed">
     <thead>

@@ -37,8 +37,8 @@
  			<div class="subtitulo">Opciones</div>
 			<div class="opcion"><?php echo $this->Html->link(__('Editar Usuario'), array('action' => 'edit', $user['User']['id'])); ?></div>
 			<div class="opcion"><?php echo $this->Html->link(__('Borrar Usuario'), array('action' => 'delete', $user['User']['id']), null, sprintf(__('Esta seguro de borrar al usuario %s?'), $user['User']['username'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Export to PDF'), array('action' => 'view', $user['User']['id'], 'ext' => 'pdf')); ?></div>
-		<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'view', $user['User']['empleado_id'])); ?> 
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $user['User']['id'], 'ext' => 'pdf')); ?></div>
+		<!--<li><?php echo $this->Html->link(__('Listar Empleados'), array('controller' => 'empleados', 'action' => 'view', $user['User']['empleado_id'])); ?>--> 
 		<!--<li><?php echo $this->Html->link(__('New Empleado'), array('controller' => 'empleados', 'action' => 'add')); ?> </li>-->
 	</div>
 	</div>

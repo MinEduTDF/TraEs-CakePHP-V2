@@ -331,50 +331,28 @@
 <!-- Fin Inventarios Relacionados -->
 
 <!-- Usuarios Relacionados -->
-<div class="related">
-	<h3><?php echo __('Usuarios relacionados');?></h3>
-	<?php if (!empty($empleado['Usuario'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('NombreUsuario'); ?></th>
-		<th><?php echo __('Clave'); ?></th>
-		<th><?php echo __('Area'); ?></th>
-		<th><?php echo __('Puesto'); ?></th>
-		<th><?php echo __('Centro Id'); ?></th>
-		<th><?php echo __('Empleado Id'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($empleado['Usuario'] as $usuario):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $usuario['id'];?></td>
-			<td><?php echo $usuario['nombreUsuario'];?></td>
-			<td><?php echo $usuario['clave'];?></td>
-			<td><?php echo $usuario['area'];?></td>
-			<td><?php echo $usuario['puesto'];?></td>
-			<td><?php echo $usuario['centro_id'];?></td>
-			<td><?php echo $usuario['empleado_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'usuarios', 'action' => 'view', $usuario['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'usuarios', 'action' => 'edit', $usuario['id'])); ?>
-				<?php echo $this->Html->link(__('Delete'), array('controller' => 'usuarios', 'action' => 'delete', $usuario['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $usuario['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add'));?> </li>
-		</ul>
+<div id="click_01" class="titulo_acordeon">Usuarios Relacionados</div>
+<div id="acordeon_01">
+		<div class="row">
+	<?php if (!empty($empleado['User'])):?>
+  			<div class="col-xs-12 col-sm-6 col-md-8">
+	<?php foreach ($empleado['User'] as $user): ?>
+	<div class="col-md-6">
+		<div class="unit">
+			<?php echo '<b>Id:</b> '.$user['id'];?><br>
+			<?php echo '<b>Nombre de Usuario:</b> '.$user['username'];?><br>
+			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
+            <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->
+            <div class="text-right">
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-danger')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'users', 'action' => 'view', $user['id']), array('class' => 'btn btn-success')); ?>
+			</div>
+		</div>
+	</div>
+		<?php endforeach; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+		<?php endif; ?>
 	</div>
 </div>
-<!-- Fin Usuarios Relacionados -->
+<!-- end Usuarios Relacionados -->

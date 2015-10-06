@@ -18,8 +18,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Listar'),'/users'); ?></li>
-            <li><?php echo $this->Html->link(__('Agregar'), '/users/add'); ?></li>
+            <li><?php echo $this->Html->link(__('Empleados'),'/empleados'); ?></li>
+            <li><?php echo $this->Html->link(__('Usuarios'),'/users'); ?></li>
           </ul>
         </li>
 		<?php endif; ?>
