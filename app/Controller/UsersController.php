@@ -1,3 +1,4 @@
+
 <?php
 class UsersController extends AppController {
  
@@ -46,7 +47,8 @@ class UsersController extends AppController {
 	}
 
     public function logout() {
-         return $this->redirect($this->Auth->logout());
+    	$this->Auth->logout();
+		$this->redirect('login');
     }
 
     public function index() {

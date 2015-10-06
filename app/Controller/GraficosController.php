@@ -1,15 +1,11 @@
 <?php
 class GraficosController extends AppController {
-public $components = array('RequestHandler');
-
 	var $name = 'Graficos';
+	var $components = array('Auth','Session');
     var $helpers = array('Session');
 	
 	function index() {
+    } 
 
-}
-	function json() {
-
-	}
 }
 ?>

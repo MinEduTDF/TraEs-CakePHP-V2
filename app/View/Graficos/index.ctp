@@ -5,7 +5,7 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
-   <div class="TituloSec"><?php echo __('Reportes gráficos'); ?></div>
+<div class="TituloSec"><?php echo __('Reportes gráficos'); ?></div>
 <div id="ContenidoSec">
 
 <!-- Alumnos Inscriptos por curso -->
@@ -19,7 +19,7 @@
 		    });
 		});
     </script>
-     <div id="inscripcion" style="width:100%; height:300px"></div>
+     <div id="inscripcion" style="width:100vw; height:300px"></div>
 </div>
 <!-- end Alumnos Inscriptos por curso -->
 
@@ -34,7 +34,7 @@
 		    });
 		});
     </script>
-     <div id="abandono" style="width:100%; height:300px"></div>
+     <div id="abandono" style="width:100vw; height:300px"></div>
 </div>
 <!-- end Abandono por curso -->
 </div>
