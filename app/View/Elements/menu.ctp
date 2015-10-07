@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">SIGIedu_TDF. - <?php echo $title_for_layout?></a>
+      <a class="navbar-brand" href="#">TraEs. - <?php echo $title_for_layout?></a>
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -18,20 +18,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Listar'),'/users'); ?></li>
-            <li><?php echo $this->Html->link(__('Agregar'), '/users/add'); ?></li>
+            <li><?php echo $this->Html->link(__('Empleados'),'/empleados'); ?></li>
+            <li><?php echo $this->Html->link(__('Usuarios'),'/users'); ?></li>
           </ul>
         </li>
 		<?php endif; ?>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
-            <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
-            <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
-            <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
-          </ul>
-        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caja curricular <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -42,6 +33,15 @@
           </ul>
         </li>
         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
+            <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
+            <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
+            <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
@@ -49,7 +49,8 @@
           </ul>
         </li>
         <li>
-		<?php echo $this->Html->link(__('Cerrar Sessión'),'/users/logout', array('class' => 'btn btn-success navbar-btn')); ?>
+
+		<?php echo $this->Html->link(__('Cerrar Sessión'),'/logout', array('class' => 'btn btn-success navbar-btn btn-lg')); ?>
         </li>
       </div> <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

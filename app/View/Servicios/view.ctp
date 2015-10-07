@@ -65,8 +65,9 @@
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
-		    <div class="opcion"><?php echo $this->Html->link(__('Editar Servicio'), array('action' => 'edit', $servicio['Servicio']['id'])); ?> </div>
-				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $servicio['Servicio']['id'] ), null, sprintf(__('Esta seguro de borrar el servicio "'.$servicio['Servicio']['id'].'"'), $this->Form->value('Servicio.id'))); ?></div>
+		    <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $servicio['Servicio']['id'])); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $servicio['Servicio']['id'] ), null, sprintf(__('Esta seguro de borrar el servicio "'.$servicio['Servicio']['id'].'"'), $this->Form->value('Servicio.id'))); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $servicio['Servicio']['id'], 'ext' => 'pdf')); ?></div>
 	</div>
 </div>
 </div>

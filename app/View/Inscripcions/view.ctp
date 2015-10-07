@@ -30,9 +30,8 @@
                 
             		
 	<!--<h3>Datos previos</h3>-->
-    <div id="click_03" class="titulo_acordeon_datos">Datos previos</div>
-    <div id="acordeon_03">
-         <div class="unit">
+    <div class="subtitulo">Datos previos</div>
+        
         <b><?php echo __('Cursa:'); ?></b>
         
 		<?php echo $inscripcion['Inscripcion']['cursa']; ?></p>
@@ -49,12 +48,10 @@
         
 		<?php echo $inscripcion['Inscripcion']['condicion_aprobacion']; ?></p>
 		
-       </div>
+        
      <!--<h3>Datos del alta baja y egreso del Alumno</h3>-->
-     </div></div><div class="col-md-4 col-sm-4 col-xs-12">
-    <div id="click_04" class="titulo_acordeon_datos">Alta</div>
-      <div id="acordeon_04">
-      <div class="unit">
+     </div><div class="col-md-4 col-sm-4 col-xs-12"><div class="subtitulo">Alta</div>
+        
         <b><?php echo __('Tipo:'); ?></b>
         
 		<?php echo ($inscripcion['Inscripcion']['tipo_alta']); ?></p>
@@ -64,10 +61,9 @@
 		<?php //echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
 		echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
 		 ?></p>
-		</div></div>
-        <div id="click_05" class="titulo_acordeon_datos">Baja</div>
-        <div id="acordeon_05">
-        <div class="unit">
+		
+        <div class="subtitulo">Baja</div>
+        
         <b><?php echo __('Tipo:'); ?></b>
         
 		<?php echo ($inscripcion['Inscripcion']['tipo_baja']); ?></p>
@@ -79,13 +75,10 @@
 		<b><?php echo __('Motivo:'); ?></b>
 		
 		<?php echo $inscripcion['Inscripcion']['motivo_baja']; ?></p>
-		</div>
+		
         <!--<h3>Datos del egreso</h3>-->
-        </div></div><div class="col-md-4 col-sm-4 col-xs-12">
-
-        <div id="click_06" class="titulo_acordeon_datos">Egreso</div>
-        <div id="acordeon_06">
-                 <div class="unit">
+        </div><div class="col-md-4 col-sm-4 col-xs-12"><div class="subtitulo">Egreso</div>
+                
         <b><?php echo __('Fecha:'); ?></b>
         
 		<?php echo ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_egreso'])); ?></p>
@@ -96,12 +89,10 @@
 		<b><?php echo __('Acta | Folio:'); ?></b>
 		
 		<?php $inscripcion['Inscripcion']['acta']." | ".$inscripcion['Inscripcion']['folio']; ?></p>
-		    </div>
-		</div>
+		    
     <!--<h3>Datos de la titulación</h3>-->
-    <div id="click_07" class="titulo_acordeon_datos">Titulación</div>
-    <div id="acordeon_07">
-       <div class="unit">
+    <div class="subtitulo">Titulación</div>
+       
         <b><?php echo __('Emitido el:'); ?></b>
         
 		<?php echo ($this->Html->formatTime($inscripcion['Inscripcion']['fecha_emision_titulo'])); ?></p>
@@ -116,10 +107,10 @@
 		        
         <b><?php echo __('Empleado: '); ?></b>
         
-		<?php echo ($this->Html->link($inscripcion['Empleado']['apellido'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['Empleado']['apellido']))
-			." ".($this->Html->link($inscripcion['Empleado']['primerNombre'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['Empleado']['primerNombre']))));
+		<?php echo ($this->Html->link($inscripcion['Empleado']['apellidos'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['Empleado']['id']))
+			." ".($this->Html->link($inscripcion['Empleado']['nombres'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['Empleado']['id']))));
 			?></p>
-            </div></div>
+            
 		  </div>
  	</div>
  </div>
@@ -128,11 +119,13 @@
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
-		    <div class="opcion"><?php echo $this->Html->link(__('Editar Inscripcion'), array('action' => 'edit', $inscripcion['Inscripcion']['id'])); ?> </div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
+		    <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $inscripcion['Inscripcion']['id'])); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $inscripcion['Inscripcion']['id']), null, sprintf(__('Esta seguro de borrar la inscripción %s?'), $inscripcion['Inscripcion']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $inscripcion['Inscripcion']['id'], 'ext' => 'pdf')); ?></div>
+    		<!--<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
 			<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </div>
 			<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>-->
 	</div>
 </div>
 </div>
@@ -156,9 +149,9 @@
             <?php echo '<b>Titulación:</b> '.($this->Html->link($curso['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['titulacion_id'])));?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'cursos', 'action' => 'view', $curso['id']), array('class' => 'btn btn-success')); ?>
-			<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $materia['id'])); ?>-->
+			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'cursos', 'action' => 'delete', $curso['id']), array('class' => 'btn btn-danger')); ?>
             </div>
 		</div>
 	</div>
@@ -187,9 +180,9 @@
 			<?php echo '<b>Curso Id:</b> '.($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success')); ?>
-			<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $materia['id'])); ?>-->
+			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger')); ?>
             </div>
 		</div>
 	</div>

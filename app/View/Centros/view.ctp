@@ -46,20 +46,26 @@
           </div>
  	</div>
  </div>
-</div><div class="col-md-4">
+</div>
+
+<!-- star sidebar -->
+<div class="col-md-4">
  <div class="unit">
  		<div class="subtitulo">Opciones</div>
-		<div class="opcion"><?php echo $this->Html->link(__('Editar Centro'), array('action' => 'edit', $centro['Centro']['id'])); ?></div>
-		<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('action' => 'index')); ?></div>
+		<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $centro['Centro']['id'])); ?></div>
+		<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $centro['Centro']['id']), null, sprintf(__('Esta seguro de borrar el centro %s?'), $centro['Centro']['sigla'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $centro['Centro']['id'], 'ext' => 'pdf')); ?></div>
+		<!--<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('action' => 'index')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Listar Titulaciones'), array('controller' => 'titulacions', 'action' => 'index')); ?></div>	
         <div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?></div>	
 		<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?></div>
 		<div class="opcion"><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?></div>
-        <div class="opcion"><?php echo $this->Html->link(__('Listar Inasistencias'), array('controller' => 'inasistencias', 'action' => 'index')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Listar Inasistencias'), array('controller' => 'inasistencias', 'action' => 'index')); ?></div>-->
   </div>
  </div>
 </div> 	
 <!-- end sidebar -->
+
 <!--<div class="related">
 	<h3><?php echo __('Cargos Relacionados');?></h3>
 	<?php if (!empty($centro['Cargo'])):?>
@@ -238,8 +244,10 @@
             <?php echo '<b>Forma del dictado:</b> '.$titulacion['forma_dictado'];?><br>
 
         <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'titulacions', 'action' => 'edit', $titulacion['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'titulacions', 'action' => 'edit', $titulacion['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'titulacions', 'action' => 'view', $titulacion['id']), array('class' => 'btn btn-success')); ?>
+			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'titulacions', 'action' => 'delete', $titulacion['id']), array('class' => 'btn btn-danger')); ?>
+
 			</div>
 		</div>
 	</div>

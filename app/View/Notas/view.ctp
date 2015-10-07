@@ -11,7 +11,7 @@
 	 <div class="unit">
  		<div class="row">
   		
-   <div class="col-md-6 col-sm-12 col-xs-12">	
+   <div class="col-md-4 col-sm-4 col-xs-4">	
 		
         <b>Alumno:</b>		
 	    <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
@@ -55,7 +55,7 @@
 	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
   
 
-</div><div class="col-md-6 col-sm-12 col-xs-12">
+</div><div class="col-md-4 col-sm-4 col-xs-4">
 
 <div class="subtitulo">Tercer período</div>
  
@@ -94,9 +94,10 @@
 
 </div><div class="col-md-4">
 		 <div class="unit">
-	 			<div class="subtitulo">Opciones</div>
-				<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
-				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
+ 			<div class="subtitulo">Opciones</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $nota['Nota']['id'], 'ext' => 'pdf')); ?></div>
          </div>
       </div>
    </div>

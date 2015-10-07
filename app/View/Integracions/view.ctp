@@ -52,11 +52,13 @@
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
-		    <div class="opcion"><?php echo $this->Html->link(__('Editar Integración'), array('action' => 'edit', $integracion['Integracion']['id'])); ?> </div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
+		    <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $integracion['Integracion']['id'])); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $integracion['Integracion']['id']), null, sprintf(__('Esta seguro de borrar la integración %s?'), $integracion['Integracion']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $integracion['Integracion']['id'], 'ext' => 'pdf')); ?></div>
+			<!--<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </div>	
 			<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </div>
 			<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </div>-->
 	</div>
 </div>
 </div>

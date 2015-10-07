@@ -1,89 +1,61 @@
+<!-- *********** Acordeon ************* -->
+<?php echo $this->Html->script('acordeon'); ?>
+<!-- ************************************** -->
+
+
 <!-- start main -->
- <div id="main">
- </br>
- <h2>Empleados</h2>
-			<!-- start second nav -->
- <div id="second-nav">
- 	  <ul>
-        <li><?php echo $this->Html->link(__('Nuevo Empleado'), array('action' => 'add')); ?></li>
- 	  </ul>
+<div class="TituloSec"><?php echo ($empleado['Empleado']['apellidos']).' '.($empleado['Empleado']['nombres']); ?></div>
+<div id="ContenidoSec">
+
+<div class="row">
+   <div class="col-md-8">	
+	 <div class="unit">
+ 		<div class="row perfil">
+
+    <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+  	    <!--<?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'vga_' .$empleado['Empleado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>-->
+	   	<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
+  	</div>
+
+   <div class="col-md-8 col-sm-6 col-xs-8">	
+			<b><?php echo __('Nombres: '); ?></b>
+			<?php echo $empleado['Empleado']['nombres']; ?></p>
+
+			<b><?php echo __('Apellidos: '); ?></b>
+			<?php echo $empleado['Empleado']['apellidos']; ?></p>
+
+			<b><?php echo __('Documento: '); ?></b>
+			<?php echo ($empleado['Empleado']['documento_tipo']).' '.($empleado['Empleado']['documento_nro']); ?></p>
+
+	</div><div class="col-md-8 col-sm-6 col-xs-8">
+
+			<b><?php echo __('Direccion: '); ?></b>
+			<?php echo $empleado['Empleado']['calle_nombre'].' N° '.$empleado['Empleado']['calle_nro']; ?></p>
+
+			<b><?php echo __('Telefono: '); ?></b>
+			<?php echo $empleado['Empleado']['telefono_nro']; ?></p>
+			
+            <b><?php echo __('Email: '); ?></b>
+			<?php echo ($this->Html->link($empleado['Empleado']['email'],'mailto:'.$empleado['Empleado']['email'])); ?></p>
+          </div>
+ 	</div>
  </div>
- <!-- end second nav -->
- 
-    <dl><?php $i = 0; $class = ' class="altrow"';?>
-		<!--<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Id'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['id']; ?>
-			&nbsp;
-		</dd>-->
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Dni'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['dni']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Apellido'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['apellido']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('PrimerNombre'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['primerNombre']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Direccion'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['direccion']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Telefono'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['telefono']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Email'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['email']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><strong><?php echo __('Ciudad'); ?></strong></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $empleado['Empleado']['ciudad']; ?>
-			&nbsp;
-		</dd>
-	</dl>
- </div>
- <!-- end main -->
- <!-- start sidebar -->
- <div id="sidebar">
-		
-		<div id="invoice-stats">
-   		
-        </div>
-  <div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Editar Empleado'), array('action' => 'edit', $empleado['Empleado']['id'])); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('Borrar Empleado'), array('action' => 'delete', $empleado['Empleado']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $empleado['Empleado']['id'])); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Empleados'), array('action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Nuevo Empleado'), array('action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('List Estados'), array('controller' => 'estados', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Inventarios'), array('controller' => 'inventarios', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Inventario'), array('controller' => 'inventarios', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('List Usuarios'), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-	</ul>
+</div>
+
+<!-- star sidebar -->
+<div class="col-md-4">
+ <div class="unit">
+ 			<div class="subtitulo">Opciones</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $empleado['Empleado']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $empleado['Empleado']['id']), null, sprintf(__('Esta seguro de borrar al empleado %s?'), $empleado['Empleado']['nombre_completo_empleado'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $empleado['Empleado']['id'], 'ext' => 'pdf')); ?></div>
+	</div>
   </div>
-</div>	
-<!-- end sidebar -->
-<div class="related">
+</div> 
+ <!-- end main -->
+
+<!-- Centros Relacionados -->
+<!--<div class="related">
 	<h3><?php echo __('Centros Relacionados');?></h3>
 	<?php if (!empty($empleado['Centro'])):?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -122,30 +94,33 @@
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'centros', 'action' => 'view', $centro['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'centros', 'action' => 'edit', $centro['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'centros', 'action' => 'delete', $centro['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $centro['id'])); ?>-->
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'centros', 'action' => 'delete', $centro['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $centro['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<!--<div class="actions">
+	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add'));?> </li>
 		</ul>
-	</div>-->
-</div>
-<div class="related">
+	</div>
+</div>-->
+<!-- Fin Centros Relacionados -->
+
+<!-- Cargos Relacionados -->
+<!--<div class="related">
 	<h3><?php echo __('Cargos Relacionados');?></h3>
 	<?php if (!empty($empleado['Cargo'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Nombre'); ?></th>
 		<th><?php echo __('Tipo'); ?></th>
 		<th><?php echo __('Resolucion Nro'); ?></th>
 		<th><?php echo __('Hs Catedra'); ?></th>
-		<!--<th><?php echo __('Hs Reloj'); ?></th>-->
+		<th><?php echo __('Hs Reloj'); ?></th>
 		<th><?php echo __('Area'); ?></th>
 		<th><?php echo __('Puesto'); ?></th>
 		<th><?php echo __('Descricpion'); ?></th>
@@ -156,8 +131,8 @@
 		<th><?php echo __('Cambio Situacion'); ?></th>
 		<th><?php echo __('Estado'); ?></th>
 		<th><?php echo __('Centro Id'); ?></th>
-		<!--<th><?php echo __('Curso Id'); ?></th>-->
-		<!--<th><?php echo __('Materia Id'); ?></th>-->
+		<th><?php echo __('Curso Id'); ?></th>
+		<th><?php echo __('Materia Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -169,12 +144,12 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<!--<td><?php echo $cargo['id'];?></td>-->
+			<td><?php echo $cargo['id'];?></td>
 			<td><?php echo $cargo['nombre'];?></td>
 			<td><?php echo $cargo['tipo'];?></td>
 			<td><?php echo $cargo['resolucionNro'];?></td>
 			<td><?php echo $cargo['hsCatedra'];?></td>
-			<!--<td><?php echo $cargo['hsReloj'];?></td>-->
+			<td><?php echo $cargo['hsReloj'];?></td>
 			<td><?php echo $cargo['area'];?></td>
 			<td><?php echo $cargo['puesto'];?></td>
 			<td><?php echo $cargo['descricpion'];?></td>
@@ -185,25 +160,28 @@
 			<td><?php echo $cargo['fechaCambioSituacionPersona'];?></td>
 			<td><?php echo $cargo['estado'];?></td>
 			<td><?php echo ($this->Html->link($cargo['centro_id'], array('controller' => 'centros', 'action' => 'view', $cargo['centro_id'])));?></td>
-			<!--<td><?php echo ($this->Html->link($cargo['curso_id'], array('controller' => 'centros', 'action' => 'view', $cargo['curso_id'])));?></td>-->
-			<!--<td><?php echo ($this->Html->link($cargo['materia_id'], array('controller' => 'centros', 'action' => 'view', $cargo['materia_id'])));?></td>-->
+			<td><?php echo ($this->Html->link($cargo['curso_id'], array('controller' => 'centros', 'action' => 'view', $cargo['curso_id'])));?></td>
+			<td><?php echo ($this->Html->link($cargo['materia_id'], array('controller' => 'centros', 'action' => 'view', $cargo['materia_id'])));?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'cargos', 'action' => 'view', $cargo['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'cargos', 'action' => 'edit', $cargo['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'cargos', 'action' => 'delete', $cargo['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $cargo['id'])); ?>-->
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'cargos', 'action' => 'delete', $cargo['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $cargo['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<!--<div class="actions">
+	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add'));?> </li>
 		</ul>
-	</div>-->
+	</div>
 </div>
-<div class="related">
+<!-- Fin Cargos Relacionados -->
+
+<!-- Estados Relacionados -->
+<!--<div class="related">
 	<h3><?php echo __('Estados Relacionados');?></h3>
 	<?php if (!empty($empleado['Estado'])):?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -215,7 +193,7 @@
 		<th><?php echo __('Hasta'); ?></th>
 		<th><?php echo __('Observacion'); ?></th>
 		<th><?php echo __('Docente Id'); ?></th>
-		<!--<th><?php echo __('Empleado Id'); ?></th>-->
+		<th><?php echo __('Empleado Id'); ?></th>
 		<th><?php echo __('Cargo Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
@@ -235,25 +213,28 @@
 			<td><?php echo $this->Html->formatTime($estado['fechaHasta']);?></td>
 			<td><?php echo $estado['observacion'];?></td>
 			<td><?php echo ($this->Html->link($estado['docente_id'], array('controller' => 'docentes', 'action' => 'view', $estado['docente_id'])));?></td>
-			<!--<td><?php echo ($this->Html->link($estado['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $estado['empleado_id'])));?></td>-->
+			<td><?php echo ($this->Html->link($estado['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $estado['empleado_id'])));?></td>
 			<td><?php echo ($this->Html->link($estado['cargo_id'], array('controller' => 'cargos', 'action' => 'view', $estado['cargo_id'])));?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'estados', 'action' => 'view', $estado['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'estados', 'action' => 'edit', $estado['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'estados', 'action' => 'delete', $estado['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $estado['id'])); ?>-->
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'estados', 'action' => 'delete', $estado['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $estado['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<!--<div class="actions">
+	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Estado'), array('controller' => 'estados', 'action' => 'add'));?> </li>
 		</ul>
-	</div>-->
-</div>
-<div class="related">
+	</div>
+</div>-->
+<!-- Fin Estados Relacionados -->
+
+<!-- Inscripciones Relacionados -->
+<!--<div class="related">
 	<h3><?php echo __('Inscripciones Relacionadas');?></h3>
 	<?php if (!empty($empleado['Inscripcion'])):?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -265,8 +246,8 @@
 		<th><?php echo __('Ciclo Id'); ?></th>
 		<th><?php echo __('Centro Id'); ?></th>
 		<th><?php echo __('Curso Id'); ?></th>
-		<!--<th><?php echo __('Materia Id'); ?></th>-->
-		<!--<th><?php echo __('Empleado Id'); ?></th>-->
+		<th><?php echo __('Materia Id'); ?></th>
+		<th><?php echo __('Empleado Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -285,34 +266,37 @@
 			<td><?php echo ($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?></td>
 			<td><?php echo ($this->Html->link($inscripcion['centro_id'], array('controller' => 'centros', 'action' => 'view', $inscripcion['centro_id'])));?></td>
 			<td><?php echo ($this->Html->link($inscripcion['curso_id'], array('controller' => 'cursos', 'action' => 'view', $inscripcion['curso_id'])));?></td>
-			<!--<td><?php echo ($this->Html->link($inscripcion['materia_id'], array('controller' => 'materias', 'action' => 'view', $inscripcion['materia_id'])));?></td>-->
-			<!--<td><?php echo ($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?></td>-->
+			<td><?php echo ($this->Html->link($inscripcion['materia_id'], array('controller' => 'materias', 'action' => 'view', $inscripcion['materia_id'])));?></td>
+			<td><?php echo ($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inscripcion['id'])); ?>-->
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inscripcion['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<!--<div class="actions">
+	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add'));?> </li>
 		</ul>
-	</div>-->
-</div>
-<div class="related">
+	</div>
+</div>-->
+<!-- Fin Inscripciones Relacionados -->
+
+<!-- Inventarios Relacionados -->
+<!--<div class="related">
 	<h3><?php echo __('Inventarios Relacionados');?></h3>
 	<?php if (!empty($empleado['Inventario'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Nombre'); ?></th>
 		<th><?php echo __('Creacion'); ?></th>
 		<th><?php echo __('Observacion'); ?></th>
-		<!--<th><?php echo __('Empleado Id'); ?></th>-->
+		<th><?php echo __('Empleado Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -324,61 +308,15 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<!--<td><?php echo $inventario['id'];?></td>-->
+			<td><?php echo $inventario['id'];?></td>
 			<td><?php echo $inventario['nombre'];?></td>
 			<td><?php echo $inventario['fechaCreacion'];?></td>
 			<td><?php echo $inventario['observacion'];?></td>
-			<!--<td><?php echo $inventario['empleado_id'];?></td>-->
+			<td><?php echo $inventario['empleado_id'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'inventarios', 'action' => 'view', $inventario['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'inventarios', 'action' => 'edit', $inventario['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inventarios', 'action' => 'delete', $inventario['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inventario['id'])); ?>-->
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<!--<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Inventario'), array('controller' => 'inventarios', 'action' => 'add'));?> </li>
-		</ul>
-	</div>-->
-</div>
-<!--<div class="related">
-	<h3><?php echo __('Related Usuarios');?></h3>
-	<?php if (!empty($empleado['Usuario'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('NombreUsuario'); ?></th>
-		<th><?php echo __('Clave'); ?></th>
-		<th><?php echo __('Area'); ?></th>
-		<th><?php echo __('Puesto'); ?></th>
-		<th><?php echo __('Centro Id'); ?></th>
-		<th><?php echo __('Empleado Id'); ?></th>
-		<th class="actions"><?php echo __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($empleado['Usuario'] as $usuario):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $usuario['id'];?></td>
-			<td><?php echo $usuario['nombreUsuario'];?></td>
-			<td><?php echo $usuario['clave'];?></td>
-			<td><?php echo $usuario['area'];?></td>
-			<td><?php echo $usuario['puesto'];?></td>
-			<td><?php echo $usuario['centro_id'];?></td>
-			<td><?php echo $usuario['empleado_id'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'usuarios', 'action' => 'view', $usuario['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'usuarios', 'action' => 'edit', $usuario['id'])); ?>
-				<?php echo $this->Html->link(__('Delete'), array('controller' => 'usuarios', 'action' => 'delete', $usuario['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $usuario['id'])); ?>
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inventarios', 'action' => 'delete', $inventario['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $inventario['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -387,10 +325,36 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Usuario'), array('controller' => 'usuarios', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Inventario'), array('controller' => 'inventarios', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>-->
+<!-- Fin Inventarios Relacionados -->
 
-
-
+<!-- Usuarios Relacionados -->
+<div id="click_01" class="titulo_acordeon">Usuarios Relacionados</div>
+<div id="acordeon_01">
+		<div class="row">
+	<?php if (!empty($empleado['User'])):?>
+  			<div class="col-xs-12 col-sm-6 col-md-8">
+	<?php foreach ($empleado['User'] as $user): ?>
+	<div class="col-md-6">
+		<div class="unit">
+			<?php echo '<b>Id:</b> '.$user['id'];?><br>
+			<?php echo '<b>Nombre de Usuario:</b> '.$user['username'];?><br>
+			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
+            <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->
+            <div class="text-right">
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-warning')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'users', 'action' => 'view', $user['id']), array('class' => 'btn btn-success')); ?>
+			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('class' => 'btn btn-danger')); ?>
+			</div>
+		</div>
+	</div>
+		<?php endforeach; ?>
+			</div>
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+		<?php endif; ?>
+	</div>
+</div>
+<!-- end Usuarios Relacionados -->

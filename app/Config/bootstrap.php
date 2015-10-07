@@ -21,6 +21,9 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+// Setup a 'default' cache configuration for use in the application.
+Cache::config('default', array('engine' => 'File'));
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  * This is related to Ticket #470 (https://trac.cakephp.org/ticket/470)
@@ -48,5 +51,17 @@ Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), '
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-/** Carga el plugin Tools para hacer disponible Tiny Auth (remplazo de ACL) */
-// CakePlugin::load('Tools');
+CakePlugin::loadAll();
+//CakePlugin::load('Upload');
+
+/**
+ * Configuration CakePdf
+ */
+/*define('DOMPDF_ENABLE_REMOTE', true);
+CakePlugin::load('CakePdf', array('bootstrap' => true, 'routes' => true));
+Configure::write('CakePdf', array(
+    'engine' => 'CakePdf.DomPdf',
+    'pageSize' => 'A4',
+    'orientation' => 'portrait'
+));
+*/
