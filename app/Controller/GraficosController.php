@@ -12,8 +12,12 @@ class GraficosController extends AppController {
 	}
 
 	
-	function index() {
+	public function index() {
     } 
+
+    public function json() {
+
+	}
 
 }
 ?>
