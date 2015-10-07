@@ -20,7 +20,7 @@
                   chart = new google.visualization.ColumnChart(document.getElementById(id));
                 break;
               }
-
+  
 		      google.load('visualization', '1', {'packages':['corechart']});
 	        google.setOnLoadCallback(graficos);
           chart.draw(data, options);

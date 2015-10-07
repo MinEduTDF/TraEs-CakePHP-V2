@@ -8,9 +8,6 @@
 <div class="TituloSec"><?php echo __('Reportes gráficos'); ?></div>
 <div id="ContenidoSec">
 
-<!-- Alumnos Inscriptos por curso 
-<div id="click_01" class="titulo_acordeon">Inscriptos por Curso</div>
-<div id="acordeon_01">-->
     <script>
 		graficos('torta','inscripcion');
 		$(document).ready(function () {
@@ -19,22 +16,25 @@
 		    });
 		});
     </script>
-     <div id="inscripcion" style="width:100vw; height:300px"></div>
+<!-- Alumnos Inscriptos por curso -->
+<div id="click_01" class="titulo_acordeon">Inscriptos por Curso</div>
+<div id="acordeon_01">
+     
+</div><div id="inscripcion" style="width:100%; height:300px"></div>
+    <script>
+		graficos('torta','inscripcion');
 
+    </script>
 <!-- end Alumnos Inscriptos por curso -->
 
 <!-- Abandono por curso -->
-<!-- <div id="click_02" class="titulo_acordeon">Abandonos por Curso</div>
+<div id="click_02" class="titulo_acordeon">Abandonos por Curso</div>
 <div id="acordeon_02">
+
+</div>
+     <div id="abandono" style="width:100%; height:300px"></div>
+<!-- end Abandono por curso -->
+</div>
     <script>
-		graficos('barra','abandono');
-		$(document).ready(function () {
-		    $(window).resize(function(){
-		        graficos('barra','abandono');
-		    });
-		});
+	        graficos('barra','abandono');
     </script>
-     <div id="abandono" style="width:100vw; height:300px"></div>
-</div>
- end Abandono por curso -->
-</div>
