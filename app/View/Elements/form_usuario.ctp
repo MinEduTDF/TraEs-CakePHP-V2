@@ -2,7 +2,7 @@
 <strong><?php echo $this->Session->flash('auth'); ?></strong></br>
 <br><br><br>
 	<div id="login" class="animated bounceInDown">
-		<div class="titulo">SIGIEdu_TDF</div><br>
+		<div class="titulo">TraEs</div><br>
 	<div class="animated fadeIn"><span  class="img_login glyphicon glyphicon-user"></span></div>
 		<?php echo $this->Form->create('User', array('action'=> 'login'));?>
 

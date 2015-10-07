@@ -30,17 +30,25 @@ class AppController extends Controller {
 	public function beforeFilter() {
         $this->Auth->allow('login');
 		$this->set('current_user', $this->Auth->user());
-    }
+	}
 	
     public function isAuthorized($user) {
 		// Admin puede acceder a todo
 		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
 		// En este caso a la acción usuario del controller users
-    		if (isset($user['username']) == "usuario") { $this->redirect('usuario'); }
-    	
-    	return true;
-}
-    
+    	 if (isset($user['role']) && $user['role'] === 'admin' && $this->action='index') {
+	        return true;
+	    }
+		elseif ($user['status'] == 1){
+            $this->Session->setFlash('Hola, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
+            $this->redirect('usuario');
+            return true;
+        }
+	 	//Por defecto se deniega el acceso
+	    return false;
+	}
+
+  
     /**
     * Mensaje de exito para las vistas
     * @param string $url

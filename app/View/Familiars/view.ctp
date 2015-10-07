@@ -43,7 +43,8 @@
 		 <div class="unit">
 	 			<div class="subtitulo">Opciones</div>
 				<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $familiar['Familiar']['id'])); ?></div>
-				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $familiar['Familiar']['id'] ), null, sprintf(__('Esta seguro de borrar el familiar "'.$familiar['Familiar']['nombre_completo'].'"'), $this->Form->value('Familiar.id'))); ?></div>
+				<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $familiar['Familiar']['id'] ), null, sprintf(__('Esta seguro de borrar el familiar "'.$familiar['Familiar']['nombre_completo'].'"'), $this->Form->value('Familiar.id'))); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $familiar['Familiar']['id'], 'ext' => 'pdf')); ?></div>
 		</div>
 		</div>	
 	</div>

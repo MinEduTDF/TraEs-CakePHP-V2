@@ -51,7 +51,8 @@ Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), '
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
-CakePlugin::load('Upload');
+CakePlugin::loadAll();
+//CakePlugin::load('Upload');
 
 /**
  * Configuration CakePdf

@@ -94,9 +94,10 @@
 
 </div><div class="col-md-4">
 		 <div class="unit">
-	 			<div class="subtitulo">Opciones</div>
-				<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
-				<div class="opcion"><?php echo $this->Html->link(__('Eliminar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
+ 			<div class="subtitulo">Opciones</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $nota['Nota']['id'] ), null, sprintf(__('Esta seguro de borrar la nota "'.$nota['Nota']['id'].'"'), $this->Form->value('Nota.id'))); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $nota['Nota']['id'], 'ext' => 'pdf')); ?></div>
          </div>
       </div>
    </div>

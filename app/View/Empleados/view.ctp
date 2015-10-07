@@ -46,8 +46,9 @@
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
-			<div class="opcion"><?php echo $this->Html->link(__('Editar Empleado'), array('action' => 'edit', $empleado['Empleado']['id'])); ?></div>
-
+			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $empleado['Empleado']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $empleado['Empleado']['id']), null, sprintf(__('Esta seguro de borrar al empleado %s?'), $empleado['Empleado']['nombre_completo_empleado'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $empleado['Empleado']['id'], 'ext' => 'pdf')); ?></div>
 	</div>
   </div>
 </div> 
@@ -344,8 +345,9 @@
 			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
             <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'users', 'action' => 'view', $user['id']), array('class' => 'btn btn-success')); ?>
+			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('class' => 'btn btn-danger')); ?>
 			</div>
 		</div>
 	</div>

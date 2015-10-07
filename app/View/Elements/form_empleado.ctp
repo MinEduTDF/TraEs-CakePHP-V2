@@ -9,7 +9,7 @@
   <div class="col-md-4 col-sm-6 col-xs-12">
    
 <?php 
-        echo $this->Form->input('creado', array('readonly' => 'readonly', 'label' => 'Creado*', 'type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'No se permite modificar la fecha de creación del registro'));
+        echo $this->Form->input('creado', array('label' => 'Creado*', 'type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'No se permite modificar la fecha de creación del registro'));
 		echo $this->Form->input('nombres', array('label' => 'Nombres*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca todos los nombres', 'placeholder' => 'Nombre completo'));
 		echo $this->Form->input('apellidos', array('label'=>'Apellidos*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca todos los apellidos', 'placeholder' => 'Apellido completo'));
         echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto', 'id' => 'foto', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));

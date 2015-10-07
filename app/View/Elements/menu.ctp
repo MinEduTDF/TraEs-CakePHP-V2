@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">SIGIedu_TDF. - <?php echo $title_for_layout?></a>
+      <a class="navbar-brand" href="#">TraEs. - <?php echo $title_for_layout?></a>
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -24,21 +24,21 @@
         </li>
 		<?php endif; ?>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
-            <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
-            <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
-            <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
-          </ul>
-        </li>
-        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caja curricular <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>
             <li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
+            <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
+            <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
+            <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
           </ul>
         </li>
         <li class="dropdown">
