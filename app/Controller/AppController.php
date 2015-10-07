@@ -34,8 +34,11 @@ class AppController extends Controller {
 		// Admin puede acceder a todo
 		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
 		// En este caso a la acción usuario del controller users
-    		if (isset($user['username']) == "usuario") { $this->redirect('usuario'); }
     	
+       		if ($user['status'] == 1 ) { if (isset($user['username']) == "usuario") { $this->redirect('usuario'); } } 
+
+     		else { $this->Auth->logout(); $this->redirect('login'); }
+
     	return true;
 }
     
