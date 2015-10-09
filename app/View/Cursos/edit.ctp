@@ -1,9 +1,3 @@
-<?php debug($this->request->data); ?>
-
-
-
-
-
 <div class="TituloSec"><?php echo __('Editar Curso'); ?></div>
 <div id="ContenidoSec">
 <div class="cursos form">
