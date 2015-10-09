@@ -7,5 +7,5 @@
 		$turnos = array('A distancia' => 'A distancia', 'Doble' => 'Doble', 'Intermedio' =>  'Intermedio', 'Libre' => 'Libre', 'Manana' => 'Manana', 'Noche' => 'Noche', 'Tarde' =>'Tarde', 'Vespertino' =>'Vespertino', 'Alternado' => 'Alternado', 'Manana Extendida' =>'Manana Extendida', 'Tarde Extendida' => 'Tarde Extendida', 'Doble Extendida' =>'Doble Extendida', 'Otro' =>'Otro');
         echo $this->Form->input('turno', array('options' => $turnos, 'empty' => '','class' => 'form-control'));?>
 </p><div class="text-center">
-<?php echo $this->Form->end(array('label' => 'BUSCAR', 'class' => 'btn btn-success'));?>
+<?php echo $this->Form->end(array('label' => 'BUSCAR', 'class' => 'btn btn-success btn-lg'));?>
 	</div>

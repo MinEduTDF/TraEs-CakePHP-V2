@@ -61,7 +61,7 @@
 		
 	</div><br>
 		<div class="footer">
-			<p>license  Creative Commons: by-nc-sa http://creativecommons.org/licenses/by-nc-sa/3.0</p>
+			<p><?php echo $this->Html->link('License  Creative Commons: by-nc-sa', 'http://creativecommons.org/licenses/by-nc-sa/3.0'); ?> </p>
 		</div>
 
 </body>

@@ -7,7 +7,9 @@
   <div class="col-xs-12 col-sm-8 col-md-8">
 
 <div id="second-nav">
- 	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary')); ?></span>
+			 <div class="unit text-center">
+			 	  	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary btn-lg')); ?></span>
+			 </div>
 </div>
  <!-- end second nav -->
 
