@@ -11,7 +11,7 @@
 	   <div class="text-right">
 			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['Inscripcion']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['Inscripcion']['id']), array('class' => 'btn btn-success')); ?></span>
-  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['Inscripcion']['id']), array('class' => 'btn btn-danger')); ?></span> 
+  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['Inscripcion']['id']), array('confirm' => 'Está seguro de borrar la inscripción nro.'.$inscripcion['Inscripcion']['id'], 'class' => 'btn btn-danger')); ?></span> 
 			   </div>
 		</div>
 </div>

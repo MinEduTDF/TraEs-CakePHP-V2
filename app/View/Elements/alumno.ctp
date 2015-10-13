@@ -8,7 +8,7 @@
 		       <div class="text-right">
 			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'alumnos', 'action' => 'edit', $alumno['Alumno']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'alumnos', 'action' => 'view', $alumno['Alumno']['id']), array('class' => 'btn btn-success')); ?></span>
-  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'alumnos', 'action' => 'delete', $alumno['Alumno']['id']), array('class' => 'btn btn-danger')); ?></span>
+  			   <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'alumnos', 'action' => 'delete', $alumno['Alumno']['id']), array('confirm' => 'Está seguro de borrar a '.$alumno['Alumno']['nombre_completo_alumno'], 'class' => 'btn btn-danger')); ?></span>
 			   </div>
 		</div>
 </div>
