@@ -15,7 +15,7 @@
 		echo $this->Form->input('dictado', array('options' => $tipos_dictado, 'empty' => '','between' => '<br>', 'class' => 'form-control'));
         $tipos_obligatoriedad = array('Obligatoria' => 'Obligatoria', 'Elegible' => 'Elegible',                                      'Optativa' => 'Optativa', 'Obligatoria reemplazable por otra                                      ' => 'Obligatoria reemplazable por otra');
 		echo $this->Form->input('obligatoriedad', array('options' => $tipos_obligatoriedad,                                 'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('contenido', array('between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('contenido', array('type' => 'file', 'label' => 'Programa', 'id' => 'contenido', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));
 ?>
 
 </div><div class="col-md-6 col-sm-6 col-xs-12">
@@ -31,4 +31,4 @@
 		echo $this->Form->input('escala_numerica', array('options' => $tipos_escala_numerica,                                'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('nota_minima', array('options' => $tipos_escala_numerica,                                'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
 ?>
-</div>
+</div></div>

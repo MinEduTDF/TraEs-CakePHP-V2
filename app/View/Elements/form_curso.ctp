@@ -24,5 +24,6 @@
 		echo $this->Form->input('tipo', array('options' => $tipos, 'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('aula_nro', array('between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('plazas', array('between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('horario', array('type' => 'file', 'label' => 'Horario', 'id' => 'horario', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));
 ?>
-</div>
+</div></div>

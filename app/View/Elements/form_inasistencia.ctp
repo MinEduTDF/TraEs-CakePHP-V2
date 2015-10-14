@@ -21,6 +21,7 @@ echo '</div><div class="col-md-6 col-sm-6 col-xs-12">';
         echo $this->Form->input('tipo', array('options' => $tipos, 'empty' => '','between' => '<br>', 'class' => 'form-control'));
 		$tipos_justificado = array('Si' => 'Si', 'No' => 'No', 'Pendiente' => 'Pendiente');
         echo $this->Form->input('justificado', array('options' => $tipos_justificado, 'empty' => '','between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('certificacion', array('type' => 'file', 'label' => 'Certificación', 'id' => 'certificacion', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));
 ?>
 
 </div></div>

@@ -35,8 +35,16 @@
         <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
 
+<!-- ************* fileInput *******************-->
+ 		<?php echo $this->Html->css('fileinput.min'); ?>
+        <?php echo $this->Html->script('fileinput.min'); ?>
+<!-- **************************************** -->
 
-		<title>SIGIedu_TDF</title>
+<script type="text/javascript">
+     $("#foto").fileinput();
+</script>
+
+		<title>TRAES</title>
 </head>
 <body>
 	<div class="content">
