@@ -18,7 +18,7 @@
 		       <div class="text-right">
 			   <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $materia['Materia']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'materias', 'action' => 'view', $materia['Materia']['id']), array('class' => 'btn btn-success')); ?></span>
-               <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'materias', 'action' => 'delete', $materia['Materia']['id']), array('class' => 'btn btn-danger')); ?></span> 
+               <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'materias', 'action' => 'delete', $materia['Materia']['id']), array('confirm' => 'Está seguro de borrar la materia '.$materia['Materia']['alia'], 'class' => 'btn btn-danger')); ?></span> 
  			   </div>
 		</div>
 </div>

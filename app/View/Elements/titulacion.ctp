@@ -13,7 +13,7 @@
     <div class="text-right">
 			   <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'titulacions', 'action' => 'edit', $titulacion['Titulacion']['id']), array('class' => 'btn btn-warning')); ?></span>
 			   <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'titulacions', 'action' => 'view', $titulacion['Titulacion']['id']), array('class' => 'btn btn-success')); ?></span>
-                <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'titulacions', 'action' => 'delete', $titulacion['Titulacion']['id']), array('class' => 'btn btn-danger')); ?></span> 
+                <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'titulacions', 'action' => 'delete', $titulacion['Titulacion']['id']), array('confirm' => 'Está seguro de borrar la titulación '.$titulacion['Titulacion']['nombre'], 'class' => 'btn btn-danger')); ?></span> 
 			   </div>
 		</div>
 </div>
