@@ -9,10 +9,10 @@
 <div id="ContenidoSec">
 
     <script>
-		graficos('torta','inscripcion');
 		$(document).ready(function () {
 		    $(window).resize(function(){
 		        graficos('torta','inscripcion');
+		        graficos('barra','abandono');
 		    });
 		});
     </script>
