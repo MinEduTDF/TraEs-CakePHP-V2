@@ -4,9 +4,9 @@
 
 		       <span class="name"><span class="glyphicon glyphicon-info"></span> <b>Orientación:</b> <?php echo $titulacion['Titulacion']['orientacion']; ?></span><br/>
 
-		       <span class="name"><span class="glyphicon glyphicon-info"></span> <b>Organización del plan:</b> <?php echo $titulacion['Titulacion']['organizacion_plan']; ?></span><br/>
+		       <!--<span class="name"><span class="glyphicon glyphicon-info"></span> <b>Organización del plan:</b> <?php echo $titulacion['Titulacion']['organizacion_plan']; ?></span><br/>
 
-		       <span class="name"><span class="glyphicon glyphicon-info"></span> <b>Organización de la cursada:</b> <?php echo $titulacion['Titulacion']['organizacion_cursada']; ?></span><br/>
+		       <span class="name"><span class="glyphicon glyphicon-info"></span> <b>Organización de la cursada:</b> <?php echo $titulacion['Titulacion']['organizacion_cursada']; ?></span><br/>-->
 
 		       <span class="name"><span class="glyphicon glyphicon-info"></span> <b>Forma del dictado:</b> <?php echo $titulacion['Titulacion']['forma_dictado']; ?></span><br/>
 

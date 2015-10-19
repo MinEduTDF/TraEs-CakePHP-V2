@@ -1,21 +1,12 @@
+<div class="TituloSec"><?php echo __('Agregar Titulación'); ?></div>
+<div id="ContenidoSec">
 <div class="titulacions form">
-<?php echo $this->Form->create('Titulacion');?>
-	<fieldset>
- 		<legend><?php echo __('Agregar Titulación'); ?></legend>
-	       <div id="main">
-                    <?php echo $this->element('form_titulacion'); ?>
-           </div>
-	</fieldset>
-<?php echo $this->Form->end(__('Grabar'));?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Listar Titulaciones'), array('action' => 'index'));?></li>
-		<!--<li><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Centro'), array('controller' => 'centros', 'action' => 'add')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-	</ul>
-</div>
+<?php echo $this->Form->create('Titulacion', array('type' => 'file', 'novalidate' => 'novalidate'));?>
+	         <div class="unit">
+               <?php echo $this->element('form_titulacion'); ?><p>
+             </div>
+             <div class="text-center">
+          	   <?php echo $this->Form->end(array('label' => 'GUARDAR', 'class' => 'btn btn-success'));?>
+          	  </div>
+		</div>
+	</div>

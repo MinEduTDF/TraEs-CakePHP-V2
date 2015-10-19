@@ -9,10 +9,10 @@
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Turno: </b> <?php echo $curso['Curso']['turno']; ?></span><br/>
 
-               <!--<span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Tipo: </b> <?php echo $curso['Curso']['tipo']; ?></span><br/>-->
+               <!--<span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Tipo: </b> <?php echo $curso['Curso']['tipo']; ?></span><br/>
 
-               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Titulación: </b> <?php echo ($this->Html->link($curso['Curso']['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['Curso']['titulacion_id']))); ?></span><br/>
-               <!--<span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Plazas: </b> <?php echo $curso['Curso']['plazas']; ?></span><br/>-->
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Titulación: </b> <?php echo ($this->Html->link($curso['Curso']['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['Curso']['titulacion_id']))); ?></span><br/>-->
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Plazas: </b> <?php echo $curso['Curso']['plazas']; ?></span><br/>
                  
 		       <div class="text-right">
 			   <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id']), array('class' => 'btn btn-warning')); ?></span>
