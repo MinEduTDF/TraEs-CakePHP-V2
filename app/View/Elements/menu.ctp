@@ -29,7 +29,7 @@
             <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
             <li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>
-            <li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>
+            <!--<li><?php echo $this->Html->link(__('Centros'), '/centros'); ?></li>-->
           </ul>
         </li>
         <li class="dropdown">

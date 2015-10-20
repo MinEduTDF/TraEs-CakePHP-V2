@@ -10,8 +10,9 @@
    <div class="col-md-8">	
 	 <div class="unit">
  		<div class="row">
-  		
-   <div class="col-md-4 col-sm-4 col-xs-4">	
+
+   <!--<h3>Datos del Alumno</h3>-->
+   <div class="col-md-4 col-sm-4 col-xs-12">	
 		
         <b>Alumno:</b>		
 	    <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
@@ -25,7 +26,13 @@
         <b>Ciclo:</b>		
 	    <?php echo ($this->Html->link($nota['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['ciclo']))); ?></p>
 	
-<div class="subtitulo">Primer período</div>
+	</div>
+    
+    <!--<h3>Datos primer período</h3>-->
+    <div class="col-md-4 col-sm-4 col-xs-12">
+    <div id="click_03" class="titulo_acordeon_datos">Primer período</div>
+    <div id="acordeon_03">
+         <div class="unit">
 
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_primer_periodo']); ?></p>
@@ -39,8 +46,12 @@
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_primer_periodo']); ?></p>
 
-
-<div class="subtitulo">Segundo período</div>
+     </div></div>
+        
+     <!--<h3>Datos segundo período</h3>-->
+      <div id="click_04" class="titulo_acordeon_datos">Segundo período</div>
+      <div id="acordeon_04">
+      <div class="unit">
  
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_segundo_periodo']); ?></p>
@@ -53,11 +64,13 @@
 
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
-  
-
-</div><div class="col-md-4 col-sm-4 col-xs-4">
-
-<div class="subtitulo">Tercer período</div>
+        
+      </div></div>
+        
+     <!--<h3>Datos tercer período</h3>-->
+		<div id="click_05" class="titulo_acordeon_datos">Tercer período</div>
+        <div id="acordeon_05">
+        <div class="unit">
  
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_tercer_periodo']); ?></p>
@@ -70,9 +83,14 @@
 
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_tercer_periodo']); ?></p>
+        
+        </div>
 
-
-<div class="subtitulo">Cierre</div>
+     <!--<h3>Datos Cierre</h3>-->
+        </div></div><div class="col-md-4 col-sm-4 col-xs-12">
+        <div id="click_06" class="titulo_acordeon_datos">Cierre</div>
+        <div id="acordeon_06">
+        <div class="unit">
 
         <b>Promedio a término:</b>		
 	    <?php echo ($nota['Nota']['promedio_a_termino']); ?></p>
@@ -88,11 +106,13 @@
 
         <b>Observaciones:</b>		
 	    <?php echo ($nota['Nota']['observaciones']); ?></p>
-              </div>
-			</div>
-		</div>
+         </div></div>
+		 </div>
+ 	</div>
+ </div>
+</div>
 
-</div><div class="col-md-4">
+<div class="col-md-4">
 		 <div class="unit">
  			<div class="subtitulo">Opciones</div>
 			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $nota['Nota']['id'])); ?></div>

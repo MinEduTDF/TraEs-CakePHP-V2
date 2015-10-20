@@ -1,4 +1,6 @@
 <?php
+App::uses('AppController', 'Controller');
+
 class EmpleadosController extends AppController {
 
 	var $name = 'Empleados';
@@ -7,17 +9,30 @@ class EmpleadosController extends AppController {
 	var $paginate = array('Empleado' => array('limit' => 3, 'order' => 'Empleado.id DESC'));
 	
     function index() {
-		$this->Empleado->recursive = 0;
-		
+		//$this->Empleado->recursive = 0;
+		$this->set('empleados', $this->paginate());
+		$this->redirectToNamed();
+		$conditions = array();
+				
 		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
 		$letters = array('A','B','C','D','E','F','G','H',
 						 'I','J','K','L','M','N','O','P',
 						 'Q','R','S','T','U','V','W','X','Y','Z');
 		
-		$empleados = isset($activeLetter)? $this->paginate('Empleado', array('Empleado.apellidos LIKE ' => 
-		                                                  $activeLetter.'%')) : $this->paginate();
+		$empleados = isset($activeLetter)? $this->paginate('Empleado', array('Empleado.apellidos LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);
 		
+		if(!empty($this->params['named']['nombre_completo_empleado']))
+		{
+			$conditions['Empleado.nombre_completo_empleado ='] = $this->params['named']['nombre_completo_empleado'];
+		}
+
+		if(!empty($this->params['named']['documento_nro']))
+		{
+			$conditions['Empleado.documento_nro ='] = $this->params['named']['documento_nro'];
+		}
+
+		$empleados = $this->paginate('Empleado', $conditions);
 		$this->set(compact('empleados','letters','activeLetter','urlArgs'));
 	}
         		

@@ -34,11 +34,11 @@
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Promedio 3º Período: </b> <?php echo $nota['Nota']['promedio_tercer_periodo']; ?></span><br/>
                
-               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Promedio a Término: </b> <?php echo $nota['Nota']['promedio_a_termino']; ?></span><br/>
+               <!--<span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Promedio a Término: </b> <?php echo $nota['Nota']['promedio_a_termino']; ?></span><br/>
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Nota / Examen Diciembre: </b> <?php echo $nota['Nota']['nota_en_diciembre']; ?></span><br/>
 
-               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Nota / Examen Marzo: </b> <?php echo $nota['Nota']['nota_en_marzo']; ?></span><br/>
+               <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Nota / Examen Marzo: </b> <?php echo $nota['Nota']['nota_en_marzo']; ?></span><br/>-->
                  
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Promedio Final: </b> <?php echo $nota['Nota']['promedio_final']; ?></span><br/>
 

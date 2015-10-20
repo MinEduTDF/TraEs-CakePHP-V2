@@ -105,7 +105,7 @@ class Servicio extends AppModel {
 				   'tipo_baja' => array(
                            'minLength' => array(
                            'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una de las opciones de la lista.'
                            )
                    ),

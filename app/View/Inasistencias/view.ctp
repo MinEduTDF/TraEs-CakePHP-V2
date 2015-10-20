@@ -53,7 +53,7 @@
 	<?php foreach ($inasistencia['Curso'] as $curso): ?>
 	<div class="col-md-6">
 		<div class="unit">
-            <?php echo '<b>ID:</b> '.($this->Html->link($curso['id'], array('controller' => 'cursos', 'action' => 'view', $curso['id'])));?><br>
+            <!--<?php echo '<b>ID:</b> '.($this->Html->link($curso['id'], array('controller' => 'cursos', 'action' => 'view', $curso['id'])));?><br>-->
 			<?php echo '<b>Año:</b> '.$curso['anio'];?><br>
             <?php echo '<b>Division:</b> '.$curso['division'];?><br>
             <?php echo '<b>Turno:</b> '.$curso['turno'];?><br>
@@ -85,9 +85,9 @@
 	<?php foreach ($inasistencia['Materia'] as $materia): ?>
 	<div class="col-md-6">
 		<div class="unit">
-            <?php echo '<b>ID:</b> '.($this->Html->link($materia['id'], array('controller' => 'materias', 'action' => 'view', $materia['id'])));?><br>
+            <!--<?php echo '<b>ID:</b> '.($this->Html->link($materia['id'], array('controller' => 'materias', 'action' => 'view', $materia['id'])));?><br>-->
 			<?php echo '<b>Alia:</b> '.$materia['alia'];?><br>
-            <?php echo '<b>Curso Id:</b> '.($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?><br>
+            <!--<?php echo '<b>Curso Id:</b> '.($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?><br>-->
             <?php echo '<b>Carga horaria en:</b> '.$materia['carga_horaria_en'];?><br>
             <?php echo '<b>Carga horaria semanal:</b> '.$materia['carga_horaria_semanal'];?><br>
             <?php //echo '<b>Contenido:</b> '.$materia['contenido'];?><br>

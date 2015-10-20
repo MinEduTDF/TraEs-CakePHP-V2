@@ -21,13 +21,14 @@
 echo '</div><div class="col-md-6 col-sm-6 col-xs-12">';
 
 		echo $this->Form->input('tipo_alta', array('label'=>'Tipo de Alta', 'between' => '<br>', 'class' => 'form-control'));
-
 		echo $this->Form->input('fecha_alta', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
 		echo $this->Form->input('fecha_baja', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'empty' => ''));
 		$tipos_baja = array('Fin de ciclo' => 'Fin de ciclo', 'Abandono' => 'Abandono', 'Cambio de Institución' => 'Cambio de Institución');
         echo $this->Form->input('tipo_baja', array('options' => $tipos_baja, 'empty' => '','between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('total_dias_asistencia', array('empty' => '','between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('total_dias_inasistencia', array('empty' => '','between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('observaciones', array('label'=>'Descripción', 'between' => '<br>', 'class' => 'form-control'));
-        echo $this->Form->input('informe', array('type' => 'file', 'label'=>'Informe relacionado', 'between' => '<br>', 'class' => 'form-control'));
+        echo $this->Form->input('informe', array('type' => 'file', 'label' => 'Informe relacionado', 'id' => 'informe', 'class' => 'file', 'data-show-upload' => 'false', 'data-show-caption' => 'true'));
         echo $this->Form->input('informe_dir', array('type' => 'hidden'));
 	
 ?>
