@@ -1,7 +1,7 @@
 <!-- app/View/Users/usuario.ctp -->
 <div class="users form">
 <!-- start main -->
-<div class="TituloSec">Bienvenido a SIGIEdu_TDF</div>
+<div class="TituloSec">Bienvenido a TraEs</div>
 <div id="ContenidoSec">
     <!--<h1 style="font-weight: bold; color: red; text-decoration: underline;"> Página de usuario común</h1>-->
 <!--<h1>Usuarios:</h1>

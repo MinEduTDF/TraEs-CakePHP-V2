@@ -18,7 +18,7 @@
 			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
    			<th><?php echo $this->Paginator->sort('puesto', 'Puesto');?></th>
 			<!--<th><?php echo $this->Paginator->sort('centro_id', 'Centro');?></th>-->
-            <th><?php echo $this->Paginator->sort('empleado_id', 'Empleado');?></th>
+            <th><?php echo $this->Paginator->sort('empleado_id', 'Agente');?></th>
             <th><?php echo $this->Paginator->sort('created', 'Creado');?></th>
 			<th><?php echo $this->Paginator->sort('modified','Modificado');?></th>
 			<th><?php echo $this->Paginator->sort('status','Estado');?></th>

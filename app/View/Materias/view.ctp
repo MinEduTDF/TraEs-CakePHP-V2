@@ -16,11 +16,8 @@
 			<b><?php echo __('Nombre:'); ?></b>
 			<?php echo ($materia['Materia']['nombre']); ?></p>
 
-            <b><?php echo __('Año:'); ?></b>
-			<?php echo ($this->Html->link($materia['Curso']['anio'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['anio']))); ?></p>
-
-			<b><?php echo __('División:'); ?></b>
-			<?php echo ($this->Html->link($materia['Curso']['division'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['division']))); ?></p>
+            <b><?php echo __('Curso:'); ?></b>
+			<?php echo ($this->Html->link($materia['Curso']['nombre_completo_curso'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['id']))); ?></p>
 
             <b><?php echo __('Campo de formación:'); ?></b>
 			<?php echo ($materia['Materia']['campo_formacion']); ?></p>

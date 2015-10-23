@@ -3,13 +3,34 @@ class MateriasController extends AppController {
 
 	var $name = 'Materias';
     var $helpers = array('Session');
-	var $components = array('Auth','Session');
+	public $components = array('Auth','Session', 'RequestHandler');
 	var $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.alia DESC'));
 
 	
 	function index() {
-		$this->Materia->recursive = 0;
+		//$this->Materia->recursive = 0;
 		$this->set('materias', $this->paginate());
+        $cursos = $this->Materia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
+		$this->redirectToNamed();
+		$conditions = array();
+		
+		if(!empty($this->params['named']['alia']))
+		{
+			$conditions['Materia.alia ='] = $this->params['named']['alia'];
+		}
+
+		if(!empty($this->params['named']['curso_id']))
+		{
+			$conditions['Materia.curso_id ='] = $this->params['named']['curso_id'];
+		}
+		
+		if(!empty($this->params['named']['dictado']))
+		{
+			$conditions['Materia.dictado ='] = $this->params['named']['dictado'];
+		}
+		
+		$materias = $this->paginate('Materia', $conditions);
+		$this->set(compact('materias', 'cursos'));
 	}
 
 	function view($id = null) {

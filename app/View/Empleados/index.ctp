@@ -1,5 +1,5 @@
 <!-- start main -->
-<div class="TituloSec">Empleados</div>
+<div class="TituloSec">Agentes</div>
 <div id="ContenidoSec">
   <div id="main">
 <!-- start second nav -->

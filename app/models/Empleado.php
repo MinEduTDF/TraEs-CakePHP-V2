@@ -199,10 +199,17 @@ class Empleado extends AppModel {
 					'barrio' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'El nombre del barrio no es valido. Indicar uno con más de 5 letras.'
+                           'allowEmpty' => true,
+                           'message' => 'El nombre del barrio no es valido. Seleccione un barrio de la lista.'
                            )
-                   ),	   
+                   ),
+					'asentamiento' => array(
+                           'minLength' => array(
+                           'rule' => array('minLength',5),                          
+                           'allowEmpty' => true,
+                           'message' => 'El nombre del asentamiento no es valido. Seleccione un asentamiento de la lista.'
+                           )
+                   ),
                    'ciudad' => array(
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
