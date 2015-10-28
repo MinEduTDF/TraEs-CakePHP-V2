@@ -42,7 +42,12 @@ class MateriasController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+  		  if (!empty($this->data)) {
 			$this->Materia->create();
 			if ($this->Materia->save($this->data)) {
 				$this->Session->setFlash('La materia ha sido grabada.', 'default', array('class' => 'alert alert-success'));

@@ -32,7 +32,12 @@ class TitulacionsController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if (!empty($this->data)) {
 		    $this->Titulacion->create();
 			if ($this->Titulacion->save($this->data)) {
 				$this->Session->setFlash(__('La titulacion ha sido grabada.'));

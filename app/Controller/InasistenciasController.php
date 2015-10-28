@@ -62,7 +62,12 @@ class InasistenciasController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if (!empty($this->data)) {
 			$this->Inasistencia->create();
 			if ($this->Inasistencia->save($this->data)) {
 				$this->Session->setFlash('La inasistencia ha sido grabada', 'default', array('class' => 'alert alert-success'));

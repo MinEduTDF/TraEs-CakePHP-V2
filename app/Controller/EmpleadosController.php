@@ -45,7 +45,12 @@ class EmpleadosController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if (!empty($this->data)) {
 			$this->Empleado->create();
 			if ($this->Empleado->save($this->data)) {
 				$this->Session->setFlash('El empleado ha sido grabado.', 'default', array('class' => 'alert alert-success'));
