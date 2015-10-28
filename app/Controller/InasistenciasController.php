@@ -88,7 +88,12 @@ $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', '
 			$this->redirect(array('action' => 'view', $inserted_id));
 		}
 		if (!empty($this->data)) {
-			if ($this->Inasistencia->save($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if ($this->Inasistencia->save($this->data)) {
 				$this->Session->setFlash('La inasistencia ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
 			} else {

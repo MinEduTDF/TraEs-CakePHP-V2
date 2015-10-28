@@ -9,8 +9,8 @@
         $roles = array('admin' => 'admin', 'usuario' => 'usuario');
 		echo $this->Form->input('role', array('options' => $roles, 'label' => 'Rol', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('email', array('label' => 'Email', 'title' => 'Email', 'between' => '<br>', 'class' => 'form-control'));
-        echo $this->Form->input('password_update', array( 'label' => 'Nueva contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('password_confirm_update', array('label' => 'Repetir contraseña', 'title' => 'Repite la contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));
+        /*echo $this->Form->input('password_update', array( 'label' => 'Nueva contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('password_confirm_update', array('label' => 'Repetir contraseña', 'title' => 'Repite la contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));*/
 ?>		
   </div><div class="col-md-6 col-sm-6 col-xs-12">
 <?php		

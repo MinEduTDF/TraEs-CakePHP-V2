@@ -36,6 +36,11 @@ class ServiciosController extends AppController {
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+            if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
 			if ($this->Servicio->save($this->data)) {
 				$this->Session->setFlash('El servicio ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('controller' => 'alumnos','action' => 'index'));
