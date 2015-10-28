@@ -2,6 +2,11 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
+<!-- *********** Slider ************* -->
+<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->css('slider.css'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
 <div class="TituloSec">Legajo Nro: <?php echo ($inscripcion['Inscripcion']['legajo_nro']); ?></div>
 <div id="ContenidoSec">
@@ -175,10 +180,16 @@
 <div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($inscripcion['Materia'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
+  	
+
+  	<!-- Swiper -->
+    <div class="swiper-container" style="height: 200px;">
+        <div class="swiper-wrapper" >
 	<?php foreach ($inscripcion['Materia'] as $materia): ?>
-	<div class="col-md-6">
-		<div class="unit">
+	
+	<div class="swiper-slide">
+	<div class="col-md-12">
+		<div class="unit" >
 			<?php echo '<b>Alia:</b> '.$materia['alia'];?><br>
 			<?php echo '<b>Carga horaria:</b> '.$materia['carga_horaria_semanal'].' '.$materia['carga_horaria_en'];?><br>
 			<!--<?php echo '<b>Contenido:</b> '.$materia['contenido'];?><br>
@@ -191,12 +202,29 @@
             </div>
 		</div>
 	</div>
+</div>
+		
 		<?php endforeach; ?>
 			</div>
+			        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Include plugin after Swiper -->
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-	</div>
+
+
+        </div>
+
 </div>
 <!-- end Materias Relacionados -->
 
 </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    </script>
