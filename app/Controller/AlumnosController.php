@@ -4,13 +4,16 @@ App::uses('AppController', 'Controller');
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
-    var $helpers = array('Session');
+    var $helpers = array('Session', 'Form', 'Time', 'Js');
 	public $components = array('Auth','Session', 'RequestHandler');
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.creado DESC'));
 
 	function index() {
-		//$this->Alumno->recursive = 0;
-		$this->set('alumnos', $this->paginate());
+		$this->Alumno->recursive = 0;
+		$this->paginate['Alumno']['limit'] = 4;
+		$this->paginate['Alumno']['order'] = array('Alumno.id' => 'asc');
+		//$this->paginate['Alumno']['conditions'] = array('Alumno.status' => 1);
+		//$this->set('alumnos', $this->paginate());
 		$this->redirectToNamed();
 		$conditions = array();
 
