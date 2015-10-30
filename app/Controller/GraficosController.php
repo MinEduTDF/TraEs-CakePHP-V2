@@ -15,7 +15,15 @@ class GraficosController extends AppController {
 	public function index() {
     } 
 
-    public function json() {
+    public function i_x_curso() {
+
+	}
+
+	public function r_x_curso() {
+
+	}
+
+	public function a_x_curso() {
 
 	}
 

@@ -1,6 +1,6 @@
-      function graficos(modo,id) {
+      function graficos(modo,id,json) {
             var jsonData = $.ajax({
-				        url : "graficos/json",
+				        url : "graficos/"+json,
                 dataType: "json",
                 async: true
             }).done(function(rta){
