@@ -8,7 +8,7 @@
 <div class="row"><!--<div class="subtitulo">Datos del curso</div>-->
 <div class="col-md-6 col-sm-6 col-xs-12">
 <?php
-		echo $this->Form->input('centro_id', array('between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista', 'placeholder' => 'Centro'));
+		echo $this->Form->input('centro_id', array('readonly' => 'readonly', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista', 'placeholder' => 'Centro'));
 		echo $this->Form->input('Ciclo', array('between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione opciones de la lista', 'placeholder' => 'Ciclo'));
 		$anios = array('1ero' => '1ero', '2do' => '2do', '3ero' => '3ero', '4to' => '4to', '5to' => '5to', '6to' => '6to');
 		echo $this->Form->input('anio', array('label' =>'Año', 'options' => $anios, 'empty' => '', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Selecciones una opción de la lista', 'placeholder' => 'Año'));

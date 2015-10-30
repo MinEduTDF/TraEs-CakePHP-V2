@@ -45,34 +45,6 @@ class AppController extends Controller {
     	return true;
 	}
 
-    /**
-    * Mensaje de exito para las vistas
-    * @param string $url
-    * @param string $msg
-    */ 
-    function flashSuccess($msg, $url = null)
-    {
-       $this->Session->setFlash(__($msg));
-       if(!empty($url))
-       {
-            $this->redirect($url, null, true);
-       }
-    }
-     
-    /**
-    * Mensaje de error para las vistas
-    * @param string $url
-    * @param string $msg
-    */ 
-    function flashWarnings($msg, $url = null)
-    {
-       $this->Session->setFlash(__($msg));
-       if(!empty($url))
-       {
-            $this->redirect($url, null, true);
-       }
-    }
-	
 	/**
 	* ejecuta acciones cuando el id se encuentra vacio
 	* @param int $id

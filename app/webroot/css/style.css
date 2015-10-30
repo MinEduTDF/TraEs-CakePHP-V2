@@ -40,3 +40,7 @@ dd {
 	padding: 10px 60px 40px 60px;
 	overflow: auto;
 }
+
+.oculto {
+    display: none;	
+}
