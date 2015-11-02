@@ -7,8 +7,8 @@
  ));  
 ?>
 
-<!-- start main -->
 <div id='contenedor-alumnos'>
+<!-- start main -->
 <div class="TituloSec">Alumnos</div>
 <div id="ContenidoSec">
   <div id="main">
@@ -16,11 +16,11 @@
 <div class="row">
   <div class="col-xs-12 col-sm-8 col-md-8">
 
-<div class="progress oculto" id="procesando">
+<!--<div class="progress oculto" id="procesando">
   <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
     <span class="sr-only">100% Complete</span>
   </div>
-</div>
+</div>-->
 
 <div id="second-nav">
 			 <div class="unit text-center">
@@ -64,4 +64,4 @@
 	</div>
   </div>
    <?php echo $this->Js->writeBuffer(); ?>           
-</div>  
+</div> <!-- contenedor-alumnos --> 

@@ -41,7 +41,7 @@
     </script>
 
     <!-- Abandono por curso -->
-<div id="click_02" class="titulo_acordeon">Abandonaron por Curso</div>
+<div id="click_02" class="titulo_acordeon">Abandonos por Curso</div>
 <div id="acordeon_02">
 
 </div>

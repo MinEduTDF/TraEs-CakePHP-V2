@@ -1,4 +1,4 @@
-<div class="TituloSec"><?php echo __('Agregar Empleado'); ?></div>
+<div class="TituloSec"><?php echo __('Agregar Agente'); ?></div>
 <div id="ContenidoSec">
 <div class="empleados form">
 <?php echo $this->Form->create('Empleado', array('type' => 'file', 'novalidate' => 'novalidate'));?>

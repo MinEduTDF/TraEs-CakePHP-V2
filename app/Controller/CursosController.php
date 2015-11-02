@@ -4,7 +4,7 @@ class CursosController extends AppController {
 	var $name = 'Cursos';
     var $helpers = array('Session');
 	var $components = array('Auth','Session');
-	var $paginate = array('Curso' => array('limit' => 6, 'order' => 'Curso.anio ASC'));
+	var $paginate = array('Curso' => array('limit' => 4, 'order' => 'Curso.anio ASC'));
 
 	function index() {
 		$this->Curso->recursive = 0;
