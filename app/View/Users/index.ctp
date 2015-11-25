@@ -51,7 +51,7 @@
 			<?php
 				if( $user['User']['status'] != 0){ 
 			?><span class="link"><?php echo $this->Html->link('Ver', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default')); ?></span>
-			  <span class="link"><?php echo $this->Html->link('Borrar', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['id']['username'], 'class' => 'btn btn-danger')); ?></span>
+			  <span class="link"><?php echo $this->Html->link('Borrar', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger')); ?></span>
 	        <?php 
 				} 
 				else{

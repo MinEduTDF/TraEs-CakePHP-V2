@@ -1,5 +1,9 @@
-<div class="input-group">
-  <?php echo $this->Form->input('Buscar', array('type'=>'text', 'class'=>'form-control', 'placeholder'=>'Search for...')); 
+<div class="row">
+<div class="col-md-11">
+  <?php echo $this->Form->input('', array('type'=>'text', 'style' => 'width:100%;', 'class'=>'form-control', 'placeholder'=>'Buscar...')); 
   ?>
-   <span class="input-group-btn"><?php echo $this->Form->end(array('label'=>'Buscar', 'class'=>'btn btn-info', 'type'=>'button')); ?></span>
 </div>
+<div class="col-md-1">
+   <?php echo $this->Form->end(array('label'=>'Buscar','style' => 'width:100%; padding:10px', 'class'=>'btn btn-info', 'type'=>'button')); ?>
+ </div>
+ </div>
