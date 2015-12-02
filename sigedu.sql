@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 06, 2015 at 06:43 PM
+-- Generation Time: Oct 21, 2015 at 11:50 AM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -49,15 +49,16 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `creado` date NOT NULL,
   `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `alumnos`
 --
 
 INSERT INTO `alumnos` (`id`, `apellidos`, `nombres`, `foto`, `foto_dir`, `documento_tipo`, `documento_nro`, `cuil_cuit`, `ocupacion`, `fecha_nac`, `pcia_nac`, `nacionalidad`, `indigena`, `estado_civil`, `email`, `telefono_nro`, `calle_nombre`, `calle_nro`, `barrio`, `ciudad`, `creado`, `modificado`) VALUES
-(1, 'Villañuevá', 'Oscar Alfredo', '', '', 'DNI', 25678765, NULL, 'Estudiante', '2015-07-18', 'Tierra del Fuego', 'Argentino', '', 'Soltero', '', '2901400011', 'Gdor. Paz', 455, 'Centro', 'Ushuaia', '2015-07-18', '2015-09-28 19:19:08'),
-(4, 'Soloaga', 'Ernesto', '', '', 'DNI', 25570652, NULL, 'Estudiante', '1980-09-09', '', 'Argentino', '', 'Soltero', '', '455678', 'Roca', 234, 'Centro', 'Ushuaia', '0000-00-00', '2015-09-28 20:56:19');
+(1, 'Villanueva', 'Oscar Alfredo', '', '', 'DNI', 25678765, NULL, 'Estudiante', '2015-07-18', 'Tierra del Fuego', 'Argentino', '', 'Soltero', 'voscaralfredo@gmail.com', '2901400011', 'Gdor. Paz', 455, 'Centro', 'Ushuaia', '2015-07-18', '2015-10-19 14:21:01'),
+(2, 'Soloaga', 'Ernesto', '', '', 'DNI', 25570652, NULL, 'Estudiante', '1980-09-09', '', 'Argentino', '', 'Soltero', 'sernesto@gmail.com', '455678', 'Roca', 234, 'Centro', 'Ushuaia', '0000-00-00', '2015-10-19 14:21:23'),
+(3, 'Godoy', 'Sara', '', '', 'DNI', 49876354, NULL, 'Estudiante', '1990-10-19', 'Tierra del Fuego', 'Argentino', NULL, 'Soltero', 'gsara@gmail.com', '445667', 'San Martín', 234, 'Centro', 'Ushuaia', '2015-10-19', '2015-10-19 14:24:38');
 
 -- --------------------------------------------------------
 
@@ -264,15 +265,15 @@ CREATE TABLE IF NOT EXISTS `centros_empleados` (
   `empleado_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `empleado_id` (`empleado_id`,`centro_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `centros_empleados`
 --
 
 INSERT INTO `centros_empleados` (`id`, `centro_id`, `empleado_id`) VALUES
-(18, 2, 1),
-(19, 6, 1);
+(1, 2, 1),
+(2, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -314,43 +315,40 @@ CREATE TABLE IF NOT EXISTS `ciclos_cursos` (
   `curso_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ciclos_cursos` (`ciclo_id`,`curso_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `ciclos_cursos`
 --
 
 INSERT INTO `ciclos_cursos` (`id`, `ciclo_id`, `curso_id`) VALUES
-(67, 5, 1),
-(64, 5, 2),
-(80, 1, 3),
-(58, 5, 4),
-(66, 4, 1),
-(63, 4, 2),
-(81, 4, 3),
-(57, 4, 4),
-(55, 5, 6),
-(54, 4, 6),
-(52, 5, 7),
-(51, 4, 7),
-(40, 5, 8),
-(39, 4, 8),
-(65, 1, 1),
-(62, 1, 2),
-(82, 5, 3),
-(56, 1, 4),
-(53, 1, 6),
-(50, 1, 7),
-(38, 1, 8),
-(77, 1, 9),
-(44, 1, 10),
-(41, 1, 11),
-(42, 4, 11),
-(43, 5, 11),
-(45, 4, 10),
-(46, 5, 10),
-(78, 4, 9),
-(79, 5, 9);
+(1, 5, 2),
+(2, 1, 3),
+(3, 5, 4),
+(4, 4, 2),
+(5, 4, 3),
+(6, 4, 4),
+(7, 5, 6),
+(8, 4, 6),
+(9, 5, 7),
+(10, 4, 7),
+(11, 5, 8),
+(12, 4, 8),
+(13, 1, 2),
+(14, 5, 3),
+(15, 1, 4),
+(16, 1, 6),
+(17, 1, 7),
+(18, 1, 8),
+(19, 1, 9),
+(20, 1, 10),
+(21, 1, 11),
+(22, 4, 11),
+(23, 5, 11),
+(24, 4, 10),
+(25, 5, 10),
+(26, 4, 9),
+(27, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -367,27 +365,20 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `aula_nro` int(3) DEFAULT NULL,
   `plazas` int(2) NOT NULL,
   `organizacion_cursada` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `horario` varchar(255) NOT NULL,
   `centro_id` int(11) NOT NULL,
   `titulacion_id` int(11) NOT NULL,
-  `modalidad_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `tipo`, `anio`, `division`, `turno`, `aula_nro`, `plazas`, `organizacion_cursada`, `centro_id`, `titulacion_id`, `modalidad_id`) VALUES
-(1, 'Independiente', '1ero', '4to', 'Tarde', 1, 5, '', 6, 1, 1),
-(2, 'Independiente', '3ero', '3ero', 'Vespertino', 1, 4, '', 6, 1, 5),
-(3, 'Independiente', '3ero', '2do', 'Tarde', 4, 12, '', 6, 1, 4),
-(4, 'Independiente', '3ero', '1ero', 'Tarde', 3, 23, '', 6, 1, 1),
-(6, 'Independiente', '2do', '3ero', 'Tarde', 0, 3, '', 6, 1, 7),
-(7, 'Independiente', '2do', '2do', 'Manana', 0, 12, '', 6, 1, 8),
-(8, 'Independiente', '1ero', '3ero', 'Tarde', 0, 14, '', 6, 1, 9),
-(9, 'Independiente', '1ero', '1ero', 'Manana', 1, 21, '', 6, 1, 10),
-(10, 'Independiente', '1ero', '2do', 'Manana', NULL, 0, '', 6, 1, 0),
-(11, 'Independiente', '2do', '1ero', 'Manana', NULL, 30, '', 6, 1, 0);
+INSERT INTO `cursos` (`id`, `tipo`, `anio`, `division`, `turno`, `aula_nro`, `plazas`, `organizacion_cursada`, `horario`, `centro_id`, `titulacion_id`) VALUES
+(1, 'Independiente', '3ero', '1ero', 'Tarde', 3, 23, '', '', 6, 1),
+(2, 'Independiente', '1ero', '1ero', 'Manana', 1, 21, '', '', 6, 1),
+(3, 'Independiente', '2do', '1ero', 'Manana', NULL, 30, '', '', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -400,17 +391,17 @@ CREATE TABLE IF NOT EXISTS `cursos_inasistencias` (
   `curso_id` int(11) NOT NULL,
   `inasistencia_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `cursos_inasistencias`
 --
 
 INSERT INTO `cursos_inasistencias` (`id`, `curso_id`, `inasistencia_id`) VALUES
-(1, 9, 1),
+(7, 2, 1),
 (2, 11, 3),
-(3, 9, 5),
-(4, 9, 6);
+(5, 2, 5),
+(6, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -423,17 +414,17 @@ CREATE TABLE IF NOT EXISTS `cursos_inscripcions` (
   `curso_id` int(11) NOT NULL,
   `inscripcion_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `cursos_inscripcions`
 --
 
 INSERT INTO `cursos_inscripcions` (`id`, `curso_id`, `inscripcion_id`) VALUES
-(19, 9, 1),
-(14, 11, 2),
-(13, 4, 3),
-(15, 2, 4);
+(29, 3, 1),
+(28, 1, 2),
+(27, 2, 3),
+(3, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -499,7 +490,7 @@ CREATE TABLE IF NOT EXISTS `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `documento_tipo`, `documento_nro`, `cuit_cuil`, `apellidos`, `nombres`, `fecha_nac`, `pcia_nac`, `indigena`, `estado_civil`, `calle_nombre`, `calle_nro`, `telefono_nro`, `email`, `barrio`, `ciudad`, `creado`, `modificado`) VALUES
-(1, '', 25570652, 0, 'Gay', 'Pablo', '0000-00-00', '', NULL, '', 'Intendente Torelli 1351', 0, '445882', '', '', 'Ushuaia', '0000-00-00', '0000-00-00 00:00:00'),
+(1, 'DNI', 25570652, 0, 'Gay', 'Pablo', '1976-11-09', '', '', 'Casado', 'Intendente Torelli', 1351, '445882', 'gpabloandres@gmail.com', 'Altos', 'Ushuaia', '2015-08-08', '2015-10-08 16:02:26'),
 (2, 'DNI', 26578432, 0, 'Gil', 'Santiago', '1980-06-10', '', '', 'Soltero', 'Roca', 345, '445554', 'gsantiago@gmail.com', 'Centro', 'Ushuaia', '2015-10-06', '0000-00-00 00:00:00'),
 (3, 'DNI', 27658678, 0, 'Flores', 'Marcos', '1981-06-10', '', '', 'Soltero', 'Roca', 234, '446778', 'fmarcos@gmail.com', 'Centro', 'Ushuaia', '2015-10-06', '0000-00-00 00:00:00');
 
@@ -549,7 +540,7 @@ CREATE TABLE IF NOT EXISTS `familiars` (
   `creado` date NOT NULL,
   `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `familiars`
@@ -557,7 +548,8 @@ CREATE TABLE IF NOT EXISTS `familiars` (
 
 INSERT INTO `familiars` (`id`, `alumno_id`, `vinculo`, `nombre_completo`, `cuit_cuil`, `nacionalidad`, `ocupacion`, `telefono_nro`, `email`, `domicilio`, `barrio`, `ciudad`, `observaciones`, `creado`, `modificado`) VALUES
 (1, 1, 'Padre', 'Rodolfo Oscar Villanueva', 0, 'Argentino', 'Administrativo', '2901445667', '', 'Gdor. Paz 345', 'Centro', 'Ushuaia', NULL, '2015-08-01', '2015-08-03 09:46:34'),
-(2, 1, 'Madre', 'Elva Olga Garcia', 0, 'Argentina', 'Ama de casa', '2901445667', '', 'Gdor. Paz 345', 'Centro', 'Ushuaia', NULL, '2015-08-01', '2015-08-03 09:43:53');
+(2, 1, 'Madre', 'Elva Olga Garcia', 0, 'Argentina', 'Ama de casa', '2901445667', '', 'Gdor. Paz 345', 'Centro', 'Ushuaia', NULL, '2015-08-01', '2015-08-03 09:43:53'),
+(3, 3, 'Padre', 'José Godoy', 0, 'Argentino', 'Administrativo', '443556', 'gjose@gmail.com', 'San Martín 234', 'Centro', 'Ushuaia', NULL, '0000-00-00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -624,24 +616,20 @@ CREATE TABLE IF NOT EXISTS `inasistencias` (
   `tipo` varchar(50) CHARACTER SET latin1 NOT NULL,
   `justificado` varchar(10) CHARACTER SET latin1 NOT NULL,
   `causa` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `certificacion` varchar(255) NOT NULL,
   `creado` date NOT NULL,
   `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `alumno_id` int(11) NOT NULL,
   `ciclo_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `inasistencias`
 --
 
-INSERT INTO `inasistencias` (`id`, `tipo`, `justificado`, `causa`, `creado`, `modificado`, `alumno_id`, `ciclo_id`) VALUES
-(1, 'completa', 'Si', 'Enfermedad', '2015-08-04', '2015-08-11 01:11:32', 1, 5),
-(2, 'completa', 'No', 'Enfermedad', '2015-08-04', '2015-08-11 01:13:41', 1, 5),
-(3, 'media', 'Si', 'Paro de transporte', '2015-08-11', '2015-08-31 20:35:31', 2, 1),
-(4, 'completa', 'No', 'Enfermedad', '2015-08-05', '2015-09-03 19:59:43', 1, 5),
-(5, 'completa', 'Si', 'Enfermedad', '2015-08-06', '2015-09-03 20:03:52', 1, 5),
-(6, 'completa', 'Si', 'Enfermedad', '2015-08-04', '2015-09-03 20:04:14', 2, 5);
+INSERT INTO `inasistencias` (`id`, `tipo`, `justificado`, `causa`, `certificacion`, `creado`, `modificado`, `alumno_id`, `ciclo_id`) VALUES
+(1, 'completa', 'No', 'Sin causa', '', '2015-10-19', '0000-00-00 00:00:00', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -654,26 +642,16 @@ CREATE TABLE IF NOT EXISTS `inasistencias_materias` (
   `inasistencia_id` int(11) NOT NULL,
   `materia_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `inasistencias_materias`
 --
 
 INSERT INTO `inasistencias_materias` (`id`, `inasistencia_id`, `materia_id`) VALUES
-(22, 1, 5),
-(24, 3, 10),
-(19, 2, 2),
-(21, 1, 2),
-(20, 1, 6),
-(23, 3, 7),
-(25, 4, 2),
-(26, 5, 6),
-(27, 5, 2),
-(28, 5, 5),
-(29, 6, 6),
-(30, 6, 2),
-(31, 6, 5);
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -706,17 +684,16 @@ CREATE TABLE IF NOT EXISTS `inscripcions` (
   `centro_id` int(11) NOT NULL,
   `empleado_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `inscripcions`
 --
 
 INSERT INTO `inscripcions` (`id`, `legajo_nro`, `tipo_alta`, `fecha_alta`, `cursa`, `fines`, `fecha_baja`, `tipo_baja`, `motivo_baja`, `fecha_egreso`, `libro_matriz`, `acta`, `folio`, `fecha_emision_titulo`, `recursante`, `nota`, `condicion_aprobacion`, `fecha_nota`, `modificado`, `alumno_id`, `ciclo_id`, `centro_id`, `empleado_id`) VALUES
-(1, '2222222-14', 'Regular', '2014-07-27', 'Cursa algun espacio curricular.', 'No', '2014-12-12', '', '', NULL, '', '', '', NULL, 'No', NULL, 'Examen                                         reg', NULL, '2015-09-03 16:02:08', 1, 1, 6, 1),
-(2, '2222223-15', 'Regular', '2015-08-05', 'Cursa algun espacio curricular.', 'No', '2015-08-10', '', '', '2015-08-05', '', '', '', '2015-08-05', 'No', NULL, 'Examen                                         reg', NULL, '2015-09-03 15:59:04', 2, 5, 6, 1),
-(3, '2222224-15', 'Regular', '2015-08-10', 'Cursa algun espacio curricular.', 'No', '2015-08-10', '', '', '2015-08-10', '', '', '', '2015-08-10', 'No', NULL, 'Examen                                         reg', NULL, '2015-09-03 15:58:19', 3, 5, 6, 1),
-(4, '2222227-15', 'Regular', '2015-08-31', 'Cursa algun espacio curricular.', 'No', NULL, '', '', NULL, '', '', '', NULL, 'No', NULL, 'Examen                                         reg', NULL, '2015-09-03 15:59:25', 1, 5, 6, 1);
+(1, '2222223-15', 'Regular', '2015-08-05', 'Cursa algun espacio curricular.', 'No', '2015-08-10', '', '', '2015-08-05', '', '', '', '2015-08-05', 'No', NULL, 'Examen                                         reg', NULL, '2015-10-19 20:40:31', 2, 5, 6, 1),
+(2, '2222224-15', 'Regular', '2015-08-10', 'Cursa algun espacio curricular.', 'No', '2015-08-10', '', '', '2015-08-10', '', '', '', '2015-08-10', 'No', NULL, 'Examen                                         reg', NULL, '2015-10-19 20:40:39', 3, 5, 6, 1),
+(3, '25678765-15', 'Regular', '2015-08-31', 'Cursa algun espacio curricular.', 'No', NULL, '', '', NULL, '', '', '', NULL, 'No', NULL, 'Examen                                         reg', NULL, '2015-10-19 20:40:47', 1, 5, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -730,7 +707,7 @@ CREATE TABLE IF NOT EXISTS `inscripcions_materias` (
   `materia_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `inscripcion_id` (`inscripcion_id`,`materia_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `inscripcions_materias`
@@ -741,14 +718,12 @@ INSERT INTO `inscripcions_materias` (`id`, `inscripcion_id`, `materia_id`) VALUE
 (2, 6, 2),
 (3, 7, 2),
 (4, 8, 2),
-(38, 2, 7),
-(39, 2, 10),
-(37, 3, 12),
-(36, 3, 11),
-(50, 1, 6),
-(52, 1, 5),
-(51, 1, 2),
-(40, 4, 2);
+(14, 2, 7),
+(10, 3, 1),
+(11, 3, 2),
+(9, 4, 2),
+(12, 3, 3),
+(15, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -861,52 +836,18 @@ CREATE TABLE IF NOT EXISTS `materias` (
   `curso_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `alia` (`alia`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `materias`
 --
 
 INSERT INTO `materias` (`id`, `nombre`, `campo_formacion`, `dictado`, `obligatoriedad`, `carga_horaria_en`, `carga_horaria_semanal`, `duracion_en`, `duracion`, `escala_numerica`, `nota_minima`, `alia`, `contenido`, `curso_id`) VALUES
-(6, 'Historia de primero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'HIS1_1', 'Completar', 9),
+(1, 'Historia de primero', 'A completar', 'Presencial', 'Obligatoria', '', 0, '', 0, '', '', 'HIS1_1', 'Completar', 9),
 (2, 'Matematica de primero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'MAT1_1', 'Completar', 9),
-(5, 'Lengua de primero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'LEN1_1', 'Completar', 9),
-(7, 'Historia de segundo', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'HIS2_1', 'Completar', 11),
-(10, 'Lengua de segundo', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'LEN2_1', 'Ninguno.', 11),
-(11, 'Historia de tercero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'HIS3_1', 'Ninguno.', 4),
-(12, 'Matematica de tercero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'MAT3_1', 'A publicar.', 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `modalidads`
---
-
-CREATE TABLE IF NOT EXISTS `modalidads` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `descripcion` text CHARACTER SET latin1,
-  `centro_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `nombre` (`nombre`),
-  UNIQUE KEY `nombre_2` (`nombre`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
-
---
--- Dumping data for table `modalidads`
---
-
-INSERT INTO `modalidads` (`id`, `nombre`, `descripcion`, `centro_id`) VALUES
-(1, 'Presencial_15', 'Se cursa en la sede.', 2),
-(2, 'FINES_15', '', 2),
-(3, 'Proyecto adolescentes_15', 'Para los menores de edad que quedaron fuera del sistema educativo regular.', 2),
-(4, 'Presencial_302', 'Se cursa en la sede.', 4),
-(6, 'Todas', 'Para rellenar.', 1),
-(5, 'Presencial_3', 'Se cursa en sede.', 1),
-(7, 'Todas_3', 'Para personal administrativo y otros.', 1),
-(8, 'Todas_15', 'Para personal administrativo y otros.', 2),
-(9, 'Todas_302', 'Para personal administrativo y otros.', 4),
-(10, 'Semipresencial_Puerto_364', 'Se dicta en el Zoom del Puerto.', 5);
+(3, 'Lengua de primero', 'A completar', 'Presencial', '', '', 0, '', 0, '', '', 'LEN1_1', 'Completar', 9),
+(4, 'Historia de segundo', 'A completar', 'Presencial', '', '', 4, '', 0, '', '', 'HIS2_1', 'Completar', 11),
+(7, 'Matematica de tercero', 'A completar', 'Presencial', '', '', 4, '', 0, '', '', 'MAT3_1', 'A publicar.', 1);
 
 -- --------------------------------------------------------
 
@@ -1051,14 +992,15 @@ CREATE TABLE IF NOT EXISTS `servicios` (
   `alumno_id` int(11) NOT NULL,
   `ciclo_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `servicios`
 --
 
 INSERT INTO `servicios` (`id`, `tipo_servicio`, `fecha_solicitud_servicio`, `estado`, `prestador`, `docente_profesional_acargo`, `tipo_alta`, `fecha_alta`, `tipo_baja`, `fecha_baja`, `total_dias_asistencia`, `total_dias_inasistencia`, `observaciones`, `informe`, `informe_dir`, `creado`, `modificado`, `alumno_id`, `ciclo_id`) VALUES
-(1, 'Domiciliaria', NULL, 'Desactivo', 'Supervisión de Media de Ushuaia', 'Luis María Oviedo', 'Fractura', '2013-10-30', 'Fin de ciclo', '2013-12-16', 0, 0, 'Servicio prestado sin problemas.', NULL, '', '2013-11-11', '2015-09-03 19:44:28', 1, 4);
+(1, 'Domiciliaria', NULL, 'Desactivo', 'Supervisión de Media de Ushuaia', 'Luis María Oviedo', 'Fractura', '2013-10-30', 'Fin de ciclo', '2013-12-16', 0, 0, 'Servicio prestado sin problemas.', NULL, '', '2013-11-11', '2015-09-03 19:44:28', 1, 4),
+(2, 'Comedor', NULL, 'Activo', 'CP Los Andes', 'Pablo Andrés Gay', 'Ninguna', '2015-03-19', '', NULL, 0, 0, 'El padre trabaja todo el día y no tiene quién le prepare el almuerzo.', NULL, '', '2015-10-19', '0000-00-00 00:00:00', 3, 5);
 
 -- --------------------------------------------------------
 
@@ -1107,13 +1049,9 @@ CREATE TABLE IF NOT EXISTS `titulacions` (
 --
 
 INSERT INTO `titulacions` (`id`, `nombre`, `certificacion`, `condicion_ingreso`, `ciclo_implementacion`, `ciclo_finalizacion`, `a_termino`, `orientacion`, `organizacion_plan`, `plan_estudio`, `organizacion_cursada`, `forma_dictado`, `carga_horaria_en`, `carga_horaria`, `edad_minima`, `tiene_articulacion`, `duracion_en`, `duracion`, `norma_aprob_jur_tipo`, `norma_aprob_jur_nro`, `norma_aprob_jur_anio`, `norma_val_nac_tipo`, `norma_val_nac_nro`, `norma_val_nac_anio`, `norma_ratif_jur_tipo`, `norma_ratif_jur_nro`, `norma_ratif_jur_anio`, `norma_homologacion_tipo`, `norma_homologacion_nro`, `norma_homologacion_anio`, `centro_id`) VALUES
-(1, 'Auxiliar en AdministraciÃ³n de Empresas', 'Primaria de 7 aÃ±os                               ', 'Otros', '2013', '2017', 'NO', 'EconomÃ­a y GestiÃ³n de las Organizaciones', 'AÃ±o de estudio', '', 'DivisiÃ³n', 'Presencial', 'Hora CÃ¡tedra', 4, 14, 'No Articula', 'AÃ±os', 6, '', '', NULL, '', '', 0, '', '', NULL, '', '', NULL, 6),
-(2, 'Perito Auxiliar en Cooperativas Sociales', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(3, 'Perito Auxiliar en ElectromecÃ nica', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 4),
-(4, 'Todas_3', 'Para personal administrativo y otros.', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(5, 'Todas_15', 'Para personal administrativo y otros.', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 2),
-(6, 'Todas_302', 'Para personal administrativo y otros.', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 4),
-(7, 'Auxiliar en Seguridad e Higiene en el Trabajo', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 5);
+(1, 'Bachiller en Cs. Naturales', 'Primaria de 7 años                               ', 'Otros', '2013', '2017', 'NO', 'Cs. Naturales', 'Año de estudio', '', 'División', 'Presencial', 'Hora Cátedra', 4, 14, 'No Articula', 'Años', 6, '', '', NULL, '', '', 0, '', '', NULL, '', '', NULL, 6),
+(2, 'Bachiller en Turismo', 'Primaria de 7 años ', 'Otros', '2013', '2017', 'NO', 'Turismo', 'Año de estudio', '', 'División', 'Presencial', 'Hora Cátedra', 4, 14, 'No Articula', 'Años', 6, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 6),
+(3, 'Enfermería', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '', '', 0, '', '', 0, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -1167,6 +1105,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `puesto`, `centro_id`, `empleado_id`, `created`, `modified`, `status`) VALUES
-(1, 'gpablo', 'a9d765cfc7384469fe134270fa82c940655aa7a1', 'gpabloandres@gmail.com', 'admin', 'Altas_Bajas', 6, 1, '2015-09-15 16:16:15', '2015-09-21 19:15:35', 1),
-(2, 'gsantiago', 'cc7f60f0223712d972d9a880ed03e101f2238eab', 'gsanti@gmail.com', 'usuario', 'Inscripciones', 1, 2, '2015-09-16 12:04:36', '2015-10-06 18:30:25', 1),
-(3, 'fmarcos', '6f5ddde678f9ff7ea95a727a8bd6b61584a04f08', 'fmarcos@gmail.com', 'usuario', 'Calificaciones', 1, 3, '2015-09-21 18:48:54', '2015-10-06 18:28:51', 1);
+(1, 'gpablo', 'a9d765cfc7384469fe134270fa82c940655aa7a1', 'gpabloandres@gmail.com', 'admin', 'Altas_Bajas', 6, 1, '2015-09-15 16:16:15', '2015-10-07 02:34:25', 1),
+(2, 'gsantiago', 'cc7f60f0223712d972d9a880ed03e101f2238eab', 'gsanti@gmail.com', 'usuario', 'Inscripciones', 6, 2, '2015-09-16 12:04:36', '2015-10-20 08:58:25', 1),
+(3, 'fmarcos', '6f5ddde678f9ff7ea95a727a8bd6b61584a04f08', 'fmarcos@gmail.com', 'usuario', 'Calificaciones', 6, 3, '2015-09-21 18:48:54', '2015-10-20 12:38:31', 1);

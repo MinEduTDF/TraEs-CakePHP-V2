@@ -51,6 +51,19 @@ Inflector::rules('singular', array('rules' => array(), 'irregular' => array(), '
 Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'uninflected' => array()));
  *
  */
+// Load Composer autoload.
+require APP . 'Vendor/autoload.php';
+
+// Remove and re-prepend CakePHP's autoloader as Composer thinks it is the
+// most important.
+// See: http://goo.gl/kKVJO7
+spl_autoload_unregister(array('App', 'load'));
+spl_autoload_register(array('App', 'load'), true, true);
+
+Configure::write('Dispatcher.filters', array(
+    'AssetDispatcher',
+    'CacheDispatcher'
+));
 CakePlugin::loadAll();
 //CakePlugin::load('Upload');
 
@@ -65,3 +78,4 @@ Configure::write('CakePdf', array(
     'orientation' => 'portrait'
 ));
 */
+

@@ -1,0 +1,20 @@
+{
+    "name": "sigedu",
+    "require": {
+        "cakephp/cakephp": "2.*.*",
+        "friendsofcake/cakepdf": "1.*.*",
+        "josegonzalez/cakephp-upload": "1.*.*"
+    },
+    "require-dev": {
+        "cakephp/debug_kit": "2.2.*",
+        "cakephp/cakephp-codesniffer": "2.*.*"
+    },
+
+    "config": {
+        "vendor-dir": "Vendor/"
+    },
+    "scripts": {
+      "fixcs": "Vendor/bin/phpcbf --standard=CakePHP ./*/*.php",
+      "hola": "sh ./hola.sh" 
+    }
+}

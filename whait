@@ -1,0 +1,19 @@
+#!/bin/bash
+RET=1
+while [[ RET -ne 0 ]]; do
+    echo "=> Waiting for confirmation of MySQL service startup"
+    sleep 5 
+    mysql -uroot -e "status" > /dev/null 2>&1
+    RET=$?
+done
+mysql -u root -e "create database sigedu;" &&
+mysql -u root sigedu < /app/sigedu.sql
+RET=1
+while [[ RET -ne 0 ]]; do
+    echo "=> Waiting for confirmation of database import"
+    sleep 5 
+    mysql -uroot -e "status" > /dev/null 2>&1
+    RET=$?
+done
+echo "Traes corriento en http://localhost"
+exit
