@@ -4,7 +4,7 @@ class CursosController extends AppController {
 	var $name = 'Cursos';
     var $helpers = array('Session');
 	var $components = array('Auth','Session');
-	var $paginate = array('Curso' => array('limit' => 6, 'order' => 'Curso.anio ASC'));
+	var $paginate = array('Curso' => array('limit' => 4, 'order' => 'Curso.anio ASC'));
 
 	function index() {
 		$this->Curso->recursive = 0;
@@ -47,6 +47,11 @@ class CursosController extends AppController {
 	}
 
 	function add() {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
 		if (!empty($this->data)) {
 			$this->Curso->create();
 			if ($this->Curso->save($this->data)) {
@@ -60,10 +65,9 @@ class CursosController extends AppController {
 		}
 		$centros = $this->Curso->Centro->find('list');
 		$titulacions = $this->Curso->Titulacion->find('list');
-		$modalidads = $this->Curso->Modalidad->find('list');
 		$materias = $this->Curso->Materia->find('list');
 		$ciclos = $this->Curso->Ciclo->find('list');
-		$this->set(compact('centros', 'titulacions', 'modalidads', 'materias', 'ciclos'));
+		$this->set(compact('centros', 'titulacions', 'materias', 'ciclos'));
 	}
 
 	function edit($id = null) {
@@ -72,7 +76,12 @@ class CursosController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Curso->save($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+               $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+               $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if ($this->Curso->save($this->data)) {
 				$this->Session->setFlash('El curso ha sido grabado.', 'default', array('class' => 'alert alert-success'));
 				//$this->redirect(array('action' => 'index'));
 				$inserted_id = $this->Curso->id;

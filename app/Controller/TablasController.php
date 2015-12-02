@@ -1,8 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
 
-class GraficosController extends AppController {
-	var $name = 'Graficos';
+class TablasController extends AppController {
+	var $name = 'Tablas';
 
     var $helpers = array('Session');
 	public $components = array('Auth','Session', 'RequestHandler');
@@ -15,15 +15,7 @@ class GraficosController extends AppController {
 	public function index() {
     } 
 
-    public function i_x_curso() {
-
-	}
-
 	public function r_x_curso() {
-
-	}
-
-	public function a_x_curso() {
 
 	}
 

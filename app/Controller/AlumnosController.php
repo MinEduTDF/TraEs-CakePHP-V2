@@ -4,13 +4,16 @@ App::uses('AppController', 'Controller');
 class AlumnosController extends AppController {
 
 	var $name = 'Alumnos';
-    var $helpers = array('Session');
+    var $helpers = array('Session', 'Form', 'Time', 'Js');
 	public $components = array('Auth','Session', 'RequestHandler');
 	var $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.creado DESC'));
 
 	function index() {
-		//$this->Alumno->recursive = 0;
-		$this->set('alumnos', $this->paginate());
+		$this->Alumno->recursive = 0;
+		$this->paginate['Alumno']['limit'] = 4;
+		$this->paginate['Alumno']['order'] = array('Alumno.id' => 'asc');
+		//$this->paginate['Alumno']['conditions'] = array('Alumno.status' => 1);
+		//$this->set('alumnos', $this->paginate());
 		$this->redirectToNamed();
 		$conditions = array();
 
@@ -47,7 +50,12 @@ class AlumnosController extends AppController {
 	
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+          if (!empty($this->data)) {
 			$this->Alumno->create();
 			if ($this->Alumno->save($this->request->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
@@ -66,7 +74,12 @@ class AlumnosController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
-			if ($this->Alumno->save($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+    	  if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Alumno->id;
 				$this->redirect(array('action' => 'view', $inserted_id));

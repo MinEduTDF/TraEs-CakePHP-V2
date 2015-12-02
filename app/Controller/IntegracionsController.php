@@ -15,7 +15,12 @@ class IntegracionsController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+  		  if (!empty($this->data)) {
 			$this->Integracion->create();
 			if ($this->Integracion->save($this->data)) {
 				$this->Session->setFlash('La Integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
@@ -38,6 +43,11 @@ class IntegracionsController extends AppController {
 			$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 		}
 		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+            if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
 			if ($this->Integracion->save($this->data)) {
 				$this->Session->setFlash('La integracion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));

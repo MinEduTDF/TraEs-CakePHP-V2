@@ -78,7 +78,12 @@ class UsersController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
 $this->Session->setFlash('El Usuario ha sido grabado', 'default', array('class' => 'alert alert-success'));
@@ -99,6 +104,11 @@ $this->Session->setFlash('El Usuario ha sido grabado', 'default', array('class' 
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+            if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
 			if ($this->User->save($this->data)) {
 				$this->Session->setFlash('El usuario ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Usuario->id;

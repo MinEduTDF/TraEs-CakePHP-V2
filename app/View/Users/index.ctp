@@ -3,12 +3,17 @@
 <!-- start main -->
 <div class="TituloSec">Administracion de Usuarios</div>
 <div id="ContenidoSec">
-<div id="second-nav">
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-12">
+     <div id="second-nav">
 			 <div class="unit text-center">
 			 	  	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary btn-lg')); ?></span>
 			 </div>
-</div>
-<div class="table-responsive">
+     </div>
+             <div class="unit text-center">
+			   <?php echo $this->element('formSearch_user'); ?>
+             </div>   
+ <div class="table-responsive">
   <table class="table table-condensed">
     <thead>
 		<tr>
@@ -18,7 +23,7 @@
 			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
    			<th><?php echo $this->Paginator->sort('puesto', 'Puesto');?></th>
 			<!--<th><?php echo $this->Paginator->sort('centro_id', 'Centro');?></th>-->
-            <th><?php echo $this->Paginator->sort('empleado_id', 'Empleado');?></th>
+            <th><?php echo $this->Paginator->sort('empleado_id', 'Agente');?></th>
             <th><?php echo $this->Paginator->sort('created', 'Creado');?></th>
 			<th><?php echo $this->Paginator->sort('modified','Modificado');?></th>
 			<th><?php echo $this->Paginator->sort('status','Estado');?></th>
@@ -42,18 +47,16 @@
 			<td style="text-align: center;"><?php echo $this->Html->formatTime($user['User']['modified']); ?></td>
 			<td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
 			<td >
-
-			<?php echo $this->Html->link(__('Editar'), array('action'=>'edit', $user['User']['id']) ); ?> | 
+   		     <span class="link"><?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning')); ?></span>
 			<?php
 				if( $user['User']['status'] != 0){ 
-					echo $this->Html->link(__('Ver'), array('action'=>'view', $user['User']['id'])); ?> |
-<?php                    
-					echo $this->Html->link(__('Borrar'), array('action'=>'delete', $user['User']['id']));
+			?><span class="link"><?php echo $this->Html->link('Ver', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default')); ?></span>
+			  <span class="link"><?php echo $this->Html->link('Borrar', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger')); ?></span>
+	        <?php 
 				} 
- 
 				else{
-					echo $this->Html->link("Reactivar", array('action'=>'activate', $user['User']['id']));
-				}
+			?>		<span class="link"><?php echo $this->Html->link('Reactivar', array('action' => 'activate', $user['User']['id']), array('class' => 'btn btn-danger')); ?></span>
+            <?php	}
 			?>
 			</td>
 		</tr>
@@ -70,4 +73,6 @@
 			 <div class="unit text-center">
 			 	 <?php echo $this->element('pagination'); ?> 
 			 </div>
+         </div>
+      </div>    
 </div>

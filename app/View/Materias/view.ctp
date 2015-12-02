@@ -2,6 +2,11 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
+<!-- *********** Slider ************* -->
+<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->css('slider.css'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
 <div class="TituloSec">Materia: <?php echo ($materia['Materia']['alia']); ?></div>
 <div id="ContenidoSec">
@@ -16,11 +21,8 @@
 			<b><?php echo __('Nombre:'); ?></b>
 			<?php echo ($materia['Materia']['nombre']); ?></p>
 
-            <b><?php echo __('Año:'); ?></b>
-			<?php echo ($this->Html->link($materia['Curso']['anio'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['anio']))); ?></p>
-
-			<b><?php echo __('División:'); ?></b>
-			<?php echo ($this->Html->link($materia['Curso']['division'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['division']))); ?></p>
+            <b><?php echo __('Curso:'); ?></b>
+			<?php echo ($this->Html->link($materia['Curso']['nombre_completo_curso'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['id']))); ?></p>
 
             <b><?php echo __('Campo de formación:'); ?></b>
 			<?php echo ($materia['Materia']['campo_formacion']); ?></p>
@@ -130,13 +132,17 @@
 <div id="acordeon_01">
 		<div class="row">
 	<?php if (!empty($materia['Inscripcion'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
+
+  	<!-- Swiper -->
+    <div class="swiper-container" style="height: 200px;">
+        <div class="swiper-wrapper" >
 	<?php foreach ($materia['Inscripcion'] as $inscripcion): ?>
+	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
 			<?php echo '<b>Legajo:</b> '.$inscripcion['legajo_nro'];?><br>
-			<?php echo '<b>Ciclo_Id:</b> '.($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?><br>
-			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>
+			<!--<?php echo '<b>Ciclo_Id:</b> '.($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?><br>
+			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>-->
             <?php echo '<b>Fecha_alta:</b> '.($this->Html->formatTime($inscripcion['fecha_alta']));?><br>
 			<?php echo '<b>Fecha_baja:</b> '.($this->Html->formatTime($inscripcion['fecha_baja']));?><br>
             <?php echo '<b>Fecha_egreso:</b> '.($this->Html->formatTime($inscripcion['fecha_egreso']));?><br>
@@ -147,14 +153,21 @@
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']), array('class' => 'btn btn-success')); ?>
 			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), array('class' => 'btn btn-danger')); ?>
-			</div>
+            </div>
 		</div>
 	</div>
+</div>
+		
 		<?php endforeach; ?>
 			</div>
+			        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Include plugin after Swiper -->
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-	</div>
+
+        </div>
 </div>
 <!-- end Inscripciones Relacionados -->
 
@@ -326,3 +339,11 @@
 	</div>
 </div>-->
 </div>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    </script>

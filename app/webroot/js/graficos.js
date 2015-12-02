@@ -1,6 +1,6 @@
-      function graficos(modo,id) {
+      function graficos(modo,id,json) {
             var jsonData = $.ajax({
-				        url : "graficos/json",
+				        url : "graficos/"+json,
                 dataType: "json",
                 async: true
             }).done(function(rta){
@@ -28,21 +28,25 @@
          });
       }
 
-/*s
+     google.load("visualization", "1.1", {'packages':['table']});
 
-      function drawTable() {
+     function tablas(id) {
+
         var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Name');
-        data.addColumn('number', 'Salary');
-        data.addColumn('boolean', 'Full Time Employee');
+        data.addColumn('string', 'Alumno');
+        data.addColumn('string', 'Curso');
         data.addRows([
-          ['Mikeddeee',  {v: 10000, f: '$10,000'}, true],
-          ['Jim',   {v:8000,   f: '$8,000'},  false],
-          ['Alice', {v: 12500, f: '$12,500'}, true],
-          ['Bob',   {v: 7000,  f: '$7,000'},  true]
+          ['Probando',  'sobral'],
+          ['asd',  'sobral'],
+          ['asdas',  'sobral'],
+          ['asdasd',  'sobral'],
+          ['asdasd',  'sobral'],
+          ['asdadsa',  'sobral'],
+          ['asdasd',  'sobral']
         ]);
 
-        var table = new google.visualization.Table(document.getElementById('table_div'));
+        var table = new google.visualization.Table(document.getElementById(id));
 
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-      } */
+  
+      } 

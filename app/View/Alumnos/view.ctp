@@ -2,6 +2,10 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
+<!-- *********** Slider ************* -->
+<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->css('slider.css'); ?>
+<!-- ************************************** -->
 
 <!-- start main -->
 <div class="TituloSec"><?php echo ($alumno['Alumno']['apellidos']).' '.($alumno['Alumno']['nombres']); ?></div>
@@ -222,8 +226,13 @@
 	<div id="acordeon_05">
 		<div class="row">
 		<?php if (!empty($alumno['Nota'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
+
+  	<!-- Swiper -->
+    <div class="swiper-container" style="height: 200px;">
+        <div class="swiper-wrapper" >
 	<?php foreach ($alumno['Nota'] as $nota): ?>
+
+	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
 			<!--<?php echo '<b>Ciclo Id:</b> '.($this->Html->link($nota['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $nota['ciclo_id'])));?><br>-->
@@ -233,8 +242,8 @@
             <?php echo '<b>Promedio tercer período:</b> '.$nota['promedio_tercer_periodo'];?><br>
 
             <?php echo '<b>Promedio a término:</b> '.$nota['promedio_a_termino'];?><br>
-			<?php echo '<b>Nota en diciembre:</b> '.$nota['nota_en_diciembre'];?><br>
-			<?php echo '<b>Nota en marzo:</b> '.$nota['nota_en_marzo'];?><br>
+			<!--<?php echo '<b>Nota en diciembre:</b> '.$nota['nota_en_diciembre'];?><br>
+			<?php echo '<b>Nota en marzo:</b> '.$nota['nota_en_marzo'];?><br>-->
 			<?php echo '<b>Promedio final:</b> '.$nota['promedio_final'];?><br>
 			<!--<?php echo '<b>Observaciones:</b> '.$nota['observaciones'];?><br>-->
 
@@ -243,13 +252,28 @@
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success')); ?>
 			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'notas', 'action' => 'delete', $nota['id']), array('class' => 'btn btn-danger')); ?>
-			</div>
+            </div>
 		</div>
 	</div>
+</div>
+		
 		<?php endforeach; ?>
 			</div>
+			        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Include plugin after Swiper -->
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-	</div>
+
+        </div>
 </div>
 <!-- end Calificaciones Relacionadas -->
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    </script>

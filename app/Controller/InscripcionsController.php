@@ -56,7 +56,12 @@ class InscripcionsController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+          if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
+		  if (!empty($this->data)) {
 			$this->Inscripcion->create();
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
@@ -82,6 +87,11 @@ class InscripcionsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+		  //abort if cancel button was pressed  
+            if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				//$this->redirect(array('action' => 'index'));

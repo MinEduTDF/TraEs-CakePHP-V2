@@ -18,7 +18,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Empleados'),'/empleados'); ?></li>
+            <li><?php echo $this->Html->link(__('Agentes'),'/empleados'); ?></li>
             <li><?php echo $this->Html->link(__('Usuarios'),'/users'); ?></li>
           </ul>
         </li>
@@ -45,7 +45,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
-           <li><?php echo $this->Html->link(__('Tablas'), '/alumnos'); ?></li>
+           <li><?php echo $this->Html->link(__('Tablas'), '/tablas'); ?></li>
           </ul>
         </li>
         <li>

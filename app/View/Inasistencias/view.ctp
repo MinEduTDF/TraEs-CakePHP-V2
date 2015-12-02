@@ -2,6 +2,11 @@
 <?php echo $this->Html->script('acordeon'); ?>
 <!-- ************************************** -->
 
+<!-- *********** Slider ************* -->
+<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->css('slider.css'); ?>
+<!-- ************************************** -->
+
 <!-- start main -->
 <div class="TituloSec">Detalle<?php //echo ($inscripcion['Inscripcion']['legajo_nro']); ?></div>
 <div id="ContenidoSec">
@@ -81,8 +86,13 @@
 	<div id="acordeon_02">
 		<div class="row">
 		<?php if (!empty($inasistencia['Materia'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
+
+  	<!-- Swiper -->
+    <div class="swiper-container" style="height: 200px;">
+        <div class="swiper-wrapper" >
 	<?php foreach ($inasistencia['Materia'] as $materia): ?>
+
+	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
             <!--<?php echo '<b>ID:</b> '.($this->Html->link($materia['id'], array('controller' => 'materias', 'action' => 'view', $materia['id'])));?><br>-->
@@ -96,13 +106,30 @@
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success')); ?>
 			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger')); ?>
-			</div>
+            </div>
 		</div>
 	</div>
+</div>
+		
 		<?php endforeach; ?>
 			</div>
+			        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Include plugin after Swiper -->
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
-	</div>
+
+        </div>
 </div>
 <!-- end Materias Relacionadas -->
+
+</div>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+    });
+    </script>
