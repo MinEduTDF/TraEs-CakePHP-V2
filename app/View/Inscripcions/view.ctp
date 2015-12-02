@@ -213,12 +213,9 @@
 		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
 		<?php endif; ?>
 
-
         </div>
-
 </div>
 <!-- end Materias Relacionados -->
-
 </div>
 
     <!-- Initialize Swiper -->
