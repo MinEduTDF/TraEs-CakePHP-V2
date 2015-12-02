@@ -20,13 +20,6 @@ class Curso extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Modalidad' => array(
-			'className' => 'Modalidad',
-			'foreignKey' => 'modalidad_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
 
