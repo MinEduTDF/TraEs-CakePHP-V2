@@ -20,7 +20,10 @@
 
 	<b>Ocupación:</b>		
 	<?php echo ($familiar['Familiar']['ocupacion']); ?><br>
-    
+
+	<b>Lugar de trabajo:</b>		
+	<?php echo ($familiar['Familiar']['lugar_de_trabajo']); ?><br>
+   
     </div><div class="col-md-6 col-sm-6">
 
 	<b>Ciudad:</b>

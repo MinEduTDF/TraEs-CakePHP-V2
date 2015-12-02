@@ -55,10 +55,17 @@ class Familiar extends AppModel {
 	                     )
                    ),
 				   'ocupacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
+                           'maxLength' => array(
+                           'rule' => array('maxLength',50),                          
                            'allowEmpty' => false,
-                           'message' => 'La ocupacion no es valida. Indicar una de las opciones.'
+                           'message' => 'EL nombre de la ocupacion es demasiado extenso.'
+                           )
+                   ),
+				   'lugar_de_trabajo' => array(
+                           'maxLength' => array(
+                           'rule' => array('maxLength',50),                          
+                           'allowEmpty' => true,
+                           'message' => 'EL nombre del lugar de trabajo es demasiado extenso.'
                            )
                    ),
 				   'nacionalidad' => array(

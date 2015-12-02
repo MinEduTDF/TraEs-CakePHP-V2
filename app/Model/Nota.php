@@ -31,7 +31,8 @@ class Nota extends AppModel {
 	
 	var $validate = array(
                    'nota_uno_primer_periodo' => array(
-                           'range' => array(
+                           /*
+						   'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => false,
 						   'message' => 'La calificación no es válida. Indicar un valor entre 0 y 10.'
@@ -40,10 +41,15 @@ class Nota extends AppModel {
                            'rule' => array('decimal',2), 
                            'allowEmpty' => false,       
                            'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => false,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
-                   ),
+				   ),
 				   'nota_dos_primer_periodo' => array(
-                           'range' => array(
+                           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -53,10 +59,15 @@ class Nota extends AppModel {
                            'allowEmpty' => true,       
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
                    ),
 				   'nota_tres_primer_periodo' => array(
-                           'range' => array(
+                           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -66,6 +77,11 @@ class Nota extends AppModel {
                            'allowEmpty' => true,       
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
                    ),
 				   'promedio_primer_periodo' => array(
@@ -80,32 +96,15 @@ class Nota extends AppModel {
                            'message' => 'La calificación no es válida. Indicar nota sin signos ni decimales.'
                            )
                    ),
-				   'nota_uno_segundo_periodo' => array(
-				           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
-                           )			  
-				   ),
-				   'nota_dos_segundo_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                   'desarrollo_personalSocial_primer_periodo' => array(
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => false,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con un caracter.'
                            )
                    ),
-				   'nota_tres_segundo_periodo' => array(
-                           'range' => array(
+				   'nota_uno_segundo_periodo' => array(
+				           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -114,6 +113,45 @@ class Nota extends AppModel {
                            'rule' => array('decimal',2), 
                            'allowEmpty' => true,       
                            'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+						   'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+                           )
+				   ),
+				   'nota_dos_segundo_periodo' => array(
+                           /*'range' => array(
+                           'rule'    => array('range', -1, 11),
+                           'allowEmpty' => true,
+						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
+                           ),
+						   'numeric' => array(
+                           'rule' => array('decimal',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+                          )
+                   ),
+				   'nota_tres_segundo_periodo' => array(
+                           /*'range' => array(
+                           'rule'    => array('range', -1, 11),
+                           'allowEmpty' => true,
+						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
+                           ),
+						   'numeric' => array(
+                           'rule' => array('decimal',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
                    ),
 				   'promedio_segundo_periodo' => array(
@@ -128,8 +166,15 @@ class Nota extends AppModel {
                            'message' => 'La calificación no es válida. Indicar nota sin signos ni decimales.'
                            )
                    ),
+				   'desarrollo_personalSocial_segundo_periodo' => array(
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => false,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con un caracter.'
+                           )
+                   ),
 				   'nota_uno_tercer_periodo' => array(
-				           'range' => array(
+				           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -138,10 +183,15 @@ class Nota extends AppModel {
                            'rule' => array('decimal',2), 
                            'allowEmpty' => true,       
                            'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
-                           )			  
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+                           )
 				   ),
 				   'nota_dos_tercer_periodo' => array(
-                           'range' => array(
+                           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -150,10 +200,15 @@ class Nota extends AppModel {
                            'rule' => array('decimal',2), 
                            'allowEmpty' => true,       
                            'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
                    ),
 				   'nota_tres_tercer_periodo' => array(
-                           'range' => array(
+                           /*'range' => array(
                            'rule'    => array('range', -1, 11),
                            'allowEmpty' => true,
 						   'message' => 'La calificación no es válida. Indicar nota entre 0 y 10.'
@@ -162,6 +217,11 @@ class Nota extends AppModel {
                            'rule' => array('decimal',2), 
                            'allowEmpty' => true,       
                            'message' => 'La calificación no es válida. Indicar nota con dos decimales.'
+                           )*/
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => true,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
                            )
                    ),
 				   'promedio_tercer_periodo' => array(
@@ -174,6 +234,13 @@ class Nota extends AppModel {
                            'rule' => 'numeric', 
                            'allowEmpty' => true,       
                            'message' => 'La calificación no es válida. Indicar nota sin signos ni decimales.'
+                           )
+                   ),
+				   'desarrollo_personalSocial_tercer_periodo' => array(
+   				           'maxlength' => array(
+						   'rule' => array('maxlength',2), 
+                           'allowEmpty' => false,       
+                           'message' => 'La calificación no es válida. Indicar nota máximo con un caracter.'
                            )
                    ),
 				   'promedio_a_termino' => array(

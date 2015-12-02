@@ -11,6 +11,7 @@
 		echo $this->Form->input('nombre_completo', array('label'=>'Nombre Completo', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('cuil_cuit', array('label'=>'Cuil / Cuit', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('ocupacion', array('label'=>'Ocupacion', 'between' => '<br>', 'class' => 'form-control'));
+		echo $this->Form->input('lugar_de_trabajo', array('label'=>'Lugar de trabajo', 'between' => '<br>', 'class' => 'form-control'));
 
 echo '</div><div class="col-md-6 col-sm-6 col-xs-12">';
 
