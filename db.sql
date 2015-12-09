@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 04, 2015 at 05:03 PM
+-- Generation Time: Oct 06, 2015 at 06:43 PM
 -- Server version: 5.1.36
 -- PHP Version: 5.3.0
 
@@ -29,12 +29,12 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `apellidos` varchar(50) CHARACTER SET latin1 NOT NULL,
   `nombres` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `foto` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `foto_dir` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `foto` varchar(255) NOT NULL,
+  `foto_dir` varchar(255) NOT NULL,
   `documento_tipo` varchar(30) CHARACTER SET latin1 NOT NULL,
   `documento_nro` int(9) NOT NULL,
   `cuil_cuit` int(11) DEFAULT NULL,
-  `ocupacion` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `ocupacion` varchar(50) CHARACTER SET latin1 NOT NULL,
   `fecha_nac` date NOT NULL,
   `pcia_nac` varchar(50) CHARACTER SET latin1 NOT NULL,
   `nacionalidad` varchar(50) CHARACTER SET latin1 NOT NULL,
@@ -49,16 +49,15 @@ CREATE TABLE IF NOT EXISTS `alumnos` (
   `creado` date NOT NULL,
   `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `alumnos`
 --
 
 INSERT INTO `alumnos` (`id`, `apellidos`, `nombres`, `foto`, `foto_dir`, `documento_tipo`, `documento_nro`, `cuil_cuit`, `ocupacion`, `fecha_nac`, `pcia_nac`, `nacionalidad`, `indigena`, `estado_civil`, `email`, `telefono_nro`, `calle_nombre`, `calle_nro`, `barrio`, `ciudad`, `creado`, `modificado`) VALUES
-(1, 'Villañuevá', 'Oscar Alfredo', 'Pablo_Gay.jpg', '', 'DNI', 25678765, NULL, 'Estudiante', '2015-07-18', 'Tierra del Fuego', 'Argentino', '', '', '', '2901400011', 'Gdor. Paz', 455, 'Centro', 'Ushuaia', '2015-07-18', '2015-08-31 15:32:53'),
-(2, 'Tolaba', 'Pablo', '', '', 'DNI', 26789653, NULL, 'Estudiante', '2000-07-27', '', 'Argentino', '', '', '', '445667', 'Roca', 234, 'Centro', 'Ushuaia', '2015-07-27', '0000-00-00 00:00:00'),
-(3, 'Gil', 'Santiago Alberto', '', '', 'DNI', 30000000, NULL, 'Estudiante', '1995-08-04', '', 'Argentino', '', 'Soltero', 'gsanti@gmail.com', '400013', 'Roca', 345, 'Centro', 'Ushuaia', '2015-08-04', '2015-08-06 19:04:06');
+(1, 'Villañuevá', 'Oscar Alfredo', '', '', 'DNI', 25678765, NULL, 'Estudiante', '2015-07-18', 'Tierra del Fuego', 'Argentino', '', 'Soltero', '', '2901400011', 'Gdor. Paz', 455, 'Centro', 'Ushuaia', '2015-07-18', '2015-09-28 19:19:08'),
+(4, 'Soloaga', 'Ernesto', '', '', 'DNI', 25570652, NULL, 'Estudiante', '1980-09-09', '', 'Argentino', '', 'Soltero', '', '455678', 'Roca', 234, 'Centro', 'Ushuaia', '0000-00-00', '2015-09-28 20:56:19');
 
 -- --------------------------------------------------------
 
@@ -315,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `ciclos_cursos` (
   `curso_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `ciclos_cursos` (`ciclo_id`,`curso_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=68 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
 
 --
 -- Dumping data for table `ciclos_cursos`
@@ -324,11 +323,11 @@ CREATE TABLE IF NOT EXISTS `ciclos_cursos` (
 INSERT INTO `ciclos_cursos` (`id`, `ciclo_id`, `curso_id`) VALUES
 (67, 5, 1),
 (64, 5, 2),
-(61, 5, 3),
+(80, 1, 3),
 (58, 5, 4),
 (66, 4, 1),
 (63, 4, 2),
-(60, 4, 3),
+(81, 4, 3),
 (57, 4, 4),
 (55, 5, 6),
 (54, 4, 6),
@@ -338,20 +337,20 @@ INSERT INTO `ciclos_cursos` (`id`, `ciclo_id`, `curso_id`) VALUES
 (39, 4, 8),
 (65, 1, 1),
 (62, 1, 2),
-(59, 1, 3),
+(82, 5, 3),
 (56, 1, 4),
 (53, 1, 6),
 (50, 1, 7),
 (38, 1, 8),
-(47, 1, 9),
+(77, 1, 9),
 (44, 1, 10),
 (41, 1, 11),
 (42, 4, 11),
 (43, 5, 11),
 (45, 4, 10),
 (46, 5, 10),
-(48, 4, 9),
-(49, 5, 9);
+(78, 4, 9),
+(79, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -365,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `anio` varchar(11) CHARACTER SET latin1 NOT NULL,
   `division` varchar(11) CHARACTER SET latin1 NOT NULL,
   `turno` varchar(11) CHARACTER SET latin1 NOT NULL,
-  `aulaNro` int(3) DEFAULT NULL,
+  `aula_nro` int(3) DEFAULT NULL,
   `plazas` int(2) NOT NULL,
   `organizacion_cursada` varchar(50) CHARACTER SET latin1 NOT NULL,
   `centro_id` int(11) NOT NULL,
@@ -378,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
 -- Dumping data for table `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `tipo`, `anio`, `division`, `turno`, `aulaNro`, `plazas`, `organizacion_cursada`, `centro_id`, `titulacion_id`, `modalidad_id`) VALUES
+INSERT INTO `cursos` (`id`, `tipo`, `anio`, `division`, `turno`, `aula_nro`, `plazas`, `organizacion_cursada`, `centro_id`, `titulacion_id`, `modalidad_id`) VALUES
 (1, 'Independiente', '1ero', '4to', 'Tarde', 1, 5, '', 6, 1, 1),
 (2, 'Independiente', '3ero', '3ero', 'Vespertino', 1, 4, '', 6, 1, 5),
 (3, 'Independiente', '3ero', '2do', 'Tarde', 4, 12, '', 6, 1, 4),
@@ -474,23 +473,35 @@ INSERT INTO `docentes` (`id`, `primerNombre`, `apellido`, `dni`, `direccion`, `t
 
 CREATE TABLE IF NOT EXISTS `empleados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dni` int(9) NOT NULL,
-  `apellido` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `primerNombre` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `direccion` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `telefono` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `documento_tipo` varchar(30) NOT NULL,
+  `documento_nro` int(9) NOT NULL,
+  `cuit_cuil` int(11) NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `nombres` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `fecha_nac` date NOT NULL,
+  `pcia_nac` varchar(50) NOT NULL,
+  `indigena` varchar(50) DEFAULT NULL,
+  `estado_civil` varchar(30) NOT NULL,
+  `calle_nombre` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `calle_nro` int(4) NOT NULL,
+  `telefono_nro` varchar(20) CHARACTER SET latin1 NOT NULL,
   `email` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  `barrio` varchar(50) NOT NULL,
   `ciudad` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `creado` date NOT NULL,
+  `modificado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `dni` (`dni`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  UNIQUE KEY `dni` (`documento_nro`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `empleados`
 --
 
-INSERT INTO `empleados` (`id`, `dni`, `apellido`, `primerNombre`, `direccion`, `telefono`, `email`, `ciudad`) VALUES
-(1, 25570652, 'Gay', 'Pablo', 'Intendente Torelli 1351', '445882', '', 'Ushuaia');
+INSERT INTO `empleados` (`id`, `documento_tipo`, `documento_nro`, `cuit_cuil`, `apellidos`, `nombres`, `fecha_nac`, `pcia_nac`, `indigena`, `estado_civil`, `calle_nombre`, `calle_nro`, `telefono_nro`, `email`, `barrio`, `ciudad`, `creado`, `modificado`) VALUES
+(1, '', 25570652, 0, 'Gay', 'Pablo', '0000-00-00', '', NULL, '', 'Intendente Torelli 1351', 0, '445882', '', '', 'Ushuaia', '0000-00-00', '0000-00-00 00:00:00'),
+(2, 'DNI', 26578432, 0, 'Gil', 'Santiago', '1980-06-10', '', '', 'Soltero', 'Roca', 345, '445554', 'gsantiago@gmail.com', 'Centro', 'Ushuaia', '2015-10-06', '0000-00-00 00:00:00'),
+(3, 'DNI', 27658678, 0, 'Flores', 'Marcos', '1981-06-10', '', '', 'Soltero', 'Roca', 234, '446778', 'fmarcos@gmail.com', 'Centro', 'Ushuaia', '2015-10-06', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1135,22 +1146,27 @@ INSERT INTO `titulos` (`id`, `titulo`, `tipo`, `institucion`, `docente_id`) VALU
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `username` varchar(128) CHARACTER SET latin1 NOT NULL,
   `password` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `role` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `ultimoLogueo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `email` varchar(128) NOT NULL,
+  `role` varchar(64) CHARACTER SET latin1 NOT NULL,
   `puesto` varchar(50) CHARACTER SET latin1 NOT NULL,
   `centro_id` int(11) NOT NULL,
   `empleado_id` int(11) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombreUsuario` (`username`,`password`),
   UNIQUE KEY `nombreUsuario_2` (`username`),
   UNIQUE KEY `clave` (`password`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `ultimoLogueo`, `puesto`, `centro_id`, `empleado_id`) VALUES
-(1, 'gpablo', 'a9d765cfc7384469fe134270fa82c940655aa7a1', '1', '2015-08-24 13:07:00', 'Altas_Bajas', 6, 1);
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `puesto`, `centro_id`, `empleado_id`, `created`, `modified`, `status`) VALUES
+(1, 'gpablo', 'a9d765cfc7384469fe134270fa82c940655aa7a1', 'gpabloandres@gmail.com', 'admin', 'Altas_Bajas', 6, 1, '2015-09-15 16:16:15', '2015-09-21 19:15:35', 1),
+(2, 'gsantiago', 'cc7f60f0223712d972d9a880ed03e101f2238eab', 'gsanti@gmail.com', 'usuario', 'Inscripciones', 1, 2, '2015-09-16 12:04:36', '2015-10-06 18:30:25', 1),
+(3, 'fmarcos', '6f5ddde678f9ff7ea95a727a8bd6b61584a04f08', 'fmarcos@gmail.com', 'usuario', 'Calificaciones', 1, 3, '2015-09-21 18:48:54', '2015-10-06 18:28:51', 1);

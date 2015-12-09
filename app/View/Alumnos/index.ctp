@@ -48,7 +48,7 @@
   	<div class="unit">
   			 <div class="subtitulo">Buscar</div>
 				
-                <strong><?php echo 'Apellido: '; ?></strong>
+                <!--<strong><?php echo 'Apellido: '; ?></strong>
 				
 				<?php 
 					
@@ -57,7 +57,7 @@
 					{
 						echo ' / ' . (($activeLetter != $letter) ? $this->Html->link($letter,                              'index/letter:'.$letter) : $letter);
 					}
-				?>
+				?>-->
 			 <?php echo $this->element('formSearch_alumno'); ?>
   	      </div>
 		</div>

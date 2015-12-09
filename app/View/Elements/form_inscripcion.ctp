@@ -9,7 +9,7 @@
 <?php 
 		echo $this->Form->input('alumno_id', array('label'=>'Alumno ID', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('legajo_nro', array('label'=>'Legajo N°', 'between' => '<br>', 'class' => 'form-control'));
-		$tipos_alta = array('Regular' => 'Regular');
+		$tipos_alta = array('Regular' => 'Regular', 'Equivalencia'=>'Equivalencia');
         echo $this->Form->input('tipo_alta', array('options' => $tipos_alta, 'empty' => '', 'between' => '<br>', 'class' => 'form-control'));
         echo $this->Form->input('fecha_alta', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
 		$tipos_cursa = array('Cursa algun espacio curricular.' => 'Cursa algun espacio curricular.', 'Sólo se inscribe a rendir final.' => 'Sólo se inscribe a rendir final.');

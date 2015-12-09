@@ -37,14 +37,29 @@
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_primer_periodo']); ?></p>
 
+        <b>Tipo de evaluación 1:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_uno_primer_periodo']); ?></p>
+        
         <b>Nota 2:</b>		
 	    <?php echo ($nota['Nota']['nota_dos_primer_periodo']); ?></p>
+
+        <b>Tipo de evaluación 2:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_dos_primer_periodo']); ?></p>
 
         <b>Nota 3:</b>		
 	    <?php echo ($nota['Nota']['nota_tres_primer_periodo']); ?></p>
 
+        <b>Tipo de evaluación 3:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_tres_primer_periodo']); ?></p>
+
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_primer_periodo']); ?></p>
+
+        <b>Desarrollo Personal y Social:</b>		
+	    <?php echo ($nota['Nota']['desarrollo_personalSocial_primer_periodo']); ?></p>
+
+        <b>Fecha:</b>		
+	    <?php echo ($nota['Nota']['fecha_promedio_primer_periodo']); ?></p>
 
      </div></div>
         
@@ -56,14 +71,26 @@
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_segundo_periodo']); ?></p>
 
+        <b>Tipo de evaluación 1:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_uno_segundo_periodo']); ?></p>
+
         <b>Nota 2:</b>		
 	    <?php echo ($nota['Nota']['nota_dos_segundo_periodo']); ?></p>
+
+        <b>Tipo de evaluación 2:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_dos_segundo_periodo']); ?></p>
 
         <b>Nota 3:</b>		
 	    <?php echo ($nota['Nota']['nota_tres_segundo_periodo']); ?></p>
 
+        <b>Tipo de evaluación 3:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_tres_segundo_periodo']); ?></p>
+
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_segundo_periodo']); ?></p>
+
+        <b>Fecha:</b>		
+	    <?php echo ($nota['Nota']['fecha_promedio_segundo_periodo']); ?></p>
         
       </div></div>
         
@@ -75,15 +102,27 @@
         <b>Nota 1:</b>		
 	    <?php echo ($nota['Nota']['nota_uno_tercer_periodo']); ?></p>
 
+        <b>Tipo de evaluación 1:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_uno_tercer_periodo']); ?></p>
+
         <b>Nota 2:</b>		
 	    <?php echo ($nota['Nota']['nota_dos_tercer_periodo']); ?></p>
+
+        <b>Tipo de evaluación 2:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_dos_tercer_periodo']); ?></p>
 
         <b>Nota 3:</b>		
 	    <?php echo ($nota['Nota']['nota_tres_tercer_periodo']); ?></p>
 
+        <b>Tipo de evaluación 3:</b>		
+	    <?php echo ($nota['Nota']['evaluacion_tipo_nota_tres_tercer_periodo']); ?></p>
+
         <b>Promedio:</b>		
 	    <?php echo ($nota['Nota']['promedio_tercer_periodo']); ?></p>
         
+        <b>Fecha:</b>		
+	    <?php echo ($nota['Nota']['fecha_promedio_tercer_periodo']); ?></p>
+
         </div>
 
      <!--<h3>Datos Cierre</h3>-->

@@ -269,7 +269,7 @@
         </div>
 </div>
 <!-- end Calificaciones Relacionadas -->
-
+</div>
     <!-- Initialize Swiper -->
     <script>
     var swiper = new Swiper('.swiper-container', {
