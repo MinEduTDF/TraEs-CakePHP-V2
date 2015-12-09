@@ -13,6 +13,8 @@
   padding:0;
   border: 0px solid #CCC;
   overflow:visible;
+  float:left;
+  width:980px;/* */
 }
 .swMain .stepContainer {
   display:block;
@@ -21,45 +23,48 @@
   padding:0;    
   border: 0px solid #CCC;    
   overflow:hidden;
-  clear:both;
-/*  height:300px;*/
+  clear:right;
+  height:300px;
 }
 
 .swMain .stepContainer div.content {
   display:block;
+  position: absolute;  
+  float:left;
   margin: 0;
   padding:5px;    
   border: 1px solid #CCC; 
   font: normal 12px Verdana, Arial, Helvetica, sans-serif; 
   color:#5A5655;   
   background-color:#F8F8F8;  
-/*  height:300px;*/
+  height:300px;
   text-align:left;
-  overflow:visible;    
+  overflow:auto;    
   z-index:88; 
   -webkit-border-radius: 5px;
   -moz-border-radius  : 5px;
+  width:720px;
   clear:both;
 }
 
 .swMain div.actionBar {
   display:block;
   position: relative; 
-  clear:both;
+  clear:right;
   margin:             3px 0 0 0;   
   border:             1px solid #CCC;
   padding:            0;    
   color:              #5A5655;   
   background-color:   #F8F8F8;
   height:40px;
+/*  width:730px; 
+  float:right; */  
   text-align:left;
   overflow:auto;    
   z-index:88; 
-
   -webkit-border-radius: 5px;
   -moz-border-radius  : 5px;
-  left:0;
-  margin-bottom: 5px;
+
 }
 
 .swMain .stepContainer .StepTitle {
@@ -83,8 +88,7 @@
   float:left;
   list-style: none;
   padding: 0px;  
-  margin: 10px 0;      
-  clear: both;
+  margin: 5px 10px 0 0;
   border: 0px solid #CCCCCC;    
   background: transparent; /*#EEEEEE */
 }
@@ -93,10 +97,11 @@
   display:block;
   margin: 0;
   padding: 0; 
-  padding-left:3px;
-  padding-right: 3px;
+  padding-top:3px;
+  padding-bottom: 3px;
   border: 0px solid #E0E0E0;      
   float: left;
+  clear:both;
 }
 /* Anchor Element Style */
 .swMain ul.anchor li a {
@@ -105,7 +110,7 @@
   float:left;
   margin:0;
   padding:3px;
-  height:60px;
+  height:70px;
   width:230px;
   text-decoration: none;
   outline-style:none;
@@ -128,7 +133,7 @@
   float:left;
   text-align: left;
   padding:5px;
-
+  width:70%;
   font: bold 20px Verdana, Arial, Helvetica, sans-serif;
 }
 .swMain ul.anchor li a .stepDesc small{
@@ -139,9 +144,9 @@
   background: #EA8511;  /* EA8511 */
   border: 1px solid #EA8511;
   cursor:text;
-  -moz-box-shadow: 5px 5px 8px #888;
-  -webkit-box-shadow: 5px 5px 8px #888;
-  box-shadow: 5px 5px 8px #888;
+  -moz-box-shadow: 1px 5px 10px #888;
+  -webkit-box-shadow: 1px 5px 10px #888;
+  box-shadow: 1px 5px 10px #888;
 }
 .swMain ul.anchor li a.selected:hover {
   color:#F8F8F8;  
@@ -257,7 +262,7 @@
   border: 1px solid #FFD700; 
   font: bold 13px Verdana, Arial, Helvetica, sans-serif; 
   color:#5A5655;       
-  background: #FFF url(../images/loader.gif) no-repeat 5px;  
+  background: #FFF url(../../../../plugins/ReportManager/webroot/images/loader.gif) no-repeat 5px;  
   -moz-border-radius  : 5px;
   -webkit-border-radius: 5px;
   z-index:998;
