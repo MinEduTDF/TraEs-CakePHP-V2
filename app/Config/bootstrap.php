@@ -53,7 +53,7 @@ Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'un
  */
 CakePlugin::loadAll();
 //CakePlugin::load('Upload');
-
+CakePlugin::load('ReportManager',array('bootstrap' => true)); 
 /**
  * Configuration CakePdf
  */
