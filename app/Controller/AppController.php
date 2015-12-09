@@ -21,12 +21,12 @@ class AppController extends Controller {
 			'Session',
 		    'Auth' => array(
                         'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-					    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),                        'authError' => 'Debes estar logueado para continuar.', 
-					    'loginError' => 'Nombre de usuario o contraseña incorrectos.',
+					    'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),                        'authError' => 'Debe estar logueado para ver esta página.', 
+					    'loginError' => 'Nombre de usuario o contraseña incorrectos, inténtelo                                         nuevamente.',
 						'authorize' => array('Controller'),
 			));
 
-    // only allow the login controllers only
+    // Allow the login controllers only
 	public function beforeFilter() {
         $this->Auth->allow('login');
 		$this->set('current_user', $this->Auth->user());
@@ -37,8 +37,7 @@ class AppController extends Controller {
 		// Si no es así entonces se trata de un usuario común y lo redirigimos a otra página.
 		// En este caso a la acción usuario del controller users
 
-    	
-       		if ($user['status'] == 1 ) { if (isset($user['username']) == "usuario") { $this->redirect('usuario'); } } 
+    	if ($user['status'] == 1 ) { if (isset($user['username']) == "usuario") { $this->redirect                                    ('usuario'); } } 
 
      		else { $this->Auth->logout(); $this->redirect('login'); }
 

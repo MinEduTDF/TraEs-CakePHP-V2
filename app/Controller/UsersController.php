@@ -4,9 +4,15 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController {
  
- public $helpers = array('Text', 'Js', 'Time');
- public $components = array('Paginator', 'RequestHandler', 'Session');
+    public $helpers = array('Text', 'Js', 'Time');
+    public $components = array('Paginator', 'RequestHandler', 'Session');
   
+    public $paginate = array(
+        'limit' => 25,
+        'conditions' => array('status' => '1'),
+        'order' => array('User.username' => 'asc' ) 
+    );
+   
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('login','add');
@@ -41,10 +47,10 @@ class UsersController extends AppController {
 		// if we get the post information, try to authenticate
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->Session->setFlash('Hola, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Bienvenido, '. $this->Auth->user('username'), 'default', array('class' => 'alert alert-success'));
 				$this->redirect($this->Auth->redirect());
 			} else {
-				$this->Session->setFlash(__('Nombre de usuario o contraseña incorrectos'));
+				$this->Session->setFlash(__('Nombre de usuario o contraseña incorrectos.'));
 			}
 		} 
 	}
@@ -56,14 +62,14 @@ class UsersController extends AppController {
 
     public function index() {
         $this->paginate = array(
-            'limit' => 5,
+            'limit' => 6,
             'order' => array('User.username' => 'asc' )
         );
         $users = $this->paginate('User');
         $this->set(compact('users'));
     }
 
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Usuario no válido', 'default', array('class' => 'alert alert-danger'));
 			$this->redirect(array('action' => 'index'));
@@ -77,16 +83,16 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->find('first', $options));
 	}
 
-	function add() {
+	public function add() {
 		  //abort if cancel button was pressed  
           if(isset($this->params['data']['cancel'])){
-                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.'                                          , 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
 		  if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-$this->Session->setFlash('El Usuario ha sido grabado', 'default', array('class' => 'alert alert-success'));
+                $this->Session->setFlash('El Usuario ha sido grabado', 'default', array('class'                 => 'alert alert-success'));
 				$inserted_id = $this->Usuario->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {

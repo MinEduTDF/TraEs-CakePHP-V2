@@ -5,10 +5,13 @@
 	));
 	?>
 </p>
+
 <nav>
-	<ul class="pagination">
-		<li> <?php echo $this->Paginator->prev('<< anterior', array(), null, array('class' => 'disabled')); ?> </li>
-		<?php echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a', 'currentClass' => 'active')); ?>
-		<li> <?php echo $this->Paginator->next('siguiente >>', array(), null, array('class' => 'disabled')); ?> </li>
-	</ul>
+  <ul class="pagination">
+    <?php
+        echo ($this->Paginator->hasPrev()) ? $this->Paginator->prev('«', array('tag' => 'li'), null, null) : '<li class="disabled"><a href="#">«</a></li>';
+        echo $this->Paginator->numbers(array('separator' => false, 'tag' => 'li'));   
+        echo ($this->Paginator->hasNext()) ? $this->Paginator->next('»', array('tag' => 'li'), null, null) : '<li class="disabled"><a href="#">»</a></li>';
+    ?>
+  </ul>
 </nav>
