@@ -32,13 +32,13 @@ class User extends AppModel {
    'username' => array(
             'nonEmpty' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Usuario obligatorio',
+                'message' => 'EL nombre de Usuario es obligatorio',
 				'allowEmpty' => false
             ),
 			'between' => array( 
 				'rule' => array('between', 5, 15), 
 				'required' => true, 
-				'message' => 'El usuario debe contener entre 5 y 15 caracteres'
+				'message' => 'El nombre de usuario debe contener entre 5 y 15 caracteres'
 			),
 			 'unique' => array(
 				/*'rule'    => 'isUnique',*/
@@ -57,7 +57,7 @@ class User extends AppModel {
         'password' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
-                'message' => 'Contraseña obligatoria'
+                'message' => 'La Contraseña es obligatoria'
             ),
 			'min_length' => array(
 				'rule' => array('minLength', '6'),  
@@ -77,7 +77,7 @@ class User extends AppModel {
    		'email' => array(
 			'required' => array(
 				'rule' => array('email', true),    
-				'message' => 'Introduce un email válido'    
+				'message' => 'Ingrese un email válido'    
 			),
 			 'unique' => array(
 				'rule'    => array('isUniqueEmail'),
@@ -108,7 +108,7 @@ class User extends AppModel {
 		'puesto' => array(
 			'required' => array(
 				'rule' => array('puesto', true),    
-				'message' => 'Introduce una opción de la lista'    
+				'message' => 'Ingrese una opción de la lista'    
 			),
 			 'between' => array( 
 				'rule' => array('between', 5, 50), 
