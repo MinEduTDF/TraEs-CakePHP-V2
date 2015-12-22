@@ -4,6 +4,6 @@
   ?>
 </div>
 <div class="col-md-1">
-   <?php echo $this->Form->end(array('label'=>'Buscar','style' => 'width:115%; padding:10px', 'class'=>'btn btn-info', 'type'=>'button')); ?>
+   <?php echo $this->Form->end(array('label'=>'Buscar','style' => 'width:100%; padding:10px', 'class'=>'btn btn-info', 'type'=>'button')); ?>
  </div>
  </div>
