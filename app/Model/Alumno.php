@@ -244,6 +244,12 @@ class Alumno extends AppModel {
                            'allowEmpty' => false,
                            'message' => 'La ciudad no es valida. Indicar una opción de la lista.'                           )
                    ),
+				   'pendiente' => array(
+                           'numeric' => array(
+                           'rule' => 'numeric',                          
+                           'allowEmpty' => false,
+                           'message' => 'La opción no es valida. Indicar una opción de la lista.'                           )
+                   ),
 				   'foto' => array(
         	'uploadError' => array(
 				'rule' => 'uploadError',
@@ -274,6 +280,13 @@ class Alumno extends AppModel {
 			)
     
         );
+		
+	//Funciones privadas.
+	
+	function addAsterisco($id){
+	   $this->id = $id;
+	   $this->saveField('pendientes', 1);
+	}
        
 }
 ?>

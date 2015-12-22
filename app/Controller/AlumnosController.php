@@ -104,5 +104,16 @@ class AlumnosController extends AppController {
 		$this->Session->setFlash('El alumno no fue borrado', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
 	}
+	
+	function asterisco($id = null){
+		if(!$id){
+		  $this->Session->setFlash('Alumno no válido', true);	
+		}
+		else{
+		  $this->Alumno->addAsterisco($id);
+		  $this->Session->setFlash('El asterisco ha sido incluído', true);	
+		}
+		$this->redirect(array('action' => 'index'));
+	}
 }
 ?>
