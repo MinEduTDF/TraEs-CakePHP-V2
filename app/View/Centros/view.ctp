@@ -52,10 +52,10 @@
 <div class="col-md-4">
  <div class="unit">
  		<div class="subtitulo">Opciones</div>
-		<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $centro['Centro']['id'])); ?></div>
-		<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $centro['Centro']['id']), null, sprintf(__('Esta seguro de borrar el centro %s?'), $centro['Centro']['sigla'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $centro['Centro']['id'], 'ext' => 'pdf')); ?></div>
-		<!--<div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('action' => 'index')); ?></div>
+		<!--<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $centro['Centro']['id'])); ?></div>
+		<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $centro['Centro']['id']), null, sprintf(__('Esta seguro de borrar el centro %s?'), $centro['Centro']['sigla'])); ?></div>-->
+		<div class="opcion"><?php echo $this->Html->link(__('Listar Ciclos'), array('controller' => 'ciclos', 'action' => 'index')); ?></div>
+		<!--<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $centro['Centro']['id'], 'ext' => 'pdf')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Listar Titulaciones'), array('controller' => 'titulacions', 'action' => 'index')); ?></div>	
         <div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?></div>	
 		<div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?></div>
@@ -228,7 +228,7 @@
 </div>-->
 
 <!-- Titulaciones Relacionadas -->
-<div id="click_01" class="titulo_acordeon">Titulaciones Relacionadas</div>
+<!--<div id="click_01" class="titulo_acordeon">Titulaciones Relacionadas</div>
 <div id="acordeon_01">
 		<div class="row">
   			<div class="col-xs-8 col-sm-6 col-md-8">
@@ -256,7 +256,7 @@
 		<?php endif; ?>
 		</div>
 	</div>
-</div>
+</div>-->
 <!-- end Titulaciones Relacionadas -->
 
 <!--<div class="related">

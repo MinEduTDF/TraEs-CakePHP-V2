@@ -57,19 +57,6 @@ class Centro extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Modalidad' => array(
-			'className' => 'Modalidad',
-			'foreignKey' => 'centro_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Titulacion' => array(
 			'className' => 'Titulacion',
 			'foreignKey' => 'centro_id',

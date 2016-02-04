@@ -13,9 +13,7 @@ class CentrosController extends AppController {
 		$conditions = array();
 		
 		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
-		$letters = array('A','B','C','D','E','F','G','H',
-						 'I','J','K','L','M','N','O','P',
-						 'Q','R','S','T','U','V','W','X','Y','Z');
+		$letters = array('R','T','U');
 		
 		$centros = isset($activeLetter)? $this->paginate('Centro', array('Centro.ciudad LIKE ' => $activeLetter.'%')) : $this->paginate();
 		$urlArgs = array('url' => $this->params['named']);

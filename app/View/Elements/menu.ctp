@@ -24,7 +24,14 @@
         </li>
 		<?php endif; ?>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Caja curricular <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instituciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><?php echo $this->Html->link(__('CP Los Andes'),'/centros/view/6'); ?></li>
+            <li><?php echo $this->Html->link(__('Otras'),'/centros'); ?></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cajas curriculares <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
             <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
@@ -44,8 +51,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-           <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
            <li><?php echo $this->Html->link(__('Tablas'),'/report_manager/reports');?></li>
+           <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
           </ul>
         </li>
         <li>

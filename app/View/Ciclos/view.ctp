@@ -187,20 +187,20 @@
 		</ul>
 	</div>
 </div>-->
-<div class="related">
+<!--<div class="related">
 	<h3><?php echo __('Cursos Relacionados');?></h3>
 	<?php if (!empty($ciclo['Curso'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
-		<!--<th><?php echo __('Id'); ?></th>-->
+		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Anio'); ?></th>
 		<th><?php echo __('Division'); ?></th>
 		<th><?php echo __('Turno'); ?></th>
 		<th><?php echo __('AulaNro'); ?></th>
 		<th><?php echo __('Plazas'); ?></th>
-		<!--<th><?php echo __('Centro Id'); ?></th>-->
+		<th><?php echo __('Centro Id'); ?></th>
 		<th><?php echo __('Titulación Id'); ?></th>
-		<!--<th><?php echo __('Modalidad Id'); ?></th>-->
+		<th><?php echo __('Modalidad Id'); ?></th>
 		<th class="actions"><?php echo __('Opciones');?></th>
 	</tr>
 	<?php
@@ -212,31 +212,31 @@
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<!--<td><?php echo $curso['id'];?></td>-->
+			<td><?php echo $curso['id'];?></td>
 			<td><?php echo $curso['anio'];?></td>
 			<td><?php echo $curso['division'];?></td>
 			<td><?php echo $curso['turno'];?></td>
 			<td><?php echo $curso['aulaNro'];?></td>
 			<td><?php echo $curso['plazas'];?></td>
-			<!--<td><?php echo ($this->Html->link($curso['centro_id'], array('controller' => 'centros', 'action' => 'view', $curso['centro_id'])));?></td>-->
+			<td><?php echo ($this->Html->link($curso['centro_id'], array('controller' => 'centros', 'action' => 'view', $curso['centro_id'])));?></td>
 			<td><?php echo ($this->Html->link($curso['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['titulacion_id'])));?></td>
-			<!--<td><?php echo ($this->Html->link($curso['modalidad_id'], array('controller' => 'modalidads', 'action' => 'view', $curso['modalidad_id'])));?></td>-->
+			<td><?php echo ($this->Html->link($curso['modalidad_id'], array('controller' => 'modalidads', 'action' => 'view', $curso['modalidad_id'])));?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Ver'), array('controller' => 'cursos', 'action' => 'view', $curso['id'])); ?>
 				<?php echo $this->Html->link(__('Editar'), array('controller' => 'cursos', 'action' => 'edit', $curso['id'])); ?>
-				<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'cursos', 'action' => 'delete', $curso['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $curso['id'])); ?>-->
+				<?php echo $this->Html->link(__('Borrar'), array('controller' => 'cursos', 'action' => 'delete', $curso['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $curso['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
 	</table>
 <?php endif; ?>
 
-	<!--<div class="actions">
+	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add'));?> </li>
 		</ul>
-	</div>-->
-</div>
+	</div>
+</div>-->
 <!--<div class="related">
 	<h3><?php echo __('Materias Relacionadas');?></h3>
 	<?php if (!empty($ciclo['Materia'])):?>
