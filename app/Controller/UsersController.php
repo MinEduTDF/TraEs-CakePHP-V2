@@ -61,11 +61,20 @@ class UsersController extends AppController {
     }
 
     public function index() {
-        $this->paginate = array(
+        //$this->User->recursive = 0;
+		$this->paginate = array(
             'limit' => 6,
             'order' => array('User.username' => 'asc' )
         );
-        $users = $this->paginate('User');
+		$this->redirectToNamed();
+		$conditions = array();
+		
+		if(!empty($this->params['named']['username']))
+		{
+			$conditions['User.username ='] = $this->params['named']['username'];
+		}
+		
+        $users = $this->paginate('User', $conditions);
         $this->set(compact('users'));
     }
 

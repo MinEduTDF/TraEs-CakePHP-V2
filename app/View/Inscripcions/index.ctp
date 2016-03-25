@@ -8,7 +8,7 @@
 
 <div id="second-nav">
 			 <div class="unit text-center">
-			 	  	  <span class="link"><?php echo $this->Html->link('Agregar', array('action' => 'add'), array('class' => 'btn btn-primary btn-lg')); ?></span>
+			 	  	  <span class="link"><?php echo $this->Html->link('AGREGAR', array('action' => 'add'), array('class' => 'btn btn-info')); ?></span>
 			 </div>
 </div>
  <!-- end second nav -->
@@ -29,8 +29,8 @@
 
   <div class="col-xs-12 col-sm-4 col-md-4">
   	 <div class="unit">
-  			 <div class="subtitulo">Buscar</div>
-				 
+  			 <div class="subtitulo">Búsqueda</div>
+			 <br>	 
 			     <?php echo $this->element('formSearch_inscripcion'); ?>
   	         </div>
 	 </div>

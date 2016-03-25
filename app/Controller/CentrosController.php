@@ -12,19 +12,13 @@ class CentrosController extends AppController {
 		$this->redirectToNamed();
 		$conditions = array();
 		
-		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
-		$letters = array('R','T','U');
-		
-		$centros = isset($activeLetter)? $this->paginate('Centro', array('Centro.ciudad LIKE ' => $activeLetter.'%')) : $this->paginate();
-		$urlArgs = array('url' => $this->params['named']);
-		
 		if(!empty($this->params['named']['cue']))
 		{
 			$conditions['Centro.cue ='] = $this->params['named']['cue'];
 		}
 		
 		$centros = $this->paginate('Centro', $conditions);
-		$this->set(compact('centros','letters','activeLetter','urlArgs'));
+		$this->set(compact('centros'));
 	}
 	
 	function view($id = null) {

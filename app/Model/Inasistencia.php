@@ -62,21 +62,21 @@ class Inasistencia extends AppModel {
                    'tipo' => array(
                            'minLength' => array(
                            'rule' => array('minLength',4),                          
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'El tipo de inasistencia no es valida. Indicar una de las opciones.'
                            )
                    ),
 				   'justificado' => array(
                            'maxLength' => array(
                            'rule' => array('maxLength',10),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'El tipo de justificación no es valida. Indicar una de las opciones.'
                            )
                    ),
                    'causa' => array(
                            'minLength' => array(
                            'rule' => array('minLength',4),                          
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'En caso de que se haya justificado, indicar la causa.'
                            )
                    ),

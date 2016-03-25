@@ -87,7 +87,7 @@ class Materia extends AppModel {
                    'alia' => array(
                            'allowedChoice' => array(
                            'rule' => array('minLength',5),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una opcion.'
                            ),
 						   'isUnique' => array(
@@ -105,7 +105,7 @@ class Materia extends AppModel {
                    'dictado' => array(
                            'allowedChoice' => array(
                            'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una opcion de la lista.'
                            )
                    ),

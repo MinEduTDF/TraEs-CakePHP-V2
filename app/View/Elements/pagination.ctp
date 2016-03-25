@@ -1,17 +1,14 @@
 <p>
 	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Página {:page} de {:pages}, mostrando {:current} resultados de un total de {:count}, desde {:start} hasta {:end}')
-	));
+	    if(isset($urlArgs)) $this->Paginator->options($urlArgs);
+	    echo $this->Paginator->counter(array(
+	    'format' => __('Página {:page} de {:pages}, mostrando {:current} resultados de un total de {:count}, desde {:start} hasta {:end}', true)
+		));
 	?>
 </p>
 
-<nav>
-  <ul class="pagination">
-    <?php
-        echo ($this->Paginator->hasPrev()) ? $this->Paginator->prev('«', array('tag' => 'li'), null, null) : '<li class="disabled"><a href="#">«</a></li>';
-        echo $this->Paginator->numbers(array('separator' => false, 'tag' => 'li'));   
-        echo ($this->Paginator->hasNext()) ? $this->Paginator->next('»', array('tag' => 'li'), null, null) : '<li class="disabled"><a href="#">»</a></li>';
-    ?>
-  </ul>
-</nav>
+<div class="paging">
+    <?php echo $this->Paginator->prev('<<anterior', array(), null, array('class'=>'disabled'));?>  
+|   <?php echo $this->Paginator->numbers();?>
+ |  <?php echo $this->Paginator->next('siguiente>>', array(), null, array('class'=>'disabled'));?>
+</div>

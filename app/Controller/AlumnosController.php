@@ -16,15 +16,7 @@ class AlumnosController extends AppController {
 		//$this->set('alumnos', $this->paginate());
 		$this->redirectToNamed();
 		$conditions = array();
-
-		$activeLetter = isset($this->params['named']['letter']) ? $this->params['named']['letter']: '';
-		$letters = array('A','B','C','D','E','F','G','H',
-						 'I','J','K','L','M','N','O','P',
-						 'Q','R','S','T','U','V','W','X','Y','Z');
-		
-		$alumnos = isset($activeLetter)? $this->paginate('Alumno', array('Alumno.apellidos LIKE ' => $activeLetter.'%')) : $this->paginate();
-		$urlArgs = array('url' => $this->params['named']);
-		
+        
 		if(!empty($this->params['named']['nombre_completo_alumno']))
 		{
 			$conditions['Alumno.nombre_completo_alumno ='] = $this->params['named']['nombre_completo_alumno'];
@@ -36,7 +28,7 @@ class AlumnosController extends AppController {
 		}
 		
 		$alumnos = $this->paginate('Alumno', $conditions);
-		$this->set(compact('alumnos','letters','activeLetter','urlArgs'));
+		$this->set(compact('alumnos'));
 	}
 
 	function view($id = null) {

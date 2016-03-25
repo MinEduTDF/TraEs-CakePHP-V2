@@ -100,21 +100,21 @@ class Curso extends AppModel {
 				   'anio' => array(
                            'allowedChoice' => array(
                            'rule' => array('maxLength',11),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una opcion.'
                            )
                    ),
                    'division' => array(
                            'allowedChoice' => array(
                            'rule' => array('maxLength',11),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una opcion.'
                            )
                    ),
                    'turno' => array(
                            'allowedChoice' => array(
                            'rule' => array('maxLength',10),
-                           'allowEmpty' => false,
+                           'allowEmpty' => true,
                            'message' => 'Indicar una opcion.'
                            )
                    ),
