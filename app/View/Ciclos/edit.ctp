@@ -1,28 +1,15 @@
-<div class="ciclos form">
-<?php echo $this->Form->create('Ciclo');?>
-	<fieldset>
- 		<legend><?php echo __('Editar Ciclo'); ?></legend>
-	        <div id="main">
-                    <?php echo $this->element('form_ciclo'); ?>
+<div class="TituloSec"><?php echo 'Editar Ciclo'; ?></div>
+    <div id="ContenidoSec">
+        <div class="ciclos form">
+            <?php echo $this->Form->create('Ciclo', array('novalidate' => true));?>
+            <div class="unit">
+                <?php echo $this->element('form_ciclo'); ?><p>
             </div>
-	</fieldset>
-<?php echo $this->Form->input('id', array('type' => 'hidden'));
-      echo $this->Form->end(__('Grabar'));
-?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Opciones'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $this->Form->value('Ciclo.id')), null, sprintf(__('Are you sure you want to delete # %s?'), $this->Form->value('Ciclo.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Ciclos'), array('action' => 'index'));?></li>
-		<!--<li><?php echo $this->Html->link(__('List Inscripcions'), array('controller' => 'inscripcions', 'action' => 'index')); ?> </li>-->
-		<!--<li><?php echo $this->Html->link(__('New Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Cargos'), array('controller' => 'cargos', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Cargo'), array('controller' => 'cargos', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Curso'), array('controller' => 'cursos', 'action' => 'add')); ?> </li>-->
-		<li><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
-		<!--<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>-->
-	</ul>
-</div>
+		    <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
+            <div class="text-center">
+               <?php echo $this->Form->submit(__('GUARDAR', true), array('name' => 'ok', 'div' => false, 'class' => 'btn btn-success')); ?>
+               <?php echo $this->Form->submit(__('CANCELAR', true), array('name' => 'cancel', 'div' => false, 'class' => 'btn btn-warning')); ?>
+            </div>
+        </div>
+    </div>
+</div>    

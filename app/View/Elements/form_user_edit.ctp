@@ -1,25 +1,19 @@
-<!-- *********** DatePicker ************* -->
-<?php echo $this->Html->script('datepicker'); ?>
-<!-- ************************************** -->
-<!-- *********** Tooltip ************* -->
-<?php echo $this->Html->script('tooltip'); ?>
-<!-- ************************************** -->
-
+<?php echo $this->Html->script(array('datepicker', 'tooltip')); ?>
 <div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-12">
-<?php
-		echo $this->Form->input('username', array('readonly' => 'readonly', 'label' => 'Nombre usuario', 'label' => 'Nombre de usuario', 'type' => 'text', 'between' => '<br>', 'class' => 'form-control'));
-        $roles = array('admin' => 'admin', 'usuario' => 'usuario');
-        echo $this->Form->input('role', array('label' => 'Rol*','options' => $roles, 'empty' => '', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca una opción de la lista'));
-		echo $this->Form->input('email', array('label' => 'Email', 'title' => 'Email', 'between' => '<br>', 'class' => 'form-control'));
-        /*echo $this->Form->input('password_update', array( 'label' => 'Nueva contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));
-		echo $this->Form->input('password_confirm_update', array('label' => 'Repetir contraseña', 'title' => 'Repite la contraseña', 'type'=>'password', 'required' => 0, 'between' => '<br>', 'class' => 'form-control'));*/
-?>		
-  </div><div class="col-md-6 col-sm-6 col-xs-12">
-<?php		
-		echo $this->Form->input('centro_id', array('label' => 'Centro', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca una opción de la lista', 'placeholder' => 'Centro'));
-   		echo $this->Form->input('empleado_id', array('label' => 'Empleado', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca una opción de la lita', 'placeholder' => 'Empleado'));
-		echo $this->Form->input('puesto', array('label' => 'Puesto', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca una opción de la lista', 'placeholder' => 'Puesto'));
-?>
+   <div class="col-md-6 col-sm-6 col-xs-12">
+	  <?php
+          echo $this->Form->input('username', array('label' => 'Nombre usuario*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca inicial nombre + apellido', 'placeholder' => 'Ingrese un nombre de usuario...'));
+          $roles = array('admin' => 'admin', 'usuario' => 'usuario');
+          echo $this->Form->input('role', array('label' => 'Rol*', 'empty' => 'Ingrese un rol...', 'options' => $roles, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese una opción.'));
+          echo $this->Form->input('email', array('label' => 'Email', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese el correo electrónico del usuario', 'placeholder' => 'Ingrese un email del usuario'));
+      ?>		
+   </div>
+   <div class="col-md-6 col-sm-6 col-xs-12">
+	  <?php		
+          echo $this->Form->input('centro_id', array('label' => 'Centro', 'default' => 'CPLA', 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
+          echo $this->Form->input('empleado_id', array('label' => 'Empleado', 'empty' => 'Ingrese un empleado...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese una opción.'));
+          $puestos = array('Docentes' => 'Docentes', 'Alumnos' => 'Alumnos', 'Gabinete' => 'Gabinete');
+          echo $this->Form->input('puesto', array('label' => 'Puesto de trabajo', 'empty' => 'Ingrese un puesto de trabajo...', 'options' => $puestos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese una opción.'));
+      ?>
   </div>
 </div>

@@ -1,44 +1,24 @@
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<?php echo $this->Html->charset(); 
-?>
-
+<?php echo $this->Html->charset(); ?>
 
 <!-- Smartphones, tablet -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,  minimum-scale=1.0, maximum-scale=1.0, initial-scale=no">
 <!-- ******************* -->
 
-<!-- ************ Bootstrap Css *********** -->
-        <?php echo $this->Html->css('bootstrap.css'); ?>
-        <?php echo $this->Html->css('bootstrap.min.css'); ?>
-        <?php echo $this->Html->css('bootstrap-theme.min.css'); ?>
-<!-- ************************************** -->
-
-<!-- ************* Jquery.js *******************-->
- 		<?php echo $this->Html->script('jquery.min.js'); ?>
-  		<?php echo $this->Html->script('jquery-ui.js'); ?>
-  		<?php echo $this->Html->css('jquery-ui.css'); ?>
+<!-- ************ Css *********** -->
+        <?php echo $this->Html->css(array('bootstrap', 'bootstrap.min', 'bootstrap-theme.min', 'jquery-ui', 'fileinput.min')); ?>
 <!-- **************************************** -->
 
-<!-- ************* Bootstrap.js *******************-->
- 		<?php echo $this->Html->script('bootstrap.min.js'); ?>
-<!-- **************************************** -->
-
-<!-- ************* fastclick.js *******************-->
- 		<?php echo $this->Html->script('fastclick.js'); ?>
+<!-- ************* Js *******************-->
+ 		<?php echo $this->Html->script(array('jquery.min', 'jquery-ui', 'bootstrap.min', 'fastclick', 'fileinput.min')); ?>
 <!-- **************************************** -->
 
 <!-- ************ Sigedu Css *********** -->
          <?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>
         <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
-
-<!-- ************* fileInput *******************-->
- 		<?php echo $this->Html->css('fileinput.min'); ?>
-        <?php echo $this->Html->script('fileinput.min'); ?>
-<!-- **************************************** -->
 
 <script type="text/javascript">
      $("#foto").fileinput();

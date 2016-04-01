@@ -1,12 +1,5 @@
-<!-- *********** Acordeon ************* -->
-<?php echo $this->Html->script('acordeon'); ?>
-<!-- ************************************** -->
-
-<!-- *********** Slider ************* -->
-<?php echo $this->Html->script('slider'); ?>
-<?php echo $this->Html->css('slider.css'); ?>
-<!-- ************************************** -->
-
+<?php echo $this->Html->script(array('acordeon', 'slider')); ?>
+<?php echo $this->Html->css('slider'); ?>
 <!-- start main -->
 <div class="TituloSec">Materia: <?php echo ($materia['Materia']['alia']); ?></div>
 <div id="ContenidoSec">
@@ -67,14 +60,10 @@
 <div class="col-md-4">
  <div class="unit">
  			<div class="subtitulo">Opciones</div>
-			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $materia['Cargo']['id'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $materia['Cargo']['id']), null, sprintf(__('Esta seguro de borrar la materia %s?'), $materia['Cargo']['nombre'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $materia['Cargo']['id'], 'ext' => 'pdf')); ?></div>
-            <!--<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Ciclos'), array('controller' => 'ciclos', 'action' => 'index')); ?></div>-->
+			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $materia['Materia']['id'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $materia['Materia']['id']), null, sprintf(__('Esta seguro de borrar la materia %s?'), $materia['Cargo']['nombre'])); ?></div>
+			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $materia['Materia']['id'], 'ext' => 'pdf')); ?></div>
+            <div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('action' => 'index')); ?></div>
 	</div>
   </div>
 </div>

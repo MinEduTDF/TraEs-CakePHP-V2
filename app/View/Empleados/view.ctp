@@ -1,8 +1,4 @@
-<!-- *********** Acordeon ************* -->
 <?php echo $this->Html->script('acordeon'); ?>
-<!-- ************************************** -->
-
-
 <!-- start main -->
 <div class="TituloSec"><?php echo ($empleado['Empleado']['apellidos']).' '.($empleado['Empleado']['nombres']); ?></div>
 <div id="ContenidoSec">
@@ -39,7 +35,7 @@
 			<?php echo ($this->Html->link($empleado['Empleado']['email'],'mailto:'.$empleado['Empleado']['email'])); ?></p>
           </div>
  	</div>
- </div>
+  </div>
 </div>
 
 <!-- star sidebar -->
@@ -340,7 +336,6 @@
 	<?php foreach ($empleado['User'] as $user): ?>
 	<div class="col-md-6">
 		<div class="unit">
-			<?php echo '<b>Id:</b> '.$user['id'];?><br>
 			<?php echo '<b>Nombre de Usuario:</b> '.$user['username'];?><br>
 			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
             <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->

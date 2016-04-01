@@ -1,6 +1,6 @@
 <div class="col-md-6">
 	<div class="unit">
-       <span class="name"><span class="glyphicon glyphicon-user"></span><b>Nombre:</b><?php echo $empleado['Empleado']['apellidos'].' '.$empleado['Empleado']['nombres']; ?></span><br/>
+       <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Nombre:</b><?php echo $empleado['Empleado']['apellidos'].' '.$empleado['Empleado']['nombres']; ?></span><br/>
        <span class="text"><span class="glyphicon glyphicon-earphone"></span> <b>Tel:</b><?php echo $empleado['Empleado']['telefono_nro']; ?></span><br/>
        <span class="text"><span class="glyphicon glyphicon-envelope"></span> <b>Email:</b><?php echo $this->Html->link($empleado['Empleado']['email'],'mailto:'.$empleado['Empleado']['email']); ?></span><br/>
        <span class="text"><span class="glyphicon glyphicon-map-marker"></span> <b>Ciudad:</b><?php echo $empleado['Empleado']['ciudad']; ?><br/>

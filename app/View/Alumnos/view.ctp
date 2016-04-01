@@ -1,70 +1,53 @@
-<!-- *********** Acordeon ************* -->
-<?php echo $this->Html->script('acordeon'); ?>
-<!-- ************************************** -->
-
-<!-- *********** Slider ************* -->
-<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->script(array('acordeon', 'slider')); ?>
 <?php echo $this->Html->css('slider.css'); ?>
-<!-- ************************************** -->
-
 <!-- start main -->
 <div class="TituloSec"><?php echo ($alumno['Alumno']['apellidos']).' '.($alumno['Alumno']['nombres']); ?></div>
-<div id="ContenidoSec">
-
-<div class="row">
-   <div class="col-md-8">	
-	 <div class="unit">
- 		<div class="row perfil">
-
-    <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-  	    <!--<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'vga_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>-->
-	   	<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
-  	</div>
-
-  <div class="col-md-8 col-sm-6 col-xs-8">	
-			<b><?php echo __('Nombres: '); ?></b>
-			<?php echo ($alumno['Alumno']['nombres']); ?></p>
-
-			<b><?php echo __('Apellidos: '); ?></b>
-			<?php echo ($alumno['Alumno']['apellidos']); ?></p>
-
-			<b><?php echo __('Documento: '); ?></b>
-			<?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
-
-	</div><div class="col-md-8 col-sm-6 col-xs-8">
-
-			<b><?php echo __('Direccion: '); ?></b>
-			<?php echo $alumno['Alumno']['calle_nombre'].' N° '.$alumno['Alumno']['calle_nro']; ?></p>
-
-			<b><?php echo __('Telefono: '); ?></b>
-			<?php echo $alumno['Alumno']['telefono_nro']; ?></p>
-			
-            <b><?php echo __('Email: '); ?></b>
-			<?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
-          </div>
- 	</div>
- </div>
-</div>
-
+  <div id="ContenidoSec">
+     <div class="row">
+        <div class="col-md-8">	
+	       <div class="unit">
+ 		      <div class="row perfil">
+                 <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+					<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'vga_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+                    <!--<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>-->
+  	             </div>
+                 <div class="col-md-8 col-sm-6 col-xs-8">	
+                    <b><?php echo __('Nombres: '); ?></b>
+                    <?php echo ($alumno['Alumno']['nombres']); ?></p>
+                    <b><?php echo __('Apellidos: '); ?></b>
+                    <?php echo ($alumno['Alumno']['apellidos']); ?></p>
+                    <b><?php echo __('Documento: '); ?></b>
+                    <?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
+	                </div>
+                    <div class="col-md-8 col-sm-6 col-xs-8">
+                    <b><?php echo __('Direccion: '); ?></b>
+                    <?php echo $alumno['Alumno']['calle_nombre'].' N° '.$alumno['Alumno']['calle_nro']; ?></p>
+                    <b><?php echo __('Telefono: '); ?></b>
+                    <?php echo $alumno['Alumno']['telefono_nro']; ?></p>
+                    <b><?php echo __('Email: '); ?></b>
+                    <?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
+                 </div>
+ 	          </div>
+         </div>
+    </div>
 <!-- star sidebar -->
 <div class="col-md-4">
  <div class="unit">
- 			<div class="subtitulo">Opciones</div>
-			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $alumno['Alumno']['id'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Esta seguro de borrar al alumno %s?'), $alumno['Alumno']['nombre_completo_alumno'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $alumno['Alumno']['id'], 'ext' => 'pdf')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Agregar Familiar'), array('controller' => 'familiars', 'action' => 'add')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Integracion'), array('controller' => 'integracions', 'action' => 'add')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Servicio'), array('controller' => 'servicios', 'action' => 'add')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?></div>
+        <div class="subtitulo">Opciones</div>
+        <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $alumno['Alumno']['id'])); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Esta seguro de borrar al alumno %s?'), $alumno['Alumno']['nombre_completo_alumno'])); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $alumno['Alumno']['id'], 'ext' => 'pdf')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Familiar'), array('controller' => 'familiars', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Integracion'), array('controller' => 'integracions', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Servicio'), array('controller' => 'servicios', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?></div>
 	</div>
   </div>
 </div> 
  <!-- end main -->
-
-
 <!-- Familiares Relacionados -->
 <div id="click_01" class="titulo_acordeon">Familiares Relacionadas</div>
 <div id="acordeon_01">
@@ -95,7 +78,6 @@
 	</div>
 </div>
 <!-- end Familiares Relacionados -->
-
 <!-- Inscripciones Relacionadas -->
 	<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
 	<div id="acordeon_02">
@@ -128,7 +110,6 @@
 	</div>
 </div>
 <!-- end Inscripciones Relacionadas -->
-
 <!-- Integraciones Relacionadas -->
 	<div id="click_03" class="titulo_acordeon">Integraciones Relacionadas</div>
 	<div id="acordeon_03">

@@ -1,7 +1,4 @@
-<!-- *********** Acordeon ************* -->
 <?php echo $this->Html->script('acordeon'); ?>
-<!-- ************************************** -->
-
 <!-- start main -->
 <div class="TituloSec"><?php echo ($centro['Centro']['sigla']); ?></div>
 <div id="ContenidoSec">

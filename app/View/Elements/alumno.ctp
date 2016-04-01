@@ -1,6 +1,9 @@
 <div class="col-md-6">
 		<div class="unit">
-		       <span class="name"><span class="glyphicon glyphicon-file"></span> <b>Documento:</b> <?php echo ($alumno['Alumno']['documento_tipo']).'  '.($alumno['Alumno']['documento_nro']); ?></span><br/>
+		       <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+					<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'thumb_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+               </div>
+               <span class="name"><span class="glyphicon glyphicon-file"></span> <b>Documento:</b> <?php echo ($alumno['Alumno']['documento_tipo']).'  '.($alumno['Alumno']['documento_nro']); ?></span><br/>
 		       <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Nombre:</b> <?php echo $alumno['Alumno']['apellidos'].' '.$alumno['Alumno']['nombres']; ?><?php if($alumno['Alumno']['pendiente']): ?><strong> * </strong><?php endif; ?></span><br/>
 		       <span class="text"><span class="glyphicon glyphicon-earphone"></span> <b>Tel:</b> <?php echo $alumno['Alumno']['telefono_nro']; ?></span><br/>
 		       <span class="text"><span class="glyphicon glyphicon-envelope"></span> <b>Email:</b> <?php echo $this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email']); ?></span><br/>
