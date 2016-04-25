@@ -33,85 +33,105 @@ class Familiar extends AppModel {
                            'minLength' => array(
                            'rule' => array('minLength',5),                          
                            'allowEmpty' => false,
-                           'message' => 'El vínculo no es valida. Indicar una de las opciones.'
+                           'message' => 'Indicar una de las opciones de la lista.'
                            )
                    ),
 				   'nombre_completo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',3),
-                           'allowEmpty' => false,
-                           'message' => 'El Nombre no es valido. Indicar uno igual o mayor a tres letras.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un nombre.'
                            )
-                   ),
-                   'cuit_cuil' => array(
-                           'numeric' => array(
-                           'rule' => 'numeric',
+					),
+				   'cuit_cuil' => array(
+                          'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un CUIT/CUIL.'
+                           ),
+                           'maxlength' => array(
+                           'rule' => array('maxLength',11),
                            'allowEmpty' => false,
-                           'message' => 'El cuit/cuil no es valido. Indicar sin puntos.'
+                           'message' => 'Indicar sin puntos ni espacios.'
                            ),
 						   'isUnique' => array(
 	                       'rule' => 'isUnique',
-	                       'message' => 'Este cuit/cuil esta siendo usado.'
+	                       'message' => 'Este CUIT/CUIL esta siendo usado.'
 	                     )
                    ),
 				   'ocupacion' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',50),                          
-                           'allowEmpty' => false,
-                           'message' => 'EL nombre de la ocupacion es demasiado extenso.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar una ocupación.'
                            )
                    ),
 				   'lugar_de_trabajo' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',50),                          
-                           'allowEmpty' => true,
-                           'message' => 'EL nombre del lugar de trabajo es demasiado extenso.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un lugar de trabajo.'
                            )
                    ),
 				   'nacionalidad' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'La nacionalidad no es valida. Indicar una de las opciones.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar una nacionalidad.'
                            )
                    ),
 				   'telefono_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',6),
-                           'allowEmpty' => false,
-                           'message' => 'El telefono no es valido. Indicar uno de referencia solo con numeros y sin espacios.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un nº de teléfono.'
                            )
                    ),
                    'email' => array(
-                           'email' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un email.'
+                           ),
+						   'email' => array(
                            'rule' => 'email',
                            'allowEmpty' => true,
-                           'message' => 'El email no es valido. Indicar email valido.'
-                           )
+                           'message' => 'Indicar un email válido.'
+                           ),
                    ),
                    'domicilio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'El domicilio no es valido.'
-                           )
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un domicilio.'
+                           ),
+						   'alphaNumeric' => array(
+						   'rule' => 'alphaNumeric',
+						   'message' => 'Sólo se permiten letras y números.',
+						   'last' => false
+						   )
                    ),
+				   'asentamiento' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un asentamiento.'
+                           )
+                   ),	   
 				   'barrio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'El nombre del barrio no es valida.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un barrio.'
                            )
                    ),	   
                    'ciudad' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'La ciudad no es valida. Indicar una de las opciones.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar una ciudad.'
                            )
                    )                   
-                         
         );
-
 }
 ?>

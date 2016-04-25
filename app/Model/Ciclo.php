@@ -110,60 +110,59 @@ class Ciclo extends AppModel {
     //Validaciones
 
                    var $validate = array(
+				   'created' => array(
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+						 'message' => 'Indicar una fecha y hora.'
+                         )
+                   ),
 				   'nombre' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
-                           'message' => 'El nombre no es valido. Indicar el nombre del ciclo.'
-                           ),
-						   'isUnique' => array(
-	                       'rule' => 'isUnique',
-	                       'message' => 'Este nombre de ciclo esta siendo usado.'
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar un nombre.'
+                         ),
+						 'isUnique' => array(
+						 'rule' => 'isUnique',
+						 'message' => 'Este nombre de ciclo esta siendo usado.'
 	                     )
                    ),
                    'fechaInicio' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de inicio del ciclo.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una fecha.'
+	                     )
                    ),
                    'fechaFinal' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de cierre del ciclo.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una fecha.'
+	                     )
                    ),
                    'primer_periodo' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de comienzo del primer período.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una fecha.'
+	                     )
                    ),
                    'segundo_periodo' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de comienzo del segundo período.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una fecha.'
+	                     )
                    ),
 				   'tercer_periodo' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de comienzo del segundo período.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una fecha.'
+	                     )
                    ),
-                   'observaciones' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una breve observacion del ciclo.'
-                           )
-                   )
-                   
           );
 }
 ?>

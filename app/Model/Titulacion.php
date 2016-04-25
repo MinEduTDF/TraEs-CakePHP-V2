@@ -33,204 +33,226 @@ class Titulacion extends AppModel {
 
 	//Validaciones
                    var $validate = array(
-                    'nombre' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 5), 
-                           'allowEmpty' => false,       
+                    'created' => array(
+						   'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una fecha y hora.'
+						   )
+					),
+				    'nombre' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opcion.'
                            ),
 						   'isUnique' => array(
 	                       'rule' => 'isUnique',
 	                       'message' => 'Este nombre esta siendo usado.'
 	                     )
-                   ),
-                   'certificacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                    ),
+                    'certificacion' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar la certificación.'
                            )
                    ),
 				   'condicion_ingreso' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar la condición de ingreso.'
                            )
                    ),
 				   'ciclo_implementacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar el ciclo de implementación.'
                            )
                    ),
 				   'ciclo_finalizacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => true,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar el ciclo de finalización.'
                            )
                    ),
 				   'a_termino' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength', 2), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'orientacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'organizacion_plan' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'organizacion_cursada' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'forma_dictado' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'carga_horaria_en' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
                    ),
 				   'carga_horaria' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una carga horaria.'
+                           ),
+						   'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => false,       
-                           'message' => 'Indicar con un número la carga horaria.'
+                           'message' => 'Indicar un número.'
                            )
                    ),
 				   'edad_minima' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una edad.'
+                           ),
+						   'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => false,       
-                           'message' => 'Indicar con un número la edad mínima.'
+                           'message' => 'Indicar un número.'
                            )
                    ),
 				   'tiene_articulacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 2), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar una opción.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una articulación.'
                            )
                    ),
 				   'duracion_en' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar una opción.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una opción.'
                            )
                    ),
 				   'duracion' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una duración.'
+                           ),
+						   'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => false,       
-                           'message' => 'Indicar con un número la duración.'
+                           'message' => 'Indicar un número.'
                            )
                    ),
 				   'norma_aprob_jur_tipo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar tipo de norma jurisdiccional.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una opción.'
                            )
-                   ),
-				   'norma_aprob_jur_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 3), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar el número de la norma jurisdiccional.'
-                           )
+				   ),
+                  'norma_aprob_jur_nro' => array(
+                           'alphaNumeric' => array(
+                           'rule' => 'alphaNumeric',
+                           'allowEmpty' => true,
+						   'message' => 'Indicar con letras y números.'
+						   )
                    ),
 				   'norma_aprob_jur_anio' => array(
                            'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el año de la norma jurisdiccional.'
+                           'message' => 'Indicar un año.'
                            )
                    ),
 				   'norma_val_nac_tipo' => array(
                            'minLength' => array(
                            'rule' => array('minLength', 4), 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el tipo de validez nacional de la norma.'
+                           'message' => 'Indicar una opción.'
                            )
                    ),
 				   'norma_val_nac_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 3), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar el número de validez nacional de la norma.'
-                           )
+                           'alphaNumeric' => array(
+                           'rule' => 'alphaNumeric',
+                           'allowEmpty' => true,
+						   'message' => 'Indicar con letras y números.'
+						   )
                    ),
 				   'norma_val_nac_anio' => array(
                            'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el año de validez nacional de la norma.'
+                           'message' => 'Indicar un año.'
                            )
                    ),
 				   'norma_ratif_jur_tipo' => array(
                            'minLength' => array(
                            'rule' => array('minLength', 4), 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el tipo de ratificación jurisdiccional de la                                         norma.'
+                           'message' => 'Indicar una opción.'
                            )
                    ),
 				   'norma_ratif_jur_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 3), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar el número de ratificación jurisdiccional de la                                         norma.'
-                           )
+                           'alphaNumeric' => array(
+                           'rule' => 'alphaNumeric',
+                           'allowEmpty' => true,
+						   'message' => 'Indicar con letras y números.'
+						   )
                    ),
 				   'norma_ratif_jur_anio' => array(
                            'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el año de ratificación jurisdiccional de la                                         norma.'
+                           'message' => 'Indicar un año.'
                            )
                    ),
 				   'norma_homologacion_tipo' => array(
                            'minLength' => array(
                            'rule' => array('minLength', 4), 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el tipo de homologación de la norma.'
+                           'message' => 'Indicar una opción.'
                            )
                    ),
 				   'norma_homologacion_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 3), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar el número de homologación de la norma.'
-                           )
+                           'alphaNumeric' => array(
+                           'rule' => 'alphaNumeric',
+                           'allowEmpty' => true,
+						   'message' => 'Indicar con letras y números.'
+						   )
                    ),
 				   'norma_homologacion_anio' => array(
                            'numeric' => array(
                            'rule' => 'numeric', 
                            'allowEmpty' => true,       
-                           'message' => 'Indicar el año en que se homologó la norma.'
+                           'message' => 'Indicar un año.'
                            )
                    )
 		);

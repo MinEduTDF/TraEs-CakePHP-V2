@@ -2,6 +2,7 @@
 class Materia extends AppModel {
 	var $name = 'Materia';
         var $displayField = 'alia';
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasOne = array(
@@ -27,6 +28,19 @@ class Materia extends AppModel {
 	var $hasMany = array(
 		'Nota' => array(
 			'className' => 'Nota',
+			'foreignKey' => 'materia_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Horario' => array(
+			'className' => 'Horario',
 			'foreignKey' => 'materia_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -77,17 +91,24 @@ class Materia extends AppModel {
 	//Validaciones
 
         var $validate = array(
-                   'nombre' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),
-                           'allowEmpty' => false,
+                   'created' => array(
+						   'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una fecha y hora.'
+						   )
+                   ),
+				   'nombre' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un nombre.'
                            )
 				    ),
                    'alia' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un alia.'
                            ),
 						   'isUnique' => array(
@@ -96,82 +117,106 @@ class Materia extends AppModel {
 	                     )
                    ),
                    'campo_formacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un campo de formación.'
                            )
                    ),
                    'dictado' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un dictado.'
                            )
                    ),
                    'obligatoriedad' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar una obligatoriedad.'
                            )
 					),	   
                    'carga_horaria_en' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
-                           'message' => 'Indicar una carga horaria.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar una opción.'
                            )
                    ),
 				   'carga_horaria_semanal' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una carga horaria.'
+						   ),
+						   'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
                            'message' => 'Indicar un número.'
                            )
                    ),
 				   'duracion_en' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
-                           'message' => 'Indicar una duración.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar una opción.'
                            )
                    ),
                    'duracion' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una duración.'
+                           ),
+						   'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
-                           'message' => 'Indicar una duración.'
+                           'message' => 'Indicar un número.'
                            )
                    ),
                    'escala_numerica' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',2),
-                           'allowEmpty' => false,
-                           'message' => 'Indicar una escala numérica.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar una opción.'
                            )
                    ),
 				   'nota_minima' => array(
-                           'numeric' => array(
-                           'rule' => 'numeric',
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar una nota mínima.'
+                           ),
+						   'naturalNumber' => array(
+                           'rule' => 'naturalNumber',
+                           'allowEmpty' => false,
+                           'message' => 'Indicar un número entero.'
                            )
                    ),
 				   'contenido' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => true,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Adjuntar contenidos.'
                            ) 
 				   ),
-				   'curso_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+				   /*'curso_id' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un curso.'
                            ) 
-				   )
-        );
+				   ),*/
+				   'rule1' => array(
+				           'rule'    => array(
+				           'extension',array('pdf')),
+				           'message' => 'Please upload pdf file only'
+				   ),
+                   'rule2' => array(
+                           'rule' => array('fileSize', '<=', '1MB'),
+                           'message' => 'File must be less than 1MB'
+                   )
+	        );
 }
 ?>

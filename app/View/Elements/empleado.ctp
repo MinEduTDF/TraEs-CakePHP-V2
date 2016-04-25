@@ -1,5 +1,8 @@
 <div class="col-md-6">
 	<div class="unit">
+       <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+            <?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'thumb_' .$empleado['Empleado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+       </div>
        <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Nombre:</b><?php echo $empleado['Empleado']['apellidos'].' '.$empleado['Empleado']['nombres']; ?></span><br/>
        <span class="text"><span class="glyphicon glyphicon-earphone"></span> <b>Tel:</b><?php echo $empleado['Empleado']['telefono_nro']; ?></span><br/>
        <span class="text"><span class="glyphicon glyphicon-envelope"></span> <b>Email:</b><?php echo $this->Html->link($empleado['Empleado']['email'],'mailto:'.$empleado['Empleado']['email']); ?></span><br/>

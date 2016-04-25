@@ -3,24 +3,16 @@ class Horario extends AppModel {
 	var $name = 'Horario';
 	var $displayField = 'dia';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-	var $hasAndBelongsToMany = array(
-		'Cargo' => array(
-			'className' => 'Cargo',
-			'joinTable' => 'cargos_horarios',
-			'foreignKey' => 'horario_id',
-			'associationForeignKey' => 'cargo_id',
-			'unique' => true,
+	var $belongsTo = array(
+	     'Materia' => array(
+			'className' => 'Materia',
+			'foreignKey' => 'materia_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
+			'order' => ''
+		) 	
 	);
-
+	
 	//Validaciones
                     var $validate = array(
                     'dia' => array(

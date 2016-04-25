@@ -26,6 +26,8 @@
                     <?php echo $alumno['Alumno']['telefono_nro']; ?></p>
                     <b><?php echo __('Email: '); ?></b>
                     <?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
+                    <b><?php echo __('Observaciones: '); ?></b>
+                    <?php echo $alumno['Alumno']['observaciones']; ?></p>
                  </div>
  	          </div>
          </div>
@@ -36,46 +38,45 @@
         <div class="subtitulo">Opciones</div>
         <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $alumno['Alumno']['id'])); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $alumno['Alumno']['id']), null, sprintf(__('Esta seguro de borrar al alumno %s?'), $alumno['Alumno']['nombre_completo_alumno'])); ?></div>
-        <div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $alumno['Alumno']['id'], 'ext' => 'pdf')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('action' => 'index')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Export to PDF'), array('action' => 'view', $alumno['Alumno']['id'], 'ext' => 'pdf')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Agregar Familiar'), array('controller' => 'familiars', 'action' => 'add')); ?></div>
+        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Agregar Integracion'), array('controller' => 'integracions', 'action' => 'add')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Agregar Servicio'), array('controller' => 'servicios', 'action' => 'add')); ?></div>
-        <div class="opcion"><?php echo $this->Html->link(__('Agregar Inscripcion'), array('controller' => 'inscripcions', 'action' => 'add')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Agregar Calificación'), array('controller' => 'notas', 'action' => 'add')); ?></div>
         <div class="opcion"><?php echo $this->Html->link(__('Agregar Inasistencia'), array('controller' => 'inasistencias', 'action' => 'add')); ?></div>
 	</div>
   </div>
 </div> 
- <!-- end main -->
+<!-- end main -->
 <!-- Familiares Relacionados -->
 <div id="click_01" class="titulo_acordeon">Familiares Relacionadas</div>
 <div id="acordeon_01">
-		<div class="row">
+	<div class="row">
 	<?php if (!empty($alumno['Familiar'])):?>
-  			<div class="col-xs-12 col-sm-6 col-md-8">
-	<?php foreach ($alumno['Familiar'] as $familiar): ?>
-	<div class="col-md-6">
-		<div class="unit">
-			<?php echo '<b>Vinculo:</b> '.$familiar['vinculo'];?><br>
-			<?php echo '<b>Nombre:</b> '.$familiar['nombre_completo'];?><br>
-			<!--<?php echo '<b>Cuil/Cuit:</b> '.$familiar['cuit_cuil'];?><br>-->
-            <?php echo '<b>Telefono:</b> '.$familiar['telefono_nro'];?><br>
-			<?php echo '<b>Email:</b> '.$familiar['email'];?><br>
-            <?php echo '<b>Domicilio:</b> '.$familiar['domicilio'];?><br>
-
-            <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'familiars', 'action' => 'edit', $familiar['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'familiars', 'action' => 'view', $familiar['id']), array('class' => 'btn btn-success')); ?>
- 			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'familiars', 'action' => 'delete', $familiar['id']), array('class' => 'btn btn-danger')); ?>
-			</div>
-		</div>
-	</div>
-		<?php endforeach; ?>
-			</div>
-		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
-		<?php endif; ?>
-	</div>
+		<div class="col-xs-12 col-sm-6 col-md-8">
+			<?php foreach ($alumno['Familiar'] as $familiar): ?>
+            <div class="col-md-6">
+                <div class="unit">
+                    <?php echo '<b>Vinculo:</b> '.$familiar['vinculo'];?><br>
+                    <?php echo '<b>Nombre:</b> '.$familiar['nombre_completo'];?><br>
+                    <!--<?php echo '<b>Cuil/Cuit:</b> '.$familiar['cuit_cuil'];?><br>-->
+                    <?php echo '<b>Telefono:</b> '.$familiar['telefono_nro'];?><br>
+                    <?php echo '<b>Email:</b> '.$familiar['email'];?><br>
+                    <?php echo '<b>Domicilio:</b> '.$familiar['domicilio'];?><br>
+                <div class="text-right">
+                    <?php echo $this->Html->link(__('Editar'), array('controller' => 'familiars', 'action' => 'edit', $familiar['id']), array('class' => 'btn btn-warning')); ?>
+                    <?php echo $this->Html->link(__('Ver'), array('controller' => 'familiars', 'action' => 'view', $familiar['id']), array('class' => 'btn btn-success')); ?>
+                    <?php echo $this->Html->link(__('Borrar'), array('controller' => 'familiars', 'action' => 'delete', $familiar['id']), array('class' => 'btn btn-danger')); ?>
+                </div>
+		    </div>
+	    </div>
+	       <?php endforeach; ?>
+    </div>
+	<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+    <?php endif; ?>
+  </div>
 </div>
 <!-- end Familiares Relacionados -->
 <!-- Inscripciones Relacionadas -->
@@ -139,8 +140,6 @@
 	</div>
 </div>
 <!-- end Integraciones Relacionadas -->
-
-
 <!-- Servicios Complementarios Relacionadas -->
 	<div id="click_04" class="titulo_acordeon">Servicios Complementarios Relacionadas</div>
 	<div id="acordeon_04">
@@ -171,7 +170,6 @@
 	</div>
 </div>
 <!-- end Servicios Complementarios Relacionadas -->
-
 <!-- Inasistencias Relacionadas -->
 	<div id="click_06" class="titulo_acordeon">Inasistencias Relacionadas</div>
 	<div id="acordeon_06">
@@ -185,7 +183,7 @@
 			<?php echo '<b>Tipo:</b> '. $inasistencia['tipo'];?><br>
 			<?php echo '<b>Causa:</b> '.$inasistencia['causa'];?><br>
             <?php echo '<b>Justificado:</b> '.$inasistencia['justificado'];?><br>
-            <?php echo '<b>Fecha:</b> '.$this->Html->formatTime($inasistencia['creado']);?><br>
+            <?php echo '<b>Fecha:</b> '.$this->Html->formatTime($inasistencia['created']);?><br>
 
             <div class="text-right">
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id']), array('class' => 'btn btn-warning')); ?>
@@ -201,7 +199,6 @@
 	</div>
 </div>
 <!-- end Inasistencias Relacionadas -->
-
 <!-- Calificaciones Relacionadas -->
 	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas</div>
 	<div id="acordeon_05">

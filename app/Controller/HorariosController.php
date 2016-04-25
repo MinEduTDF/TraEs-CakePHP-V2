@@ -2,11 +2,10 @@
 class HorariosController extends AppController {
 
 	var $name = 'Horarios';
+    var $helpers = array('Session', 'Html');
+	public $components = array('Auth','Session', 'RequestHandler');
+	var $paginate = array('Horario' => array('limit' => 6, 'order' => 'Horario.dia DESC'));
 
-	function index() {
-		$this->Horario->recursive = 0;
-		$this->set('horarios', $this->paginate());
-	}
 
 	function view($id = null) {
 		if (!$id) {
@@ -26,8 +25,8 @@ class HorariosController extends AppController {
 				$this->Session->setFlash(__('EL horario no ha sido grabado. Favor, intente nuevamente.'));
 			}
 		}
-		$cargos = $this->Horario->Cargo->find('list');
-		$this->set(compact('cargos'));
+		$materias = $this->Horario->Materia->find('list');
+		$this->set(compact('materias'));
 	}
 
 	function edit($id = null) {
@@ -46,8 +45,8 @@ class HorariosController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Horario->read(null, $id);
 		}
-		$cargos = $this->Horario->Cargo->find('list');
-		$this->set(compact('cargos'));
+		$materias = $this->Horario->Materia->find('list');
+		$this->set(compact('materias'));
 	}
 
 	function delete($id = null) {

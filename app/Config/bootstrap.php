@@ -65,6 +65,13 @@ Inflector::rules('plural', array('rules' => array(), 'irregular' => array(), 'un
 CakePlugin::load('Upload');
 CakePlugin::load('DebugKit');
 CakePlugin::load('ReportManager',array('bootstrap' => true));
+CakePlugin::load('CakePdf', array('bootstrap' => true, 'routes' => true));
+define('DOMPDF_ENABLE_REMOTE', true);
+Configure::write('CakePdf', array(
+    'engine' => 'CakePdf.DomPdf',
+    'pageSize' => 'A4',
+    'orientation' => 'portrait'
+));
 
 // Load Composer autoload.
 require APP . 'Vendor/autoload.php';

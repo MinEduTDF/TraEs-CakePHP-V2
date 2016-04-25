@@ -97,21 +97,6 @@ class Cargo extends AppModel {
 			'deleteQuery' => '',
 			'insertQuery' => ''
 		),
-		'Horario' => array(
-			'className' => 'Horario',
-			'joinTable' => 'cargos_horarios',
-			'foreignKey' => 'cargo_id',
-			'associationForeignKey' => 'horario_id',
-			'unique' => true,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-			'deleteQuery' => '',
-			'insertQuery' => ''
-		)
 	);
 
 //Validaciones

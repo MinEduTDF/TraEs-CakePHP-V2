@@ -59,60 +59,60 @@ class Inasistencia extends AppModel {
   //Validaciones
 
         var $validate = array(
-                   'ciclo_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                   'created' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar una fecha y hora.'
+                           )
+                   ),
+				   'ciclo_id' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un ciclo.'
                            )
                    ),
 				   'Curso' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un curso.'
                            )
                    ),
 				   'alumno_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 5), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un alumno.'
                            )
                    ),
 				   'Materia' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una materia.'
                            )
                    ),
 				   'tipo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una de las opciones.'
                            )
                    ),
 				   'justificado' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',10),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'El tipo de justificación no es valida. Indicar una de las opciones.'
                            )
                    ),
                    'causa' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),                          
-                           'allowEmpty' => true,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'En caso de que se haya justificado, indicar la causa.'
-                           )
-                   ),
-				   'creado' => array(
-                           'date' => array(
-                           'rule' => 'date',                          
-                           'allowEmpty' => false,
-                           'message' => 'La fecha no es valida. Indicar una fecha de creación del registro valida.'
                            )
                    )
 		);

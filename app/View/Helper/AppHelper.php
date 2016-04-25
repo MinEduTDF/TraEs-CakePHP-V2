@@ -97,5 +97,5 @@ public function assetUrl($path, $options = array()) {
             $options['fullBase'] = true;
         }
         return parent::assetUrl($path, $options);
-}
+    }
 }

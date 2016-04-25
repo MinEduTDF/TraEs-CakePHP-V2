@@ -27,8 +27,9 @@
 			<?php echo ($materia['Materia']['dictado']); ?></p>
 
 			<b><?php echo __('Contenido:'); ?></b>
-			<?php echo ($materia['Materia']['contenido']); ?></p>
-
+			<?php echo $this->Html->link('View File', '../files/materias/'.$materia['Materia']['contenido'], 
+						           array('class' => 'button', 'target' => '_blank')); ?></p>
+            
   </div><div class="col-md-4 col-sm-6 col-xs-8">	
 
 			<b><?php echo __('Carga horaria en:'); ?></b>
@@ -62,9 +63,9 @@
  			<div class="subtitulo">Opciones</div>
 			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $materia['Materia']['id'])); ?></div>
 			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $materia['Materia']['id']), null, sprintf(__('Esta seguro de borrar la materia %s?'), $materia['Cargo']['nombre'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $materia['Materia']['id'], 'ext' => 'pdf')); ?></div>
-            <div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('action' => 'index')); ?></div>
-	</div>
+			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('action' => 'index')); ?></div>
+	        <div class="opcion"><?php echo $this->Html->link(__('Agregar Horario'), array('controller' => 'horarios', 'action' => 'add')); ?></div>
+    </div>
   </div>
 </div>
  <!-- end main -->
@@ -115,10 +116,48 @@
 		</ul>
 	</div>
 </div>-->
-
-<!-- Inscripciones Relacionadas -->
-<div id="click_01" class="titulo_acordeon">Inscripciones Relacionadas</div>
+<!-- Horarios Relacionados -->
+<div id="click_01" class="titulo_acordeon">Horarios Relacionados</div>
 <div id="acordeon_01">
+   <div class="table-responsive">
+     <table class="table table-condensed">
+       <thead>
+		<tr>
+			<th><?php echo $this->Paginator->sort('ciclo_id', 'Ciclo');?></th>
+            <th><?php echo $this->Paginator->sort('materia_id', 'Materia');?></th>
+            <th><?php echo $this->Paginator->sort('dia', 'Día');?></th>
+			<th><?php echo $this->Paginator->sort('horaInicio', 'Inicio');?></th>
+			<th><?php echo $this->Paginator->sort('horaFin', 'Finaliza');?></th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>						
+		<?php $count=0; ?>
+		<?php foreach($materia['Horario'] as $horario): ?>				
+		<?php $count ++;?>
+		<?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
+		<?php endif; ?>
+			<td style="text-align: center;"><?php echo ($this->Html->link($horario['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $horario['ciclo_id']))); ?></td>
+            <td style="text-align: center;"><?php echo ($this->Html->link($horario['materia_id'], array('controller' => 'materias', 'action' => 'view', $horario['materia_id']))); ?></td>
+            <td style="text-align: center;"><?php echo $horario['dia']; ?></td>
+			<td style="text-align: center;"><?php echo $horario['horaInicio']; ?></td>
+            <td style="text-align: center;"><?php echo $horario['horaFin']; ?></td>
+           	<td >
+            <?php echo $this->Html->link(__('Editar'), array('controller' => 'horarios', 'action' => 'edit', $horario['id']), array('class' => 'btn btn-warning')); ?>
+			<?php echo $this->Html->link(__('Ver'), array('controller' => 'horarios', 'action' => 'view', $horario['id']), array('class' => 'btn btn-success')); ?>
+			<!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'horarios', 'action' => 'delete', $horario['id']), array('class' => 'btn btn-danger')); ?>-->
+	        </td>
+		</tr>
+		<?php endforeach; ?>
+		<?php unset($horario); ?>
+	</tbody>
+  </table>
+ </div>
+</div>
+<!-- end Horarios Relacionados -->
+<!-- Inscripciones Relacionadas -->
+<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
+<div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($materia['Inscripcion'])):?>
 
@@ -129,15 +168,12 @@
 	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
-			<?php echo '<b>Legajo:</b> '.$inscripcion['legajo_nro'];?><br>
-			<!--<?php echo '<b>Ciclo_Id:</b> '.($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?><br>
-			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>-->
+			<?php echo '<b>Legajo:</b> '.$this->Html->link($inscripcion['legajo_nro'], array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']));?><br>
+			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>
             <?php echo '<b>Fecha_alta:</b> '.($this->Html->formatTime($inscripcion['fecha_alta']));?><br>
 			<?php echo '<b>Fecha_baja:</b> '.($this->Html->formatTime($inscripcion['fecha_baja']));?><br>
             <?php echo '<b>Fecha_egreso:</b> '.($this->Html->formatTime($inscripcion['fecha_egreso']));?><br>
-            <?php echo '<b>Fecha_emisión_título:</b> '.($this->Html->formatTime($inscripcion['fecha_emision_titulo']));?><br>
-            <!--<?php echo '<b>Empleado_Id:</b> '.($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?><br>-->
-            
+                  
             <div class="text-right">
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id']), array('class' => 'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']), array('class' => 'btn btn-success')); ?>

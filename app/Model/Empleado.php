@@ -7,6 +7,23 @@ class Empleado extends AppModel {
     //var $displayField = 'apellido';
 	public $virtualFields = array('nombre_completo_empleado'=>'CONCAT(Empleado.nombres, " ", Empleado.apellidos)');
 	
+	public $actsAs = array(
+			'Upload.Upload' => array(
+				'foto' => array(
+					'fields' => array(
+						'dir' => 'foto_dir'
+					),
+					'thumbnailMethod' => 'php',
+					'thumbnailSizes' => array(
+						'vga' => '640x480',
+						'thumb' => '150x150'
+					),
+					'deleteOnUpdate' => true,
+					'deleteFolderOnDelete' => true
+				)
+			)
+		);
+
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 	var $hasMany = array(
@@ -100,115 +117,157 @@ class Empleado extends AppModel {
 	//Validaciones
 
         var $validate = array(
-                   'creado' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar fecha de creación del registro.'
+                   'created' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+                           'message' => 'Indicar fecha y hora.'
                            )
                    ),
 				   'nombres' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',3),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un nombre completo.'
 
                            )
                    ),
                    'apellidos' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',3),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar los apellidos.'
                            )
                    ),
 				   'documento_tipo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',3),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un tipo de documento.'
                            )
                    ),
                    'documento_nro' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un nº de documento.'
+						   ),
+						   'numeric' => array(
                            'rule' => 'numeric',
-                           'allowEmpty' => false,
-                           'message' => 'Indicar un número de documento.'
+                           'message' => 'Indicar un número sin puntos ni espacios.'
                            ),
 						   'isUnique' => array(
 	                       'rule' => 'isUnique',
 	                       'message' => 'Este documento de empleado esta siendo usado.'
-	                     )
+	                       )
                    ),
                    'fecha_nac' => array(
-                           'date' => array(
-                           'rule' => 'date',
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una fecha de nacimiento.'
                            )
                    ),
 				   'pcia_nac' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una provincia.'
                            )
                    ),
 				   'indigena' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',3),                          
-                           'allowEmpty' => true,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una comunidad indígena.'
                            )
                    ),
 				  'estado_civil' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un estado civil.'
                            )
                    ), 
 				   'telefono_nro' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',6),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un teléfono.'
                            )
                    ),
                    'email' => array(
-                           'email' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un Email.'
+						   ),
+						   'email' => array(
                            'rule' => 'email',
                            'allowEmpty' => true,
-                           'message' => 'Indicar un email.'
+                           'message' => 'Indicar un formato válido.'
                            )
                    ),
                    'calle_nombre' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar un nombre de calle.'
                            )
                    ),
 				   'calle_nro' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un nº de calle.'
+						   ),
+						   'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
-                           'message' => 'Indicar un nº de calle.'
+                           'message' => 'Indicar un nº.'
                            )
 					),
 					'barrio' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
-                           'message' => 'Indicar un barrio.'
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+						   'message' => 'Indicar un barrio.'
                            )
                    ),	   
                     'ciudad' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),                          
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
                            'message' => 'Indicar una ciudad.'                           )
                    ),
+		   		   'foto' => array(
+					  'uploadError' => array(
+						  'rule' => 'uploadError',
+						  'message' => 'Algo anda mal, intente nuevamente',
+						  'on' => 'create'
+					  ),
+					  'isUnderPhpSizeLimit' => array(
+						  'rule' => 'isUnderPhpSizeLimit',
+						  'message' => 'Archivo excede el límite de tamaño de archivo de subida'
+					  ),
+					  'isValidMimeType' => array(
+						  'rule' => array('isValidMimeType', array('image/jpeg', 'image/png'), false),
+						  'message' => 'La imagen no es jpg ni png',
+					  ),
+					  'isBelowMaxSize' => array(
+						  'rule' => array('isBelowMaxSize', 1048576),
+						  'message' => 'El tamaño de imagen es demasiado grande'
+					  ),
+					  'isValidExtension' => array(
+						  'rule' => array('isValidExtension', array('jpg', 'png'), false),
+						  'message' => 'La imagen no tiene la extension jpg o png'
+					  ),
+					  'checkUniqueName' => array(
+						  'rule' => array('checkUniqueName'),
+						  'message' => 'La imagen ya se encuentra registrada',
+						  'on' => 'update'
+					  ),		
+	 		   )
         );
 }
 ?>

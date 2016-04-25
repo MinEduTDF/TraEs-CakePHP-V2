@@ -1,195 +1,106 @@
-<div class="mesaExamens view">
-<h2><?php echo __('Mesa Examen'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Mesa Especial'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['mesa_especial']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Turno'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['turno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Acta Nro'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['acta_nro']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Libro Nro'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['libro_nro']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Folio Nro'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['folio_nro']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fecha'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['fecha']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Seccion'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['seccion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Hora'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['hora']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Aula'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['aula']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modalidad'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['modalidad']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Presidente'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['presidente']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Vocal Uno'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['vocal_uno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Vocal Dos'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['vocal_dos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Ciclo'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($mesaExamen['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $mesaExamen['Ciclo']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Titulacion'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($mesaExamen['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $mesaExamen['Titulacion']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Materia'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($mesaExamen['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $mesaExamen['Materia']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Alumno Id'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['alumno_id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($mesaExamen['MesaExamen']['modified']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<?php echo $this->Html->script(array('acordeon', 'slider')); ?>
+<?php echo $this->Html->css('slider'); ?>
+<!-- start main -->
+<div class="TituloSec">Mesa de <?php echo ($mesaexamen['Mesaexamen']['turno']); ?></div>
+<div id="ContenidoSec">
+    <div class="row">
+        <div class="col-md-8">	
+	        <div class="unit">
+ 		        <div class="row perfil">
+                    <!--Datos generales-->
+                    <div class="col-md-6 col-sm-4 col-xs-12">	
+                        <b><?php echo __('Ciclo:'); ?></b>
+                           <?php echo $this->Html->link($mesaexamen['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $mesaexamen['Ciclo']['id'])); ?></p>
+                        <b><?php echo __('Titulacion:'); ?></b>
+                           <?php echo $this->Html->link($mesaexamen['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $mesaexamen['Titulacion']['id'])); ?></p>
+                        <b><?php echo __('Materia:'); ?></b>
+                           <?php echo $this->Html->link($mesaexamen['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $mesaexamen['Materia']['id'])); ?></p>
+                        <b><?php echo __('Creado:'); ?></b>
+                           <?php echo h($mesaexamen['Mesaexamen']['created']); ?></p>
+                        <b><?php echo __('Modificado:'); ?></b>
+                           <?php echo h($mesaexamen['Mesaexamen']['modified']); ?></p>
+                    </div><!--/Datos generales-->
+                    <div class="col-md-6 col-sm-4 col-xs-12">
+                    <!--Datos específicos-->
+                     <div id="click_01" class="titulo_acordeon_datos">Detalle</div>
+                         <div id="acordeon_01">
+                             <div class="unit">
+                                 <b><?php echo __('Mesa Especial:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['mesa_especial']); ?></p>
+                                  <b><?php echo __('Turno:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['turno']); ?></p>
+                                  <b><?php echo __('Acta Nro:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['acta_nro']); ?></p>
+                                  <b><?php echo __('Libro Nro:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['libro_nro']); ?></p>
+                                  <b><?php echo __('Folio Nro:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['folio_nro']); ?></p>
+                                  <b><?php echo __('Seccion:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['seccion']); ?></p>
+                                  <b><?php echo __('Aula:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['aula']); ?></p>
+                                  <b><?php echo __('Modalidad:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['modalidad']); ?></p>
+                             </div>
+                        </div><!--/Datos específicos-->
+                        <!--Datos de los integrantes-->
+                        <div id="click_02" class="titulo_acordeon_datos">Integrantes</div>
+                        <div id="acordeon_02">
+                             <div class="unit">
+                                  <b><?php echo __('Presidente:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['presidente']); ?></p>
+                                  <b><?php echo __('Vocal Uno:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['vocal_uno']); ?></p>
+                                  <b><?php echo __('Vocal Dos:'); ?></b>
+                                     <?php echo h($mesaexamen['Mesaexamen']['vocal_dos']); ?></p>
+                             </div>         
+                        </div><!--/Datos de los integrantes-->
+                        <!--Observaciones-->
+                        <div id="click_03" class="titulo_acordeon_datos">Observaciones</div>
+                        <div id="acordeon_03">
+                             <div class="unit">
+                                  <?php echo h($mesaexamen['Mesaexamen']['observaciones']); ?></p>
+                             </div>         
+                        </div><!--/Observaciones-->
+                    </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-4">
+          <div class="unit">
+              <div class="subtitulo">Opciones</div>
+              <div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $mesaexamen['Mesaexamen']['id'])); ?> </div>
+              <div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $mesaexamen['Mesaexamen']['id']), null, sprintf(__('Esta seguro de borrar la mesa de exámen %s?'), $mesaexamen['Mesaexamen']['id'])); ?></div>
+              <div class="opcion"><?php echo $this->Html->link(__('Listar Mesas'), array('action' => 'index')); ?></div>
+          </div>
+     </div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Mesa Examen'), array('action' => 'edit', $mesaExamen['MesaExamen']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Mesa Examen'), array('action' => 'delete', $mesaExamen['MesaExamen']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $mesaExamen['MesaExamen']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Mesa Examens'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Mesa Examen'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ciclos'), array('controller' => 'ciclos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ciclo'), array('controller' => 'ciclos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Titulacions'), array('controller' => 'titulacions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Titulacion'), array('controller' => 'titulacions', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Materias'), array('controller' => 'materias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Materia'), array('controller' => 'materias', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-	</ul>
+<!-- end main -->
+<!-- Alumnos Relacionados -->
+<div id="click_04" class="titulo_acordeon">Alumnos Relacionados</div>
+    <div id="acordeon_04">
+		<div class="row">
+	        <?php if (!empty($mesaexamen['Alumno'])):?>
+  			<div class="col-xs-12 col-sm-6 col-md-8">
+	            <?php foreach ($mesaexamen['Alumno'] as $alumno): ?>
+	            <div class="col-md-6">
+            <div class="unit">
+                <?php echo '<b>Nombre:</b> '.($this->Html->link($alumno['nombres'], array('controller' => 'alumnos', 'action' => 'view', $alumno['id']))
+			                                ." ".($this->Html->link($alumno['apellidos'], array('controller' => 'alumnos', 'action' => 'view', $alumno['id']))));?><br>
+                <?php echo '<b>Documento:</b> '.$alumno['documento_tipo'].' '.$alumno['documento_nro'];?><br>
+                <?php echo '<b>Email:</b> '.$alumno['email'];?><br>
+                <?php echo '<b>Tel:</b> '.$alumno['telefono_nro'];?><br>
+                <div class="text-right">
+					<?php echo $this->Html->link(__('Editar'), array('controller' => 'alumnos', 'action' => 'edit', $alumno['id']), array('class' => 'btn btn-danger')); ?>
+                    <?php echo $this->Html->link(__('Ver'), array('controller' => 'alumnos', 'action' => 'view', $alumno['id']), array('class' => 'btn btn-success')); ?>
+                    <!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'alumnos', 'action' => 'delete', $alumno['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $alumno['id'])); ?>-->
+                </div>
+            </div>
+        </div>
+		<?php endforeach; ?>
+    </div>
+	<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+    <?php endif; ?>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Alumnos'); ?></h3>
-	<?php if (!empty($mesaExamen['Alumno'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Apellidos'); ?></th>
-		<th><?php echo __('Nombres'); ?></th>
-		<th><?php echo __('Foto'); ?></th>
-		<th><?php echo __('Foto Dir'); ?></th>
-		<th><?php echo __('Documento Tipo'); ?></th>
-		<th><?php echo __('Documento Nro'); ?></th>
-		<th><?php echo __('Cuil Cuit'); ?></th>
-		<th><?php echo __('Ocupacion'); ?></th>
-		<th><?php echo __('Fecha Nac'); ?></th>
-		<th><?php echo __('Pcia Nac'); ?></th>
-		<th><?php echo __('Nacionalidad'); ?></th>
-		<th><?php echo __('Indigena'); ?></th>
-		<th><?php echo __('Estado Civil'); ?></th>
-		<th><?php echo __('Email'); ?></th>
-		<th><?php echo __('Telefono Nro'); ?></th>
-		<th><?php echo __('Calle Nombre'); ?></th>
-		<th><?php echo __('Calle Nro'); ?></th>
-		<th><?php echo __('Barrio'); ?></th>
-		<th><?php echo __('Asentamiento'); ?></th>
-		<th><?php echo __('Ciudad'); ?></th>
-		<th><?php echo __('Creado'); ?></th>
-		<th><?php echo __('Modificado'); ?></th>
-		<th><?php echo __('Pendiente'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($mesaExamen['Alumno'] as $alumno): ?>
-		<tr>
-			<td><?php echo $alumno['id']; ?></td>
-			<td><?php echo $alumno['apellidos']; ?></td>
-			<td><?php echo $alumno['nombres']; ?></td>
-			<td><?php echo $alumno['foto']; ?></td>
-			<td><?php echo $alumno['foto_dir']; ?></td>
-			<td><?php echo $alumno['documento_tipo']; ?></td>
-			<td><?php echo $alumno['documento_nro']; ?></td>
-			<td><?php echo $alumno['cuil_cuit']; ?></td>
-			<td><?php echo $alumno['ocupacion']; ?></td>
-			<td><?php echo $alumno['fecha_nac']; ?></td>
-			<td><?php echo $alumno['pcia_nac']; ?></td>
-			<td><?php echo $alumno['nacionalidad']; ?></td>
-			<td><?php echo $alumno['indigena']; ?></td>
-			<td><?php echo $alumno['estado_civil']; ?></td>
-			<td><?php echo $alumno['email']; ?></td>
-			<td><?php echo $alumno['telefono_nro']; ?></td>
-			<td><?php echo $alumno['calle_nombre']; ?></td>
-			<td><?php echo $alumno['calle_nro']; ?></td>
-			<td><?php echo $alumno['barrio']; ?></td>
-			<td><?php echo $alumno['asentamiento']; ?></td>
-			<td><?php echo $alumno['ciudad']; ?></td>
-			<td><?php echo $alumno['creado']; ?></td>
-			<td><?php echo $alumno['modificado']; ?></td>
-			<td><?php echo $alumno['pendiente']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'alumnos', 'action' => 'view', $alumno['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'alumnos', 'action' => 'edit', $alumno['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'alumnos', 'action' => 'delete', $alumno['id']), array('confirm' => __('Are you sure you want to delete # %s?', $alumno['id']))); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Alumno'), array('controller' => 'alumnos', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
+<!-- end Alumnos Relacionados -->

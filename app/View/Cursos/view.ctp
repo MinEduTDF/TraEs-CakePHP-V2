@@ -1,60 +1,37 @@
-<!-- *********** Acordeon ************* -->
-<?php echo $this->Html->script('acordeon'); ?>
-<!-- ************************************** -->
-
-<!-- *********** Slider ************* -->
-<?php echo $this->Html->script('slider'); ?>
+<?php echo $this->Html->script(array('acordeon', 'slider')); ?>
 <?php echo $this->Html->css('slider.css'); ?>
-<!-- ************************************** -->
-
 <!-- start main -->
 <div class="TituloSec">Curso <?php echo ($curso['Curso']['nombre_completo_curso']); ?></div>
 <div id="ContenidoSec">
-
-<div class="row">
+  <div class="row">
    <div class="col-md-8">	
 	 <div class="unit">
  		<div class="row perfil">
-  		
-  <div class="col-md-4 col-sm-6 col-xs-8">	
-
+          <div class="col-md-4 col-sm-6 col-xs-8">	
 			<b><?php echo __('Turno: '); ?></b>
 			<?php echo ($curso['Curso']['turno']); ?></p>
-
 			<b><?php echo __('Centro: '); ?></b>
 			<?php echo ($this->Html->link($curso['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $curso['Centro']['sigla']))); ?></p>
-
 			<b><?php echo __('Aula: '); ?></b>
 			<?php echo ($curso['Curso']['aula_nro']); ?></p>
-
             <b><?php echo __('Plazas: '); ?></b>
 			<?php echo ($curso['Curso']['plazas']); ?></p>
-
-  </div><div class="col-md-4 col-sm-6 col-xs-8">	
-
-            <b><?php echo __('Organización de cursada: '); ?></b>
-			<?php echo ($curso['Curso']['organizacion_cursada']); ?></p>
-
-            <b><?php echo __('Titulación: '); ?></b>
-			<?php echo ($this->Html->link($curso['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['nombre']))); ?></p>
+            </div><div class="col-md-4 col-sm-6 col-xs-8">	
+              <b><?php echo __('Organización de cursada: '); ?></b>
+              <?php echo ($curso['Curso']['organizacion_cursada']); ?></p>
+              <b><?php echo __('Titulación: '); ?></b>
+              <?php echo ($this->Html->link($curso['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['nombre']))); ?></p>
 		  </div>
- 	</div>
- </div>
-</div>
-
-<div class="col-md-4">
- <div class="unit">
+ 	    </div>
+     </div>
+   </div>
+   <div class="col-md-4">
+       <div class="unit">
  			<div class="subtitulo">Opciones</div>
 			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $curso['Curso']['id'])); ?></div>
 			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $curso['Curso']['id']), null, sprintf(__('Esta seguro de borrar el curso %s?'), $curso['Curso']['division'])); ?></div>
- 			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $curso['Curso']['id'], 'ext' => 'pdf')); ?></div>
-            <!--<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('controller' => 'cursos', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Centros'), array('controller' => 'centros', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Alumnos'), array('controller' => 'alumnos', 'action' => 'index')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Inscripciones'), array('controller' => 'inscripcions', 'action' => 'index')); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Listar Materias'), array('controller' => 'materias', 'action' => 'index')); ?></div>
-	        <div class="opcion"><?php echo $this->Html->link(__('Listar Ciclos'), array('controller' => 'ciclos', 'action' => 'index')); ?></div>-->
-    	</div>
+ 			<div class="opcion"><?php echo $this->Html->link(__('Listar Cursos'), array('action' => 'index')); ?></div>
+       </div>
    </div>
 </div>
  <!-- end main -->
@@ -130,29 +107,23 @@
 	</div>
 </div>-->
 <!-- end Cargos Relacionados -->
-
 <!-- Inscripciones Relacionadas -->
 <div id="click_01" class="titulo_acordeon">Inscripciones Relacionadas</div>
 <div id="acordeon_01">
 		<div class="row">
 	<?php if (!empty($curso['Inscripcion'])):?>
-
   	<!-- Swiper -->
     <div class="swiper-container" style="height: 200px;">
         <div class="swiper-wrapper" >
 	<?php foreach ($curso['Inscripcion'] as $inscripcion): ?>
-
 	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
-			<?php echo '<b>Legajo:</b> '.$inscripcion['legajo_nro'];?><br>
-			<!--<?php echo '<b>Ciclo_Id:</b> '.($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?><br>
-			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>-->
+			<?php echo '<b>Legajo:</b> '.($this->Html->link($inscripcion['legajo_nro'], array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id'])));?><br>
+			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>
             <?php echo '<b>Fecha_alta:</b> '.($this->Html->formatTime($inscripcion['fecha_alta']));?><br>
 			<?php echo '<b>Fecha_baja:</b> '.($this->Html->formatTime($inscripcion['fecha_baja']));?><br>
             <?php echo '<b>Fecha_egreso:</b> '.($this->Html->formatTime($inscripcion['fecha_egreso']));?><br>
-            <?php echo '<b>Fecha_emisión_título:</b> '.($this->Html->formatTime($inscripcion['fecha_emision_titulo']));?><br>
-            <!--<?php echo '<b>Empleado_Id:</b> '.($this->Html->link($inscripcion['empleado_id'], array('controller' => 'empleados', 'action' => 'view', $inscripcion['empleado_id'])));?><br>-->
             
             <div class="text-right">
             <?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id']), array('class' => 'btn btn-warning')); ?>
@@ -164,7 +135,6 @@
   </div>		
 		<?php endforeach; ?>
   </div>
-  
   <!-- Add Pagination -->
        <div class="swiper-pagination"></div>
     </div>
@@ -174,7 +144,6 @@
     </div>
 </div>
 <!-- end Inscripciones Relacionadas -->
-
 <!-- Materias Relacionadas -->
 <div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
 <div id="acordeon_02">
@@ -188,7 +157,7 @@
 	<div class="swiper-slide">
 	<div class="col-md-6">
 		<div class="unit">
-			<?php echo '<b>Alia:</b> '.$materia['alia'];?><br>
+			<?php echo '<b>Alia:</b> '.($this->Html->link($materia['alia'], array('controller' => 'materias', 'action' => 'view', $materia['id'])));?><br>
 			<?php echo '<b>Carga horaria en:</b> '.$materia['carga_horaria_en'];?><br>
 			<?php echo '<b>Carga horaria semanal:</b> '.$materia['carga_horaria_semanal'];?><br>
             <?php echo '<b>Contenido:</b> '.$materia['contenido'];?><br>

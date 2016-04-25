@@ -30,300 +30,312 @@ class Nota extends AppModel {
 	//Validaciones
 	
 	var $validate = array(
-                   'alumno_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar un alumno.'
-                           )
+                   'created' => array(
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+						 'message' => 'Indicar una fecha y hora.'
+                         )
+                   ),
+				   'alumno_id' => array(
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar un alumno.'
+                         )
                    ),
 				   'ciclo_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar un ciclo.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar un ciclo.'
+                         )
                    ),
 				   'materia_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 5), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar una materia.'
-                           )
+                         'required' => array(
+					     'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una materia.'
+                         )
                    ),
 				   'evaluacion_tipo_nota_uno_primer_periodo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 5), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar un tipo de evaluación.'
-                           )
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar un tipo de calificación.'
+                         )
                    ),
 				   'nota_uno_primer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => false,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar una letra.'
-                           )*/
+                         'required' => array(
+						 'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar una calificación.'
+                         ),
+						 /*'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => false,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => false,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )*/
+						 'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => false,       
+						 'message' => 'Indicar una letra.'
+						 )
 				   ),
 				   'nota_dos_primer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
-                           )*/
+                         'range' => array(
+                         'rule'    => array('range', -1, 11),
+                         'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+                         ),
+						 'numeric' => array(
+                         'rule' => array('decimal',2), 
+                         'allowEmpty' => true,       
+                         'allowEmpty' => true,
+						 'message' => 'Indicar un nº con dos decimales.'
+                         )
+   				         /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+                         'allowEmpty' => true,       
+                         'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+                         )*/
                    ),
 				   'nota_tres_primer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
-                           )*/
+                         'range' => array(
+                         'rule'    => array('range', -1, 11),
+                         'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+                         ),
+						 'numeric' => array(
+                         'rule' => array('decimal',2), 
+                         'allowEmpty' => true,       
+                         'allowEmpty' => true,
+						 'message' => 'Indicar un nº con dos decimales.'
+                         )
+   				         /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+                         'allowEmpty' => true,       
+                         'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+                         )*/
                    ),
 				   'promedio_primer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => 'numeric', 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº sin signos ni decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => 'numeric', 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº sin signos ni decimales.'
+						 )
                    ),
                    'desarrollo_personalSocial_primer_periodo' => array(
-   				           'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )
+						 'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )
                    ),
 				   'nota_uno_segundo_periodo' => array(
-				           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-						   /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )*/
 				   ),
 				   'nota_dos_segundo_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                          )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						)*/
                    ),
 				   'nota_tres_segundo_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )*/
                    ),
 				   'promedio_segundo_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => 'numeric', 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº sin signos ni decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => 'numeric', 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº sin signos ni decimales.'
+						 )
                    ),
 				   'desarrollo_personalSocial_segundo_periodo' => array(
-   				           'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )
+						 'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )
                    ),
 				   'nota_uno_tercer_periodo' => array(
-				           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )*/
 				   ),
 				   'nota_dos_tercer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
-                           )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'La calificación no es válida. Indicar nota máximo con dos caracteres.'
+						 )*/
                    ),
 				   'nota_tres_tercer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
-   				           /*'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una letra.'
-                           )*/
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
+						 /*'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una letra.'
+						 )*/
                    ),
 				   'promedio_tercer_periodo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => 'numeric', 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº sin signos ni decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => 'numeric', 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº sin signos ni decimales.'
+						 )
                    ),
 				   'desarrollo_personalSocial_tercer_periodo' => array(
-   				           'maxlength' => array(
-						   'rule' => array('maxlength',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una nota.'
-                           )
+						 'maxlength' => array(
+						 'rule' => array('maxlength',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una nota.'
+						 )
                    ),
 				   'promedio_a_termino' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
                    ),
 				   'nota_en_diciembre' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
                    ),
 				   'nota_en_marzo' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
                    ),
 				   'promedio_final' => array(
-                           'range' => array(
-                           'rule'    => array('range', -1, 11),
-                           'allowEmpty' => true,
-						   'message' => 'Indicar un nº entre 0 y 10.'
-                           ),
-						   'numeric' => array(
-                           'rule' => array('decimal',2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar un nº con dos decimales.'
-                           )
+						 'range' => array(
+						 'rule'    => array('range', -1, 11),
+						 'allowEmpty' => true,
+						 'message' => 'Indicar un nº entre 0 y 10.'
+						 ),
+						 'numeric' => array(
+						 'rule' => array('decimal',2), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar un nº con dos decimales.'
+						 )
                    ),
                    'observacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 4), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una breve observacion.'
-                           )
+						 'minLength' => array(
+						 'rule' => array('minLength', 4), 
+						 'allowEmpty' => true,       
+						 'message' => 'Indicar una breve observacion.'
+						 )
                    )                  
           );
 		 

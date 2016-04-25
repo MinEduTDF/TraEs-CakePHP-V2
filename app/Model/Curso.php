@@ -36,7 +36,7 @@ class Curso extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
+		)
 	);
 
     var $hasAndBelongsToMany = array(
@@ -90,59 +90,64 @@ class Curso extends AppModel {
     //Validaciones
 
         var $validate = array(
-                   'tipo' => array(
-                           'minLength' => array(
-						   'rule' => array('minLength',3),
-                           'allowEmpty' => false,
+                   'created' => array(
+						   'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+						   'message' => 'Indicar una fecha y hora.'
+						   )
+                   ),
+				   'tipo' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un tipo.'
                            )
                    ),
 				   'anio' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',11),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un año.'
                            )
                    ),
                    'division' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',11),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar una división.'
                            )
                    ),
                    'turno' => array(
-                           'maxLength' => array(
-                           'rule' => array('maxLength',10),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un turno.'
                            )
                    ),
                    'aula_nro' => array(
-                           'numeric' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar un aula.'
+                           ),
+						   'numeric' => array(
                            'rule' => 'numeric',
                            'allowEmpty' => false,
-                           'message' => 'Indicar un nº de aula.'
+                           'message' => 'Indicar un nº.'
                            )
                    ),
-                   'observacion' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),
-                           'allowEmpty' => true,
-                           'message' => 'Indicar una breve observacion.'
-                            )
-                   ),
-				   'Ciclo' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',4),
-                           'allowEmpty' => false,
+                   'Ciclo' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar un ciclo.'
                             )
                    ),
 				   'titulacion_id' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength',5),
-                           'allowEmpty' => false,
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
                            'message' => 'Indicar una titulación.'
                             )
                    )

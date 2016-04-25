@@ -2,7 +2,7 @@
     <div class="TituloSec"><?php echo __('Agregar Materia'); ?></div>
     <div id="ContenidoSec">
         <div class="cursos form">
-           <?php echo $this->Form->create('Materia', array('novalidate' => true));?>
+           <?php echo $this->Form->create('Materia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>
            <div class="unit">
               <?php echo $this->element('form_materia'); ?><p>
            </div>

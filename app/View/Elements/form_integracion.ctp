@@ -1,8 +1,5 @@
-
-<!-- *********** DatePicker ************* -->
 <?php echo $this->Html->script('datepicker'); ?>
-<!-- ************************************** -->
-
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
   <div class="row">
   <div class="col-md-6 col-sm-6 col-xs-12">
    
@@ -19,11 +16,10 @@
 		echo $this->Form->input('docente_nombre_completo', array('label' => 'Nombre completo del docente integrador', 'between' => '<br>', 'class' => 'form-control'));
 		echo $this->Form->input('fecha_inicio', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control'));
 		echo $this->Form->input('fecha_fin', array('type' => 'text', 'between' => '<br>', 'empty' => '','class' => 'datepicker form-control', 'empty' => ''));
-		echo $this->Form->input('observaciones', array('label'=>'Descripción', 'between' => '<br>', 'class' => 'form-control'));
         echo $this->Form->input('informe', array('label'=>'Informe relacionado', 'type' => 'file',  'between' => '<br>', 'class' => 'form-control'));
         echo $this->Form->input('informe_dir', array('type' => 'hidden'));
-		
- 		
+		echo $this->Form->input('observaciones', array('label'=>'Descripción', 'type' => 'textarea', 'between' => '<br>', 'class' => 'form-control'));
 ?>
+<script>tinymce.init({ selector:'textarea' });</script>
 </div>
 </div>

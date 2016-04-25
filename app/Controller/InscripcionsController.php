@@ -21,27 +21,6 @@ class InscripcionsController extends AppController {
 		{
 			$conditions['Inscripcion.alumno_id ='] = $this->params['named']['alumno_id'];
 		}
-		/*if(!empty($this->params['named']['fecha_alta']))
-		{
-			$conditions['Inscripcion.fecha_alta ='] = $this->params['named']['fecha_alta'];
-		}
-		if(!empty($this->params['named']['fecha_baja']))
-		{
-			$conditions['Inscripcion.fecha_baja ='] = $this->params['named']['fecha_baja'];
-		}
-		if(!empty($this->params['named']['fecha_egreso']))
-		{
-			$conditions['Inscripcion.fecha_egreso ='] = $this->params['named']['fecha_egreso'];
-		}
-		/*if(!empty($this->params['named']['day_f']) && !empty($this->params['named']['month_f']) && !empty($this->params['named']['year_f']))
-		{
-			$conditions['Inscripcion.fechaInscripcion >='] = $this->params['named']['year_f'].'-'.$this->params['named']['month_f'].'-'.$this->params['named']['day_f'];
-		}
-		if(!empty($this->params['named']['day_t']) && !empty($this->params['named']['month_t']) && !empty($this->params['named']['year_t']))
-		{
-			$conditions['Inscripcion.fechaInscripcion <='] = $this->params['named']['year_t'].'-'.$this->params['named']['month_t'].'-'.$this->params['named']['day_t'];
-		}
-		*/
 		$inscripcions = $this->paginate('Inscripcion',$conditions);
 		$this->set(compact('inscripcions', 'alumnos'));
 		

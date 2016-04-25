@@ -4,7 +4,7 @@ class InasistenciasController extends AppController {
 	var $name = 'Inasistencias';
     var $helpers = array('Session');
 	var $components = array('Auth','Session');
-	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.creado DESC'));
+	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.created DESC'));
 
 	function index() {
 		
@@ -18,15 +18,6 @@ class InasistenciasController extends AppController {
 		{
 			$conditions['Inasistencia.alumno_id ='] = $this->params['named']['alumno_id'];
 		}
-		/*if(!empty($this->params['named']['creado']))
-		{
-			$conditions['Inasistencia.creado ='] = $this->params['named']['creado'];
-		}
-		if(!empty($this->params['named']['modificado']))
-		{
-			$conditions['Inasistencia.modificado ='] = $this->params['named']['modificado'];
-		}
-		*/
 		if(!empty($this->params['named']['tipo']))
 		{
 			$conditions['Inasistencia.tipo ='] = $this->params['named']['tipo'];
@@ -39,16 +30,7 @@ class InasistenciasController extends AppController {
 		{
 			$conditions['Inasistencia.justificado ='] = $this->params['named']['justificado'];
 		}
-		/*if(!empty($this->params['named']['day_f']) && !empty($this->params['named']['month_f']) && !empty($this->params['named']['year_f']))
-		{
-			$conditions['Inscripcion.fechaInscripcion >='] = $this->params['named']['year_f'].'-'.$this->params['named']['month_f'].'-'.$this->params['named']['day_f'];
-		}
-		if(!empty($this->params['named']['day_t']) && !empty($this->params['named']['month_t']) && !empty($this->params['named']['year_t']))
-		{
-			$conditions['Inscripcion.fechaInscripcion <='] = $this->params['named']['year_t'].'-'.$this->params['named']['month_t'].'-'.$this->params['named']['day_t'];
-		}
-		*/
-		$inasistencias = $this->paginate('Inasistencia',$conditions);
+		$inasistencias = $this->paginate('Inasistencia', $conditions);
 		$this->set(compact('inasistencias', 'alumnos'));
 	}
 	
@@ -79,7 +61,7 @@ class InasistenciasController extends AppController {
 			}
 		}
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-$cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
+        $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
 		$materias = $this->Inasistencia->Materia->find('list');
 		$ciclos = $this->Inasistencia->Ciclo->find('list');
 		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));

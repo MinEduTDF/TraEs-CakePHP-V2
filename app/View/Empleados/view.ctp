@@ -7,11 +7,10 @@
    <div class="col-md-8">	
 	 <div class="unit">
  		<div class="row perfil">
-
-    <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-  	    <!--<?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'vga_' .$empleado['Empleado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>-->
-	   	<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>
-  	</div>
+                 <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
+					<?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'vga_' .$empleado['Empleado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+                    <!--<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>-->
+  	             </div>
 
    <div class="col-md-8 col-sm-6 col-xs-8">	
 			<b><?php echo __('Nombres: '); ?></b>
@@ -44,8 +43,8 @@
  			<div class="subtitulo">Opciones</div>
 			<div class="opcion"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $empleado['Empleado']['id'])); ?></div>
 			<div class="opcion"><?php echo $this->Html->link(__('Borrar'), array('action' => 'delete', $empleado['Empleado']['id']), null, sprintf(__('Esta seguro de borrar al empleado %s?'), $empleado['Empleado']['nombre_completo_empleado'])); ?></div>
-			<div class="opcion"><?php echo $this->Html->link(__('Exportar a PDF'), array('action' => 'view', $empleado['Empleado']['id'], 'ext' => 'pdf')); ?></div>
-	</div>
+	        <div class="opcion"><?php echo $this->Html->link(__('Listar Agentes'), array('action' => 'index')); ?></div>
+	 </div>
   </div>
 </div> 
  <!-- end main -->
@@ -336,7 +335,7 @@
 	<?php foreach ($empleado['User'] as $user): ?>
 	<div class="col-md-6">
 		<div class="unit">
-			<?php echo '<b>Nombre de Usuario:</b> '.$user['username'];?><br>
+			<?php echo '<b>Nombre de Usuario:</b> '.$this->Html->link($user['username'], array('controller' => 'users', 'action' => 'view', $user['id']));?><br>
 			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
             <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->
             <div class="text-right">

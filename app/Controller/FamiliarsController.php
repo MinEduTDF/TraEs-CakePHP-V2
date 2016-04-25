@@ -19,13 +19,13 @@ class FamiliarsController extends AppController {
 		  //abort if cancel button was pressed  
           if(isset($this->params['data']['cancel'])){
                 $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
-                $this->redirect( array( 'action' => 'index' ));
+                $this->redirect(array('controller' => 'alumnos','action' => 'index'));
+				
 		  }
    		  if (!empty($this->data)) {
 			$this->Familiar->create();
 			if ($this->Familiar->save($this->data)) {
 				$this->Session->setFlash('El familiar ha sido grabado', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('controller' => 'alumnos','action' => 'index'));
 				$inserted_id = $this->Familiar->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {

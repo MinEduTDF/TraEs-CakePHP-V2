@@ -2,7 +2,7 @@
 <div id="ContenidoSec">
 <div class="familiars form">
 
-<?php echo $this->Form->create('Familiar');?>
+<?php echo $this->Form->create('Familiar', array('novalidate' => true));?>
 
 	         <div class="unit">
                     <?php echo $this->element('form_familiar'); ?>

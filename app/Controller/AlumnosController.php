@@ -36,11 +36,14 @@ class AlumnosController extends AppController {
 			$this->Session->setFlash('Alumno no valido', 'default', array('class' => 'alert alert-danger'));
 			$this->redirect(array('action' => 'index'));
 		}
+		$options = array('conditions' => array('Alumno.' . $this->Alumno->primaryKey => $id));
+		$this->pdfConfig = array(
+			'download' => true,
+			'filename' => 'alumno_' . $id .'.pdf'
+		);
 		$this->set('alumno', $this->Alumno->read(null, $id));
-				
 	}
 	
-
 	function add() {
 		  //abort if cancel button was pressed  
           if(isset($this->params['data']['cancel'])){

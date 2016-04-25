@@ -3,7 +3,7 @@
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Alumno:</b> <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></span><br/>
 
-		       <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Ciclo: </b> <?php echo ($this->Html->link($nota['Ciclo']['ciclo'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['id']))); ?></span><br/>
+		       <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Ciclo: </b> <?php echo ($this->Html->link($nota['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['id']))); ?></span><br/>
 
                <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Materia: </b> <?php echo ($this->Html->link($nota['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $nota['Materia']['id']))); ?></span><br/>
 
