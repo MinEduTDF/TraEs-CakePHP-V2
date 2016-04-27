@@ -13,6 +13,8 @@
                          <?php echo ($this->Html->link($inasistencia['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['Ciclo']['nombre']))); ?></p>
                       <b>Fecha:</b>		
                          <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['created'])); ?></p>
+                      <b>Ciclo:</b>		
+                         <?php echo ($this->Html->link($inasistencia['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $inasistencia['Alumno']['id']))); ?></p>
                       <b>Tipo:</b>		
                          <?php echo ($inasistencia['Inasistencia']['tipo']); ?></p>
                       <b>Justificada:</b>		

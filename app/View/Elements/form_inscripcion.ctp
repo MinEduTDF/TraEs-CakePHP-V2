@@ -10,7 +10,7 @@
 </div><hr />
 <div class="row">
 	<div class="col-md-4 col-sm-6 col-xs-12">
-		 <div class="unit"><strong>Datos Generales</strong><hr />
+		 <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			  <?php 
                   echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('centro_id', array('label'=>'Centro*', 'default' => 'CPLA', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
@@ -21,7 +21,7 @@
               ?>
          </div>
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
-         <div class="unit"><strong>Datos del Alta</strong><hr />      
+         <div class="unit"><strong><h3>Datos del Alta</h3></strong><hr />      
 			 <?php
                   $tipos_alta = array('Regular' => 'Regular', 'Equivalencia'=>'Equivalencia');
                   echo $this->Form->input('tipo_alta', array('label' => 'Alta tipo*', 'empty' => 'Ingrese un vinculo...', 'options' => $tipos_alta, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
@@ -36,7 +36,7 @@
                   echo $this->Form->input('fines', array('label' => 'Fines*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_fines, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
           </div>        
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
-          <div class="unit"><strong>Datos de la Baja/Egreso</strong><hr />   
+          <div class="unit"><strong><h3>Datos de la Baja/Egreso</h3></strong><hr />   
 			  <?php
                   echo $this->Form->input('fecha_baja', array('label' => 'Fecha de Baja', 'type' => 'text', 'between' => '<br>', 'empty' => ' ','class' => 'datepicker form-control', 'Placeholder' => 'Ingrese una fecha...'));
                   $tipos_baja = array('Salido con pase' => 'Salido con pase', 'Salido sin pase' => 'Salido sin pase', 'Pérdida de regularidad' => 'Pérdida de regularidad',       'Fallecimiento' => 'Fallecimiento');

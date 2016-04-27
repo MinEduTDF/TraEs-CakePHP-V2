@@ -194,14 +194,14 @@ class Materia extends AppModel {
                            'message' => 'Indicar un número entero.'
                            )
                    ),
-				   'contenido' => array(
+				   /*'contenido' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',
                            'message' => 'Adjuntar contenidos.'
                            ) 
 				   ),
-				   /*'curso_id' => array(
+				   'curso_id' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',

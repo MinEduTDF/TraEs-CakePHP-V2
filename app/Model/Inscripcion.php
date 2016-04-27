@@ -191,21 +191,21 @@ class Inscripcion extends AppModel {
                    ),
 				   'acta_nro' => array(
                            'naturalNumber' => array(
-                           'rule' => array('naturalNumber', false),
+                           'rule' => array('naturalNumber', true),
                            'allowEmpty' => true,
 						   'message' => 'indicar un nº de acta.'
                            )
                    ),
 				   'libro_nro' => array(
                            'naturalNumber' => array(
-                           'rule' => array('naturalNumber', false),
+                           'rule' => array('naturalNumber', true),
                            'allowEmpty' => true,
 						   'message' => 'indicar un nº de libro.'
                            )
                    ),
 				   'folio_nro' => array(
                            'naturalNumber' => array(
-                           'rule' => array('naturalNumber', false),
+                           'rule' => array('naturalNumber', true),
                            'allowEmpty' => true,
 						   'message' => 'indicar un nº de folio.'
                            )

@@ -7,7 +7,7 @@
 </div><hr />
 <div class="row">
   <div class="col-md-4 col-sm-6 col-xs-12">
-	  <div class="unit"><strong>Datos Generales</strong>
+	  <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 		  <?php
               echo $this->Form->input('alumno_id', array('label' => 'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
               echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
@@ -74,7 +74,6 @@
             echo $this->Form->input('fecha_nota_en_marzo', array('label' => 'Fecha Nota en Marzo', 'type' => 'text', 'between' => '<br>', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
             echo $this->Form->input('promedio_final', array('label' => 'PROMEDIO FINAL', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un valor con decimales.', 'placeholder' => 'Ingrese un promedio...'));
             echo $this->Form->input('fecha_promedio_final', array('label' => 'Fecha Promedio Final', 'type' => 'text', 'between' => '<br>', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
-            echo $this->Form->input('observaciones', array('between' => '<br>', 'class' => 'form-control'));
         ?>
      </div>
   </div>
@@ -93,6 +92,6 @@
 					  $(this).data('DateTimePicker').date(specifiedDate);
 				  }
                });
-     </script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+  </script>
+  <script>tinymce.init({ selector:'textarea' });</script>
 </div>

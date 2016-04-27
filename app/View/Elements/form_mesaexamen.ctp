@@ -7,7 +7,7 @@
 </div><hr />
 <div class="row">
     <div class="col-md-4 col-sm-6 col-xs-12">
-  	    <div class="unit"><strong>Datos Generales</strong><hr />
+  	    <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			<?php 
                 echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                 echo $this->Form->input('titulacion_id', array('label'=>'Titulación*', 'empty' => 'Ingrese una titulación...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
@@ -19,7 +19,7 @@
 	</div></br>
 </div>
     <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="unit"><strong>Datos Específicos</strong><hr />
+        <div class="unit"><strong><h3>Datos Específicos</h3></strong><hr />
 			<?php
                 $mesaespecial = array('SI' => 'SI', 'NO'=>'NO');
                 echo $this->Form->input('mesaespecial', array('label' => 'Mesa Especial*', 'empty' => 'Ingrese una opción...', 'options' => $turnos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));            
@@ -34,7 +34,7 @@
 	</div></br>
 </div>
     <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="unit"><strong>Datos de los Integrantes</strong><hr />
+        <div class="unit"><strong><h3>Datos de los Integrantes</h3></strong><hr />
 			<?php
 			    echo $this->Form->input('presidente', array('label' => 'Presidente*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción', 'Placeholder' => 'Ingrese un presidente...'));
                 echo $this->Form->input('vocal_uno', array('label' => 'Vocal Nº 1*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción', 'Placeholder' => 'Ingrese un vocal...'));

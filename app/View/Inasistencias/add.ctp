@@ -2,7 +2,7 @@
    <div id="ContenidoSec">
        <?php echo $this->Form->create('Inasistencia', array('novalidate' => true));?>
        <div class="unit">
-           <?php echo $this->element('form_inasistencia'); ?><p>
+           <?php echo $this->element('form_inasistencia_add'); ?><p>
        </div>
        <div class="text-center">
           <div class="submit">                 

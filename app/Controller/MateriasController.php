@@ -19,7 +19,7 @@ class MateriasController extends AppController {
     }
 
 	function index() {
-		//$this->Materia->recursive = 0;
+		$this->Materia->recursive = 0;
 		$this->set('materias', $this->paginate());
         $cursos = $this->Materia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
 		$this->redirectToNamed();
@@ -41,55 +41,26 @@ class MateriasController extends AppController {
 		}
 		$this->set('materia', $this->Materia->read(null, $id));
 	}
-    /*
-	function add() {
-		  //abort if cancel button was pressed  
-          if(isset($this->params['data']['cancel'])){
-                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
-                $this->redirect( array( 'action' => 'index' ));
-		  }
-  		  if (!empty($this->data)) {
-			$this->Materia->create();
-			// Para upload
-			if (isset($this->data['File'])){
-				$pathFolderFiles = 'files/materia';
-				$fileOK  = $this->uploadFiles($pathFolderFiles, $this->data['File']);
-				$pathFile = 'Materia/' . $this->data['File']['files_url']['name']; // Ruta relativa a  APP/webroot/files
-				$this->data['Materia']['files_url'] = $pathFile;
-			}
-			//
-			if ($this->Materia->save($this->data)) {
-				$this->Session->setFlash('La materia ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
-				$inserted_id = $this->Materia->id;
-    			$this->redirect(array('action' => 'view', $inserted_id));
-			} else {
-				$this->Session->setFlash('La materia no fué grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		$cursos = $this->Materia->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
-		$this->set(compact('cursos', 'alumnos'));
-	}
-	*/
+
 	
 	public function add() {
         if ($this->request->is('post')) {
             $this->Materia->create();
-        if(empty($this->data['Materia']['contenido']['name'])){
-            unset($this->request->data['Materia']['contenido']);
-        }
-	    if(!empty($this->data['Materia']['contenido']['name'])){
-		   $file=$this->data['Materia']['contenido'];
-		   $file['name']=$this->sanitize($file['name']);
-		   $this->request->data['Materia']['contenido'] = time().$file['name'];
-		if($this->Materia->save($this->request->data)) {
-		   move_uploaded_file($file['tmp_name'], APP . 'webroot/files/materias/' .DS. time().$file['name']);  
-		   $this->Session->setFlash(__('Los Contenidos se guardaron.'));
+            if(empty($this->data['Materia']['contenido']['name'])){
+               unset($this->request->data['Materia']['contenido']);
+            }
+	        if(!empty($this->data['Materia']['contenido']['name'])){
+			   $file=$this->data['Materia']['contenido'];
+			   $file['name']=$this->sanitize($file['name']);
+			   $this->request->data['Materia']['contenido'] = time().$file['name'];
+			   if($this->Materia->save($this->request->data)) {
+				  move_uploaded_file($file['tmp_name'], APP . 'webroot/files/materias/' .DS. time().$file['name']);  
+				  $this->Session->setFlash(__('Los Contenidos se guardaron.'));
 				  return $this->redirect(array('action' => 'index'));
-		}
-	  }
-       $this->Session->setFlash(__('Los Contenidos no se guardaron.'));
-      }
+		       }
+	        }
+           $this->Session->setFlash(__('Los Contenidos no se guardaron.'));
+        }
     }
 	
 	function edit($id = null) {
@@ -116,6 +87,7 @@ class MateriasController extends AppController {
 		$cursos = $this->Materia->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
 		$this->set(compact('cursos', 'alumnos'));
 	}
+   
 
 	function delete($id = null) {
 		if (!$id) {

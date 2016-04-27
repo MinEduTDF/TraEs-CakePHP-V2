@@ -3,7 +3,7 @@
         <div class="cursos form">
             <?php echo $this->Form->create('Materia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>
             <div class="unit">
-                 <?php echo $this->element('form_materia'); ?><p>
+                 <?php echo $this->element('form_materia_edit'); ?><p>
             </div>
                  <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
             <div class="text-center">

@@ -197,11 +197,7 @@ class Alumno extends AppModel {
                            )
                    ),
 				   'indigena' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-                           'required' => 'create',
-                           'message' => 'Indicar una comunidad.'
-                           )
+                           
                    ),
 				  'estado_civil' => array(
                            'required' => array(

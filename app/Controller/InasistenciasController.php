@@ -6,6 +6,19 @@ class InasistenciasController extends AppController {
 	var $components = array('Auth','Session');
 	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.created DESC'));
 
+    public function sanitize($string, $force_lowercase = true, $anal = false) {
+    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€", "â€", ",", "<",">", "/", "?");
+    $clean = trim(str_replace($strip, "", strip_tags($string)));
+    $clean = preg_replace('/\s+/', "-", $clean);
+    $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+    return ($force_lowercase) ?
+        (function_exists('mb_strtolower')) ?
+            mb_strtolower($clean, 'UTF-8') :
+            strtolower($clean) :
+        $clean;
+    }
+
+
 	function index() {
 		
 		$this->Inasistencia->recursive = 0;
@@ -34,6 +47,7 @@ class InasistenciasController extends AppController {
 		$this->set(compact('inasistencias', 'alumnos'));
 	}
 	
+	
 	function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
@@ -43,30 +57,27 @@ class InasistenciasController extends AppController {
 				
 	}
 
-	function add() {
-		  //abort if cancel button was pressed  
-          if(isset($this->params['data']['cancel'])){
-                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
-                $this->redirect( array( 'action' => 'index' ));
-		  }
-		  if (!empty($this->data)) {
-			$this->Inasistencia->create();
-			if ($this->Inasistencia->save($this->data)) {
-				$this->Session->setFlash('La inasistencia ha sido grabada', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
-				$inserted_id = $this->Inasistencia->id;
-				$this->redirect(array('action' => 'view', $inserted_id));
-			} else {
-				$this->Session->setFlash('La inasistencia no fue grabada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-        $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
-		$materias = $this->Inasistencia->Materia->find('list');
-		$ciclos = $this->Inasistencia->Ciclo->find('list');
-		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));
-	}
-
+	public function add() {
+        if ($this->request->is('post')) {
+            $this->Inasistencia->create();
+            if(empty($this->data['Inasistencia']['certificacion']['name'])){
+               unset($this->request->data['Inasistencia']['certificacion']);
+            }
+	        if(!empty($this->data['Inasistencia']['certificacion']['name'])){
+			   $file=$this->data['Inasistencia']['certificacion'];
+			   $file['name']=$this->sanitize($file['name']);
+			   $this->request->data['Inasistencia']['certificacion'] = time().$file['name'];
+			   if($this->Inasistencia->save($this->request->data)) {
+				  move_uploaded_file($file['tmp_name'], APP . 'webroot/files/certificaciones/' .DS. time().$file['name']);  
+				  $this->Session->setFlash(__('La Certificación se guardó.'));
+				  return $this->redirect(array('action' => 'index'));
+		       }
+	        }
+           $this->Session->setFlash(__('La Certificación no se guardó.'));
+        }
+    }
+ 
+	 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
@@ -96,6 +107,7 @@ class InasistenciasController extends AppController {
 		$ciclos = $this->Inasistencia->Ciclo->find('list');
 		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));
 	}
+
 
 	function delete($id = null) {
 		if (!$id) {
