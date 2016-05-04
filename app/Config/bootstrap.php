@@ -72,6 +72,7 @@ Configure::write('CakePdf', array(
     'pageSize' => 'A4',
     'orientation' => 'portrait'
 ));
+CakePlugin::load('FullCalendar');
 
 // Load Composer autoload.
 require APP . 'Vendor/autoload.php';

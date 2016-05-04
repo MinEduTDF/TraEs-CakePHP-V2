@@ -43,10 +43,11 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Recursos <span class="caret"></span></a>
           <ul class="dropdown-menu">
            <li><?php echo $this->Html->link(__('Tablas'),'/report_manager/reports');?></li>
            <li><?php echo $this->Html->link(__('Gráficos'), '/graficos'); ?></li>
+           <li><?php echo $this->Html->link(__('Calendario'),'/full_calendar');?></li>
           </ul>
         </li>
         <li>
