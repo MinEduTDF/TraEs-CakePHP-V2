@@ -252,13 +252,15 @@ class Alumno extends AppModel {
                            'required' => array(
 						   'rule' => 'notBlank',
                            'required' => 'create',
-                           'message' => 'Indicar una ciudad.'                           )
+                           'message' => 'Indicar una ciudad.'
+						   )
                    ),
 				   'pendiente' => array(
-                           'numeric' => array(
-                           'rule' => 'numeric',                          
-                           'allowEmpty' => false,
-                           'message' => 'La opción no es valida. Indicar una opción de la lista.'                           )
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+                           'message' => 'Indicar una opción.'
+						   )
                    ),
  		   		   'foto' => array(
 					  'uploadError' => array(

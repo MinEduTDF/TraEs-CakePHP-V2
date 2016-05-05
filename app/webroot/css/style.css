@@ -57,7 +57,7 @@ ul.pagination li.active {
 }
 
 span.checked{
-    background:transparent url(../webroot/css_images/checked.png) no-repeat top left;
+    background:transparent url(../css_images/checked.png) no-repeat top left;
     position:absolute;
     top:0px;
     left:1px;

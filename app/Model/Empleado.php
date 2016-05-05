@@ -175,13 +175,13 @@ class Empleado extends AppModel {
                            'message' => 'Indicar una provincia.'
                            )
                    ),
-				   'indigena' => array(
+				   /*'indigena' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
                            'required' => 'create',
                            'message' => 'Indicar una comunidad indígena.'
                            )
-                   ),
+                   ),*/
 				  'estado_civil' => array(
                            'required' => array(
 						   'rule' => 'notBlank',

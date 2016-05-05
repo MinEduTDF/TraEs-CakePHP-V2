@@ -32,6 +32,9 @@
 			
             <b><?php echo __('Email: '); ?></b>
 			<?php echo ($this->Html->link($empleado['Empleado']['email'],'mailto:'.$empleado['Empleado']['email'])); ?></p>
+            
+            <b><?php echo __('Observaciones: '); ?></b>
+			<?php echo $empleado['Empleado']['observaciones']; ?></p>
           </div>
  	</div>
   </div>

@@ -110,8 +110,8 @@
                   echo $this->Form->input('asentamiento', array('label' => 'Asentamiento', 'empty' => 'Ingrese un asentamiento...',  'options' => $asentamientos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción.'));
                   $ciudades = array('Rio Grande' => 'Rio Grande', 'Tolhuin' => 'Tolhuin', 'Ushuaia' =>'Ushuaia');
                   echo $this->Form->input('ciudad', array('label' => 'Ciudad*', 'empty' => 'Ingrese una ciudad...', 'options' => $ciudades, 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione la ciudad del domicilio real', 'placeholder' => 'Ingrese una ciudad...'));
-                  $pendientes = array('1' => 'SI', '2' => 'NO');
-                  echo $this->Form->input('pendiente', array('label' => 'Pendiente*', 'empty' => 'Ingrese una opción...', 'options' => $pendientes, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese sí la inscripción queda pendiente'));
+                  $pendientes = array('SI' => 'SI', 'NO' => 'NO');
+                  echo $this->Form->input('pendiente', array('label' => 'Pendiente*', 'empty' => 'Ingrese una opción...', 'options' => $pendientes, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese SI para inscripción pendiente'));
               ?>
           </div> 
      </div>
