@@ -9,7 +9,8 @@
  * Licensed under MIT
  * http://www.opensource.org/licenses/mit-license.php
  */
-?>
+?><div class="TituloSec"><?php echo __('Calendario'); ?></div>
+<div id="ContenidoSec">
 <div class="events form">
 <?php echo $this->Form->create('Event');?>
 	<fieldset>
@@ -36,4 +37,5 @@
 		<li><?php echo $this->Html->link(__('Manage Events', true), array('plugin' => 'full_calendar', 'action' => 'index'));?></li>
 		<li><li><?php echo $this->Html->link(__('View Calendar', true), array('plugin' => 'full_calendar', 'controller' => 'full_calendar')); ?></li>
 	</ul>
+</div>
 </div>
