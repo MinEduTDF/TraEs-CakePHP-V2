@@ -218,11 +218,10 @@ class Inscripcion extends AppModel {
                            )
                    ),
 				   'recursante' => array(
-                           'minLength' => array(
-                           'rule' => array('minLength', 2), 
-                           'allowEmpty' => true,       
-                           'message' => 'Indicar una opción.'
-                           )
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
                    ),
 				   'condicion_aprobacion' => array(
                            'minLength' => array(
@@ -238,6 +237,24 @@ class Inscripcion extends AppModel {
                            'message' => 'Indicar una fecha válida.'
                            )
                    ),
+				   'fotocopia_dni' => array(
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
+                   ),
+				   'certificado_septimo' => array(
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
+                   ),
+				   'certificado_laboral' => array(
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
+                   )
          );              
 }
 ?>

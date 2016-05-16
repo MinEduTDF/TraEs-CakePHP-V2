@@ -16,7 +16,7 @@
           echo $this->Form->input('ciclo_implementacion', array('label' => 'Ciclo de implementación*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el año inicial de vigencia del título', 'placeholder' => 'Ciclo de implementación'));
           echo $this->Form->input('ciclo_finalizacion', array('label' => 'Ciclo de finalización', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el año final de vigencia del título', 'placeholder' => 'Ciclo de finalización'));
           $a_terminos = array('SI' => 'SI', 'NO' => 'NO');
-          echo $this->Form->input('a_termino', array('label' => 'Ciclo a término*', 'empty' => 'Ingrese una opción...',  'options' => $a_terminos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
+          echo $this->Form->input('a_termino', array('between' => '<br>', 'class' => 'form-control'));
           $orientaciones = array('Bachiller' => 'Bachiller', 'Ciclo Básico' => 'Ciclo Básico', 'Comercial' => 'Comercial',
                                  'Técnica' => 'Técnica', 'Agropecuaria' => 'Agropecuaria', 'Artística' => 'Artística',
                                  'Otros' => 'Otros', 'Ciclo Básico Técnico' => 'Ciclo Básico Técnico', 'Humanidades y Cs. Sociales' => 'Humanidades y Cs. Sociales',

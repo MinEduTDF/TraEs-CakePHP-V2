@@ -54,7 +54,7 @@ class User extends AppModel {
 			'message' => 'La Contraseña es obligatoria'
 		),
 		'min_length' => array(
-			'rule' => array('minLength', '6'),  
+			'rule' => array('minLength', '4'),  
 			'message' => 'La contraseña debe tener al menos 6 caracteres'
 		)
 	),

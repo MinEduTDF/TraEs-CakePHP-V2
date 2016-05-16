@@ -29,11 +29,15 @@
                   $condiciones_aprobacion = array('Promocion directa' => 'Promocion directa', 'Examen regular' => 'Examen regular', 'Examen libre' => 'Examen libre', 'Examen de reválida' => 'Examen de reválida', 'Equivalencia' => 'Equivalencia', 'Saberes adquiridos' => 'Saberes adquiridos');
                   echo $this->Form->input('condicion_aprobacion', array('label' => 'Condición de aprobación', 'options' => $condiciones_aprobacion, 'empty' => 'Ingrese una opción...', 'between' => '<br>', 'class' => 'form-control'));
                   $tipos_recursante = array('Si' => 'Si', 'No' => 'No');
-                  echo $this->Form->input('recursante', array('options' => $tipos_recursante, 'empty' => '', 'between' => '<br>', 'class' => 'form-control'));	
+                  echo $this->Form->input('recursante', array('between' => '<br>', 'class' => 'form-control'));	
                   $tipos_cursa = array('Cursa algun espacio curricular.' => 'Cursa algun espacio curricular.', 'Sólo se inscribe a rendir final.' => 'Sólo se inscribe a rendir final.');
                   echo $this->Form->input('cursa', array('label' => 'Cursa*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_cursa, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   $tipos_fines = array('No' => 'No', 'Sí línea deudores de materias.' => 'Sí línea deudores de materias.', 'Sí línea trayectos educativos.' => 'Sí línea   trayectos educativos.');
-                  echo $this->Form->input('fines', array('label' => 'Fines*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_fines, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
+                  echo $this->Form->input('fines', array('label' => 'Fines*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_fines, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); 
+                  echo $this->Form->input('fotocopia_dni', array('between' => '<br>', 'class' => 'form-control'));
+				  echo $this->Form->input('certificado_septimo', array('between' => '<br>', 'class' => 'form-control'));
+				  echo $this->Form->input('certificado_laboral', array('between' => '<br>', 'class' => 'form-control'));
+			  ?>                  
           </div>        
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
           <div class="unit"><strong><h3>Datos de la Baja/Egreso</h3></strong><hr />   
@@ -52,21 +56,26 @@
                ?>
           </div> 
      </div>
-     <div class="col-md-12 col-sm-6 col-xs-12">
-         <?php echo $this->Form->input('observaciones', array('label'=>'Observaciones', 'type' => 'textarea', 'between' => '<br>', 'class' => 'form-control')); ?>
+</div>   
+<div class="row">
+     <div class="unit"><strong><h3>Observaciones</h3></strong>
+          <div class="col-md-12 col-sm-6 col-xs-12">
+             <?php echo $this->Form->input('observaciones', array('label'=>false, 'type' => 'textarea', 'between' => '<br>', 'class' => 'form-control')); ?>
+          </div>
      </div>
-     <script type="text/javascript">
-            $('#datetimepicker1').datetimepicker({ 
-			useCurrent: true, //this is important as the functions sets the default date value to the current value
-			format: 'YYYY-MM-DD hh:mm',
-			}).on('dp.change', function (e) {
-                  var specifiedDate = new Date(e.date);
-				  if (specifiedDate.getMinutes() == 0)
-				  {
-					  specifiedDate.setMinutes(1);
-					  $(this).data('DateTimePicker').date(specifiedDate);
-				  }
-               });
-     </script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+</div>          
+<script type="text/javascript">
+      $('#datetimepicker1').datetimepicker({ 
+      useCurrent: true, //this is important as the functions sets the default date value to the current value
+      format: 'YYYY-MM-DD hh:mm',
+      }).on('dp.change', function (e) {
+            var specifiedDate = new Date(e.date);
+            if (specifiedDate.getMinutes() == 0)
+            {
+                specifiedDate.setMinutes(1);
+                $(this).data('DateTimePicker').date(specifiedDate);
+            }
+         });
+</script>
+<script>tinymce.init({ selector:'textarea' });</script>
 </div>

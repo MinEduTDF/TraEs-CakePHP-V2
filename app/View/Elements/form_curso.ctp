@@ -39,7 +39,7 @@
                                'Multinivel' => 'Multinivel', 'Multiplan' => 'Multiplan');
                 echo $this->Form->input('tipo', array('empty' => 'Ingrese un tipo...', 'options' => $tipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
                 echo $this->Form->input('aula_nro', array('label' => 'Aula Nro', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca un número de aula', 'Placeholder' => 'Ingrese un nº de Aula...'));
-                echo $this->Form->input('plazas', array('between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca cantidad máxima de alumnos para esa aula', 'Placeholder' => 'Ingrese cantidad máxima de alumnos'));
+                echo $this->Form->input('matricula', array('between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca cantidad máxima de alumnos para esa aula', 'Placeholder' => 'Ingrese cantidad máxima de alumnos'));
             ?>
         </div>    
    </div>

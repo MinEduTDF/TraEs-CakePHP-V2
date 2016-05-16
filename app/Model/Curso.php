@@ -125,7 +125,19 @@ class Curso extends AppModel {
                            'message' => 'Indicar un turno.'
                            )
                    ),
-                   'aula_nro' => array(
+                   'matricula' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar un número.'
+                           ),
+						   'numeric' => array(
+                           'rule' => 'numeric',
+                           'allowEmpty' => false,
+                           'message' => 'Indicar un número.'
+                           )
+                   ),
+				   'aula_nro' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',

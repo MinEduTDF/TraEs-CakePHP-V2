@@ -1,10 +1,10 @@
 <div class="col-md-6">
     <div class="unit">
            <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-                <?php if($alumno['Alumno']['pendiente'] == 'NO'): ?>
+                <?php if($alumno['Alumno']['pendiente'] == false): ?>
                          <span class="checked"></span><?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'thumb_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
                 <?php endif; ?>
-                <?php if($alumno['Alumno']['pendiente'] == 'SI'): ?>
+                <?php if($alumno['Alumno']['pendiente'] == true): ?>
                          <span class="error"></span><?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'thumb_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
                 <?php endif; ?>
            </div>

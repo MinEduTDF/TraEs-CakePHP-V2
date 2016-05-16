@@ -213,6 +213,20 @@ class Alumno extends AppModel {
                            'message' => 'Indicar una ocupación.'
                            )
                    ),
+				   'lugar_de_trabajo' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+                           'message' => 'Indicar un lugar de trabajo.'
+                           )
+                   ),
+				   'horario_de_trabajo' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+                           'required' => 'create',
+                           'message' => 'Indicar un horario de trabajo.'
+                           )
+                   ),
 				   'telefono_nro' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
@@ -256,11 +270,10 @@ class Alumno extends AppModel {
 						   )
                    ),
 				   'pendiente' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-                           'required' => 'create',
-                           'message' => 'Indicar una opción.'
-						   )
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
                    ),
  		   		   'foto' => array(
 					  'uploadError' => array(

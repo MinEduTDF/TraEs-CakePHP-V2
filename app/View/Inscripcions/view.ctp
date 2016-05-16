@@ -15,6 +15,17 @@
                         <?php echo($this->Html->link($inscripcion['Centro']['sigla'], array('controller' => 'centros', 'action' => 'view', $inscripcion['Centro']['sigla']))); ?></p>-->
                         <b><?php echo __('Alumno:'); ?></b>
                         <?php echo ($this->Html->link($inscripcion['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['Alumno']['id']))); ?></p>                      
+                        <b><?php echo __('Estado:'); ?></b>
+                        <?php 
+						    if($inscripcion['Inscripcion']['fotocopia_dni'] == 'SI' && $inscripcion['Inscripcion']['certificado_septimo'] == 'SI' && $inscripcion['Inscripcion']['certificado_laboral'] == 'SI'){
+						       $inscripcion['Inscripcion']['estado'] = 'COMPLETO'; 
+						       echo $inscripcion['Inscripcion']['estado'];
+							}
+							else{
+							   $inscripcion['Inscripcion']['estado'] = 'PENDIENTE'; 
+						       echo $inscripcion['Inscripcion']['estado']; 
+							}
+						?></p>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                     <!--<h3>Datos previos</h3>-->

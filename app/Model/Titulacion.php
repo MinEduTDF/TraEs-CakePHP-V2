@@ -72,19 +72,11 @@ class Titulacion extends AppModel {
                            'message' => 'Indicar el ciclo de implementación.'
                            )
                    ),
-				   'ciclo_finalizacion' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-						   'required' => 'create',       
-                           'message' => 'Indicar el ciclo de finalización.'
-                           )
-                   ),
 				   'a_termino' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-						   'required' => 'create',       
-                           'message' => 'Indicar una opción.'
-                           )
+                           'boolean' => array(
+                           'rule' => array('boolean'),
+					       'message' => 'Indicar una opción'
+				           )
                    ),
 				   'orientacion' => array(
                            'required' => array(

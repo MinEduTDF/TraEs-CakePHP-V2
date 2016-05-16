@@ -4,6 +4,9 @@
 	<div class="col-xs-6 col-sm-3">
 	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
+    <div class="col-xs-6 col-sm-3">
+	    <?php echo $this->Form->input('pendiente', array('between' => '<br>', 'class' => 'form-control')); ?>
+    </div>
 </div><hr />
 <div class="row">
 	<div class="col-md-4 col-sm-6 col-xs-12">
@@ -68,6 +71,8 @@
 										  'Concubinato' => 'Concubinato', 'Unión civil' => 'Unión civil');
 				  echo $this->Form->input('estado_civil', array('label' => 'Estado civil*', 'empty' => 'Ingrese un estado...', 'options' => $estadosCiviles, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
 				  echo $this->Form->input('ocupacion', array('label'=>'Ocupación*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique a qué se dedica', 'placeholder' => 'Ingrese una ocupación...'));
+				  echo $this->Form->input('lugar_de_trabajo', array('label'=>'Lugar de Trabajo*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique un lugar de trabajo', 'placeholder' => 'Ingrese un lugar de trabajo...'));
+				  echo $this->Form->input('horario_de_trabajo', array('label'=>'Horario de Trabajo*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique un horario de trabajo', 'placeholder' => 'Ingrese un horario de trabajo...'));
 		      ?>  
          </div>
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
@@ -113,8 +118,7 @@
                   $ciudades = array('Rio Grande' => 'Rio Grande', 'Tolhuin' => 'Tolhuin', 'Ushuaia' =>'Ushuaia');
                   echo $this->Form->input('ciudad', array('label' => 'Ciudad*', 'empty' => 'Ingrese una ciudad...', 'options' => $ciudades, 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione la ciudad del domicilio real', 'placeholder' => 'Ingrese una ciudad...'));
                   $pendientes = array('SI' => 'SI', 'NO' => 'NO');
-                  echo $this->Form->input('pendiente', array('label' => 'Pendiente*', 'empty' => 'Ingrese una opción...', 'options' => $pendientes, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese SI para inscripción pendiente'));
-              ?>
+             ?>
           </div> 
      </div>
      <div class="col-md-12 col-sm-6 col-xs-12">

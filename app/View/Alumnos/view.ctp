@@ -26,6 +26,12 @@
                     <?php echo $alumno['Alumno']['telefono_nro']; ?></p>
                     <b><?php echo __('Email: '); ?></b>
                     <?php echo ($this->Html->link($alumno['Alumno']['email'],'mailto:'.$alumno['Alumno']['email'])); ?></p>
+                    <b><?php echo __('Ocupación: '); ?></b>
+                    <?php echo ($alumno['Alumno']['ocupacion']); ?></p>
+                    <b><?php echo __('Lugar de trabajo: '); ?></b>
+                    <?php echo ($alumno['Alumno']['lugar_de_trabajo']); ?></p>
+                    <b><?php echo __('Horario de trabajo: '); ?></b>
+                    <?php echo ($alumno['Alumno']['horario_de_trabajo']); ?></p>
                     <b><?php echo __('Observaciones: '); ?></b>
                     <?php echo $alumno['Alumno']['observaciones']; ?></p>
                  </div>
