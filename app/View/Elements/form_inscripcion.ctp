@@ -5,7 +5,7 @@
 	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
     <div class="col-xs-6 col-sm-3">
-    	<?php echo $this->Form->input('empleado_id', array('label'=>'Agente*', 'empty' => 'Ingrese un empleado...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
+    	<?php echo $this->Form->input('empleados', array('label'=>'Agente*', 'empty' => 'Ingrese un agente...', 'between' => '<br>', 'class' => 'form-control')); ?>
     </div>
 </div><hr />
 <div class="row">

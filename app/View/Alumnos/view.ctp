@@ -18,6 +18,8 @@
                     <?php echo ($alumno['Alumno']['apellidos']); ?></p>
                     <b><?php echo __('Documento: '); ?></b>
                     <?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
+                    <b><?php echo __('Edad: '); ?></b>
+                    <?php echo ($alumno['Alumno']['edad']); ?></p>
 	                </div>
                     <div class="col-md-8 col-sm-6 col-xs-8">
                     <b><?php echo __('Direccion: '); ?></b>

@@ -20,7 +20,7 @@
               <b><?php echo __('Organización de cursada: '); ?></b>
               <?php echo ($curso['Curso']['organizacion_cursada']); ?></p>
               <b><?php echo __('Titulación: '); ?></b>
-              <?php echo ($this->Html->link($curso['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['nombre']))); ?></p>
+              <?php echo ($this->Html->link($curso['Titulacion']['nombre'], array('controller' => 'titulacions', 'action' => 'view', $curso['Titulacion']['id']))); ?></p>
 		  </div>
  	    </div>
      </div>

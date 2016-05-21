@@ -52,6 +52,12 @@ class AlumnosController extends AppController {
 		  }
           if (!empty($this->data)) {
 			$this->Alumno->create();
+			// Antes de guardar se calcula la edad
+			$day = $this->request->data['Alumno']['fecha_nac']['day'];
+			$month = $this->request->data['Alumno']['fecha_nac']['month'];
+			$year = $this->request->data['Alumno']['fecha_nac']['year'];
+			// Se calcula la edad y se deja en los datos que se intentaran guardar
+			$this->request->data['Alumno']['edad'] = $this->__getEdad($day, $month, $year);
 			if ($this->Alumno->save($this->request->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Alumno->id;
@@ -73,7 +79,13 @@ class AlumnosController extends AppController {
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
-    	  if ($this->Alumno->save($this->data)) {
+    	  // Antes de guardar se calcula la edad
+		  $day = $this->request->data['Alumno']['fecha_nac']['day'];
+		  $month = $this->request->data['Alumno']['fecha_nac']['month'];
+		  $year = $this->request->data['Alumno']['fecha_nac']['year'];
+		  // Se calcula la edad y se deja en los datos que se intentaran guardar
+		  $this->request->data['Alumno']['edad'] = $this->__getEdad($day, $month, $year);
+		  if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Alumno->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
@@ -99,15 +111,15 @@ class AlumnosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function asterisco($id = null){
-		if(!$id){
-		  $this->Session->setFlash('Alumno no válido', true);	
-		}
-		else{
-		  $this->Alumno->addAsterisco($id);
-		  $this->Session->setFlash('El asterisco ha sido incluído', true);	
-		}
-		$this->redirect(array('action' => 'index'));
+	//Métodos Privados
+	
+	function __getEdad($day, $month, $year){
+		$year_diff  = date("Y") - $year;
+		$month_diff = date("m") - $month;
+		$day_diff   = date("d") - $day;
+		if ($day_diff < 0 && $month_diff==0) $year_diff--;
+		if ($day_diff < 0 && $month_diff < 0) $year_diff--;
+                return $year_diff;
 	}
 }
 ?>

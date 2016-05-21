@@ -37,6 +37,7 @@
           <ul class="dropdown-menu">
             <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
+            <li><?php echo $this->Html->link('Matrículas', array('controller' => 'cursos_inscripcions', 'action' => 'index')) ?></li>
             <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>
             <li><?php echo $this->Html->link(__('Calificaciones'), '/notas'); ?></li>
             <li><?php echo $this->Html->link(__('Mesa de Exámenes'), '/mesaexamens'); ?></li>

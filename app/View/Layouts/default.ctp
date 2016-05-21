@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width,  minimum-scale=1.0, maximum-scale=1.0, initial-scale=no">
 <!-- ******************* -->
 <!-- ************ Css *********** -->
-<?php echo $this->Html->css(array('bootstrap', 'bootstrap.min', 'bootstrap-theme.min', 'jquery-ui', 'fileinput.min', 'style')); ?>
+<?php echo $this->Html->css(array('bootstrap', 'bootstrap.min', 'bootstrap-theme.min', 'jquery-ui.min', 'fileinput.min', 'style')); ?>
 <!-- **************************************** -->
 <!-- ************* Js *******************-->
-<?php echo $this->Html->script(array('jquery.min', 'jquery-ui', 'bootstrap.min', 'fastclick', 'fileinput.min')); ?>
+<?php echo $this->Html->script(array('jquery.min', 'jquery-ui.min', 'bootstrap.min', 'fastclick', 'fileinput.min')); ?>
 <!-- **************************************** -->
 <!-- ************ Sigedu Css *********** -->
 <?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>

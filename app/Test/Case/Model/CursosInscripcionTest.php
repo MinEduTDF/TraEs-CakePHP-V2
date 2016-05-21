@@ -28,22 +28,23 @@ class CursosInscripcionTest extends CakeTestCase {
 		'app.cargo',
 		'app.materia',
 		'app.nota',
+		'app.horario',
 		'app.inscripcions_materia',
 		'app.inasistencia',
-		'app.inasistencias_materia',
 		'app.cursos_inasistencia',
+		'app.inasistencias_materia',
 		'app.estado',
 		'app.cargos_ciclo',
 		'app.cargos_docente',
 		'app.cargos_empleado',
-		'app.horario',
-		'app.cargos_horario',
 		'app.inventario',
 		'app.producto',
 		'app.user',
 		'app.centros_empleado',
 		'app.ciclos_curso',
-		'app.titulacion'
+		'app.mesaexamen',
+		'app.titulacion',
+		'app.alumnos_mesaexamen'
 	);
 
 /**

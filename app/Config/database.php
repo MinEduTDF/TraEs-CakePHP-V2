@@ -7,8 +7,8 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		//'database' => 'traes',
-		'database' => 'traes_cens302',
+		'database' => 'traes',
+		//'database' => 'traes_cens302',
 		'encoding' =>'utf8', 
 		'prefix' => ''	
 	);

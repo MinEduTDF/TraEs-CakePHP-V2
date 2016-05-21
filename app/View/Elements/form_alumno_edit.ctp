@@ -25,7 +25,7 @@
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
          <div class="unit"><strong><h3>Datos de Nacimiento y Laborales</h3></strong><hr />      
 			 <?php
-			      echo $this->Form->input('fecha_nac', array('label' => 'Fecha de Nacimiento*', 'between' => '<br>', 'type' => 'text', 'class' => 'datepicker form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique la fecha con el formato AAAA-MM-DD', 'placeholder' => 'Ingrese una fecha...'));
+			      echo $this->Form->input('fecha_nac', array('label' => 'Fecha de Nacimiento*', 'empty' => array( 'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'), 'between' => '<br>', 'type' => 'text', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
 				  echo $this->Form->input('lugar_nac', array('label' => 'Lugar de Nacimiento*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique el localidad donde nació', 'placeholder' => 'Ingrese una localidad...'));
 				  $nacionalidades = array('América del Sur' => array( 'Argentino' => 'Argentino', 'Boliviana' => 'Boliviana', 'Brasileña' => 'Brasileña', 'Chilena' => 'Chilena', 'Colombiana' => 'Colombiana',
 										  'Ecuatoriana' => 'Ecuatoriana', 'Guyanesa' => 'Guyanesa', 'Paraguaya' => 'Paraguaya', 'Peruana' => 'Peruana', 'Surinamesa' => 'Surinamesa', 'Uruguaya' => 'Uruguaya', 

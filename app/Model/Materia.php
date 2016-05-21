@@ -1,7 +1,7 @@
 <?php
 class Materia extends AppModel {
 	var $name = 'Materia';
-        var $displayField = 'alia';
+    var $displayField = 'alia';
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

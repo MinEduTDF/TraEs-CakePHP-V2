@@ -45,20 +45,7 @@ class AppController extends Controller {
 	}
 
 	/**
-	* ejecuta acciones cuando el id se encuentra vacio
-	* @param int $id
-	* @param string $url
-	* @return bool
-	*/
-	function idEmpty($id, $url)
-	{
-		if (empty($id)) {
-			$this->flashWarnings('ID incorrecto',$url);
-		}
-	}
-	
-	/**
-	* Recarga la pÃ¡gina ubicando los valores de la matriz 'params[url]' 
+	* Recarga la página ubicando los valores de la matriz 'params[url]' 
 	* dentro de la matriz 'params[named]'
 	*/
 	function redirectToNamed()
@@ -70,12 +57,20 @@ class AppController extends Controller {
 			$this->redirect($urlArray,null,true);
 		}
 	}
-    
-	function __deleteFile($file)
+	
+	/**
+	* Recarga la página ubicando los valores de la matriz 'params[url]' 
+	* dentro de la matriz 'params[named]'
+	*/
+	function ifActionIs($actions = array())
 	{
-	  if (file_exists($file)) 
+		foreach($actions as $action)
 		{
-			unlink($file);
+		   if($action == $this->params['action'])
+		   {
+			   return true;
+		   }
 		}
+		return false;
 	}
 }

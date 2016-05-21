@@ -3,9 +3,16 @@ class InscripcionsController extends AppController {
 
 	var $name = 'Inscripcions';
     var $helpers = array('Session');
-	var $components = array('Auth','Session');
+	var $components = array('Auth', 'Session');
 	var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.fecha_alta DESC'));
 		
+	function beforeFilter(){
+	    parent::beforeFilter();
+		if($this->ifActionIs(array('add', 'edit'))){
+			$this->__lists();
+		}
+	}
+	
 	function index() {
 		//$this->Inscripcion->recursive = 0;
 		$this->set('inscripcions', $this->paginate());
@@ -23,7 +30,6 @@ class InscripcionsController extends AppController {
 		}
 		$inscripcions = $this->paginate('Inscripcion',$conditions);
 		$this->set(compact('inscripcions', 'alumnos'));
-		
 	}
 
 	function view($id = null) {
@@ -51,13 +57,6 @@ class InscripcionsController extends AppController {
 				$this->Session->setFlash('La inscripcion no fue grabada. Intente           nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                    'nombre_completo_alumno')));
-		$ciclos = $this->Inscripcion->Ciclo->find('list');
-		$centros = $this->Inscripcion->Centro->find('list');
-		$cursos = $this->Inscripcion->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
-		$materias = $this->Inscripcion->Materia->find('list');
-		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
-		$this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 
 	function edit($id = null) {
@@ -83,13 +82,6 @@ class InscripcionsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Inscripcion->read(null, $id);
 		}
-		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id',                                                     'nombre_completo_alumno')));
-		$ciclos = $this->Inscripcion->Ciclo->find('list');
-		$centros = $this->Inscripcion->Centro->find('list');
-		$cursos = $this->Inscripcion->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
-		$materias = $this->Inscripcion->Materia->find('list');
-		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id',                                                         'nombre_completo_empleado')));
-		$this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 
 	function delete($id = null) {
@@ -103,6 +95,24 @@ class InscripcionsController extends AppController {
 		}
 		$this->Session->setFlash('La Inscripcion no fue borrada. Intentelo nuevamente.', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
+	}
+	
+	//Métodos privados
+	function __lists(){
+	    $this->loadModel('User');
+        //$this->loadModel('Empleado');
+		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		$ciclos = $this->Inscripcion->Ciclo->find('list');
+		$centros = $this->Inscripcion->Centro->find('list');
+		$cursos = $this->Inscripcion->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
+		$materias = $this->Inscripcion->Materia->find('list');
+		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id','nombre_completo_empleado')));
+		//$userId = $this->Auth->user('id');
+		//$empleadoId = $this->User->findById($userId, 'empleado_id');
+		//$empleadoId = array_shift ($empleadoId);
+		//$empleadoId = array_shift ($empleadoId);
+		//$empleados = $this->Empleado->findById($empleadoId, 'nombre_completo_empleado');
+	    $this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 }
 ?>

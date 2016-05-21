@@ -10,11 +10,6 @@ App::uses('AppController', 'Controller');
  */
 class MesaExamensController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
    	var $name = 'Mesaexamens';
     var $helpers = array('Session', 'Form', 'Time', 'Js');
 	public $components = array('Paginator', 'Flash', 'Auth','Session', 'RequestHandler');
