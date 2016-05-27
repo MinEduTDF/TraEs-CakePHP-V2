@@ -8,7 +8,6 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => '',
 		'database' => 'traes',
-		//'database' => 'traes_cens302',
 		'encoding' =>'utf8', 
 		'prefix' => ''	
 	);
