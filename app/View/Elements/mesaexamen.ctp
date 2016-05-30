@@ -7,6 +7,7 @@
        <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Acta Nro:</b> <?php echo h($mesaexamen['Mesaexamen']['acta_nro']); ?></span><br/>
        <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Libro Nro:</b> <?php echo h($mesaexamen['Mesaexamen']['libro_nro']); ?></span><br/> 		   
        <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Folio Nro:</b> <?php echo h($mesaexamen['Mesaexamen']['folio_nro']); ?></span><br/>       
+       <hr />
        <div class="text-right">
            <span class="link"><?php echo $this->Html->link('Editar', array('controller' => 'mesaexamens', 'action' => 'edit', $mesaexamen['Mesaexamen']['id']), array('class' => 'btn btn-warning')); ?></span>
            <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'mesaexamens', 'action' => 'view', $mesaexamen['Mesaexamen']['id']), array('class' => 'btn btn-success')); ?></span>

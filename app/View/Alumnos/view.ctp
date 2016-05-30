@@ -8,7 +8,7 @@
 	       <div class="unit">
  		      <div class="row perfil">
                  <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-					<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'vga_' .$alumno['Alumno']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+					<?php echo $this->Html->image('../files/alumno/foto/' . $alumno['Alumno']['foto_dir'] . '/' . 'vga_' .$alumno['Alumno']['foto'], array('class' => 'img-responsive img-rounded img-thumbnail')); ?>
                     <!--<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>-->
   	             </div>
                  <div class="col-md-8 col-sm-6 col-xs-8">	
@@ -18,8 +18,8 @@
                     <?php echo ($alumno['Alumno']['apellidos']); ?></p>
                     <b><?php echo __('Documento: '); ?></b>
                     <?php echo ($alumno['Alumno']['documento_tipo']).' '.($alumno['Alumno']['documento_nro']); ?></p>
-                    <b><?php echo __('Edad: '); ?></b>
-                    <?php echo ($alumno['Alumno']['edad']); ?></p>
+                    <!--<b><?php echo __('Edad: '); ?></b>
+                    <?php echo ($alumno['Alumno']['edad']); ?></p>-->
 	                </div>
                     <div class="col-md-8 col-sm-6 col-xs-8">
                     <b><?php echo __('Direccion: '); ?></b>

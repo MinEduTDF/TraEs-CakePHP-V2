@@ -15,8 +15,11 @@
           echo $this->Form->input('condicion_ingreso', array('label' => 'Condición de Ingreso*', 'empty' => 'Ingrese una condición de ingreso...', 'options' => $condiciones_ingreso, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
           echo $this->Form->input('ciclo_implementacion', array('label' => 'Ciclo de implementación*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el año inicial de vigencia del título', 'placeholder' => 'Ciclo de implementación'));
           echo $this->Form->input('ciclo_finalizacion', array('label' => 'Ciclo de finalización', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el año final de vigencia del título', 'placeholder' => 'Ciclo de finalización'));
-          $a_terminos = array('SI' => 'SI', 'NO' => 'NO');
-          echo $this->Form->input('a_termino', array('between' => '<br>', 'class' => 'form-control'));
+          $tipo_formaciones = array('Docente' => 'Docente', 'Docente y Técnico Profesional' => 'Docente y Técnico Profesional', 'Técnico tecnológico' => 'Técnico tecnológico', 'Técnico humanístico' => 'Técnico humanístico');
+          echo $this->Form->input('tipo_formacion', array('label' => 'Formación tipo (superior)*', 'empty' => 'Ingrese un tipo...', 'options' => $tipo_formaciones, 'between' => '<br>', 'class' => 'form-control'));
+          $tipos = array('Grado/Formación Inicial' => 'Grado/Formación Inicial', 'Posgrado/Especialización' => 'Posgrado/Especialización', 'Postítulo Docente' => 'Postítulo Docente');
+          echo $this->Form->input('tipo', array('label' => 'Tipo (superior)*', 'empty' => 'Ingrese un tipo...', 'options' => $tipos, 'between' => '<br>', 'class' => 'form-control'));
+		  echo $this->Form->input('a_termino', array('between' => '<br>', 'class' => 'form-control'));
           $orientaciones = array('Bachiller' => 'Bachiller', 'Ciclo Básico' => 'Ciclo Básico', 'Comercial' => 'Comercial',
                                  'Técnica' => 'Técnica', 'Agropecuaria' => 'Agropecuaria', 'Artística' => 'Artística',
                                  'Otros' => 'Otros', 'Ciclo Básico Técnico' => 'Ciclo Básico Técnico', 'Humanidades y Cs. Sociales' => 'Humanidades y Cs. Sociales',
@@ -36,15 +39,15 @@
           $organizaciones_cursada = array('Sección' => 'Sección', 'Comisión' => 'Comisión', 'División' => 'División',
                                           'Espacio Curricular' => 'Espacio Curricular', 'Caso especial' => 'Caso especial');
           echo $this->Form->input('organizacion_cursada', array('label' => 'Organización de la cursada*', 'empty' => 'Ingrese una opción...', 'options' => $organizaciones_cursada, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
+       ?>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-12">
+	  <?php
           $formas_dictado = array('Presencial' => 'Presencial', 'A Distancia - Semipresencial' => 'A Distancia - Semipresencial',
                                   'A Distancia - Asistida' => 'A Distancia - Asistida', 'A Distancia - Abierta' => 'A Distancia - Abierta',
                                   'A Distancia - Virtual' => 'A Distancia - Virtual');
           echo $this->Form->input('forma_dictado', array('label' => 'Forma de dictado*', 'empty' => 'Ingrese una forma de dictado...', 'options' => $formas_dictado, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
-      ?>
-  </div>
-  <div class="col-md-4 col-sm-6 col-xs-12">
-	  <?php
-          $cargas_horarias_en = array('Hora Cátedra' => 'Hora Cátedra', 'Hora Reloj' => 'Hora Reloj');
+      	  $cargas_horarias_en = array('Hora Cátedra' => 'Hora Cátedra', 'Hora Reloj' => 'Hora Reloj');
           echo $this->Form->input('carga_horaria_en', array('label' => 'Carga horaria en*', 'empty' => 'Ingrese una carga horaria...', 'options' => $cargas_horarias_en, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
           echo $this->Form->input('carga_horaria', array('label' => 'Carga horaria*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca un número', 'Placeholder' => 'Ingrese una carga horaria'));
           echo $this->Form->input('edad_minima', array('label' => 'Edad mínima*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca un número', 'Placeholder' => 'Ingrese una edad mínima'));

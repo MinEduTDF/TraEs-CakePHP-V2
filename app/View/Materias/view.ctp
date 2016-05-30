@@ -120,7 +120,7 @@
 <div id="click_01" class="titulo_acordeon">Horarios Relacionados</div>
 <div id="acordeon_01">
    <div class="table-responsive">
-     <table class="table table-condensed">
+     <table class="table table-bordered table-hover table-condensed">
        <thead>
 		<tr>
 			<th><?php echo $this->Paginator->sort('ciclo_id', 'Ciclo');?></th>

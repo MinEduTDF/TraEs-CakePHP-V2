@@ -1,6 +1,6 @@
 <div id='contenedor-alumnos'>
 <!-- start main -->
-<div class="TituloSec">Alumnos</div>
+<div class="TituloSec"> Alumnos</div>
 <div id="ContenidoSec">
     <div id="main">
     <!-- start second nav -->

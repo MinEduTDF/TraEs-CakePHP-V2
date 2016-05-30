@@ -8,7 +8,7 @@
 	 <div class="unit">
  		<div class="row perfil">
                  <div class="col-md-4 col-sm-6 col-xs-12 thumbnail text-center">
-					<?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'vga_' .$empleado['Empleado']['foto'], array('class' => 'img-thumbnail img-responsive')); ?>
+					<?php echo $this->Html->image('../files/empleado/foto/' . $empleado['Empleado']['foto_dir'] . '/' . 'vga_' .$empleado['Empleado']['foto'], array('class' => 'img-responsive img-rounded img-thumbnail')); ?>
                     <!--<img src="http://ipam.com.br/2012/fotos/image/facebook-silueta-perfil-300x203.jpg"/>-->
   	             </div>
 

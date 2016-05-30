@@ -113,7 +113,6 @@
                                                                      ." ".($this->Html->link($curso['division'], array('controller' => 'cursos', 'action' => 'view', $curso['id']))));?><br>
                                 <?php echo '<b>Turno:</b> '.$curso['turno'];?><br>
                                 <?php echo '<b>AulaNro:</b> '.$curso['aula_nro'];?><br>
-                                <?php echo '<b>Plazas:</b> '.$curso['plazas'];?><br>
                                 <?php echo '<b>Cursada:</b> '.$curso['organizacion_cursada'];?><br>
                                 <div class="text-right">
 									<?php echo $this->Html->link(__('Editar'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-warning')); ?>

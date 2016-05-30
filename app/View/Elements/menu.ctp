@@ -1,16 +1,16 @@
 <!-- ************ bootstrap navbar ************ -->
 <p>
-<nav class="navbar navbar-custom navbar-static-top">
+<nav class="navbar navbar-custom navbar-static-top navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">Mostrar/ocultar navegación</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">TraEs. - <?php //echo $title_for_layout?></a>
+      <a class="navbar-brand" href="#">TraEs. [ <span class="glyphicon glyphicon-user"</span> <?php echo $current_user['username']; ?> ]</a>
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -53,7 +53,7 @@
         </li>
         <li>
 
-		<?php echo $this->Html->link(__('Cerrar Sessión'),'/logout', array('class' => 'btn btn-success navbar-btn btn-lg')); ?>
+		<?php echo $this->Html->link('<i class="glyphicon glyphicon-off"></i>', '/logout', array('class' => 'btn btn-success navbar-btn btn-lg', 'escape' => false)); ?>
         </li>
       </div> <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

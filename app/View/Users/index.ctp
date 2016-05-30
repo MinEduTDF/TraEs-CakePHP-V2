@@ -14,7 +14,7 @@
                     <?php echo $this->element('formSearch_user'); ?>
                 </div>   
                 <div class="table-responsive">
-                  <table class="table table-condensed">
+                  <table class="table table-bordered table-hover table-condensed">
                     <thead>
                         <tr>
                           <th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
@@ -47,12 +47,12 @@
                             <td style="text-align: center;"><?php echo $this->Html->formatTime($user['User']['modified']); ?></td>
                             <td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
                             <td >
-                             <span class="link"><?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning')); ?></span>
+                             <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning', 'escape' => false)); ?></span>
                             <?php if( $user['User']['status'] != 0){ ?>
-                                <span class="link"><?php echo $this->Html->link('Ver', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default')); ?></span>
-                                <span class="link"><?php echo $this->Html->link('Borrar', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger')); ?></span>
+                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default', 'escape' => false)); ?></span>
+                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger', 'escape' => false)); ?></span>
                             <?php } else{ ?>
-                            	<span class="link"><?php echo $this->Html->link('Reactivar', array('action' => 'activate', $user['User']['id']), array('class' => 'btn btn-danger')); ?></span>
+                            	<span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action' => 'activate', $user['User']['id']), array('class' => 'btn btn-danger', 'escape' => false)); ?></span>
                             <?php } ?>
                             </td>
                         </tr>

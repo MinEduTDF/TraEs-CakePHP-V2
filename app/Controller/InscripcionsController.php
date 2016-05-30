@@ -54,7 +54,7 @@ class InscripcionsController extends AppController {
 				$inserted_id = $this->Inscripcion->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
-				$this->Session->setFlash('La inscripcion no fue grabada. Intente           nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash('La inscripcion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 	}
@@ -97,21 +97,26 @@ class InscripcionsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
+	//Métodos para los Select dependientes
+	public function listamaterias($id){
+		Configure::write('debug','0');
+		if ($this->request->is('ajax')) {
+		$materias= $this->Inscripcion->Curso->Materia->find('list',array('conditions'=>array('Materia.curso_id'=>$id),'fields'=>'alia'));
+		$this->set('lista_materias',$materias);	
+		$this->layout = 'ajax';
+		}
+	}
+	
 	//Métodos privados
 	function __lists(){
 	    $this->loadModel('User');
-        //$this->loadModel('Empleado');
-		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+        $this->loadModel('Empleado');
+		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'nombre_completo_alumno ASC'));
 		$ciclos = $this->Inscripcion->Ciclo->find('list');
 		$centros = $this->Inscripcion->Centro->find('list');
 		$cursos = $this->Inscripcion->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
 		$materias = $this->Inscripcion->Materia->find('list');
 		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id','nombre_completo_empleado')));
-		//$userId = $this->Auth->user('id');
-		//$empleadoId = $this->User->findById($userId, 'empleado_id');
-		//$empleadoId = array_shift ($empleadoId);
-		//$empleadoId = array_shift ($empleadoId);
-		//$empleados = $this->Empleado->findById($empleadoId, 'nombre_completo_empleado');
 	    $this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
 }

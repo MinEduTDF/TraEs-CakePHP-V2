@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width,  minimum-scale=1.0, maximum-scale=1.0, initial-scale=no">
 <!-- ******************* -->
 <!-- ************ Css *********** -->
-<?php echo $this->Html->css(array('bootstrap', 'bootstrap.min', 'bootstrap-theme.min', 'jquery-ui.min', 'fileinput.min', 'style')); ?>
+<?php echo $this->Html->css(array('bootstrap', 'bootstrap.min', 'bootstrap-theme.min', 'jquery-ui.min', 'fileinput.min')); ?>
 <!-- **************************************** -->
 <!-- ************* Js *******************-->
 <?php echo $this->Html->script(array('jquery.min', 'jquery-ui.min', 'bootstrap.min', 'fastclick', 'fileinput.min')); ?>
 <!-- **************************************** -->
 <!-- ************ Sigedu Css *********** -->
-<?php echo $this->Html->css('sigedu', 'stylesheet', array("media"=>"all" )); ?>
+<?php echo $this->Html->css('custom', 'stylesheet', array("media"=>"all" )); ?>
 <?php echo $this->Html->css('animate', 'stylesheet', array("media"=>"all" )); ?> 
 <!-- ************************************** -->
 <script type="text/javascript">
      $("#foto").fileinput();
+	 var basePath = "<?php echo Router::url('/'); ?>"
 </script>
 		<title>TRAES</title>
 </head>

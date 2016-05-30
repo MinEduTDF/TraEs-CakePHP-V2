@@ -118,12 +118,7 @@ class Titulacion extends AppModel {
 						   'rule' => 'notBlank',
 						   'required' => 'create',
 						   'message' => 'Indicar una carga horaria.'
-                           ),
-						   'numeric' => array(
-                           'rule' => 'numeric', 
-                           'allowEmpty' => false,       
-                           'message' => 'Indicar un número.'
-                           )
+                           )						   
                    ),
 				   'edad_minima' => array(
                            'required' => array(

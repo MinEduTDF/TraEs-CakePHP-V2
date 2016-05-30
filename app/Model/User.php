@@ -29,19 +29,19 @@ class User extends AppModel {
 //Validaciones
    public $validate = array(
 	'username' => array(
-		'nonEmpty' => array(
-			'rule' => array('notEmpty'),
-			'message' => 'A username is required',
-			'allowEmpty' => false
-		),
+		'required' => array(
+			 'rule' => 'notBlank',
+			 'required' => 'create',
+			 'message' => 'Indicar una fecha y hora.'
+         ),
 		'between' => array( 
 			'rule' => array('between', 5, 15), 
 			'required' => true, 
 			'message' => 'Usernames must be between 5 to 15 characters'
 		),
-		 'unique' => array(
-			'rule'    => array('isUniqueUsername'),
-			'message' => 'This username is already in use'
+		'isUnique' => array(
+			 'rule' => 'isUnique',
+			 'message' => 'Este nombre de usuario está siendo usado.'
 		),
 		'alphaNumericDashUnderscore' => array(
 			'rule'    => array('alphaNumericDashUnderscore'),
@@ -50,7 +50,8 @@ class User extends AppModel {
 	),	
     'password' => array(
 		'required' => array(
-			'rule' => array('notEmpty'),
+			'rule' => 'notBlank',
+			'required' => 'create',
 			'message' => 'La Contraseña es obligatoria'
 		),
 		'min_length' => array(
@@ -60,10 +61,11 @@ class User extends AppModel {
 	),
 	'password_confirm' => array(
 		'required' => array(
-			'rule' => array('notEmpty'),
+			'rule' => 'notBlank',
+			'required' => 'create',
 			'message' => 'Por favor confirme su contraseña'
 		),
-		 'equaltofield' => array(
+		'equaltofield' => array(
 			'rule' => array('equaltofield','password'),
 			'message' => 'Ambas contraseñas deben coincidir'
 		)
@@ -73,10 +75,10 @@ class User extends AppModel {
 			'rule' => array('email', true),    
 			'message' => 'Ingrese un email válido'    
 		),
-		 'unique' => array(
-			'rule'    => array('isUniqueEmail'),
-			'message' => 'Este email ya está en uso',
-		),
+		'isUnique' => array(
+			 'rule' => 'isUnique',
+			 'message' => 'Este email está siendo usado.'
+		 ),
 		'between' => array( 
 			'rule' => array('between', 6, 60), 
 			'message' => 'El email debe contener entre 6 y 60 caracteres'
@@ -90,14 +92,15 @@ class User extends AppModel {
 		)
 	),
 	'puesto' => array(
+		'valid' => array(
+			'rule' => array('inList', array('Alumnos', 'Gabinete')),
+			'message' => 'Ingrese un puesto válido',
+			'allowEmpty' => false
+		),	
 		'required' => array(
 			'rule' => array('puesto', true),    
 			'message' => 'Ingrese una opción de la lista'    
-		),
-		 'between' => array( 
-			'rule' => array('between', 5, 50), 
-			'message' => 'El rol debe contener entre 5 y 50 caracteres'
-		)
+	    )
 	),
 	'password_update' => array(
 		'min_length' => array(
@@ -113,11 +116,11 @@ class User extends AppModel {
 	)           
 	);
 
- 	   /**
-     * Before isUniqueUsername
-     * @param array $options
-     * @return boolean
-     */
+   /**
+   * Before isUniqueUsername
+   * @param array $options
+   * @return boolean
+   *
     function isUniqueUsername($check) {
          $username = $this->find(
             'first',
@@ -140,7 +143,7 @@ class User extends AppModel {
         }else{
             return true; 
         }
-    }
+    }*/
 	
 	public function alphaNumericDashUnderscore($check) {
         // $data array is passed using the form field name as the key
@@ -165,7 +168,7 @@ class User extends AppModel {
      * Before isUniqueEmail
      * @param array $options
      * @return boolean
-     */
+     *
     function isUniqueEmail($check) {
        $email = $this->find(
             'first',
@@ -187,7 +190,7 @@ class User extends AppModel {
         }else{
             return true; 
         }
-    }
+    }*/
 	
 	/**
 	 * Before Save
