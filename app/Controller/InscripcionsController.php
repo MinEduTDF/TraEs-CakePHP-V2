@@ -65,8 +65,6 @@ class InscripcionsController extends AppController {
 			$this->request->data['Inscripcion']['legajo_nro'] = $this->__getCodigo($ciclo, $alumnoDoc);
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				//$this->data['Alumno']['pendiente'] = false;
-                //$this->Alumno->save($this->data); 
 				$inserted_id = $this->Inscripcion->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {

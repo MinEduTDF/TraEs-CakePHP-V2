@@ -14,21 +14,20 @@ class AlumnosController extends AppController {
 		$this->paginate['Alumno']['order'] = array('Alumno.id' => 'asc');
 		//$this->paginate['Alumno']['conditions'] = array('Alumno.status' => 1);
 		//$this->set('alumnos', $this->paginate());
+		//$this->data['Alumno']['pendiente'] = false;
+        //$this->Alumno->save($this->data); 
+		$estadoInscripcion = $this->Alumno->Inscripcion->find('list', array('fields'=>array('estado')));
+		//print_r($estadoInscripcion);
 		$this->redirectToNamed();
 		$conditions = array();
-        
-		if(!empty($this->params['named']['nombre_completo_alumno']))
-		{
+        if(!empty($this->params['named']['nombre_completo_alumno'])){
 			$conditions['Alumno.nombre_completo_alumno ='] = $this->params['named']['nombre_completo_alumno'];
 		}
-
-		if(!empty($this->params['named']['documento_nro']))
-		{
+		if(!empty($this->params['named']['documento_nro'])){
 			$conditions['Alumno.documento_nro ='] = $this->params['named']['documento_nro'];
 		}
-		
 		$alumnos = $this->paginate('Alumno', $conditions);
-		$this->set(compact('alumnos'));
+		$this->set(compact('alumnos', 'estadoInscripcion'));
 	}
 
 	public function view($id = null) {
