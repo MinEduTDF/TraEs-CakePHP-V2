@@ -25,7 +25,18 @@
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
          <div class="unit"><strong><h3>Datos de Nacimiento y Laborales</h3></strong><hr />      
 			 <?php
-			      echo $this->Form->input('fecha_nac', array('label' => 'Fecha de Nacimiento*', 'empty' => array( 'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'), 'between' => '<br>', 'type' => 'text', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
+			      //echo $this->Form->input('fecha_nac', array('label' => 'Fecha de Nacimiento*', 'empty' => array( 'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'), 'between' => '<br>', 'type' => 'text', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
+				  // Configurando opciones para agregar más años
+				  $options = array( 'label' => 'Fecha de nacimiento', // Etiqueta
+									'dateFormat'    => 'DMY',	// Formato a como lo usamos en español
+									'minYear'       => date('Y') - 100, // Configuramos para que aparezcan desde el año actual hasta 100 años menos
+									'maxYear'       => date('Y'),		// Aparecerá hasta el año actual como máximo
+									'empty'         => array( // Etiquetas para los selects (empty options)
+										'day'       => 'Día',
+										'month'     => 'Mes',
+										'year'      => 'Año')
+		          );
+				  echo $this->Form->input('fecha_nac', $options);
 				  echo $this->Form->input('lugar_nac', array('label' => 'Lugar de Nacimiento*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Indique el localidad donde nació', 'placeholder' => 'Ingrese una localidad...'));
 				  $nacionalidades = array('América del Sur' => array( 'Argentino' => 'Argentino', 'Boliviana' => 'Boliviana', 'Brasileña' => 'Brasileña', 'Chilena' => 'Chilena', 'Colombiana' => 'Colombiana',
 										  'Ecuatoriana' => 'Ecuatoriana', 'Guyanesa' => 'Guyanesa', 'Paraguaya' => 'Paraguaya', 'Peruana' => 'Peruana', 'Surinamesa' => 'Surinamesa', 'Uruguaya' => 'Uruguaya', 

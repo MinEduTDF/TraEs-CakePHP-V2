@@ -99,20 +99,6 @@ class Inscripcion extends AppModel {
 						   'message' => 'Indicar un centro.'
                            )
                    ),
-				   'Curso' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-                           'required' => 'create',
-						   'message' => 'Indicar un curso.'
-                           )
-                   ),
-				   'Materia' => array(
-                           'required' => array(
-						   'rule' => 'notBlank',
-                           'required' => 'create',
-						   'message' => 'Indicar una materia.'
-                           )
-                   ),
 				   'alumno_id' => array(
                            'required' => array(
 						   'rule' => 'notBlank',

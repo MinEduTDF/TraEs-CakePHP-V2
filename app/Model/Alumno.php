@@ -231,7 +231,7 @@ class Alumno extends AppModel {
                            'message' => 'Indicar una ocupación.'
                            )
                    ),
-				   'lugar_de_trabajo' => array(
+				   /*'lugar_de_trabajo' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
                            'required' => 'create',
@@ -244,7 +244,7 @@ class Alumno extends AppModel {
                            'required' => 'create',
                            'message' => 'Indicar un horario de trabajo.'
                            )
-                   ),
+                   ),*/
 				   'telefono_nro' => array(
                            'required' => array(
 						   'rule' => 'notBlank',

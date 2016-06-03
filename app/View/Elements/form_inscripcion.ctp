@@ -1,4 +1,4 @@
-<?php debug($empleados); ?>
+<!--<?php debug($lista_materias); ?>-->
 <?php echo $this->Html->script(array('tooltip', 'datepicker', 'moment', 'bootstrap-datetimepicker')); ?>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <div class="row">
@@ -6,7 +6,8 @@
 	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
     <div class="col-xs-6 col-sm-3">
-    	<?php echo $this->Form->input('empleados', array('label'=>'Agente*', 'empty' => 'Ingrese un agente...', 'between' => '<br>', 'class' => 'form-control')); ?>
+    	<!--<?php echo $this->Form->input('empleados', array('label'=>'Agente*', 'empty' => 'Ingrese un agente...', 'between' => '<br>', 'class' => 'form-control')); ?>-->
+        <?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
     </div>
 </div><hr />
 <div class="row">
@@ -14,19 +15,13 @@
 		 <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			  <?php 
                   echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  echo $this->Form->input('centro_id', array('label'=>'Centro*', 'default' => 'CPLA', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  //echo $this->Form->input('Curso', array('label'=>'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  //echo $this->Form->input('Materia', array('label'=>'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  echo $this->Form->input('curso_id', array('label'=>'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-              ?>      
-		  	<div id='imgcargas'>
-		      <?php
-			      echo $this->Form->input('materia_id',array('class'=>'form-control','options'=>array('Selected'=>'Seleccione')));?>
-	        </div>
-              <?php				  
-				  echo $this->Form->input('alumno_id', array('label'=>'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  echo $this->Form->input('legajo_nro', array('label'=>'Legajo N°*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un nº de legajo', 'Placeholder' => 'Ingrese un nº de legajo...'));
-              ?>
+                  echo $this->Form->input('centro_id', array('label'=>'Centro*', 'between' => '<br>', 'class' => 'form-control'));
+                  echo $this->Form->input('Curso', array('label'=>'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                  echo $this->Form->input('Materia', array('label'=>'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                  echo $this->Form->input('alumno_id', array('label'=>'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                  //echo $this->Form->input('legajo_nro', array('label'=>'Legajo N°*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un nº de legajo', 'Placeholder' => 'Ingrese un nº de legajo...'));
+                  echo $this->Form->input('legajo_nro', array('type' => 'hidden'));
+			  ?>  
          </div>
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
          <div class="unit"><strong><h3>Datos del Alta</h3></strong><hr />      
@@ -35,7 +30,7 @@
                   echo $this->Form->input('tipo_alta', array('label' => 'Alta tipo*', 'empty' => 'Ingrese un vinculo...', 'options' => $tipos_alta, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('fecha_alta', array('label' => 'Fecha de Alta*', 'type' => 'text', 'between' => '<br>', 'class' => 'datepicker form-control', 'Placeholder' => 'Ingrese una fecha...'));
                   $condiciones_aprobacion = array('Promocion directa' => 'Promocion directa', 'Examen regular' => 'Examen regular', 'Examen libre' => 'Examen libre', 'Examen de reválida' => 'Examen de reválida', 'Equivalencia' => 'Equivalencia', 'Saberes adquiridos' => 'Saberes adquiridos');
-                  echo $this->Form->input('condicion_aprobacion', array('label' => 'Condición de aprobación', 'options' => $condiciones_aprobacion, 'empty' => 'Ingrese una opción...', 'between' => '<br>', 'class' => 'form-control'));
+                  echo $this->Form->input('condicion_aprobacion', array('label' => 'Condición de aprobación*', 'options' => $condiciones_aprobacion, 'empty' => 'Ingrese una opción...', 'between' => '<br>', 'class' => 'form-control'));
                   $tipos_recursante = array('Si' => 'Si', 'No' => 'No');
                   echo $this->Form->input('recursante', array('between' => '<br>', 'class' => 'form-control'));	
                   $tipos_cursa = array('Cursa algun espacio curricular.' => 'Cursa algun espacio curricular.', 'Sólo se inscribe a rendir final.' => 'Sólo se inscribe a rendir final.');
@@ -64,14 +59,13 @@
                ?>
           </div> 
      </div>
-</div>   
-<div class="row">
-     <div class="unit"><strong><h3>Observaciones</h3></strong>
-          <div class="col-md-12 col-sm-6 col-xs-12">
-             <?php echo $this->Form->input('observaciones', array('label'=>false, 'type' => 'textarea', 'between' => '<br>', 'class' => 'form-control')); ?>
-          </div>
-     </div>
-</div>          
+     <div class="row">
+         <div class="unit"><strong><h3>Observaciones</h3></strong>
+              <div class="col-md-12 col-sm-6 col-xs-12">
+                 <?php echo $this->Form->input('observaciones', array('label'=>false, 'type' => 'textarea', 'between' => '<br>', 'class' => 'form-control')); ?>
+              </div>
+         </div>
+     </div>          
 <script type="text/javascript">
       $('#datetimepicker1').datetimepicker({ 
       useCurrent: true, //this is important as the functions sets the default date value to the current value
@@ -85,3 +79,5 @@
             }
          });
 </script>
+     <script>tinymce.init({ selector:'textarea' });</script>
+</div>

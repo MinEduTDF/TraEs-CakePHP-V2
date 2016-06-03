@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                     <!--<h3>Datos previos</h3>-->
-                    <div id="click_03" class="titulo_acordeon_datos">Datos previos</div>
+                    <div id="click_03" class="titulo_acordeon_datos">Datos previos <span class="caret"</span></div>
                         <div id="acordeon_03">
                              <div class="unit">
                                 <b><?php echo __('Cursa:'); ?></b>
@@ -43,7 +43,7 @@
                              </div>
                         </div>
                         <!--<h3>Datos del alta baja y egreso del Alumno</h3>-->
-                        <div id="click_04" class="titulo_acordeon_datos">Alta</div>
+                        <div id="click_04" class="titulo_acordeon_datos">Alta <span class="caret"</span></div>
                         <div id="acordeon_04">
                             <div class="unit">
                                 <b><?php echo __('Tipo:'); ?></b>
@@ -54,7 +54,7 @@
                                  ?></p>
                             </div>
                         </div>
-                        <div id="click_05" class="titulo_acordeon_datos">Baja</div>
+                        <div id="click_05" class="titulo_acordeon_datos">Baja <span class="caret"</span></div>
                         <div id="acordeon_05">
                             <div class="unit">
                                 <b><?php echo __('Tipo:'); ?></b>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div id="click_06" class="titulo_acordeon_datos">Egreso</div>
+                        <div id="click_06" class="titulo_acordeon_datos">Egreso <span class="caret"</span></div>
                             <div id="acordeon_06">
                                 <div class="unit">
                                     <b><?php echo __('Fecha:'); ?></b>                                    
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                     <!--<h3>Datos de la titulación</h3>-->
-                    <div id="click_07" class="titulo_acordeon_datos">Titulación</div>
+                    <div id="click_07" class="titulo_acordeon_datos">Titulación <span class="caret"</span></div>
                         <div id="acordeon_07">
                            <div class="unit">
                                 <b><?php echo __('Emitido el:'); ?></b>                                
@@ -98,7 +98,7 @@
                            </div>
                         </div>
                     <!--<h3>Observaciones</h3>-->
-                    <div id="click_08" class="titulo_acordeon_datos">Observaciones</div>
+                    <div id="click_08" class="titulo_acordeon_datos">Observaciones <span class="caret"</span></div>
                         <div id="acordeon_08">
                            <div class="unit">
                                 <b><?php echo __('Observaciones:'); ?></b>                                
@@ -120,7 +120,7 @@
      </div>
 <!-- end main -->
 <!-- Cursos Relacionados -->
-<div id="click_01" class="titulo_acordeon">Cursos Relacionadas</div>
+<div id="click_01" class="titulo_acordeon">Cursos Relacionadas <span class="caret"</span></div>
 <div id="acordeon_01">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Curso'])):?>
@@ -149,7 +149,7 @@
 </div>
 <!-- end Cursos Relacionados -->
 <!-- Materias Relacionados -->
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
+<div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"</span></div>
 <div id="acordeon_02">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Materia'])):?>

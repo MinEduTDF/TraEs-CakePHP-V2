@@ -2,9 +2,10 @@
 class InscripcionsController extends AppController {
 
 	var $name = 'Inscripcions';
-    var $helpers = array('Session');
-	var $components = array('Auth', 'Session');
-	var $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.fecha_alta DESC'));
+    
+	public $helpers = array('Session');
+	public $components = array('Auth', 'Session');
+	public $paginate = array('Inscripcion' => array('limit' => 4, 'order' => 'Inscripcion.fecha_alta DESC'));
 		
 	function beforeFilter(){
 	    parent::beforeFilter();
@@ -13,7 +14,7 @@ class InscripcionsController extends AppController {
 		}
 	}
 	
-	function index() {
+	public function index() {
 		//$this->Inscripcion->recursive = 0;
 		$this->set('inscripcions', $this->paginate());
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
@@ -32,7 +33,7 @@ class InscripcionsController extends AppController {
 		$this->set(compact('inscripcions', 'alumnos'));
 	}
 
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Inscripcion no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
@@ -40,7 +41,7 @@ class InscripcionsController extends AppController {
 		$this->set('inscripcion', $this->Inscripcion->read(null, $id));
 	}
 
-	function add() {
+	public function add() {
 		  //abort if cancel button was pressed  
           if(isset($this->params['data']['cancel'])){
                 $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
@@ -48,9 +49,24 @@ class InscripcionsController extends AppController {
 		  }
 		  if (!empty($this->data)) {
 			$this->Inscripcion->create();
+ 		    
+			// Antes de guardar se genera el nombre del agente
+			$this->request->data['Inscripcion']['empleado_id'] = $this->Auth->user('empleado_id');
+			
+			// Antes de guardar se genera el número de legajo del Alumno.
+			$cicloId = $this->request->data['Inscripcion']['ciclo_id'];
+			$ciclos = $this->Inscripcion->Ciclo->findById($cicloId, 'nombre');
+			$ciclo = substr($ciclos['Ciclo']['nombre'], -2);
+			$alumnoId = $this->request->data['Inscripcion']['alumno_id'];
+			$alumnosDoc = $this->Inscripcion->Alumno->findById($alumnoId, 'documento_nro');
+            $alumnoDoc = $alumnosDoc['Alumno']['documento_nro'];
+			
+			//Se genera el nro de legajo y se deja en los datos que se intentaran guardar
+			$this->request->data['Inscripcion']['legajo_nro'] = $this->__getCodigo($ciclo, $alumnoDoc);
 			if ($this->Inscripcion->save($this->data)) {
 				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
+				//$this->data['Alumno']['pendiente'] = false;
+                //$this->Alumno->save($this->data); 
 				$inserted_id = $this->Inscripcion->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
@@ -59,7 +75,7 @@ class InscripcionsController extends AppController {
 		}
 	}
 
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Inscripcion no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
@@ -84,7 +100,7 @@ class InscripcionsController extends AppController {
 		}
 	}
 
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Id no valida para inscripcion.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action'=>'index'));
@@ -97,18 +113,9 @@ class InscripcionsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	//Métodos para los Select dependientes
-	public function listamaterias($id){
-		Configure::write('debug','0');
-		if ($this->request->is('ajax')) {
-		$materias= $this->Inscripcion->Curso->Materia->find('list',array('conditions'=>array('Materia.curso_id'=>$id),'fields'=>'alia'));
-		$this->set('lista_materias',$materias);	
-		$this->layout = 'ajax';
-		}
-	}
-	
 	//Métodos privados
-	function __lists(){
+	
+	private function __lists(){
 	    $this->loadModel('User');
         $this->loadModel('Empleado');
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'nombre_completo_alumno ASC'));
@@ -116,8 +123,13 @@ class InscripcionsController extends AppController {
 		$centros = $this->Inscripcion->Centro->find('list');
 		$cursos = $this->Inscripcion->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
 		$materias = $this->Inscripcion->Materia->find('list');
-		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id','nombre_completo_empleado')));
+		$empleados = $this->Inscripcion->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado'), 'conditions'=>array('id'== 'empleadoId')));
 	    $this->set(compact('alumnos', 'ciclos', 'centros', 'cursos', 'materias', 'empleados'));
 	}
+	
+	private function __getCodigo($ciclo, $alumnoDoc){
+		$legajo= $alumnoDoc."-".$ciclo;
+		return $legajo;
+    }
 }
 ?>
