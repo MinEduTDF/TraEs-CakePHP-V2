@@ -74,9 +74,9 @@
                     <?php echo '<b>Email:</b> '.$familiar['email'];?><br>
                     <?php echo '<b>Domicilio:</b> '.$familiar['domicilio'];?><br>
                 <div class="text-right">
-                    <?php echo $this->Html->link(__('Editar'), array('controller' => 'familiars', 'action' => 'edit', $familiar['id']), array('class' => 'btn btn-warning')); ?>
-                    <?php echo $this->Html->link(__('Ver'), array('controller' => 'familiars', 'action' => 'view', $familiar['id']), array('class' => 'btn btn-success')); ?>
-                    <?php echo $this->Html->link(__('Borrar'), array('controller' => 'familiars', 'action' => 'delete', $familiar['id']), array('class' => 'btn btn-danger')); ?>
+                    <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'familiars', 'action' => 'edit', $familiar['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+                    <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'familiars', 'action' => 'view', $familiar['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+                    <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('controller' => 'familiars', 'action' => 'delete', $familiar['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
                 </div>
 		    </div>
 	    </div>
@@ -106,9 +106,9 @@
             <!--<?php echo '<b>Nota:</b> '.$inscripcion['nota'];?><br>-->
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'inscripcions', 'action' => 'edit', $inscripcion['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('controller' => 'inscripcions', 'action' => 'delete', $inscripcion['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
 			</div>
 		</div>
 	</div>
@@ -135,9 +135,9 @@
             <?php echo '<b>Fecha de fin:</b> '.$this->Html->formatTime($integracion['fecha_fin']);?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'integracions', 'action' => 'edit', $integracion['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'integracions', 'action' => 'view', $integracion['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'integracions', 'action' => 'delete', $integracion['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'integracions', 'action' => 'edit', $integracion['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'integracions', 'action' => 'view', $integracion['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'integracions', 'action' => 'delete', $integracion['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
 			</div>
 		</div>
 	</div>
@@ -165,9 +165,9 @@
             <?php echo '<b>Fecha de baja:</b> '.$this->Html->formatTime($servicio['fecha_baja']);?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'servicios', 'action' => 'edit', $servicio['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'servicios', 'action' => 'view', $servicio['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'integracions', 'action' => 'delete', $servicio['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'servicios', 'action' => 'edit', $servicio['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'servicios', 'action' => 'view', $servicio['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'integracions', 'action' => 'delete', $servicio['id']), array('class' => 'btn btn-danger','escape' =>false)); ?>
 			</div>
 		</div>
 	</div>
@@ -194,9 +194,9 @@
             <?php echo '<b>Fecha:</b> '.$this->Html->formatTime($inasistencia['created']);?><br>
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'inasistencias', 'action' => 'delete', $inasistencia['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></I>'), array('controller' => 'inasistencias', 'action' => 'edit', $inasistencia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'inasistencias', 'action' => 'view', $inasistencia['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'inasistencias', 'action' => 'delete', $inasistencia['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
 			</div>
 		</div>
 	</div>
@@ -235,9 +235,9 @@
 
 
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'notas', 'action' => 'delete', $nota['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-warning','escape' => false )); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('controller' => 'notas', 'action' => 'delete', $nota['id']), array('class' => 'btn btn-danger','escape' => false )); ?>
             </div>
 		</div>
 	</div>

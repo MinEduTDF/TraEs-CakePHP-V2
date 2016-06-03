@@ -5,9 +5,9 @@
          <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Obligatoriedad: </b> <?php echo $materia['Materia']['obligatoriedad']; ?></span><br/>
 		 <hr />
          <div class="text-right">
-             <span class="link"><?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $materia['Materia']['id']), array('class' => 'btn btn-warning')); ?></span>
-             <span class="link"><?php echo $this->Html->link('Ver', array('controller' => 'materias', 'action' => 'view', $materia['Materia']['id']), array('class' => 'btn btn-success')); ?></span>
-             <span class="link"><?php echo $this->Html->link('Borrar', array('controller' => 'materias', 'action' => 'delete', $materia['Materia']['id']), array('confirm' => 'Está seguro de borrar la materia '.$materia['Materia']['alia'], 'class' => 'btn btn-danger')); ?></span> 
+             <span class="link"><?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('action' => 'edit', $materia['Materia']['id']), array('class' => 'btn btn-warning','escape' => false)); ?></span>
+             <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>', array('controller' => 'materias', 'action' => 'view', $materia['Materia']['id']), array('class' => 'btn btn-success','escape' => false)); ?></span>
+             <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('controller' => 'materias', 'action' => 'delete', $materia['Materia']['id']), array('confirm' => 'Está seguro de borrar la materia '.$materia['Materia']['alia'], 'class' => 'btn btn-danger','escape' => false)); ?></span> 
  		 </div>
 	</div>
 </div>

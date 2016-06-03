@@ -342,9 +342,9 @@
 			<?php echo '<b>Puesto:</b> '.$user['puesto'];?><br>
             <!--<?php echo '<b>Centro:</b> '.$user['centro_id'];?><br>-->
             <div class="text-right">
-            <?php echo $this->Html->link(__('Editar'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-warning')); ?>
-			<?php echo $this->Html->link(__('Ver'), array('controller' => 'users', 'action' => 'view', $user['id']), array('class' => 'btn btn-success')); ?>
-			<?php echo $this->Html->link(__('Borrar'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('class' => 'btn btn-danger')); ?>
+            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('class' => 'btn btn-warning', 'escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'users', 'action' => 'view', $user['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'users', 'action' => 'delete', $user['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
 			</div>
 		</div>
 	</div>
