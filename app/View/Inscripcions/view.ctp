@@ -29,11 +29,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                     <!--<h3>Datos previos</h3>-->
-<<<<<<< HEAD
                     <div id="click_03" class="titulo_acordeon_datos">Datos previos <span class="caret"</span></div>
-=======
-                    <div id="click_03" class="titulo_acordeon_datos">Datos previos</div>
->>>>>>> estilos_botones_view
                         <div id="acordeon_03">
                              <div class="unit">
                                 <b><?php echo __('Cursa:'); ?></b>
@@ -47,11 +43,7 @@
                              </div>
                         </div>
                         <!--<h3>Datos del alta baja y egreso del Alumno</h3>-->
-<<<<<<< HEAD
                         <div id="click_04" class="titulo_acordeon_datos">Alta <span class="caret"</span></div>
-=======
-                        <div id="click_04" class="titulo_acordeon_datos">Alta</div>
->>>>>>> estilos_botones_view
                         <div id="acordeon_04">
                             <div class="unit">
                                 <b><?php echo __('Tipo:'); ?></b>
@@ -62,11 +54,7 @@
                                  ?></p>
                             </div>
                         </div>
-<<<<<<< HEAD
                         <div id="click_05" class="titulo_acordeon_datos">Baja <span class="caret"</span></div>
-=======
-                        <div id="click_05" class="titulo_acordeon_datos">Baja</div>
->>>>>>> estilos_botones_view
                         <div id="acordeon_05">
                             <div class="unit">
                                 <b><?php echo __('Tipo:'); ?></b>
@@ -80,11 +68,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
-<<<<<<< HEAD
                         <div id="click_06" class="titulo_acordeon_datos">Egreso <span class="caret"</span></div>
-=======
-                        <div id="click_06" class="titulo_acordeon_datos">Egreso</div>
->>>>>>> estilos_botones_view
                             <div id="acordeon_06">
                                 <div class="unit">
                                     <b><?php echo __('Fecha:'); ?></b>                                    
@@ -98,11 +82,7 @@
                                 </div>
                             </div>
                     <!--<h3>Datos de la titulación</h3>-->
-<<<<<<< HEAD
                     <div id="click_07" class="titulo_acordeon_datos">Titulación <span class="caret"</span></div>
-=======
-                    <div id="click_07" class="titulo_acordeon_datos">Titulación</div>
->>>>>>> estilos_botones_view
                         <div id="acordeon_07">
                            <div class="unit">
                                 <b><?php echo __('Emitido el:'); ?></b>                                
@@ -118,11 +98,7 @@
                            </div>
                         </div>
                     <!--<h3>Observaciones</h3>-->
-<<<<<<< HEAD
                     <div id="click_08" class="titulo_acordeon_datos">Observaciones <span class="caret"</span></div>
-=======
-                    <div id="click_08" class="titulo_acordeon_datos">Observaciones</div>
->>>>>>> estilos_botones_view
                         <div id="acordeon_08">
                            <div class="unit">
                                 <b><?php echo __('Observaciones:'); ?></b>                                
@@ -144,11 +120,7 @@
      </div>
 <!-- end main -->
 <!-- Cursos Relacionados -->
-<<<<<<< HEAD
 <div id="click_01" class="titulo_acordeon">Cursos Relacionadas <span class="caret"</span></div>
-=======
-<div id="click_01" class="titulo_acordeon">Cursos Relacionadas</div>
->>>>>>> estilos_botones_view
 <div id="acordeon_01">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Curso'])):?>
@@ -163,13 +135,8 @@
                         <!--<?php echo '<b>Cursada:</b> '.$curso['organizacion_cursada'];?><br>
                         <?php echo '<b>Titulación:</b> '.($this->Html->link($curso['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['titulacion_id'])));?><br>-->
                         <div class="text-right">
-<<<<<<< HEAD
-                        <?php echo $this->Html->link(__('Editar'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-danger')); ?>
-                        <?php echo $this->Html->link(__('Ver'), array('controller' => 'cursos', 'action' => 'view', $curso['id']), array('class' => 'btn btn-success')); ?>
-=======
                         <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-danger','escape'  => false)); ?>
                         <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'cursos', 'action' => 'view', $curso['id']), array('class' => 'btn btn-success','escape' => false)); ?>
->>>>>>> estilos_botones_view
                         <!--<?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $materia['id'])); ?>-->
                         </div>
                     </div>
@@ -182,11 +149,7 @@
 </div>
 <!-- end Cursos Relacionados -->
 <!-- Materias Relacionados -->
-<<<<<<< HEAD
 <div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"</span></div>
-=======
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
->>>>>>> estilos_botones_view
 <div id="acordeon_02">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Materia'])):?>
@@ -203,15 +166,9 @@
                                 <?php echo '<b>Curso Id:</b> '.($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?><br>-->
                     
                                 <div class="text-right">
-<<<<<<< HEAD
-                                <?php echo $this->Html->link(__('Editar'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning')); ?>
-                                <?php echo $this->Html->link(__('Ver'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success')); ?>
-                                <?php echo $this->Html->link(__('Borrar'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger')); ?>
-=======
                                 <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
                                 <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success','escape' => false)); ?>
                                 <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'materias', 'action' => 'delete', $materia['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
->>>>>>> estilos_botones_view
                                 </div>
                             </div>
                         </div>
