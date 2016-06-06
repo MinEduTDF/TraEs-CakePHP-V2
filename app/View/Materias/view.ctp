@@ -117,7 +117,7 @@
 	</div>
 </div>-->
 <!-- Horarios Relacionados -->
-<div id="click_01" class="titulo_acordeon">Horarios Relacionados</div>
+<div id="click_01" class="titulo_acordeon">Horarios Relacionados <span class="caret"></span></div>
 <div id="acordeon_01">
    <div class="table-responsive">
      <table class="table table-bordered table-hover table-condensed">
@@ -156,7 +156,7 @@
 </div>
 <!-- end Horarios Relacionados -->
 <!-- Inscripciones Relacionadas -->
-<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
+<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas <span class="caret"></span></div>
 <div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($materia['Inscripcion'])):?>

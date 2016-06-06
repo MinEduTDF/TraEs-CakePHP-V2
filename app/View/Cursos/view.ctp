@@ -108,7 +108,7 @@
 </div>-->
 <!-- end Cargos Relacionados -->
 <!-- Inscripciones Relacionadas -->
-<div id="click_01" class="titulo_acordeon">Inscripciones Relacionadas</div>
+<div id="click_01" class="titulo_acordeon">Inscripciones Relacionadas <span class="caret"></span></div>
 <div id="acordeon_01">
 		<div class="row">
 	<?php if (!empty($curso['Inscripcion'])):?>
@@ -144,7 +144,7 @@
 </div>
 <!-- end Inscripciones Relacionadas -->
 <!-- Materias Relacionadas -->
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
+<div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"></span></div>
 <div id="acordeon_02">
 		<div class="row">
 	<?php if (!empty($curso['Materia'])):?>

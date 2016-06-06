@@ -59,7 +59,7 @@
 </div> 
 <!-- end main -->
 <!-- Familiares Relacionados -->
-<div id="click_01" class="titulo_acordeon">Familiares Relacionadas</div>
+<div id="click_01" class="titulo_acordeon">Familiares Relacionadas <span class="caret"></span></div>
 <div id="acordeon_01">
 	<div class="row">
 	<?php if (!empty($alumno['Familiar'])):?>
@@ -88,7 +88,7 @@
 </div>
 <!-- end Familiares Relacionados -->
 <!-- Inscripciones Relacionadas -->
-	<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
+	<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_02">
 		<div class="row">
 			<?php if (!empty($alumno['Inscripcion'])):?>
@@ -120,7 +120,7 @@
 </div>
 <!-- end Inscripciones Relacionadas -->
 <!-- Integraciones Relacionadas -->
-	<div id="click_03" class="titulo_acordeon">Integraciones Relacionadas</div>
+	<div id="click_03" class="titulo_acordeon">Integraciones Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_03">
 		<div class="row">
 		<?php if (!empty($alumno['Integracion'])):?>
@@ -149,7 +149,7 @@
 </div>
 <!-- end Integraciones Relacionadas -->
 <!-- Servicios Complementarios Relacionadas -->
-	<div id="click_04" class="titulo_acordeon">Servicios Complementarios Relacionadas</div>
+	<div id="click_04" class="titulo_acordeon">Servicios Complementarios Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_04">
 		<div class="row">
 			<?php if (!empty($alumno['Servicio'])):?>
@@ -179,7 +179,7 @@
 </div>
 <!-- end Servicios Complementarios Relacionadas -->
 <!-- Inasistencias Relacionadas -->
-	<div id="click_06" class="titulo_acordeon">Inasistencias Relacionadas</div>
+	<div id="click_06" class="titulo_acordeon">Inasistencias Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_06">
 		<div class="row">
 		<?php if (!empty($alumno['Inasistencia'])):?>
@@ -208,7 +208,7 @@
 </div>
 <!-- end Inasistencias Relacionadas -->
 <!-- Calificaciones Relacionadas -->
-	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas</div>
+	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_05">
 		<div class="row">
 		<?php if (!empty($alumno['Nota'])):?>

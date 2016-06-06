@@ -38,7 +38,7 @@
     </div>
     <!-- end main -->
     <!-- Cursos Relacionadas -->
-	<div id="click_01" class="titulo_acordeon">Cursos Relacionadas</div>
+	<div id="click_01" class="titulo_acordeon">Cursos Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_01">
 	    <div class="row">
 	        <?php if (!empty($inasistencia['Curso'])):?>
@@ -68,7 +68,7 @@
 </div>
 <!-- end Cursos Relacionados -->
 <!-- Materias Relacionadas -->
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas</div>
+<div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_02">
 		<div class="row">
 		<?php if (!empty($inasistencia['Materia'])):?>

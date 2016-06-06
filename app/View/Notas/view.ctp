@@ -19,7 +19,7 @@
                      </div>
                <!--<h3>Datos primer período</h3>-->
               <div class="col-md-4 col-sm-4 col-xs-12">
-              <div id="click_03" class="titulo_acordeon_datos">Primer período</div>
+              <div id="click_03" class="titulo_acordeon_datos">Primer período <span class="caret"></span></div>
               <div id="acordeon_03">
                   <div class="unit">
                       <b>Nota 1:</b>		
@@ -43,7 +43,7 @@
                   </div>
               </div>
              <!--<h3>Datos segundo período</h3>-->
-             <div id="click_04" class="titulo_acordeon_datos">Segundo período</div>
+             <div id="click_04" class="titulo_acordeon_datos">Segundo período <span class="caret"></span></div>
              <div id="acordeon_04">
                  <div class="unit">
                       <b>Nota 1:</b>		
@@ -65,7 +65,7 @@
                  </div>
              </div>
              <!--<h3>Datos tercer período</h3>-->
-		     <div id="click_05" class="titulo_acordeon_datos">Tercer período</div>
+		     <div id="click_05" class="titulo_acordeon_datos">Tercer período <span class="caret"></span></div>
              <div id="acordeon_05">
                  <div class="unit">
                       <b>Nota 1:</b>		
@@ -89,7 +89,7 @@
         </div>
         <!--<h3>Datos Cierre</h3>-->
         <div class="col-md-4 col-sm-4 col-xs-12">
-            <div id="click_06" class="titulo_acordeon_datos">Cierre</div>
+            <div id="click_06" class="titulo_acordeon_datos">Cierre <span class="caret"></span></div>
                 <div id="acordeon_06">
                    <div class="unit">
                       <b>Promedio a término:</b>		

@@ -8,7 +8,7 @@
 	        <div class="unit">
  		       <div class="row perfil">
                   <div class="col-md-4 col-sm-6 col-xs-8">
-                      <div id="click_01" class="titulo_acordeon_datos">Datos Generales</div>
+                      <div id="click_01" class="titulo_acordeon_datos">Datos Generales <span class="caret"></span></div>
                       <div id="acordeon_01">
                          <div class="unit">
                               <b><?php echo __('Orientación:'); ?></b>
@@ -29,7 +29,7 @@
                       </div>    
                   </div>            
                   <div class="col-md-4 col-sm-6 col-xs-8">
-                      <div id="click_02" class="titulo_acordeon_datos">Datos Específicos</div>
+                      <div id="click_02" class="titulo_acordeon_datos">Datos Específicos <span class="caret"></span></div>
                       <div id="acordeon_02">
                          <div class="unit">            
                               <b><?php echo __('Organización del Plan:'); ?></b>
@@ -52,7 +52,7 @@
                       </div>
                   </div>       
                   <div class="col-md-4 col-sm-6 col-xs-8">
-                      <div id="click_03" class="titulo_acordeon_datos">Normativas</div>
+                      <div id="click_03" class="titulo_acordeon_datos">Normativas <span class="caret"></span></div>
                       <div id="acordeon_03">
                          <div class="unit">
                               <b><?php echo __('Norma aprobada jurisdiccional:'); ?></b>
@@ -98,7 +98,7 @@
  </div>
 <!-- end main -->
 <!-- Cursos Relacionados -->
-<div id="click_04" class="titulo_acordeon">Cursos Relacionadas</div>
+<div id="click_04" class="titulo_acordeon">Cursos Relacionadas <span class="caret"></span></div>
 <div id="acordeon_04">
 		<div class="row">
 	        <?php if (!empty($titulacions['Curso'])):?>

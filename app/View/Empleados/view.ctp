@@ -330,7 +330,7 @@
 <!-- Fin Inventarios Relacionados -->
 
 <!-- Usuarios Relacionados -->
-<div id="click_01" class="titulo_acordeon">Usuarios Relacionados</div>
+<div id="click_01" class="titulo_acordeon">Usuarios Relacionados <span class="caret"></span></div>
 <div id="acordeon_01">
 		<div class="row">
 	<?php if (!empty($empleado['User'])):?>

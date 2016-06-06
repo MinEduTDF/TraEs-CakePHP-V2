@@ -34,7 +34,7 @@
   </div>
 </div> 	
 <!-- Inscripciones Relacionadas -->
-<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas</div>
+<div id="click_02" class="titulo_acordeon">Inscripciones Relacionadas <span class="caret"></span></div>
 <div id="acordeon_02">
     <div class="row">
         <?php if (!empty($ciclo['Inscripcion'])):?>

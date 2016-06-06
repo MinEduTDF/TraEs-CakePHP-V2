@@ -22,7 +22,7 @@
                     </div><!--/Datos generales-->
                     <div class="col-md-6 col-sm-4 col-xs-12">
                     <!--Datos específicos-->
-                     <div id="click_01" class="titulo_acordeon_datos">Detalle</div>
+                     <div id="click_01" class="titulo_acordeon_datos">Detalle <span class="caret"></span></div>
                          <div id="acordeon_01">
                              <div class="unit">
                                  <b><?php echo __('Mesa Especial:'); ?></b>
@@ -44,7 +44,7 @@
                              </div>
                         </div><!--/Datos específicos-->
                         <!--Datos de los integrantes-->
-                        <div id="click_02" class="titulo_acordeon_datos">Integrantes</div>
+                        <div id="click_02" class="titulo_acordeon_datos">Integrantes <span class="caret"></span></div>
                         <div id="acordeon_02">
                              <div class="unit">
                                   <b><?php echo __('Presidente:'); ?></b>
@@ -56,7 +56,7 @@
                              </div>         
                         </div><!--/Datos de los integrantes-->
                         <!--Observaciones-->
-                        <div id="click_03" class="titulo_acordeon_datos">Observaciones</div>
+                        <div id="click_03" class="titulo_acordeon_datos">Observaciones <span class="caret"></span></div>
                         <div id="acordeon_03">
                              <div class="unit">
                                   <?php echo h($mesaexamen['Mesaexamen']['observaciones']); ?></p>
@@ -77,7 +77,7 @@
 </div>
 <!-- end main -->
 <!-- Alumnos Relacionados -->
-<div id="click_04" class="titulo_acordeon">Alumnos Relacionados</div>
+<div id="click_04" class="titulo_acordeon">Alumnos Relacionados <span class="caret"></span></div>
     <div id="acordeon_04">
 		<div class="row">
 	        <?php if (!empty($mesaexamen['Alumno'])):?>
