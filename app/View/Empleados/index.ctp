@@ -15,24 +15,24 @@
 
 	<div class="row">
 			    <?php foreach ($empleados as $empleado): ?>
-			    
+
 			    <?php echo $this->element('empleado',array( 'empleado' => $empleado )); ?>
-			    
+
 			    <?php endforeach; ?>
-			    
+
 
 			 </div>
 			 <div class="unit text-center">
-			 	 <?php echo $this->element('pagination'); ?> 
+			 	 <?php echo $this->element('pagination'); ?>
 			 </div>
 	 </div>
  <!-- end main -->
- 
+
   <div class="col-xs-12 col-sm-4 col-md-4">
   	   <div class="unit">
   			 <div class="subtitulo">Búsqueda</div>
    			    <br>
-				<?php echo $this->element('formSearch_empleado'); ?>
+				<?php echo $this->element('formsSearch/formSearch_empleado'); ?>
   	         </div>
 	   </div>
   </div>
