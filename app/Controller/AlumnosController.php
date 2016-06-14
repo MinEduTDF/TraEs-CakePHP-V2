@@ -52,12 +52,11 @@ class AlumnosController extends AppController {
           if (!empty($this->data)) {
 			$this->Alumno->create();
 			
-			// Antes de guardar se calcula la edad
+			// Antes de guardar calcula la edad
 			$day = $this->request->data['Alumno']['fecha_nac']['day'];
 			$month = $this->request->data['Alumno']['fecha_nac']['month'];
 			$year = $this->request->data['Alumno']['fecha_nac']['year'];
-			
-			// Se calcula la edad y se deja en los datos que se intentaran guardar
+			// Calcula la edad y se deja en los datos que se intentaran guardar
 			$this->request->data['Alumno']['edad'] = $this->__getEdad($day, $month, $year);
 			
 			if ($this->Alumno->save($this->request->data)) {
@@ -81,11 +80,11 @@ class AlumnosController extends AppController {
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
-    	  // Antes de guardar se calcula la edad
+    	  // Antes de guardar calcula la edad
 		  $day = $this->request->data['Alumno']['fecha_nac']['day'];
 		  $month = $this->request->data['Alumno']['fecha_nac']['month'];
 		  $year = $this->request->data['Alumno']['fecha_nac']['year'];
-		  // Se calcula la edad y se deja en los datos que se intentaran guardar
+		  // Calcula la edad y se deja en los datos que se intentaran guardar
 		  $this->request->data['Alumno']['edad'] = $this->__getEdad($day, $month, $year);
 		  if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));

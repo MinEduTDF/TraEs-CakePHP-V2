@@ -73,4 +73,15 @@ class AppController extends Controller {
 		}
 		return false;
 	}
+	
+	
+	/**
+	* Devuelve el Id del último Ciclo cargado.  
+	*/
+	function getLastCicloId()
+	{
+	    $this->loadModel('Ciclo');
+		$MaxCicloId = $this->Ciclo->find('first', array('order'=>'Ciclo.id DESC'));
+	    return $MaxCicloId['Ciclo']['id'];
+	}
 }

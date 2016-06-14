@@ -16,16 +16,12 @@
                         <b><?php echo __('Alumno:'); ?></b>
                         <?php echo ($this->Html->link($inscripcion['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['Alumno']['id']))); ?></p>                      
                         <b><?php echo __('Estado:'); ?></b>
-                        <?php 
-						    if($inscripcion['Inscripcion']['fotocopia_dni'] == 'SI' && $inscripcion['Inscripcion']['certificado_septimo'] == 'SI' && $inscripcion['Inscripcion']['certificado_laboral'] == 'SI'){
-						       $inscripcion['Inscripcion']['estado'] = 'COMPLETO'; 
-						       echo $inscripcion['Inscripcion']['estado'];
-							}
-							else{
-							   $inscripcion['Inscripcion']['estado'] = 'PENDIENTE'; 
-						       echo $inscripcion['Inscripcion']['estado']; 
-							}
-						?></p>
+                        <?php if($inscripcion['Inscripcion']['estado'] == true){; ?>
+						       <span class="label label-success"><?php echo 'COMPLETO'; ?></span>
+						<?php } else{; ?>
+							   <span class="label label-danger"><?php echo 'PENDIENTE'; ?></span>
+						<?php } ?>
+                        </p>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-12">
                     <!--<h3>Datos previos</h3>-->
@@ -49,9 +45,17 @@
                                 <b><?php echo __('Tipo:'); ?></b>
                                 <?php echo ($inscripcion['Inscripcion']['tipo_alta']); ?></p>
                                 <b><?php echo __('Fecha:'); ?></b>
-                                <?php //echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
-                                echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
+                                <?php echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);
                                  ?></p>
+                                <b><?php echo __('Documentación:'); ?></b>
+                                  <ul>
+                                    <?php if(!$inscripcion['Inscripcion']['fotocopia_dni'] == 1): ?>
+                                    <li><span class="label label-danger"><?php echo 'Falta Fotocopia DNI'; ?></span></li><?php endif; ?>
+                                    <?php if(!$inscripcion['Inscripcion']['certificado_septimo'] == 1): ?>
+                                    <li><span class="label label-danger"><?php echo 'Falta Certificado de Séptimo'; ?></span></li><?php endif; ?>
+                                    <?php if(!$inscripcion['Inscripcion']['certificado_laboral'] == 1): ?>
+                                    <li><span class="label label-danger"><?php echo 'Falta Certificado Laboral'; ?></span></li><?php endif; ?>
+                                  </ul>
                             </div>
                         </div>
                         <div id="click_05" class="titulo_acordeon_datos">Baja <span class="caret"</span></div>

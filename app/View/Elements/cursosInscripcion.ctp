@@ -11,6 +11,6 @@
          <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Ciclo:</b> <?php echo $this->Html->link($ciclos['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $cursosInscripcion['Inscripcion']['ciclo_id'])); ?></span><br/>
          <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Curso:</b> <?php echo $this->Html->link($cursosInscripcion['Curso']['nombre_completo_curso'], array('controller' => 'cursos', 'action' => 'view', $cursosInscripcion['Curso']['id']));?></span><br/>
          <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Legajo Nº:</b> <?php echo $this->Html->link($cursosInscripcion['Inscripcion']['legajo_nro'], array('controller' => 'inscripcions', 'action' => 'view', $cursosInscripcion['Inscripcion']['id'])); ?></span><br/> 		   
-	     <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Alumno:</b> <?php echo $this->Html->link($alumnos['Alumno']['nombre_completo_alumno'], array('controller' => 'inscripcions', 'action' => 'view', $cursosInscripcion['Inscripcion']['alumno_id'])); ?></span><br/>
+	     <span class="name"><span class="glyphicon glyphicon-info-sign"></span> <b>Alumno:</b> <?php echo $this->Html->link($alumnos['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $cursosInscripcion['Inscripcion']['alumno_id'])); ?></span><br/>
      </div>
 </div>

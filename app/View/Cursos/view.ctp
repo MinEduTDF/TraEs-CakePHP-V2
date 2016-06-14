@@ -15,7 +15,7 @@
 			<b><?php echo __('Aula: '); ?></b>
 			<?php echo ($curso['Curso']['aula_nro']); ?></p>
             <b><?php echo __('Matricula: '); ?></b>
-			<?php echo ($curso['Curso']['matricula']); ?></p>
+			<span class="badge"><?php echo ($curso['Curso']['matricula']); ?></span></p>
             </div><div class="col-md-4 col-sm-6 col-xs-8">	
               <b><?php echo __('Organización de cursada: '); ?></b>
               <?php echo ($curso['Curso']['organizacion_cursada']); ?></p>
