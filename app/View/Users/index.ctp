@@ -1,4 +1,5 @@
 <!-- app/View/Users/index.ctp -->
+<?php App::import('Vendor', 'delete_confirm.php');;  ?>
 <div class="users form">
 <!-- start main -->
     <div class="TituloSec">Administracion de Usuarios</div>
@@ -7,7 +8,7 @@
             <div class="col-xs-12 col-sm-10 col-md-12">
                 <div id="second-nav">
                     <div class="unit text-center">
-                        <span class="link"><?php echo $this->Html->link('AGREGAR', array('action' => 'add'), array('class' => 'btn btn-info')); ?></span>
+                        <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-plus-sign"></i> AGREGAR', array('action' => 'add'), array('class' => 'btn btn-primary', 'escape' => false)); ?></span>
                     </div>
                 </div>
                 <div class="unit text-center">
@@ -50,7 +51,8 @@
                              <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-edit"></i>', array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning', 'escape' => false)); ?></span>
                             <?php if( $user['User']['status'] != 0){ ?>
                                 <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default', 'escape' => false)); ?></span>
-                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger', 'escape' => false)); ?></span>
+                                <!--<span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger', 'escape' => false)); ?></span>-->
+                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array(/*'confirm' => 'Está seguro de borrar a '.$user['User']['username'],*/ 'class' => 'btn btn-danger', 'escape' => false, 'data-toggle' => 'modal', ' data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' =>'Are you sure you want to delete this user ?')); ?></span>
                             <?php } else{ ?>
                             	<span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action' => 'activate', $user['User']['id']), array('class' => 'btn btn-danger', 'escape' => false)); ?></span>
                             <?php } ?>
@@ -60,13 +62,11 @@
                         <?php unset($user); ?>
                     </tbody>
                 </table>
-              </div>
-    <!--<div id="second-nav">
-        <!--<?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>-->
-        <br/>
-             <div class="unit text-center">
-                 <?php echo $this->element('pagination'); ?> 
-             </div>
+               </div>
+               <br/>
+               <div class="unit text-center">
+                   <?php echo $this->element('pagination'); ?> 
+               </div>
           </div>
       </div>    
 </div>

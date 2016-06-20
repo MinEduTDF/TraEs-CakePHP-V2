@@ -21,7 +21,7 @@ function Cursos() {
 
                if (!in_array($curso_id, $id_repetida)) {
 
-                        $cursos_inscripcions = $db->Query("SELECT curso_id,inscripcion_id,recursante FROM `cursos_inscripcions` LEFT JOIN inscripcions ON cursos_inscripcions.inscripcion_id = inscripcions.id where inscripcions.recursante = 'Si' and curso_id = '$curso_id'");
+                        $cursos_inscripcions = $db->Query("SELECT curso_id,inscripcion_id,recursante FROM `cursos_inscripcions` LEFT JOIN inscripcions ON cursos_inscripcions.inscripcion_id = inscripcions.id where inscripcions.recursante = '1' and curso_id = '$curso_id'");
                         $curso_num = sizeof($cursos_inscripcions);
                         $anio = $db->Query("SELECT * FROM `cursos` WHERE id= '$curso_id'");
                         $array[] =  array($anio[0]['cursos']['anio'].' '.$anio[0]['cursos']['division'],$curso_num);

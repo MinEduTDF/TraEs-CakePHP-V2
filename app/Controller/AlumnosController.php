@@ -6,7 +6,7 @@ class AlumnosController extends AppController {
 	var $name = 'Alumnos';
     public $helpers = array('Session', 'Form', 'Time', 'Js');
 	public $components = array('Auth','Session', 'RequestHandler');
-	public $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.creado DESC'));
+	public $paginate = array('Alumno' => array('limit' => 4, 'order' => 'Alumno.created DESC'));
 
 	public function index() {
 		$this->Alumno->recursive = 0;
@@ -17,7 +17,6 @@ class AlumnosController extends AppController {
 		//$this->data['Alumno']['pendiente'] = false;
         //$this->Alumno->save($this->data); 
 		$estadoInscripcion = $this->Alumno->Inscripcion->find('list', array('fields'=>array('estado')));
-		//print_r($estadoInscripcion);
 		$this->redirectToNamed();
 		$conditions = array();
         if(!empty($this->params['named']['nombre_completo_alumno'])){
@@ -52,7 +51,13 @@ class AlumnosController extends AppController {
           if (!empty($this->data)) {
 			$this->Alumno->create();
 			
-			// Antes de guardar calcula la edad
+			// Antes de guardar pasa a mayúsculas el nombre completo.
+			$apellidosMayuscula = strtoupper($this->request->data['Alumno']['apellidos']);
+			$nombresMayuscula = strtoupper($this->request->data['Alumno']['nombres']);
+			// Genera el nombre completo en mayúsculas y se deja en los datos que se intentaran guardar
+			$this->request->data['Alumno']['apellidos'] = $apellidosMayuscula;
+			$this->request->data['Alumno']['nombres'] = $nombresMayuscula;
+            // Antes de guardar calcula la edad
 			$day = $this->request->data['Alumno']['fecha_nac']['day'];
 			$month = $this->request->data['Alumno']['fecha_nac']['month'];
 			$year = $this->request->data['Alumno']['fecha_nac']['year'];
@@ -80,12 +85,20 @@ class AlumnosController extends AppController {
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
+    	  
+          // Antes de guardar pasa a mayúsculas el nombre completo.
+		  $apellidosMayuscula = strtoupper($this->request->data['Alumno']['apellidos']);
+		  $nombresMayuscula = strtoupper($this->request->data['Alumno']['nombres']);
+		  // Genera el nombre completo en mayúsculas y se deja en los datos que se intentaran guardar
+		  $this->request->data['Alumno']['apellidos'] = $apellidosMayuscula;
+		  $this->request->data['Alumno']['nombres'] = $nombresMayuscula;
     	  // Antes de guardar calcula la edad
 		  $day = $this->request->data['Alumno']['fecha_nac']['day'];
 		  $month = $this->request->data['Alumno']['fecha_nac']['month'];
 		  $year = $this->request->data['Alumno']['fecha_nac']['year'];
 		  // Calcula la edad y se deja en los datos que se intentaran guardar
 		  $this->request->data['Alumno']['edad'] = $this->__getEdad($day, $month, $year);
+		  
 		  if ($this->Alumno->save($this->data)) {
 				$this->Session->setFlash('El alumno ha sido grabado', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Alumno->id;

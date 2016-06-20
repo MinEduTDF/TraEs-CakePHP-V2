@@ -44,6 +44,14 @@ class EmpleadosController extends AppController {
 		  }
 		  if (!empty($this->data)) {
 			$this->Empleado->create();
+			
+            // Antes de guardar pasa a mayúsculas el nombre completo.
+			$apellidosMayuscula = strtoupper($this->request->data['Empleado']['apellidos']);
+			$nombresMayuscula = strtoupper($this->request->data['Empleado']['nombres']);
+			// Genera el nombre completo en mayúsculas y se deja en los datos que se intentaran guardar
+			$this->request->data['Empleado']['apellidos'] = $apellidosMayuscula;
+			$this->request->data['Empleado']['nombres'] = $nombresMayuscula;
+
 			if ($this->Empleado->save($this->data)) {
 				$this->Session->setFlash('El empleado ha sido grabado.', 'default', array('class' => 'alert alert-success'));
 				$inserted_id = $this->Empleado->id;
@@ -68,6 +76,14 @@ class EmpleadosController extends AppController {
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
+		 
+		  // Antes de guardar pasa a mayúsculas el nombre completo.
+		  $apellidosMayuscula = strtoupper($this->request->data['Empleado']['apellidos']);
+		  $nombresMayuscula = strtoupper($this->request->data['Empleado']['nombres']);
+		  // Genera el nombre completo en mayúsculas y se deja en los datos que se intentaran guardar
+		  $this->request->data['Empleado']['apellidos'] = $apellidosMayuscula;
+		  $this->request->data['Empleado']['nombres'] = $nombresMayuscula; 
+         
 		  if ($this->Empleado->save($this->data)) {
 				$this->Session->setFlash('El empleado ha sido grabado.', 'default', array('class' => 'alert alert-success'));
 				$this->redirect(array('action' => 'index'));
