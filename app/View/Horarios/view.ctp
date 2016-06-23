@@ -8,11 +8,7 @@
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('FechaCreacion'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-<<<<<<< HEAD
 			<?php echo $horario['Horario']['created']; ?>
-=======
-			<?php echo $horario['Horario']['fechaCreacion']; ?>
->>>>>>> estilos_botones_view
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Dia'); ?></dt>

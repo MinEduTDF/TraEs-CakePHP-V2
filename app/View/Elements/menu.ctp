@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">TraEs. [ <span class="glyphicon glyphicon-user"</span> <?php echo $current_user['username']; ?> ]</a>
+      <!--<a class="navbar-brand" href="#">-->TraEs. [ <span class="glyphicon glyphicon-user"</span> <?php echo $this->Html->link($current_user['username'], array('controller' => 'users', 'action' => 'view', $current_user['id'])); ?> ]<!--</a>-->
     </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -53,7 +53,7 @@
         </li>
         <li>
 
-		<?php echo $this->Html->link('<i class="glyphicon glyphicon-off"></i>', '/logout', array('class' => 'btn btn-success navbar-btn btn-lg', 'escape' => false)); ?>
+		<?php echo $this->Html->link('CERRAR SESIÓN', '/logout', array('class' => 'btn btn-success navbar-btn btn-lg', 'escape' => false)); ?>
         </li>
       </div> <!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

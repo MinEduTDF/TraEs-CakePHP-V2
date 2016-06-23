@@ -52,7 +52,7 @@
                             <?php if( $user['User']['status'] != 0){ ?>
                                 <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-eye-open"></i>', array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-default', 'escape' => false)); ?></span>
                                 <!--<span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger', 'escape' => false)); ?></span>-->
-                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array(/*'confirm' => 'Está seguro de borrar a '.$user['User']['username'],*/ 'class' => 'btn btn-danger', 'escape' => false, 'data-toggle' => 'modal', ' data-target' => '#confirmDelete', 'data-title' => 'Delete User', 'data-message' =>'Are you sure you want to delete this user ?')); ?></span>
+                                <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-trash"></i>', array('action' => 'delete', $user['User']['id']), array('confirm' => 'Está seguro de borrar a '.$user['User']['username'], 'class' => 'btn btn-danger', 'escape' => false)); ?></span>
                             <?php } else{ ?>
                             	<span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-repeat"></i>', array('action' => 'activate', $user['User']['id']), array('class' => 'btn btn-danger', 'escape' => false)); ?></span>
                             <?php } ?>
