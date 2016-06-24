@@ -21,7 +21,12 @@ class InasistenciasController extends AppController {
 
 	function index() {
 		
-		$this->Inasistencia->recursive = 0;
+		$this->Inasistencia->recursive = 1;
+		$cicloIdActual = $this->getLastCicloId();
+		$this->paginate['Inasistencia']['limit'] = 8;
+		$this->paginate['Inasistencia']['order'] = array('Inasistencia.created' => 'DESC');
+		$this->paginate['Inasistencia']['conditions'] = array('Inasistencia.ciclo_id' => $cicloIdActual);
+		
 		$this->set('inasistencias', $this->paginate());
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
 		$this->redirectToNamed();
@@ -58,8 +63,17 @@ class InasistenciasController extends AppController {
 	}
 
 	public function add() {
+        //abort if cancel button was pressed  
+        if(isset($this->params['data']['cancel'])){
+                $this->Session->setFlash('Los cambios no fueron guardados. Agregación cancelada.', 'default', array('class' => 'alert alert-warning'));
+                $this->redirect( array( 'action' => 'index' ));
+		  }
         if ($this->request->is('post')) {
             $this->Inasistencia->create();
+            
+            //Antes de guardar genera el nombre del agente
+			$this->request->data['Inscripcion']['empleado_id'] = $this->Auth->user('empleado_id');
+
             if(empty($this->data['Inasistencia']['certificacion']['name'])){
                unset($this->request->data['Inasistencia']['certificacion']);
             }
@@ -75,6 +89,11 @@ class InasistenciasController extends AppController {
 	        }
            $this->Session->setFlash(__('La Certificación no se guardó.'));
         }
+        $ciclos = $this->Inasistencia->Ciclo->find('list');
+        $cicloIdActual = $this->getLastCicloId();
+        $this->loadModel('Empleado');
+        $empleados = $this->Inasistencia->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado'), 'conditions'=>array('id'== 'empleadoId')));
+        $this->set(compact('empleados', 'ciclos', 'cicloIdActual'));
     }
  
 	 

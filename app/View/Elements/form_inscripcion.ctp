@@ -1,4 +1,3 @@
-<!--<?php debug($lista_materias); ?>-->
 <?php echo $this->Html->script(array('tooltip', 'datepicker', 'moment', 'bootstrap-datetimepicker')); ?>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <div class="row">
@@ -6,15 +5,14 @@
 	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
     <div class="col-xs-6 col-sm-3">
-    	<?php //echo $this->Form->input('empleados', array('label'=>'Agente*', 'empty' => 'Ingrese un agente...', 'between' => '<br>', 'class' => 'form-control')); ?>
-      <?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
+    	<?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
     </div>
 </div><hr />
 <div class="row">
 	<div class="col-md-4 col-sm-6 col-xs-12">
 		 <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			  <?php 
-                  echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                  echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloIdActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
                   echo $this->Form->input('centro_id', array('label'=>'Centro*', 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
                   echo $this->Form->input('Curso', array('label'=>'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('Materia', array('label'=>'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));

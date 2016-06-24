@@ -78,7 +78,20 @@ class Empleado extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+		'Inasistencia' => array(
+			'className' => 'Inasistencia',
+			'foreignKey' => 'empleado_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 	);
 
     var $hasAndBelongsToMany = array(

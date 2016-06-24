@@ -97,7 +97,7 @@
 	<div class="col-md-6">
 		<div class="unit">
 			<!--<?php echo '<b>Ciclo id:</b> '.($this->Html->link($inscripcion['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $inscripcion['ciclo_id'])));?><br>-->
-			<?php echo '<b>Tipo de alta:</b> '.$inscripcion['tipo_alta'];?><br>
+				<?php echo '<b>Tipo de alta:</b> '.$inscripcion['tipo_alta'];?><br>
 			<?php echo '<b>Fecha de alta:</b> '.$this->Html->formatTime($inscripcion['fecha_alta']);?><br>
 			<!--<?php echo '<b>Cursa:</b> '.$inscripcion['cursa'];?><br>-->
             <?php echo '<b>Fecha de baja:</b> '.$this->Html->formatTime($inscripcion['fecha_baja']);?><br>

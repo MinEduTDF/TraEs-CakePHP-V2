@@ -20,6 +20,13 @@ class Inasistencia extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Empleado' => array(
+			'className' => 'Empleado',
+			'foreignKey' => 'empleado_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 	var $hasAndBelongsToMany = array(
@@ -114,6 +121,15 @@ class Inasistencia extends AppModel {
                            'required' => 'create',
                            'message' => 'En caso de que se haya justificado, indicar la causa.'
                            )
+                   ),
+                   'rule1' => array(
+				           'rule'    => array(
+				           'extension',array('pdf')),
+				           'message' => 'Please upload pdf file only'
+				   ),
+                   'rule2' => array(
+                           'rule' => array('fileSize', '<=', '1MB'),
+                           'message' => 'File must be less than 1MB'
                    )
 		);
 }
