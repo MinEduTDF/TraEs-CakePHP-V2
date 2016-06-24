@@ -112,7 +112,7 @@ class Inasistencia extends AppModel {
                            'required' => array(
 						   'rule' => 'notBlank',
                            'required' => 'create',
-                           'message' => 'El tipo de justificación no es valida. Indicar una de las opciones.'
+                           'message' => 'Indicar una de las opciones.'
                            )
                    ),
                    'causa' => array(

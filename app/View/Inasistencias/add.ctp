@@ -1,6 +1,6 @@
 <div class="TituloSec"><?php echo __('Agregar Inasistencia'); ?></div>
    <div id="ContenidoSec">
-       <?php echo $this->Form->create('Inasistencia', array('novalidate' => true));?>
+       <?php echo $this->Form->create('Inasistencia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>
        <div class="unit">
            <?php echo $this->element('forms/form_inasistencia_add'); ?><p>
        </div>

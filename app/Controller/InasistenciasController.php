@@ -2,9 +2,16 @@
 class InasistenciasController extends AppController {
 
 	var $name = 'Inasistencias';
-    var $helpers = array('Session');
-	var $components = array('Auth','Session');
-	var $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.created DESC'));
+    public $helpers = array('Session');
+	public $components = array('Auth','Session');
+	public $paginate = array('Inasistencia' => array('limit' => 4, 'order' => 'Inasistencia.created DESC'));
+
+    function beforeFilter(){
+	    parent::beforeFilter();
+		if($this->ifActionIs(array('add', 'edit'))){
+			$this->__lists();
+		}
+	}    
 
     public function sanitize($string, $force_lowercase = true, $anal = false) {
     $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€", "â€", ",", "<",">", "/", "?");
@@ -19,7 +26,7 @@ class InasistenciasController extends AppController {
     }
 
 
-	function index() {
+	public function index() {
 		
 		$this->Inasistencia->recursive = 1;
 		$cicloIdActual = $this->getLastCicloId();
@@ -28,7 +35,7 @@ class InasistenciasController extends AppController {
 		$this->paginate['Inasistencia']['conditions'] = array('Inasistencia.ciclo_id' => $cicloIdActual);
 		
 		$this->set('inasistencias', $this->paginate());
-		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC'));
 		$this->redirectToNamed();
 		$conditions = array();
 		
@@ -53,7 +60,7 @@ class InasistenciasController extends AppController {
 	}
 	
 	
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
@@ -89,15 +96,10 @@ class InasistenciasController extends AppController {
 	        }
            $this->Session->setFlash(__('La Certificación no se guardó.'));
         }
-        $ciclos = $this->Inasistencia->Ciclo->find('list');
-        $cicloIdActual = $this->getLastCicloId();
-        $this->loadModel('Empleado');
-        $empleados = $this->Inasistencia->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado'), 'conditions'=>array('id'== 'empleadoId')));
-        $this->set(compact('empleados', 'ciclos', 'cicloIdActual'));
     }
  
 	 
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Inasistencia no valida', 'default', array('class' => 'alert alert-warning'));
 			//$this->redirect(array('action' => 'index'));
@@ -120,15 +122,10 @@ class InasistenciasController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Inasistencia->read(null, $id);
 		}
-		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
-		$cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
-		$materias = $this->Inasistencia->Materia->find('list');
-		$ciclos = $this->Inasistencia->Ciclo->find('list');
-		$this->set(compact('alumnos', 'cursos', 'materias', 'ciclos'));
 	}
 
 
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Id no valido para inasistencia', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
@@ -139,6 +136,20 @@ class InasistenciasController extends AppController {
 		}
 		$this->Session->setFlash('La inasistencia no fue borrado', 'default', array('class' => 'alert alert-danger'));
 		$this->redirect(array('action' => 'index'));
+	}
+
+
+	//Métodos privados
+	
+	private function __lists(){
+	    $ciclos = $this->Inasistencia->Ciclo->find('list');
+        $cicloIdActual = $this->getLastCicloId();
+        $this->loadModel('Empleado');
+        $empleados = $this->Inasistencia->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado'), 'conditions'=>array('id'== 'empleadoId')));
+        $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso'), 'order'=>'Curso.anio ASC'));
+        $alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos'));
+        $materias = $this->Inasistencia->Materia->find('list', array('fields'=>array('id', 'alia'), 'order'=>'Materia.curso_id ASC'));
+        $this->set(compact('empleados', 'ciclos', 'cicloIdActual', 'cursos', 'alumnos', 'materias'));
 	}
 }
 ?>

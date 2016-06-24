@@ -1,50 +1,47 @@
-<!--<?php debug($lista_materias); ?>-->
 <?php echo $this->Html->script(array('tooltip', 'datepicker', 'moment', 'bootstrap-datetimepicker')); ?>
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <div class="row">
-	<div class="col-xs-6 col-sm-3">
-	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
+  <div class="col-xs-6 col-sm-3">
+      <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
     <div class="col-xs-6 col-sm-3">
-    	<!--<?php echo $this->Form->input('empleados', array('label'=>'Agente*', 'empty' => 'Ingrese un agente...', 'between' => '<br>', 'class' => 'form-control')); ?>-->
-        <?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
+      <?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
     </div>
 </div><hr />
 <div class="row">
-	<div class="col-md-4 col-sm-6 col-xs-12">
-		 <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
-			  <?php 
-                  echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  echo $this->Form->input('centro_id', array('label'=>'Centro*', 'between' => '<br>', 'class' => 'form-control'));
+  <div class="col-md-4 col-sm-6 col-xs-12">
+     <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
+        <?php 
+                  echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloIdActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
+                  echo $this->Form->input('centro_id', array('label'=>'Centro*', 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
                   echo $this->Form->input('Curso', array('label'=>'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('Materia', array('label'=>'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('alumno_id', array('label'=>'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                  //echo $this->Form->input('legajo_nro', array('label'=>'Legajo N°*', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un nº de legajo', 'Placeholder' => 'Ingrese un nº de legajo...'));
                   echo $this->Form->input('legajo_nro', array('type' => 'hidden'));
-			  ?>  
+        ?>  
          </div>
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
          <div class="unit"><strong><h3>Datos del Alta</h3></strong><hr />      
-			 <?php
+       <?php
                   $tipos_alta = array('Regular' => 'Regular', 'Equivalencia'=>'Equivalencia');
-                  echo $this->Form->input('tipo_alta', array('label' => 'Alta tipo*', 'empty' => 'Ingrese un vinculo...', 'options' => $tipos_alta, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                  echo $this->Form->input('tipo_alta', array('label' => 'Alta tipo*', 'empty' => 'Ingrese un tipo...', 'options' => $tipos_alta, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   echo $this->Form->input('fecha_alta', array('label' => 'Fecha de Alta*', 'type' => 'text', 'between' => '<br>', 'class' => 'datepicker form-control', 'Placeholder' => 'Ingrese una fecha...'));
                   $condiciones_aprobacion = array('Promocion directa' => 'Promocion directa', 'Examen regular' => 'Examen regular', 'Examen libre' => 'Examen libre', 'Examen de reválida' => 'Examen de reválida', 'Equivalencia' => 'Equivalencia', 'Saberes adquiridos' => 'Saberes adquiridos');
                   echo $this->Form->input('condicion_aprobacion', array('label' => 'Condición de aprobación*', 'options' => $condiciones_aprobacion, 'empty' => 'Ingrese una opción...', 'between' => '<br>', 'class' => 'form-control'));
-                  $tipos_recursante = array('Si' => 'Si', 'No' => 'No');
-                  echo $this->Form->input('recursante', array('between' => '<br>', 'class' => 'form-control'));	
+                  echo $this->Form->input('recursante', array('between' => '<br>', 'class' => 'form-control', 'label' => false, 'type' => 'checkbox', 'before' => '<label class="checkbox">', 'after' => '<i></i>Recursante</label>')); 
                   $tipos_cursa = array('Cursa algun espacio curricular.' => 'Cursa algun espacio curricular.', 'Sólo se inscribe a rendir final.' => 'Sólo se inscribe a rendir final.');
                   echo $this->Form->input('cursa', array('label' => 'Cursa*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_cursa, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                   $tipos_fines = array('No' => 'No', 'Sí línea deudores de materias.' => 'Sí línea deudores de materias.', 'Sí línea trayectos educativos.' => 'Sí línea   trayectos educativos.');
                   echo $this->Form->input('fines', array('label' => 'Fines*', 'empty' => 'Ingrese una opción...', 'options' => $tipos_fines, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); 
-                  echo $this->Form->input('fotocopia_dni', array('between' => '<br>', 'class' => 'form-control'));
-				  echo $this->Form->input('certificado_septimo', array('between' => '<br>', 'class' => 'form-control'));
-				  echo $this->Form->input('certificado_laboral', array('between' => '<br>', 'class' => 'form-control'));
-			  ?>                  
+                  echo $this->Form->input('fotocopia_dni', array('between' => '<br>', 'class' => 'form-control', 'label' => false, 'type' => 'checkbox', 'before' => '<label class="checkbox">', 'after' => '<i></i>Fotocopia DNI</label>'));
+          echo $this->Form->input('certificado_septimo', array('between' => '<br>', 'class' => 'form-control', 'label' => false, 'type' => 'checkbox', 'before' => '<label class="checkbox">', 'after' => '<i></i>Certificado Séptimo</label>'));
+          echo $this->Form->input('certificado_laboral', array('between' => '<br>', 'class' => 'form-control', 'label' => false, 'type' => 'checkbox', 'before' => '<label class="checkbox">', 'after' => '<i></i>Certificado Laboral</label>'));
+            echo $this->Form->input('estado', array('type' => 'hidden'));
+        ?>                  
           </div>        
     <?php echo '</div><div class="col-md-4 col-sm-6 col-xs-12">'; ?>
           <div class="unit"><strong><h3>Datos de la Baja/Egreso</h3></strong><hr />   
-			  <?php
+        <?php
                   echo $this->Form->input('fecha_baja', array('label' => 'Fecha de Baja', 'type' => 'text', 'between' => '<br>', 'empty' => ' ','class' => 'datepicker form-control', 'Placeholder' => 'Ingrese una fecha...'));
                   $tipos_baja = array('Salido con pase' => 'Salido con pase', 'Salido sin pase' => 'Salido sin pase', 'Pérdida de regularidad' => 'Pérdida de regularidad',       'Fallecimiento' => 'Fallecimiento');
                   echo $this->Form->input('tipo_baja', array('label' => 'Baja tipo', 'empty' => 'Ingrese una opción...', 'options' => $tipos_baja, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));

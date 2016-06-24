@@ -9,14 +9,14 @@
   <div class="col-md-4 col-sm-6 col-xs-12">
 	  <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 		  <?php
+              echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloIdActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
               echo $this->Form->input('alumno_id', array('label' => 'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-              echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
               echo $this->Form->input('materia_id', array('label' => 'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
           ?>
       </div></br>
   </div>
   <div class="col-md-4 col-sm-4 col-xs-4">
-     <div id="click_01" class="titulo_acordeon">Primer período</div>
+     <div id="click_01" class="titulo_acordeon">Primer período <span class="caret"></span></div>
      <div id="acordeon_01"><!--</br><div class="subtitulo">Primer período</div>-->
 		<?php 		
             $evaluacionTipos = array('Producción (en cualquier lenguaje)' => 'Producción (en cualquier lenguaje)',
@@ -35,7 +35,7 @@
             echo $this->Form->input('desarrollo_personalSocial_primer_periodo', array('label' => 'Desarrollo Personal y Social', 'empty' => 'Ingrese un tipo de desarrollo...', 'options' => $desarrolloTipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
         ?>
      </div></br>
-     <div id="click_02" class="titulo_acordeon">Segundo período</div>
+     <div id="click_02" class="titulo_acordeon">Segundo período <span class="caret"></span></div>
      <div id="acordeon_02"><!--</br><div class="subtitulo">Segundo período</div>-->
 		<?php
             echo $this->Form->input('evaluacion_tipo_nota_uno_segundo_periodo', array('label' => 'Tipo de evaluación', 'empty' => 'Ingrese tipo de evaluación...', 'options' => $evaluacionTipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
@@ -49,7 +49,7 @@
             echo $this->Form->input('desarrollo_personalSocial_segundo_periodo', array('label' => 'Desarrollo Personal y Social', 'empty' => 'Ingrese un tipo de desarrollo...', 'options' => $desarrolloTipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
         ?>	
      </div></br>
-     <div id="click_03" class="titulo_acordeon">Tercer período</div>
+     <div id="click_03" class="titulo_acordeon">Tercer período <span class="caret"></span></div>
      <div id="acordeon_03"><!--</br><div class="subtitulo">Tercer período</div>-->
 		<?php
             echo $this->Form->input('evaluacion_tipo_nota_uno_tercer_periodo', array('label' => 'Tipo de evaluación', 'empty' => 'Ingrese tipo de evaluación...', 'options' => $evaluacionTipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
@@ -63,7 +63,7 @@
             echo $this->Form->input('desarrollo_personalSocial_tercer_periodo', array('label' => 'Desarrollo Personal y Social', 'empty' => 'Ingrese un tipo de desarrollo...', 'options' => $desarrolloTipos, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));
         ?>		
      </div></br>
-     <div id="click_04" class="titulo_acordeon">Cierre</div>
+     <div id="click_04" class="titulo_acordeon">Cierre <span class="caret"></span></div>
      <div id="acordeon_04"><!--</br><div class="subtitulo">Cierre</div>-->
 		<?php
             echo $this->Form->input('promedio_a_termino', array('label' => 'Promedio a término', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un valor con decimales.', 'placeholder' => 'Ingrese un promedio...'));

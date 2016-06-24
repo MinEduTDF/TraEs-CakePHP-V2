@@ -32,96 +32,96 @@ class Titulacion extends AppModel {
 
 
 	//Validaciones
-                   var $validate = array(
-                    'created' => array(
+        var $validate = array(
+            'created' => array(
 						   'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',
 						   'message' => 'Indicar una fecha y hora.'
-						   )
-					),
+						          )
+					     ),
 				    'nombre' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar una opcion.'
-                           ),
+               'message' => 'Indicar una opcion.'
+               ),
 						   'isUnique' => array(
 	                       'rule' => 'isUnique',
 	                       'message' => 'Este nombre esta siendo usado.'
 	                     )
-                    ),
-                    'certificacion' => array(
-                           'required' => array(
+               ),
+            'certificacion' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar la certificación.'
-                           )
-                   ),
-				   'condicion_ingreso' => array(
-                           'required' => array(
+               'message' => 'Indicar la certificación.'
+                       )
+               ),
+				    'condicion_ingreso' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar la condición de ingreso.'
-                           )
-                   ),
+               'message' => 'Indicar la condición de ingreso.'
+                       )
+               ),
 				   'ciclo_implementacion' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar el ciclo de implementación.'
-                           )
-                   ),
+               'message' => 'Indicar el ciclo de implementación.'
+                       )
+               ),
 				   'a_termino' => array(
-                           'boolean' => array(
-                           'rule' => array('boolean'),
-					       'message' => 'Indicar una opción'
-				           )
-                   ),
+               'boolean' => array(
+               'rule' => array('boolean'),
+					     'message' => 'Indicar una opción'
+				               )
+                ),
 				   'orientacion' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar una opción.'
-                           )
-                   ),
+               'message' => 'Indicar una opción.'
+                       )
+                ),
 				   'organizacion_plan' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar una opción.'
-                           )
-                   ),
+               'message' => 'Indicar una opción.'
+                       )
+                ),
 				   'organizacion_cursada' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar una opción.'
-                           )
-                   ),
+               'message' => 'Indicar una opción.'
+                       )
+                ),
 				   'forma_dictado' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
-                           'message' => 'Indicar una opción.'
-                           )
-                   ),
+               'message' => 'Indicar una opción.'
+                        )
+                ),
 				   'carga_horaria_en' => array(
                            'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',       
                            'message' => 'Indicar una opción.'
                            )
-                   ),
+                ),
 				   'carga_horaria' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',
 						   'message' => 'Indicar una carga horaria.'
                            )						   
-                   ),
+                ),
 				   'edad_minima' => array(
-                           'required' => array(
+               'required' => array(
 						   'rule' => 'notBlank',
 						   'required' => 'create',
 						   'message' => 'Indicar una edad.'
