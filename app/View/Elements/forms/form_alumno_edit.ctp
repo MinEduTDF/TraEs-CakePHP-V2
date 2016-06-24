@@ -27,7 +27,7 @@
 			 <?php
 			      //echo $this->Form->input('fecha_nac', array('label' => 'Fecha de Nacimiento*', 'empty' => array( 'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'), 'between' => '<br>', 'type' => 'text', 'class' => 'datepicker form-control', 'placeholder' => 'Ingrese una fecha...'));
 				  // Configurando opciones para agregar más años
-				  $options = array( 'label' => 'Fecha de nacimiento', 'between' => '<br>', 'class' => 'form-control',
+				  $options = array( 'label' => 'Fecha de nacimiento', // Etiqueta
 									'dateFormat'    => 'DMY',	// Formato a como lo usamos en español
 									'minYear'       => date('Y') - 100, // Configuramos para que aparezcan desde el año actual hasta 100 años menos
 									'maxYear'       => date('Y'),		// Aparecerá hasta el año actual como máximo

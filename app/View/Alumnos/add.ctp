@@ -3,7 +3,7 @@
    <div class="alumnos form">
         <?php echo $this->Form->create('Alumno', array('type' => 'file', 'novalidate' => 'novalidate'));?>
 	    <div class="unit">
-             <?php echo $this->element('form_alumno_add'); ?><p>
+             <?php echo $this->element('forms/form_alumno_add'); ?><p>
         </div>
         <div class="text-center">
             <div class="submit">                 

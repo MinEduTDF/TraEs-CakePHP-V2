@@ -4,7 +4,7 @@
 <?php echo $this->Form->create('Integración');?>
 
 	         <div class="unit">
-               <?php echo $this->element('form_integracion'); ?><p>
+               <?php echo $this->element('forms/form_integracion'); ?><p>
              </div>
              <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
              <div class="text-center">

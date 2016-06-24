@@ -32,7 +32,7 @@
   	   <div class="unit">
   			 <div class="subtitulo">Búsqueda</div>
    			    <br>
-				<?php echo $this->element('formSearch_empleado'); ?>
+				<?php echo $this->element('formsSearch/formSearch_empleado'); ?>
   	         </div>
 	   </div>
   </div>

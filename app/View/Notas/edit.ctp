@@ -3,7 +3,7 @@
         <div class="notas form">
             <?php echo $this->Form->create('Nota', array('novalidate' => true));?>
             <div class="unit">
-                <?php echo $this->element('form_nota'); ?><p>
+                <?php echo $this->element('forms/form_nota'); ?><p>
             </div>
             <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
             <div class="text-center">

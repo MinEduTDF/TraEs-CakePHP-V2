@@ -18,7 +18,7 @@
           <div class="unit">
               <div class="subtitulo">Búsqueda</div>
               <br>	 
-              <?php echo $this->element('formSearch_cursosInscripcion'); ?>
+              <?php echo $this->element('formsSearch/formSearch_cursosInscripcion'); ?>
           </div>
       </div>
   </div>    

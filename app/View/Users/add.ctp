@@ -4,7 +4,7 @@
         <div class="users form">
             <?php echo $this->Form->create('User', array('novalidate' => true));?>
 	         <div class="unit">
-                 <?php echo $this->element('form_user'); ?><p>
+                 <?php echo $this->element('forms/form_user'); ?><p>
              </div>
              <div class="text-center">
                  <div class="submit">                 

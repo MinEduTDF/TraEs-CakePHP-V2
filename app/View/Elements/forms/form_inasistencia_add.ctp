@@ -4,15 +4,12 @@
 	<div class="col-xs-6 col-sm-3">
 	    <?php echo $this->Form->input('created', array('label' => 'Creado*', 'id' => 'datetimepicker1', 'type' => 'text', 'class' => 'input-group date', 'class' => 'form-control', 'span class' => 'fa fa-calendar')); ?>
     </div>
-    <div class="col-xs-6 col-sm-3">
-    	<?php echo $this->Form->input('empleado_id', array('type' => 'hidden')); ?>
-    </div>
 </div><hr />
 <div class="row">
 	<div class="col-md-6 col-sm-6 col-xs-12">
 		 <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			  <?php 
-				  echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloIdActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
+				  echo $this->Form->input('ciclo_id', array('label'=>'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
 				  echo $this->Form->input('Curso', array('label' => 'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
 				  echo $this->Form->input('alumno_id', array('label' => 'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
 				  echo $this->Form->input('Materia', array('label' => 'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));

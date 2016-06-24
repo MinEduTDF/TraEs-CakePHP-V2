@@ -2,7 +2,7 @@
    <div id="ContenidoSec">
       <?php echo $this->Form->create('Nota', array('novalidate' => true));?>
          <div class="unit">
-            <?php echo $this->element('form_nota'); ?><p>
+            <?php echo $this->element('forms/form_nota'); ?><p>
          </div>
          <div class="text-center">
             <div class="submit">                 

@@ -30,7 +30,7 @@
   	 <div class="unit">
   			 <div class="subtitulo">Búsqueda</div>
 			 </br>
-			 <?php echo $this->element('formSearch_centro'); ?>
+			 <?php echo $this->element('formsSearch/formSearch_centro'); ?>
   	      </div>
 	 </div>
   </div>

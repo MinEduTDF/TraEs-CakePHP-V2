@@ -8,22 +8,22 @@
 
 <div id="second-nav">
 			 <div class="unit text-center">
-			 	  	  <span class="link"><?php echo $this->Html->link('AGREGAR', array('action' => 'add'), array('class' => 'btn btn-info')); ?></span>
+			 	  	  <span class="link"><?php echo $this->Html->link('<i class="glyphicon glyphicon-plus"></i> AGREGAR', array('action' => 'add'), array('class' => 'btn btn-primary','escape' => false)); ?></span>
 			 </div>
 </div>
  <!-- end second nav -->
 
 	<div class="row">
 			    <?php foreach ($titulacions as $titulacion): ?>
-			    
+
 			    <?php echo $this->element('titulacion',array( 'titulacion' => $titulacion )); ?>
-			    
+
 			    <?php endforeach; ?>
-			    
+
 
 			 </div>
 			 <div class="unit text-center">
-			 	 <?php echo $this->element('pagination'); ?> 
+			 	 <?php echo $this->element('pagination'); ?>
 			 </div>
 	 </div>
  <!-- end main -->

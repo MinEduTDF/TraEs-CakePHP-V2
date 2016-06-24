@@ -4,7 +4,7 @@
         <div class="cursos form">
            <?php echo $this->Form->create('Materia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>
            <div class="unit">
-              <?php echo $this->element('form_materia_add'); ?><p>
+              <?php echo $this->element('forms/form_materia_add'); ?><p>
            </div>
            <div class="text-center">
                <div class="submit">                 

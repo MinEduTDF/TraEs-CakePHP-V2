@@ -3,7 +3,7 @@
 <?php echo $this->Form->create('Integracion');?>
 
 	         <div class="unit">
-               <?php echo $this->element('form_integracion'); ?><p>
+               <?php echo $this->element('forms/form_integracion'); ?><p>
              </div>
              <div class="text-center">
               <div class="submit">                 

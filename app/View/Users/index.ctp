@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="unit text-center">
-                    <?php echo $this->element('formSearch_user'); ?>
+                    <?php echo $this->element('formsSearch/formSearch_user'); ?>
                 </div>   
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover table-condensed">

@@ -3,7 +3,7 @@
         <div class="users form">
             <?php echo $this->Form->create('User', array('novalidate' => true));?>
 	         <div class="unit">
-                 <?php echo $this->element('form_user_edit'); ?><p>
+                 <?php echo $this->element('forms/form_user_edit'); ?><p>
              </div>
              <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
              <div class="text-center">
