@@ -9,6 +9,7 @@
                 <?php endif; ?>
          </div>
          <span class="name"><span class="glyphicon glyphicon-user"></span> <b>Legajo Nro:</b> <?php echo $inscripcion['Inscripcion']['legajo_nro']; ?></span><br/>
+         <span class="name"><span class="glyphicon glyphicon-user"></span> <b></b> <?php echo $this->Html->link($alumnos[$inscripcion['Inscripcion']['alumno_id']], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['Inscripcion']['alumno_id'])); ?></span><br/>
          <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Alta:</b> <?php echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_alta']);?></span><br/>
          <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Baja:</b> <?php echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_baja']);?></span><br/> 		   
          <span class="name"><span class="glyphicon glyphicon-calendar"></span> <b>Egreso:</b> <?php echo $this->Html->formatTime($inscripcion['Inscripcion']['fecha_egreso']);?></span><br/>       

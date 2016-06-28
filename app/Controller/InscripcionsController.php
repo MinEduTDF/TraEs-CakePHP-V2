@@ -16,14 +16,13 @@ class InscripcionsController extends AppController {
 	
 	public function index() {
 		$this->Inscripcion->recursive = 1;
-		
 		$cicloIdActual = $this->getLastCicloId();
+        
         $this->paginate['Inscripcion']['limit'] = 4;
 		$this->paginate['Inscripcion']['order'] = array('Inscripcion.fecha_alta' => 'DESC');
-		
 		$this->paginate['Inscripcion']['conditions'] = array('Inscripcion.ciclo_id' => $cicloIdActual);
-		
 		$alumnos = $this->Inscripcion->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno')));
+		
 		$this->redirectToNamed();
 		$conditions = array();
 		

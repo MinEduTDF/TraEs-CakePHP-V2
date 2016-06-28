@@ -27,15 +27,14 @@ class InasistenciasController extends AppController {
 
 
 	public function index() {
-		
 		$this->Inasistencia->recursive = 1;
 		$cicloIdActual = $this->getLastCicloId();
+		
 		$this->paginate['Inasistencia']['limit'] = 8;
 		$this->paginate['Inasistencia']['order'] = array('Inasistencia.created' => 'DESC');
 		$this->paginate['Inasistencia']['conditions'] = array('Inasistencia.ciclo_id' => $cicloIdActual);
-		
-		$this->set('inasistencias', $this->paginate());
 		$alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC'));
+		
 		$this->redirectToNamed();
 		$conditions = array();
 		
@@ -66,7 +65,6 @@ class InasistenciasController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('inasistencia', $this->Inasistencia->read(null, $id));
-				
 	}
 
 	public function add() {
@@ -79,7 +77,7 @@ class InasistenciasController extends AppController {
             $this->Inasistencia->create();
             
             //Antes de guardar genera el nombre del agente
-			$this->request->data['Inscripcion']['empleado_id'] = $this->Auth->user('empleado_id');
+			$this->request->data['Inasistencia']['empleado_id'] = $this->Auth->user('empleado_id');
 
             if(empty($this->data['Inasistencia']['certificacion']['name'])){
                unset($this->request->data['Inasistencia']['certificacion']);

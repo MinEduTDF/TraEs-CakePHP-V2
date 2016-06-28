@@ -1,13 +1,13 @@
 <?php echo $this->Form->create('MesaExamen',array('type'=>'get','action'=>'index', 'novalidate' => true));?>
 <div class="form-group">
     <?php   
-        echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
+        echo $this->Form->input('ciclo_id', array('label' => false, 'empty' => 'Ingrese un ciclo...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
     <br>
 	<?php
-	    echo $this->Form->input('titulacion_id', array('label'=>'Titulación*', 'empty' => 'Ingrese una titulación...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
+	    echo $this->Form->input('titulacion_id', array('label'=>false, 'empty' => 'Ingrese una titulación...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
     <br>
     <?php
-	    echo $this->Form->input('materia_id', array('label'=>'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
+	    echo $this->Form->input('materia_id', array('label'=>false, 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción')); ?>
     <br>
 	<?php 
  	    $turnos = array('Marzo' => 'Marzo', 'Julio'=>'Julio', 'Diciembre'=>'Diciembre');

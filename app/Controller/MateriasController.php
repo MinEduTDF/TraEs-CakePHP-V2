@@ -2,9 +2,9 @@
 class MateriasController extends AppController {
 
 	var $name = 'Materias';
-    var $helpers = array('Session');
+    public $helpers = array('Session');
 	public $components = array('Auth','Session', 'RequestHandler');
-	var $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.alia DESC'));
+	public $paginate = array('Materia' => array('limit' => 6, 'order' => 'Materia.alia DESC'));
 
     public function sanitize($string, $force_lowercase = true, $anal = false) {
     $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]","}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;","â€", "â€", ",", "<",">", "/", "?");
@@ -18,10 +18,11 @@ class MateriasController extends AppController {
         $clean;
     }
 
-	function index() {
-		$this->Materia->recursive = 0;
-		$this->set('materias', $this->paginate());
-        $cursos = $this->Materia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso')));
+	public function index() {
+		$this->Materia->recursive = 1;
+		
+		$this->paginate['Materia']['limit'] = 6;
+		$this->paginate['Materia']['order'] = $this->Materia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso'), 'order'=>'Curso.anio ASC'));
 		$this->redirectToNamed();
 		$conditions = array();
 		
@@ -34,7 +35,7 @@ class MateriasController extends AppController {
 		$this->set(compact('materias', 'cursos'));
 	}
 
-	function view($id = null) {
+	public function view($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Materia no valida.'));
 			$this->redirect(array('action' => 'index'));
@@ -63,7 +64,7 @@ class MateriasController extends AppController {
         }
     }
 	
-	function edit($id = null) {
+	public function edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Materia no valida.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action' => 'index'));
@@ -89,7 +90,7 @@ class MateriasController extends AppController {
 	}
    
 
-	function delete($id = null) {
+	public function delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash('Id no valido para materia.', 'default', array('class' => 'alert alert-warning'));
 			$this->redirect(array('action'=>'index'));

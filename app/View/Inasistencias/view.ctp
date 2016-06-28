@@ -8,22 +8,29 @@
 	        <div class="unit">
  		        <div class="row perfil">
   	            <!--<h3>Datos del Alumno</h3>-->
-                    <div class="col-md-4 col-sm-6 col-xs-8">	
-                      <b>Ciclo:</b>		
-                         <?php echo ($this->Html->link($inasistencia['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['Ciclo']['nombre']))); ?></p>
+                <div class="col-md-6 col-sm-6 col-xs-8">	
+                    <b>Ciclo:</b>		
+                        <?php echo ($this->Html->link($inasistencia['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['Ciclo']['nombre']))); ?></p>
                       <b>Fecha:</b>		
                          <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['created'])); ?></p>
-                      <b>Ciclo:</b>		
+                      <b>Alumno:</b>		
                          <?php echo ($this->Html->link($inasistencia['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $inasistencia['Alumno']['id']))); ?></p>
-                      <b>Tipo:</b>		
-                         <?php echo ($inasistencia['Inasistencia']['tipo']); ?></p>
-                      <b>Justificada:</b>		
-                         <?php echo ($inasistencia['Inasistencia']['justificado']); ?></p>
-                      <b>Causa:</b>		
-                         <?php echo ($inasistencia['Inasistencia']['causa']); ?></p>
-                      <b>Observaciones:</b>		
-                         <?php echo ($inasistencia['Inasistencia']['observaciones']); ?></p>   
+                      <b>Agente:</b>    
+                         <?php echo ($this->Html->link($inasistencia['Empleado']['nombre_completo_empleado'], array('controller' => 'empleados', 'action' => 'view', $inasistencia['Empleado']['id']))); ?></p>   
+                 </div>
+                 <div class="row perfil">
+                 <!--<h3>Datos de la Inasistencia</h3>-->
+                    <div class="col-md-6 col-sm-6 col-xs-8">
+                        <b>Tipo:</b>   
+                           <?php echo ($inasistencia['Inasistencia']['tipo']); ?></p>
+                        <b>Justificada:</b>   
+                           <?php echo ($inasistencia['Inasistencia']['justificado']); ?></p>
+                        <b>Causa:</b>   
+                           <?php echo ($inasistencia['Inasistencia']['causa']); ?></p>
+                        <b>Observaciones:</b>   
+                           <?php echo ($inasistencia['Inasistencia']['observaciones']); ?></p>
                     </div>
+                 </div>   
 		        </div>
 	        </div>
         </div>

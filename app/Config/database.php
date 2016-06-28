@@ -9,8 +9,8 @@ class DATABASE_CONFIG {
 		'password' => '',
 		//'database' => 'traes',
 		//'database' => 'traes_cpla',
-		//'database' => 'traes_cens302',
-		'database' => 'traes_ipes',
+		'database' => 'traes_cens302',
+		//'database' => 'traes_ipes',
 		'encoding' =>'utf8', 
 		'prefix' => ''	
 	);
