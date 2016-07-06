@@ -71,21 +71,22 @@ class Nota extends AppModel {
                          'required' => 'create',
                          'message' => 'Indicar una calificación.'
                          ),
-						 /*'range' => array(
+						 'range' => array(
 						 'rule'    => array('range', -1, 11),
 						 'allowEmpty' => false,
 						 'message' => 'Indicar un nº entre 0 y 10.'
 						 ),
 						 'numeric' => array(
-						 'rule' => array('decimal',2), 
+						 'rule' => array('decimal', 2), 
 						 'allowEmpty' => false,       
 						 'message' => 'Indicar un nº con dos decimales.'
-						 )*/
+						 )
+						 /*
 						 'maxlength' => array(
 						 'rule' => array('maxlength',2), 
 						 'allowEmpty' => false,       
 						 'message' => 'Indicar una letra.'
-						 )
+						 )*/
 				   ),
 				   'nota_dos_primer_periodo' => array(
                          'range' => array(
@@ -94,10 +95,9 @@ class Nota extends AppModel {
 						 'message' => 'Indicar un nº entre 0 y 10.'
                          ),
 						 'numeric' => array(
-                         'rule' => array('decimal',2), 
+                         'rule' => array('decimal', 2), 
                          'allowEmpty' => true,       
-                         'allowEmpty' => true,
-						 'message' => 'Indicar un nº con dos decimales.'
+                         'message' => 'Indicar un nº con dos decimales.'
                          )
    				         /*'maxlength' => array(
 						 'rule' => array('maxlength',2), 
@@ -112,10 +112,9 @@ class Nota extends AppModel {
 						 'message' => 'Indicar un nº entre 0 y 10.'
                          ),
 						 'numeric' => array(
-                         'rule' => array('decimal',2), 
+                         'rule' => array('decimal', 2), 
                          'allowEmpty' => true,       
-                         'allowEmpty' => true,
-						 'message' => 'Indicar un nº con dos decimales.'
+                         'message' => 'Indicar un nº con dos decimales.'
                          )
    				         /*'maxlength' => array(
 						 'rule' => array('maxlength',2), 

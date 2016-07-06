@@ -396,7 +396,10 @@ ul.pagination li.active {
     background-color: #fff; 
     border: 1px solid #ddd;
 }
+/********************************/
 
+
+/******** ÍCONOS EN IMÁGENES ***********/
 span.checked{
     background:transparent url(../css_images/checked.png) no-repeat top left;
     position:absolute;
@@ -412,4 +415,14 @@ span.error{
     left:1px;
     width:20px;
     height:20px;
+}
+/********************************/
+
+
+/******** LABELS CON ESTADOS ***********/
+span.label.label-danger {
+	font-size: 18px;
+}
+span.label.label-success {
+	font-size: 18px;
 }

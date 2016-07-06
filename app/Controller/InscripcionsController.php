@@ -66,24 +66,31 @@ class InscripcionsController extends AppController {
 			$alumnosDoc = $this->Inscripcion->Alumno->findById($alumnoId, 'documento_nro');
             $alumnoDoc = $alumnosDoc['Alumno']['documento_nro'];
 			//Genera el nro de legajo y se deja en los datos que se intentaran guardar
-			$this->request->data['Inscripcion']['legajo_nro'] = $this->__getCodigo($ciclo, $alumnoDoc);
+			$codigoActual = $this->__getCodigo($ciclo, $alumnoDoc);
 			
-			//Antes de guardar genera el estado de la inscripción
-			if($this->request->data['Inscripcion']['fotocopia_dni'] == true && $this->request->data['Inscripcion']['certificado_septimo'] == true && $this->request->data['Inscripcion']['certificado_laboral'] == true){
-			   $estado = true;	
+			//Comprueba que ese legajo no exista.
+			$codigoLista = $this->Inscripcion->find('list', array('fields'=>array('id','legajo_nro'), 'conditions'=>array('Inscripcion.legajo_nro'==$codigoActual)));
+            if($codigoLista){ 
+                $this->Session->setFlash('El alumno ya está inscripto en este ciclo.', 'default', array('class' => 'alert alert-danger'));
 			}else{
-			   $estado = false;
-			}
+				$this->request->data['Inscripcion']['legajo_nro'] = $this->__getCodigo($ciclo, $alumnoDoc);
+			//Antes de guardar genera el estado de la inscripción
+			    if($this->request->data['Inscripcion']['fotocopia_dni'] == true && $this->request->data['Inscripcion']['certificado_septimo'] == true && $this->request->data['Inscripcion']['certificado_laboral'] == true){
+			        $estado = true;	
+			    }else{
+			        $estado = false;
+			    }
 			//Genera el estado y se deja en los datos que se intentaran guardar
-			$this->request->data['Inscripcion']['estado'] = $estado;
+			    $this->request->data['Inscripcion']['estado'] = $estado;
 			
-			if ($this->Inscripcion->save($this->data)) {
-				$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				$inserted_id = $this->Inscripcion->id;
-				$this->redirect(array('action' => 'view', $inserted_id));
-			} else {
-				$this->Session->setFlash('La inscripcion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
-			}
+				if ($this->Inscripcion->save($this->data)) {
+					$this->Session->setFlash('La inscripcion ha sido grabada.', 'default', array('class' => 'alert alert-success'));
+					$inserted_id = $this->Inscripcion->id;
+					$this->redirect(array('action' => 'view', $inserted_id));
+				} else {
+					$this->Session->setFlash('La inscripcion no fue grabada. Intente nuevamente.', 'default', array('class' => 'alert alert-danger'));
+				}
+			}	
 		}
 	}
 
@@ -97,7 +104,7 @@ class InscripcionsController extends AppController {
             if(isset($this->params['data']['cancel'])){
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
-		  }
+		    }
 			
 			//Antes de guardar genera el estado de la inscripción
 			if($this->request->data['Inscripcion']['fotocopia_dni'] == true && $this->request->data['Inscripcion']['certificado_septimo'] == true && $this->request->data['Inscripcion']['certificado_laboral'] == true){

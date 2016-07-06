@@ -56,9 +56,17 @@ class NotasController extends AppController {
 		  }
 		  if (!empty($this->data)) {
 			$this->Nota->create();
-			if ($this->Nota->save($this->data)) {
+		
+          //Antes de guardar calcula el promedio del primer período.
+            $notaUnoPrimero = $this->request->data['Nota']['nota_uno_primer_periodo'];
+            $notaDosPrimero = $this->request->data['Nota']['nota_dos_primer_periodo'];
+            $notaTresPrimero = $this->request->data['Nota']['nota_tres_primer_periodo'];
+            $promedio_primero = $this->__getPromedio($notaUnoPrimero, $notaDosPrimero, $notaTresPrimero);  
+            //Genera el promedio del primer período y se deja en los datos que se intentaran guardar
+			    $this->request->data['Nota']['promedio_primer_periodo'] = $promedio_primero;
+
+            if ($this->Nota->save($this->data)) {
 				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
-				//$this->redirect(array('action' => 'index'));
 				$inserted_id = $this->Nota->id;
 				$this->redirect(array('action' => 'view', $inserted_id));
 			} else {
@@ -78,6 +86,15 @@ class NotasController extends AppController {
                 $this->Session->setFlash('Los cambios no fueron guardados. Edición cancelada.', 'default', array('class' => 'alert alert-warning'));
                 $this->redirect( array( 'action' => 'index' ));
 		  }
+			
+			//Antes de guardar calcula el promedio del primer período.
+            $notaUnoPrimero = $this->request->data['Nota']['nota_uno_primer_periodo'];
+            $notaDosPrimero = $this->request->data['Nota']['nota_dos_primer_periodo'];
+            $notaTresPrimero = $this->request->data['Nota']['nota_tres_primer_periodo'];
+            $promedio_primero = $this->__getPromedio($notaUnoPrimero, $notaDosPrimero, $notaTresPrimero);  
+            //Genera el promedio del primer período y se deja en los datos que se intentaran guardar
+			    $this->request->data['Nota']['promedio_primer_periodo'] = $promedio_primero;
+
 			if ($this->Nota->save($this->data)) {
 				$this->Session->setFlash('La calificación ha sido grabada.', 'default', array('class' => 'alert alert-success'));
 				//$this->redirect(array('action' => 'index'));
@@ -109,11 +126,30 @@ class NotasController extends AppController {
 	//Métodos privados.
 
 	private function __lists(){
-		$alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC'));
+		$cicloIdActual = $this->getLastCicloId();
+        $cicloInscripcionAlumnoId = $this->getLastCicloInscripcionAlumnoId($cicloIdActual);
+        $alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC', 'conditions'=>array('Alumno.id'=>$cicloInscripcionAlumnoId)));
 		$materias = $this->Nota->Materia->find('list', array('fields'=>array(), 'order'=>'Materia.curso_id ASC'));
 		$ciclos = $this->Nota->Ciclo->find('list');
-		$cicloIdActual = $this->getLastCicloId();
 		$this->set(compact('alumnos', 'materias', 'ciclos', 'cicloIdActual'));
+	}
+
+	/**
+	* Devuelve el promedio de tres notas.  
+	*/
+	private function __getPromedio($nota1, $nota2, $nota3)
+	{
+	    if(!$nota1 && !$nota2 && !$nota3){
+          $promedio = 0; 
+	    }
+	    else if($nota1 && !$nota2 && !$nota3){
+          $promedio = round($nota1);
+	    }else if($nota1 && $nota2 && !$nota3){
+          $promedio = round(($nota1 + $nota2)/2);  
+	    }else if($nota1 && $nota2 && $nota3){ 
+	      $promedio = round(($nota1 + $nota2 + $nota3)/3);	
+	    }
+	    return $promedio;
 	}
 }
 ?>

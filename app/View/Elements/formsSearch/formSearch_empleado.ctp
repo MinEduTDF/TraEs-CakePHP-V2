@@ -1,9 +1,9 @@
 <?php echo $this->Form->create('Empleado',array('type'=>'get','action'=>'index', 'novalidate' => true));?>
 <div class="form-group">
-   <?php echo $this->Form->input('documento_nro' , array('label' => false, 'class' => 'form-control', 'Placeholder' => 'Ingrese Nº de documento...'));	?>
+    <?php echo $this->Form->input('documento_nro' , array('label' => false, 'class' => 'form-control', 'Placeholder' => 'Ingrese Nº de documento...'));	?>
 </div>
 <div class="text-center">
-         <span class="link"><?php echo $this->Form->submit('BUSCAR', array('class' => 'btn btn-primary', 'escape' => false));?>
-         </span>;
-         <?php echo $this->Form->end(); ?>
+    <span class="link"><?php echo $this->Form->button('<span class="glyphicon glyphicon-search"></span> BUSCAR', array('class' => 'submit', 'class' => 'btn btn-primary')); ?>
+    </span>
+    <?php echo $this->Form->end(); ?>
 </div>	

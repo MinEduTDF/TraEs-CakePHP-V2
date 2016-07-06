@@ -74,7 +74,6 @@ class AppController extends Controller {
 		return false;
 	}
 	
-	
 	/**
 	* Devuelve el Id del último Ciclo cargado.  
 	*/
@@ -83,5 +82,15 @@ class AppController extends Controller {
 	    $this->loadModel('Ciclo');
 		$MaxCicloId = $this->Ciclo->find('first', array('order'=>'Ciclo.id DESC'));
 	    return $MaxCicloId['Ciclo']['id'];
+	}
+
+	/**
+	* Devuelve los alumnos inscriptos en el ciclo actual.  
+	*/
+	function getLastCicloInscripcionAlumnoId($cicloIdActual)
+	{
+	    $this->loadModel('Inscripcion');
+		$CicloInscripcionAlumnoId = $this->Inscripcion->find('list', array('fields'=>array('Inscripcion.alumno_id'), 'conditions'=>array('Inscripcion.ciclo_id'=>$cicloIdActual)));
+	    return $CicloInscripcionAlumnoId;
 	}
 }

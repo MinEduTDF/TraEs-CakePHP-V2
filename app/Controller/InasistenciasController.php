@@ -142,10 +142,11 @@ class InasistenciasController extends AppController {
 	private function __lists(){
 	    $ciclos = $this->Inasistencia->Ciclo->find('list');
         $cicloIdActual = $this->getLastCicloId();
+        $cicloInscripcionAlumnoId = $this->getLastCicloInscripcionAlumnoId($cicloIdActual);
         $this->loadModel('Empleado');
         $empleados = $this->Inasistencia->Empleado->find('list', array('fields'=>array('id', 'nombre_completo_empleado'), 'conditions'=>array('id'== 'empleadoId')));
         $cursos = $this->Inasistencia->Curso->find('list', array('fields'=>array('id', 'nombre_completo_curso'), 'order'=>'Curso.anio ASC'));
-        $alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos'));
+        $alumnos = $this->Inasistencia->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC', 'conditions'=>array('Alumno.id'=>$cicloInscripcionAlumnoId)));
         $materias = $this->Inasistencia->Materia->find('list', array('fields'=>array('id', 'alia'), 'order'=>'Materia.curso_id ASC'));
         $this->set(compact('empleados', 'ciclos', 'cicloIdActual', 'cursos', 'alumnos', 'materias'));
 	}
