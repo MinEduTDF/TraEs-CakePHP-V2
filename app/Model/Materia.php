@@ -84,6 +84,21 @@ class Materia extends AppModel {
 			'finderQuery' => '',
 			'deleteQuery' => '',
 			'insertQuery' => ''
+		),
+		'Correlativa' => array(
+			'className' => 'Correlativa',
+			'joinTable' => 'correlativas_materias',
+			'foreignKey' => 'materia_id',
+			'associationForeignKey' => 'correlativa_id',
+			'unique' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+			'deleteQuery' => '',
+			'insertQuery' => ''
 		)
 	);
 
@@ -121,6 +136,13 @@ class Materia extends AppModel {
 						   'rule' => 'notBlank',
 						   'required' => 'create',
                            'message' => 'Indicar un campo de formación.'
+                           )
+                   ),
+                   'formato' => array(
+                           'required' => array(
+						   'rule' => 'notBlank',
+						   'required' => 'create',
+                           'message' => 'Indicar un formato.'
                            )
                    ),
                    'dictado' => array(

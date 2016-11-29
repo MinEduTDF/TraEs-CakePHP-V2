@@ -36,6 +36,11 @@ class CursosController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('curso', $this->Curso->read(null, $id));
+		//genera nombres para datos relacionados.
+		$inscripcionAlumnoId = $this->Curso->Inscripcion->find('list', array('fields'=>array('alumno_id')));
+		$this->loadModel('Alumno');
+		$alumnoNombre = $this->Alumno->find('list', array('fields'=>array('nombre_completo_alumno'), 'conditions'=>array('id'=>$inscripcionAlumnoId)));
+		$this->set(compact('alumnoNombre'));
 	}
 
 	function add() {

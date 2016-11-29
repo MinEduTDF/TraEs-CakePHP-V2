@@ -16,10 +16,10 @@
                         <b><?php echo __('Alumno:'); ?></b>
                         <?php echo ($this->Html->link($inscripcion['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['Alumno']['id']))); ?></p>                      
                         <b><?php echo __('Estado:'); ?></b>
-                        <?php if($inscripcion['Inscripcion']['estado'] == true){; ?>
-						       <span class="label label-success"><?php echo 'COMPLETO'; ?></span>
+                        <?php if($inscripcion['Inscripcion']['estado'] == "COMPLETO"){; ?>
+						       <span class="label label-success"><?php echo $inscripcion['Inscripcion']['estado']; ?></span>
 						<?php } else{; ?>
-							   <span class="label label-danger"><?php echo 'PENDIENTE'; ?></span>
+							   <span class="label label-danger"><?php echo $inscripcion['Inscripcion']['estado']; ?></span>
 						<?php } ?>
                         </p>
                     </div>
@@ -124,7 +124,7 @@
      </div>
 <!-- end main -->
 <!-- Cursos Relacionados -->
-<div id="click_01" class="titulo_acordeon">Cursos Relacionadas <span class="caret"</span></div>
+<div id="click_01" class="titulo_acordeon">Secciones Relacionadas <span class="caret"</span></div>
 <div id="acordeon_01">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Curso'])):?>
@@ -153,7 +153,7 @@
 </div>
 <!-- end Cursos Relacionados -->
 <!-- Materias Relacionados -->
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"</span></div>
+<div id="click_02" class="titulo_acordeon">Espacios Relacionados <span class="caret"</span></div>
 <div id="acordeon_02">
 		<div class="row">
 	        <?php if (!empty($inscripcion['Materia'])):?>
@@ -164,11 +164,9 @@
                     <div class="swiper-slide">
                         <div class="col-md-12">
                             <div class="unit" >
+                                <?php echo '<b>Nombre:</b> '.$materia['nombre'];?><br>
                                 <?php echo '<b>Alia:</b> '.$materia['alia'];?><br>
                                 <?php echo '<b>Carga horaria:</b> '.$materia['carga_horaria_semanal'].' '.$materia['carga_horaria_en'];?><br>
-                                <!--<?php echo '<b>Contenido:</b> '.$materia['contenido'];?><br>
-                                <?php echo '<b>Curso Id:</b> '.($this->Html->link($materia['curso_id'], array('controller' => 'cursos', 'action' => 'view', $materia['curso_id'])));?><br>-->
-                    
                                 <div class="text-right">
                                 <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'materias', 'action' => 'edit', $materia['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
                                 <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'materias', 'action' => 'view', $materia['id']), array('class' => 'btn btn-success','escape' => false)); ?>

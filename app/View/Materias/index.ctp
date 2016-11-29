@@ -1,5 +1,5 @@
 <!-- start main -->
-<div class="TituloSec">Materias</div>
+<div class="TituloSec">Espacios</div>
 <div id="ContenidoSec">
     <div id="main">
     <!-- start second nav -->

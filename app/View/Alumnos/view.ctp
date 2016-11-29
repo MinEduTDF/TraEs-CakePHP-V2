@@ -208,52 +208,39 @@
 </div>
 <!-- end Inasistencias Relacionadas -->
 <!-- Calificaciones Relacionadas -->
-	<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas <span class="caret"></span></div>
-	<div id="acordeon_05">
-		<div class="row">
+<div id="click_05" class="titulo_acordeon">Calificaciones Relacionadas 
+	<span class="caret"></span>
+</div>
+<div id="acordeon_05">
+	<div class="row">
 		<?php if (!empty($alumno['Nota'])):?>
-
   	<!-- Swiper -->
-    <div class="swiper-container" style="height: 200px;">
-        <div class="swiper-wrapper" >
-	<?php foreach ($alumno['Nota'] as $nota): ?>
-
-	<div class="swiper-slide">
-	<div class="col-md-6">
-		<div class="unit">
-			<!--<?php echo '<b>Ciclo Id:</b> '.($this->Html->link($nota['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $nota['ciclo_id'])));?><br>-->
-			<?php echo '<b>Materia Id:</b> '. ($this->Html->link($nota['materia_id'], array('controller' => 'materias', 'action' => 'view', $nota['materia_id'])));?><br>
-			<?php echo '<b>Promedio primer período:</b> '.$nota['promedio_primer_periodo'];?><br>
-            <?php echo '<b>Promedio segundo período:</b> '.$nota['promedio_segundo_periodo'];?><br>
-            <?php echo '<b>Promedio tercer período:</b> '.$nota['promedio_tercer_periodo'];?><br>
-
-            <?php echo '<b>Promedio a término:</b> '.$nota['promedio_a_termino'];?><br>
-			<!--<?php echo '<b>Nota en diciembre:</b> '.$nota['nota_en_diciembre'];?><br>
-			<?php echo '<b>Nota en marzo:</b> '.$nota['nota_en_marzo'];?><br>-->
-			<?php echo '<b>Promedio final:</b> '.$nota['promedio_final'];?><br>
-			<!--<?php echo '<b>Observaciones:</b> '.$nota['observaciones'];?><br>-->
-
-
-            <div class="text-right">
-            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-warning','escape' => false )); ?>
-			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success','escape' => false)); ?>
-			<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('controller' => 'notas', 'action' => 'delete', $nota['id']), array('class' => 'btn btn-danger','escape' => false )); ?>
+	    <div class="swiper-container" style="height: 200px;">
+    	    <div class="swiper-wrapper" >
+				<?php foreach ($alumno['Nota'] as $nota): ?>
+				<div class="swiper-slide">
+					<div class="col-md-6">
+						<div class="unit">
+							<?php echo '<b>Ciclo:</b> '. ($this->Html->link($cicloNombre[$nota['ciclo_id']], array('controller' => 'ciclos', 'action' => 'view', $nota['ciclo_id'])));?><br>
+							<?php echo '<b>Espacio:</b> '. ($this->Html->link($materiaAlia[$nota['materia_id']], array('controller' => 'materias', 'action' => 'view', $nota['materia_id'])));?><br>
+							<?php echo '<b>Estado:</b>'?> <?php if($nota['estado'] == "En curso"){; ?><span class="label label-default"><?php echo $nota['estado']; ?></span><?php } else if($nota['estado'] == "Abandonada"){; ?><span class="label label-info"><?php echo $nota['estado']; ?></span><?php } else if($nota['estado'] == "Regularizada"){; ?><span class="label label-warning"><?php echo $nota['estado']; ?><?php } else if($nota['estado'] == "Desaprobada"){; ?><span class="label label-danger"><?php echo $nota['estado']; }?></span></br>		
+				            <div class="text-right">
+				            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'notas', 'action' => 'edit', $nota['id']), array('class' => 'btn btn-warning','escape' => false )); ?>
+							<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'notas', 'action' => 'view', $nota['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+							<?php echo $this->Html->link(__('<i class="glyphicon glyphicon-trash"></i>'), array('controller' => 'notas', 'action' => 'delete', $nota['id']), array('class' => 'btn btn-danger','escape' => false )); ?>
+				        </div>
+			        </div>
+	            </div>
             </div>
-		</div>
-	</div>
-</div>
-		
 		<?php endforeach; ?>
-			</div>
-			        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
+	</div>
+	<!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
     <!-- Include plugin after Swiper -->
-		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
-		<?php endif; ?>
-
-        </div>
-</div>
+	<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+	<?php endif; ?>
+    </div>
+  </div>
 <!-- end Calificaciones Relacionadas -->
 </div>
     <!-- Initialize Swiper -->

@@ -11,8 +11,9 @@
                           <b>Alumno:</b> <?php echo ($this->Html->link($nota['Alumno']['nombre_completo_alumno'], array('controller' => 'alumnos', 'action' => 'view', $nota['Alumno']['id']))); ?></p>
                           <!--<b>Curso:</b>		
                           <?php echo ($this->Html->link($nota['Curso']['nombre_completo_curso'], array('controller' => 'materias', 'action' => 'view', $nota['Curso']['id']))); ?></p>-->
-                          <b>Materia:</b> <?php echo ($this->Html->link($nota['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $nota['Materia']['id']))); ?></p>
+                          <b>Espacio:</b> <?php echo ($this->Html->link($nota['Materia']['alia'], array('controller' => 'materias', 'action' => 'view', $nota['Materia']['id']))); ?></p>
                            <b>Ciclo:</b> <?php echo ($this->Html->link($nota['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $nota['Ciclo']['id']))); ?></p>
+                           <b>Estado:</b> <?php if($nota['Nota']['estado'] == "En curso"){; ?><span class="label label-default"><?php echo $nota['Nota']['estado']; ?></span><?php } else if($nota['Nota']['estado'] == "Abandonada"){; ?><span class="label label-info"><?php echo $nota['Nota']['estado']; ?></span><?php } else if($nota['Nota']['estado'] == "Regularizada"){; ?><span class="label label-warning"><?php echo $nota['Nota']['estado']; ?><?php } else if($nota['Nota']['estado'] == "Desaprobada"){; ?><span class="label label-danger"><?php echo $nota['Nota']['estado']; }?></span></br> 
                      </div>
                <!--<h3>Datos primer período</h3>-->
               <div class="col-md-4 col-sm-4 col-xs-12">

@@ -9,13 +9,13 @@
 	   <div class="unit"><strong><h3>Datos Generales</h3></strong><hr />
 			<?php
                 echo $this->Form->input('curso_id', array('label' => 'Curso*', 'empty' => 'Ingrese un curso...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-                $nombres = array('Matematica de primero' => 'Matematica de primero', 'Matematica de segundo' => 'Matematica de segundo',
+                /*$nombres = array('Matematica de primero' => 'Matematica de primero', 'Matematica de segundo' => 'Matematica de segundo',
                                  'Matematica de tercero' => 'Matematica de tercero', 'Lengua de primero' => 'Lengua de primero', 
                                  'Lengua de segundo' => 'Lengua de segundo', 'Lengua de tercero' => 'Lengua de tercero',
                                  'Historia de primero' => 'Historia de primero', 'Historia de segundo' => 'Historia de segundo',
-                                 'Historia de tercero' => 'Historia de tercero');
-                echo $this->Form->input('nombre', array('label' => 'Nombre', 'empty' => 'Ingrese un nombre...', 'options' => $nombres, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción.'));
-                $alias = array( 'MATEMÁTICA' => array(
+                                 'Historia de tercero' => 'Historia de tercero');*/
+                echo $this->Form->input('nombre', array('label' => 'Nombre', 'empty' => 'Ingrese un nombre...',/* 'options' => $nombres,*/ 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción.'));
+                /*$alias = array( 'MATEMÁTICA' => array(
                                'MAT1_1' => 'MAT1_1', 'MAT1_2' => 'MAT1_2', 'MAT1_3' => 'MAT1_3', 'MAT1_4' => 'MAT1_4',
                                'MAT2_1' => 'MAT2_1', 'MAT2_2' => 'MAT2_2', 'MAT2_3' => 'MAT2_3', 'MAT2_4' => 'MAT2_4',
                                'MAT3_1' => 'MAT3_1', 'MAT3_2' => 'MAT3_2', 'MAT3_3' => 'MAT3_3', 'MAT3_4' => 'MAT3_4'
@@ -30,11 +30,13 @@
                                'HIS2_1' => 'HIS2_1', 'HIS2_2' => 'HIS2_2', 'HIS2_3' => 'HIS2_3','HIS2_4' => 'HIS2_4',
                                'HIS3_1' => 'HIS3_1', 'HIS3_2' => 'HIS3_2', 'HIS3_3' => 'HIS3_3','HIS3_4' => 'HIS3_4'
                               )
-                        );          
-                echo $this->Form->input('alia', array('label' => 'Alia', 'empty' => 'Ingrese un alia...', 'options' => $alias, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+                        );*/          
+                echo $this->Form->input('alia', array('label' => 'Alia', 'empty' => 'Ingrese un alia...',/* 'options' => $alias,*/ 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
                 $formaciones = array('Cs Naturales' => 'Cs Naturales', 'Cs Sociales' =>'Cs Sociales', 'Cs Exactas' =>'Cs Exactas',
                                      'Lengua' =>'Lengua');
                 echo $this->Form->input('campo_formacion', array('label' => 'Campo de formación', 'empty' => 'Ingrese un campo de formación...', 'options' => $formaciones, 'between' => '<br>', 'class' =>  'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el nombre del campo de formación', 'placeholder' => 'Campo de formación'));
+                $formatos = array('Asignatura' => 'Asignatura', 'Seminario' =>'Seminario', 'Taller' =>'Taller');
+                echo $this->Form->input('formato', array('label' => 'Formato', 'empty' => 'Ingrese un formato...', 'options' => $formatos, 'between' => '<br>', 'class' =>  'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca el nombre del formato', 'placeholder' => 'Formato'));
                 $tipos_dictado = array('Presencial' => 'Presencial', 'A Distancia - Semipresencial' => 'A Distancia - Semipresencial',
                                        'A Distancia - Asistida' => 'A Distancia - Asistida', 'A Distancia - Abierta' => 'A Distancia - Abierta',
                                        'A Distancia - Virtual' => 'A Distancia - Virtual');
@@ -52,7 +54,7 @@
 				$tipos_carga_horaria = array('Hora Cátedra' => 'Hora Cátedra', 'Hora Reloj' => 'Hora Reloj');
 				echo $this->Form->input('carga_horaria_en', array('label' => 'Carga horaria en', 'empty' => 'Ingrese una carga horaria...', 'options' => $tipos_carga_horaria, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
 				echo $this->Form->input('carga_horaria_semanal', array('label' => 'Carga horaria semanal', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Ingrese un número', 'Placeholder' => 'Ingrese la carga horaria...'));
-				$tipos_duracion_en = array('Años' => 'Años', 'Cuatrimestres' => 'Cuatrimestres');
+				$tipos_duracion_en = array('Años' => 'Años', 'Cuatrimestres' => 'Cuatrimestres', 'Semestres' => 'Semestres');
 				echo $this->Form->input('duracion_en', array('label' => 'Duración en', 'empty' => 'Ingrese una duración...', 'options' => $tipos_duracion_en, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
 				echo $this->Form->input('duracion', array('label' => 'Duración', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Introduzca una número', 'Placeholder' => 'Ingrese una duración...'));
 				$tipos_escala_numerica = array('Si' => 'Si', 'No' => 'No');

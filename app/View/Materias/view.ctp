@@ -1,7 +1,7 @@
 <?php echo $this->Html->script(array('acordeon', 'slider')); ?>
 <?php echo $this->Html->css('slider'); ?>
 <!-- start main -->
-<div class="TituloSec">Materia: <?php echo ($materia['Materia']['alia']); ?></div>
+<div class="TituloSec">Espacio: <?php echo ($materia['Materia']['alia']); ?></div>
 <div id="ContenidoSec">
 
 <div class="row">
@@ -14,11 +14,14 @@
 			<b><?php echo __('Nombre:'); ?></b>
 			<?php echo ($materia['Materia']['nombre']); ?></p>
 
-            <b><?php echo __('Curso:'); ?></b>
+            <b><?php echo __('Sección:'); ?></b>
 			<?php echo ($this->Html->link($materia['Curso']['nombre_completo_curso'], array('controller' => 'cursos', 'action' => 'view', $materia['Curso']['id']))); ?></p>
 
             <b><?php echo __('Campo de formación:'); ?></b>
 			<?php echo ($materia['Materia']['campo_formacion']); ?></p>
+
+			<b><?php echo __('Formato:'); ?></b>
+			<?php echo ($materia['Materia']['formato']); ?></p>
 
 			<b><?php echo __('Obligatoriedad:'); ?></b>
 			<?php echo ($materia['Materia']['obligatoriedad']); ?></p>
@@ -124,7 +127,7 @@
        <thead>
 		<tr>
 			<th><?php echo $this->Paginator->sort('ciclo_id', 'Ciclo');?></th>
-            <th><?php echo $this->Paginator->sort('materia_id', 'Materia');?></th>
+            <th><?php echo $this->Paginator->sort('materia_id', 'Espacio');?></th>
             <th><?php echo $this->Paginator->sort('dia', 'Día');?></th>
 			<th><?php echo $this->Paginator->sort('horaInicio', 'Inicio');?></th>
 			<th><?php echo $this->Paginator->sort('horaFin', 'Finaliza');?></th>
@@ -137,8 +140,8 @@
 		<?php $count ++;?>
 		<?php if($count % 2): echo '<tr>'; else: echo '<tr class="zebra">' ?>
 		<?php endif; ?>
-			<td style="text-align: center;"><?php echo ($this->Html->link($horario['ciclo_id'], array('controller' => 'ciclos', 'action' => 'view', $horario['ciclo_id']))); ?></td>
-            <td style="text-align: center;"><?php echo ($this->Html->link($horario['materia_id'], array('controller' => 'materias', 'action' => 'view', $horario['materia_id']))); ?></td>
+			<td style="text-align: center;"><?php echo ($this->Html->link($cicloNombre[$horario['ciclo_id']], array('controller' => 'ciclos', 'action' => 'view', $horario['ciclo_id']))); ?></td>
+            <td style="text-align: center;"><?php echo ($this->Html->link($materiaAlia[$horario['materia_id']], array('controller' => 'materias', 'action' => 'view', $horario['materia_id']))); ?></td>
             <td style="text-align: center;"><?php echo $horario['dia']; ?></td>
 			<td style="text-align: center;"><?php echo $horario['horaInicio']; ?></td>
             <td style="text-align: center;"><?php echo $horario['horaFin']; ?></td>
@@ -169,7 +172,7 @@
 	<div class="col-md-6">
 		<div class="unit">
 			<?php echo '<b>Legajo:</b> '.$this->Html->link($inscripcion['legajo_nro'], array('controller' => 'inscripcions', 'action' => 'view', $inscripcion['id']));?><br>
-			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($inscripcion['alumno_id'], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>
+			<?php echo '<b>Alumno_Id:</b> '.($this->Html->link($alumnoNombre[$inscripcion['alumno_id']], array('controller' => 'alumnos', 'action' => 'view', $inscripcion['alumno_id'])));?><br>
             <?php echo '<b>Fecha_alta:</b> '.($this->Html->formatTime($inscripcion['fecha_alta']));?><br>
 			<?php echo '<b>Fecha_baja:</b> '.($this->Html->formatTime($inscripcion['fecha_baja']));?><br>
             <?php echo '<b>Fecha_egreso:</b> '.($this->Html->formatTime($inscripcion['fecha_egreso']));?><br>
@@ -195,6 +198,43 @@
         </div>
 </div>
 <!-- end Inscripciones Relacionados -->
+
+<!-- Correlativas Relacionadas -->
+<div id="click_03" class="titulo_acordeon">Correlativas Relacionadas <span class="caret"></span></div>
+<div id="acordeon_03">
+		<div class="row">
+	<?php if (!empty($materia['Correlativa'])):?>
+
+  	<!-- Swiper -->
+    <div class="swiper-container" style="height: 200px;">
+        <div class="swiper-wrapper" >
+	<?php foreach ($materia['Correlativa'] as $correlativa): ?>
+	<div class="swiper-slide">
+	<div class="col-md-6">
+		<div class="unit">
+			<?php echo '<b>Alia:</b> '.$this->Html->link($correlativa['alia'], array('controller' => 'correlativas', 'action' => 'view', $correlativa['id']));?><br>
+			<?php echo '<b>Tipo:</b> '.($this->Html->link($correlativa['tipo'], array('controller' => 'correlativas', 'action' => 'view', $correlativa['id'])));?><br>
+            <div class="text-right">
+            <?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-edit"></i>'), array('controller' => 'correlativas', 'action' => 'edit', $correlativa['id']), array('class' => 'btn btn-warning','escape' =>false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-eye-open"></i>'), array('controller' => 'correlativas', 'action' => 'view', $correlativa['id']), array('class' => 'btn btn-success','escape' => false)); ?>
+			<?php echo $this->Html->link(__('<i class= "glyphicon glyphicon-trash"></i>'), array('controller' => 'correlativas', 'action' => 'delete', $correlativa['id']), array('class' => 'btn btn-danger','escape' => false)); ?>
+            </div>
+		</div>
+	</div>
+</div>
+		
+		<?php endforeach; ?>
+			</div>
+			        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- Include plugin after Swiper -->
+		<?php else: echo '<div class="col-md-12"><div class="unit text-center">No se encuentran relaciones.</div></div>'; ?>
+		<?php endif; ?>
+
+        </div>
+</div>
+<!-- end Correlativass Relacionadas -->
 
 <!-- Alumnos Relacionados -->
 <!--<div class="related">

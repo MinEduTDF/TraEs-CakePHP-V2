@@ -37,7 +37,7 @@ class AppHelper extends Helper {
  * @param int $id
  * @return string
  */
- function returnRiquireData($id){
+function returnRiquireData($id){
     
 	$alumno['Alumno']['id'] != $id;
 	return $alumno['Alumno']['apellido'];
@@ -49,7 +49,7 @@ class AppHelper extends Helper {
  * @param string $time
  * @return string
  */
- function formatTime($time){
+function formatTime($time){
     
 	if(!$time){
 		return ' ';
@@ -61,7 +61,7 @@ class AppHelper extends Helper {
  * Devuelve el estado de logueo.
  * @return bool
  */
- function loggedIn()
+function loggedIn()
  {
     return $this->Session->check('Auth.User');
  } 
@@ -71,7 +71,7 @@ class AppHelper extends Helper {
  * @param string key
  * @return bool o string
  */
- function usuario($key)
+function usuario($key)
  {
     $usuario = $this->Session->read('Auth.User');
     if(isset($user[$key]))
@@ -80,7 +80,6 @@ class AppHelper extends Helper {
     }
     return false;
  }
- 
  
 /**
 * Transforma un texto a minÃºculas y elimina los espacios en blanco
@@ -92,7 +91,12 @@ function toLowerCaseAndTrim($name)
 	return strtolower(str_replace(' ','',$name));
 }
 
-public function assetUrl($path, $options = array()) {
+/**
+* Transforma un texto a minÃºculas y elimina los espacios en blanco
+* @param string $name
+* @return string
+*/
+function assetUrl($path, $options = array()) {
         if (!empty($this->request->params['ext']) && $this->request->params['ext'] === 'pdf') {
             $options['fullBase'] = true;
         }

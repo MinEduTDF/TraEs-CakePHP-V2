@@ -40,7 +40,16 @@ class AlumnosController extends AppController {
 			'filename' => 'alumno_' . $id .'.pdf'
 		);
 		$this->set('alumno', $this->Alumno->read(null, $id));
-	}
+		
+        //Genera nombres en el view.
+		$notaCicloId = $this->Alumno->Nota->find('list', array('fields'=>array('ciclo_id')));
+		$this->loadModel('Ciclo');
+		$cicloNombre = $this->Ciclo->find('list', array('fields'=>array('nombre'), 'conditions'=>array('id'=>$notaCicloId)));
+		$notaMateriaId = $this->Alumno->Nota->find('list', array('fields'=>array('materia_id')));
+		$this->loadModel('Materia');
+		$materiaAlia = $this->Materia->find('list', array('fields'=>array('alia'), 'conditions'=>array('id'=>$notaMateriaId)));
+		$this->set(compact('cicloNombre', 'materiaAlia'));
+    }
 	
 	public function add() {
 		  //abort if cancel button was pressed  

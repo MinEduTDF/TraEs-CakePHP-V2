@@ -41,6 +41,18 @@ class MateriasController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('materia', $this->Materia->read(null, $id));
+
+		//Genera nombres en los datos relacionados.
+		$horarioCicloId = $this->Materia->Horario->find('list', array('fields'=>array('ciclo_id')));
+		$this->loadModel('Ciclo');
+		$cicloNombre = $this->Ciclo->find('list', array('fields'=>array('nombre'), 'conditions'=>array('id'=>$horarioCicloId)));
+		$horarioMateriaId = $this->Materia->Horario->find('list', array('fields'=>array('materia_id')));
+		$this->loadModel('Materia');
+		$materiaAlia = $this->Materia->find('list', array('fields'=>array('alia'), 'conditions'=>array('id'=>$horarioMateriaId)));
+		$inscripcionAlumnoId = $this->Materia->Inscripcion->find('list', array('fields'=>array('alumno_id')));
+		$this->loadModel('Alumno');
+		$alumnoNombre = $this->Alumno->find('list', array('fields'=>array('nombre_completo_alumno'), 'conditions'=>array('id'=>$inscripcionAlumnoId)));
+		$this->set(compact('cicloNombre', 'materiaAlia', 'alumnoNombre'));
 	}
 
 	
@@ -62,6 +74,8 @@ class MateriasController extends AppController {
 	        }
            $this->Session->setFlash(__('Los Contenidos no se guardaron.'));
         }
+        $cursos = $this->Materia->Curso->find('list', array('fields'=>array('id','nombre_completo_curso')));
+        $this->set(compact('cursos'));
     }
 	
 	public function edit($id = null) {

@@ -1,4 +1,4 @@
-<div class="TituloSec"><?php echo __('Editar Materia'); ?></div>
+<div class="TituloSec"><?php echo __('Editar Espacio'); ?></div>
     <div id="ContenidoSec">
         <div class="cursos form">
             <?php echo $this->Form->create('Materia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>

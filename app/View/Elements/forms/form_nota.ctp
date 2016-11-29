@@ -11,7 +11,10 @@
 		  <?php
               echo $this->Form->input('ciclo_id', array('label' => 'Ciclo*', 'default' => $cicloIdActual, 'readonly' => true, 'between' => '<br>', 'class' => 'form-control'));
               echo $this->Form->input('alumno_id', array('label' => 'Alumno*', 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
-              echo $this->Form->input('materia_id', array('label' => 'Materia*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+              echo $this->Form->input('materia_id', array('label' => 'Espacio*', 'empty' => 'Ingrese una materia...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));
+              $estados = array('En curso' => 'En curso', 'Abandonada' => 'Abandonada', 
+                'Regularizada' => 'Regularizada', 'Promocionada' => 'Promocionada', 'Desaprobada' => 'Desaprobada');
+              echo $this->Form->input('estado', array('label' => 'Estado*', 'empty' => 'Ingrese tipo de estado...', 'options' => $estados, 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción de la lista'));  
           ?>
       </div></br>
   </div>

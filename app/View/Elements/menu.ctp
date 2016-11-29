@@ -28,14 +28,14 @@
           <ul class="dropdown-menu">
             <li><?php echo $this->Html->link(__('Ciclos'),'/ciclos'); ?></li>
             <li><?php echo $this->Html->link(__('Titulaciones'),'/titulacions'); ?></li>
-            <li><?php echo $this->Html->link(__('Cursos'), '/cursos'); ?></li>
-            <li><?php echo $this->Html->link(__('Materias'), '/materias'); ?></li>
+            <li><?php echo $this->Html->link(__('Secciones'), '/cursos'); ?></li>
+            <li><?php echo $this->Html->link(__('Espacios'), '/materias'); ?></li>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumnado <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><?php echo $this->Html->link(__('Alumnos'),'/alumnos'); ?></li>
+            <li><?php echo $this->Html->link(__('Legajos'),'/alumnos'); ?></li>
             <li><?php echo $this->Html->link(__('Inscripciones'), '/inscripcions'); ?></li>
             <li><?php echo $this->Html->link('Matrículas', array('controller' => 'cursos_inscripcions', 'action' => 'index')) ?></li>
             <li><?php echo $this->Html->link(__('Inasistencias'), '/inasistencias'); ?></li>

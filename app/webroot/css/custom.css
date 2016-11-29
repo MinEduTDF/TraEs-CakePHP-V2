@@ -421,8 +421,17 @@ span.error{
 
 /******** LABELS CON ESTADOS ***********/
 span.label.label-danger {
-	font-size: 18px;
+	font-size: 14px;
 }
 span.label.label-success {
-	font-size: 18px;
+	font-size: 14px;
+}
+span.label.label-warning {
+	font-size: 14px;
+}
+span.label.label-info {
+	font-size: 14px;
+}
+span.label.label-default {
+	font-size: 14px;
 }

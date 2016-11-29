@@ -10,7 +10,7 @@
   	            <!--<h3>Datos del Alumno</h3>-->
                 <div class="col-md-6 col-sm-6 col-xs-8">	
                     <b>Ciclo:</b>		
-                        <?php echo ($this->Html->link($inasistencia['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['Ciclo']['nombre']))); ?></p>
+                        <?php echo ($this->Html->link($inasistencia['Ciclo']['nombre'], array('controller' => 'ciclos', 'action' => 'view', $inasistencia['Ciclo']['id']))); ?></p>
                       <b>Fecha:</b>		
                          <?php echo ($this->Html->formatTime($inasistencia['Inasistencia']['created'])); ?></p>
                       <b>Alumno:</b>		
@@ -44,8 +44,8 @@
 	    </div>
     </div>
     <!-- end main -->
-    <!-- Cursos Relacionadas -->
-	<div id="click_01" class="titulo_acordeon">Cursos Relacionadas <span class="caret"></span></div>
+    <!-- Secciones Relacionadas -->
+	<div id="click_01" class="titulo_acordeon">Secciones Relacionadas <span class="caret"></span></div>
 	<div id="acordeon_01">
 	    <div class="row">
 	        <?php if (!empty($inasistencia['Curso'])):?>
@@ -53,13 +53,11 @@
 	             <?php foreach ($inasistencia['Curso'] as $curso): ?>
 	             <div class="col-md-6">
 		              <div class="unit">
-                          <!--<?php echo '<b>ID:</b> '.($this->Html->link($curso['id'], array('controller' => 'cursos', 'action' => 'view', $curso['id'])));?><br>-->
                           <?php echo '<b>Año:</b> '.$curso['anio'];?><br>
                           <?php echo '<b>Division:</b> '.$curso['division'];?><br>
                           <?php echo '<b>Turno:</b> '.$curso['turno'];?><br>
                           <?php echo '<b>Tipo:</b> '.$curso['tipo'];?><br>
-                          <!--<?php echo '<b>Cursada:</b> '.$curso['organizacion_cursada'];?><br>-->
-                          <?php echo '<b>Titulación:</b> '.($this->Html->link($curso['titulacion_id'], array('controller' => 'titulacions', 'action' => 'view', $curso['titulacion_id'])));?><br>
+                          <?php echo '<b>Titulación:</b> '.($this->Html->link($titulacionNombre[$curso['titulacion_id']], array('controller' => 'titulacions', 'action' => 'view', $curso['titulacion_id'])));?><br>
                           <div class="text-right">
 							  <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-edit"></i>'), array('controller' => 'cursos', 'action' => 'edit', $curso['id']), array('class' => 'btn btn-warning','escape' => false)); ?>
                               <?php echo $this->Html->link(__('<i class="glyphicon glyphicon-eye-open"></i>'), array('controller' => 'cursos', 'action' => 'view', $curso['id']), array('class' => 'btn btn-success','escape' => false)); ?>
@@ -75,7 +73,7 @@
 </div>
 <!-- end Cursos Relacionados -->
 <!-- Materias Relacionadas -->
-<div id="click_02" class="titulo_acordeon">Materias Relacionadas <span class="caret"></span></div>
+<div id="click_02" class="titulo_acordeon">Espacios Relacionados <span class="caret"></span></div>
 	<div id="acordeon_02">
 		<div class="row">
 		<?php if (!empty($inasistencia['Materia'])):?>

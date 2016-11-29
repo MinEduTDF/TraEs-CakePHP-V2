@@ -65,6 +65,11 @@ class InasistenciasController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('inasistencia', $this->Inasistencia->read(null, $id));
+		//Genera nombres en los datos relacionados.
+		$inasistenciaTitulacionId = $this->Inasistencia->Curso->find('list', array('fields'=>array('titulacion_id')));
+		$this->loadModel('Titulacion');
+		$titulacionNombre = $this->Titulacion->find('list', array('fields'=>array('nombre'), 'conditions'=>array('id'=>$inasistenciaTitulacionId)));
+		$this->set(compact('titulacionNombre'));
 	}
 
 	public function add() {

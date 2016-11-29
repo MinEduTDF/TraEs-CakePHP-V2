@@ -329,6 +329,13 @@ class Nota extends AppModel {
 						 'message' => 'Indicar un nº con dos decimales.'
 						 )
                    ),
+                   'estado' => array(
+                         'required' => array(
+					     'rule' => 'notBlank',
+                         'required' => 'create',
+                         'message' => 'Indicar un estado.'
+                         )
+                   ),
                    'observacion' => array(
 						 'minLength' => array(
 						 'rule' => array('minLength', 4), 

@@ -1,5 +1,5 @@
 <div class="cursos form">
-    <div class="TituloSec"><?php echo __('Agregar Materia'); ?></div>
+    <div class="TituloSec"><?php echo __('Agregar Espacio'); ?></div>
     <div id="ContenidoSec">
         <div class="cursos form">
            <?php echo $this->Form->create('Materia', array('enctype'=>'multipart/form-data', 'novalidate' => true));?>

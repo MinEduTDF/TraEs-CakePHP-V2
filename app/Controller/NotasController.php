@@ -14,8 +14,11 @@ class NotasController extends AppController {
 	}
 
 	public function index() {
-		$this->Nota->recursive = 0;
-		$this->set('notas', $this->paginate());
+		$this->Nota->recursive = 1;
+		
+        $this->paginate['Nota']['limit'] = 6;
+		$this->paginate['Nota']['order'] = array('Nota.ciclo' => 'DESC');
+		
 		$alumnos = $this->Nota->Alumno->find('list', array('fields'=>array('id', 'nombre_completo_alumno'), 'order'=>'Alumno.apellidos ASC'));
 		$materias = $this->Nota->Materia->find('list', array('fields'=>array(), 'order'=>'Materia.curso_id ASC'));
 		$ciclos = $this->Nota->Ciclo->find('list');
