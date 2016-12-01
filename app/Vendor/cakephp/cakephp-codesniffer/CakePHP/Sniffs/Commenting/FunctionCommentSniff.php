@@ -168,7 +168,9 @@ class CakePHP_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Comment
                     continue;
                 }
 
-                if ($tokens[$returnToken]['code'] === T_RETURN) {
+                if ($tokens[$returnToken]['code'] === T_RETURN
+                    || $tokens[$returnToken]['code'] === T_YIELD
+                ) {
                     break;
                 }
             }
@@ -188,7 +190,7 @@ class CakePHP_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Comment
         // If return type is not void, there needs to be a return statement
         // somewhere in the function that returns something.
         if (!in_array('mixed', $typeNames, true) && !in_array('void', $typeNames, true)) {
-            $returnToken = $phpcsFile->findNext(T_RETURN, $stackPtr, $endToken);
+            $returnToken = $phpcsFile->findNext(array(T_RETURN, T_YIELD), $stackPtr, $endToken);
             if ($returnToken === false) {
                 $error = 'Function return type is not void, but function has no return statement';
                 $phpcsFile->addWarning($error, $return, 'InvalidNoReturn');
@@ -360,7 +362,7 @@ class CakePHP_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Comment
                 $phpcsFile->addError($error, $tag, 'MissingParamType');
             }//end if
 
-            $params[] = compact('tag', 'type', 'var', 'comment', 'commentLines', 'type_space', 'var_space');
+            $params[] = compact('tag', 'type', 'var', 'comment', 'commentLines', 'typeSpace', 'varSpace');
         }//end foreach
 
         $realParams = $phpcsFile->getMethodParameters($stackPtr);
@@ -392,9 +394,9 @@ class CakePHP_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Comment
                     $fix = $phpcsFile->addFixableError($error, $param['tag'], 'IncorrectParamVarName', $data);
                     if ($fix === true) {
                         $content = $suggestedName;
-                        $content .= str_repeat(' ', $param['type_space']);
+                        $content .= str_repeat(' ', $param['typeSpace']);
                         $content .= $param['var'];
-                        $content .= str_repeat(' ', $param['var_space']);
+                        $content .= str_repeat(' ', $param['varSpace']);
                         $content .= $param['commentLines'][0]['comment'];
                         $phpcsFile->fixer->replaceToken(($param['tag'] + 2), $content);
                     }
@@ -422,7 +424,16 @@ class CakePHP_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Comment
 
                     $error .= 'actual variable name %s';
 
-                    $phpcsFile->addWarning($error, $param['tag'], $code, $data);
+                    $fix = $phpcsFile->addFixableWarning($error, $param['tag'], $code, $data);
+
+                    if ($fix === true) {
+                        $content = $suggestedName;
+                        $content .= str_repeat(' ', $param['typeSpace']);
+                        $content .= $realName;
+                        $content .= str_repeat(' ', $param['varSpace']);
+                        $content .= $param['commentLines'][0]['comment'];
+                        $phpcsFile->fixer->replaceToken(($param['tag'] + 2), $content);
+                    }
                 }
             } elseif (substr($param['var'], -4) !== ',...') {
                 // We must have an extra parameter comment.

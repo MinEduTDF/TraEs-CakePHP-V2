@@ -38,7 +38,7 @@ class Squiz_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_Abst
      */
     public function __construct()
     {
-        parent::__construct(array(T_CLASS, T_INTERFACE), array(T_FUNCTION));
+        parent::__construct(array(T_CLASS, T_INTERFACE, T_TRAIT), array(T_FUNCTION));
 
     }//end __construct()
 
@@ -59,6 +59,11 @@ class Squiz_Sniffs_Scope_MethodScopeSniff extends PHP_CodeSniffer_Standards_Abst
         $methodName = $phpcsFile->getDeclarationName($stackPtr);
         if ($methodName === null) {
             // Ignore closures.
+            return;
+        }
+
+        if ($phpcsFile->hasCondition($stackPtr, T_FUNCTION) === true) {
+            // Ignore nested functions.
             return;
         }
 

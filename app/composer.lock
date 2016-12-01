@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "35220940235fb0a0839c486b4d83256a",
+    "hash": "7dffa0b13fe6199aa4d8911ad7d01de3",
     "content-hash": "a24fc50f6fd14c3793c430eeb9ff2939",
     "packages": [
         {
             "name": "cakephp/cakephp",
-            "version": "2.7.5",
+            "version": "2.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "3fa5c4ff9406309aa52dcf5ef604ebbcae882dd6"
+                "reference": "410df003e625a30868e33327dfb966b9bb059946"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/3fa5c4ff9406309aa52dcf5ef604ebbcae882dd6",
-                "reference": "3fa5c4ff9406309aa52dcf5ef604ebbcae882dd6",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/410df003e625a30868e33327dfb966b9bb059946",
+                "reference": "410df003e625a30868e33327dfb966b9bb059946",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,6 @@
             },
             "require-dev": {
                 "cakephp/cakephp-codesniffer": "^1.0.0",
-                "cakephp/debug_kit": "^2.2.0",
                 "phpunit/phpunit": "3.7.*"
             },
             "bin": [
@@ -49,21 +48,24 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-10-02 01:03:56"
+            "time": "2016-11-28 02:25:11"
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.21",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
-                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d78064c68299743e0161004f2de3a0204e33b804",
+                "reference": "d78064c68299743e0161004f2de3a0204e33b804",
                 "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
@@ -73,16 +75,16 @@
                 "composer/composer": "1.0.*@dev",
                 "phpunit/phpunit": "4.1.*"
             },
-            "type": "composer-installer",
+            "type": "composer-plugin",
             "extra": {
-                "class": "Composer\\Installers\\Installer",
+                "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -97,28 +99,35 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
+                "Plentymarkets",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
                 "aimeos",
                 "annotatecms",
+                "attogram",
                 "bitrix",
                 "cakephp",
                 "chef",
+                "cockpit",
                 "codeigniter",
                 "concrete5",
                 "croogo",
                 "dokuwiki",
                 "drupal",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
@@ -135,16 +144,18 @@
                 "piwik",
                 "ppi",
                 "puppet",
+                "reindex",
                 "roundcube",
                 "shopware",
                 "silverstripe",
                 "symfony",
                 "typo3",
                 "wordpress",
+                "yawik",
                 "zend",
                 "zikula"
             ],
-            "time": "2015-02-18 17:17:01"
+            "time": "2016-08-13 20:53:52"
         },
         {
             "name": "friendsofcake/cakepdf",
@@ -184,16 +195,16 @@
         },
         {
             "name": "josegonzalez/cakephp-upload",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/josegonzalez/cakephp-upload.git",
-                "reference": "4b0f60a7e1c2e7ed5cfacda4b6f441fc7fdc862b"
+                "reference": "8407584cf63101c67cf6453b05a0fa3ddce95cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/josegonzalez/cakephp-upload/zipball/4b0f60a7e1c2e7ed5cfacda4b6f441fc7fdc862b",
-                "reference": "4b0f60a7e1c2e7ed5cfacda4b6f441fc7fdc862b",
+                "url": "https://api.github.com/repos/josegonzalez/cakephp-upload/zipball/8407584cf63101c67cf6453b05a0fa3ddce95cd4",
+                "reference": "8407584cf63101c67cf6453b05a0fa3ddce95cd4",
                 "shasum": ""
             },
             "require": {
@@ -343,26 +354,26 @@
                 "files",
                 "upload"
             ],
-            "time": "2015-09-22 04:34:19"
+            "time": "2016-04-21 12:15:21"
         }
     ],
     "packages-dev": [
         {
             "name": "cakephp/cakephp-codesniffer",
-            "version": "2.0.5",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp-codesniffer.git",
-                "reference": "45c94487a6853f736c5393e5e3c8442a6aca3c4b"
+                "reference": "bccb1da1204afbf6fd91bf0457aea9c161439c9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/45c94487a6853f736c5393e5e3c8442a6aca3c4b",
-                "reference": "45c94487a6853f736c5393e5e3c8442a6aca3c4b",
+                "url": "https://api.github.com/repos/cakephp/cakephp-codesniffer/zipball/bccb1da1204afbf6fd91bf0457aea9c161439c9f",
+                "reference": "bccb1da1204afbf6fd91bf0457aea9c161439c9f",
                 "shasum": ""
             },
             "require": {
-                "squizlabs/php_codesniffer": "^2.3.1"
+                "squizlabs/php_codesniffer": "~2.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.1.*"
@@ -384,7 +395,7 @@
                 "codesniffer",
                 "framework"
             ],
-            "time": "2015-09-27 02:30:02"
+            "time": "2016-11-26 15:40:49"
         },
         {
             "name": "cakephp/debug_kit",
@@ -437,22 +448,26 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.3.4",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2"
+                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
-                "reference": "11a2545c44a5915f883e2e5ec12e14ed345e3ab2",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
+                "reference": "571e27b6348e5b3a637b2abc82ac0d01e6d7bbed",
                 "shasum": ""
             },
             "require": {
+                "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "bin": [
                 "scripts/phpcs",
@@ -461,7 +476,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -507,7 +522,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2015-09-09 00:18:50"
+            "time": "2016-09-01 23:53:02"
         }
     ],
     "aliases": [],

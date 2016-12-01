@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('Materia',array('type'=>'get','action'=>'index', 'novalidate' => true));?>
+<?php echo $this->Form->create('Materia',array('type'=>'get','url'=>'index', 'novalidate' => true));?>
 <div class="form-group">
 	<?php
 		echo $this->Form->input('alia', array('label' => false, 'class' => 'form-control', 'Placeholder' => 'Ingrese un alia...'));

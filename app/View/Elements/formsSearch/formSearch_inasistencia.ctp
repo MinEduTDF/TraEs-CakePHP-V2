@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('Inasistencia',array('type'=>'get','action'=>'index', 'novalidate' => true));?>
+<?php echo $this->Form->create('Inasistencia',array('type'=>'get','url'=>'index', 'novalidate' => true));?>
 <div class="form-group">
 	<?php 
 	    echo $this->Form->input('alumno_id', array('label' => false, 'empty' => 'Ingrese un alumno...', 'between' => '<br>', 'class' => 'form-control', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Seleccione una opción'));

@@ -1276,7 +1276,7 @@ class UploadBehavior extends ModelBehavior {
 
 		$fileName = str_replace(
 			array('{size}', '{geometry}', '{filename}', '{primaryKey}'),
-			array($size, $geometry, $pathInfo['../../../../Model/Upload/Model/Behavior/filename'], $model->id),
+			array($size, $geometry, $pathInfo['filename'], $model->id),
 			$this->settings[$model->alias][$field]['thumbnailName']
 		);
 
@@ -1319,7 +1319,7 @@ class UploadBehavior extends ModelBehavior {
 
 		$fileName = str_replace(
 			array('{size}', '{geometry}', '{filename}', '{primaryKey}'),
-			array($size, $geometry, $pathInfo['../../../../Model/Upload/Model/Behavior/filename'], $model->id),
+			array($size, $geometry, $pathInfo['filename'], $model->id),
 			$this->settings[$model->alias][$field]['thumbnailName']
 		);
 
@@ -2085,7 +2085,7 @@ class UploadBehavior extends ModelBehavior {
 		foreach ($options['thumbnailSizes'] as $size => $geometry) {
 			$fileName = str_replace(
 				array('{size}', '{geometry}', '{filename}', '{primaryKey}', '{time}', '{microtime}'),
-				array($size, $geometry, $pathInfo['../../../../Model/Upload/Model/Behavior/filename'], $model->id, time(), microtime()),
+				array($size, $geometry, $pathInfo['filename'], $model->id, time(), microtime()),
 				$options['thumbnailName']
 			);
 
@@ -2124,7 +2124,7 @@ class UploadBehavior extends ModelBehavior {
 			$pathInfo['extension'] = '';
 		}
 
-		// PHP < 5.2.0 doesn't include '../../../../Model/Upload/Model/Behavior/filename' key in pathinfo. Let's try to fix this.
+		// PHP < 5.2.0 doesn't include 'filename' key in pathinfo. Let's try to fix this.
 		if (empty($pathInfo['filename'])) {
 			$pathInfo['filename'] = basename($pathInfo['basename'], '.' . $pathInfo['extension']);
 		}

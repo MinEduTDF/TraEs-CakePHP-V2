@@ -41,6 +41,11 @@
   <severity>0</severity>
  </rule>
 
+ <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+  <properties>
+   <property name="ignoreBlankLines" value="false"/>
+  </properties>
+ </rule>
  <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
  <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
@@ -78,9 +83,11 @@
  <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
  <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+ <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
 
  <!-- Relax some src/* and tests/* rules -->
  <rule ref="PSR1.Files.SideEffects">
+  <exclude-pattern>*/config/*</exclude-pattern>
   <exclude-pattern>*/tests/*</exclude-pattern>
  </rule>
  <rule ref="PSR1.Classes.ClassDeclaration">

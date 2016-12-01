@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('Alumno',array('type'=>'get','action'=>'index', 'novalidate' => true));?>
+<?php echo $this->Form->create('Alumno',array('type'=>'get','url'=>'index', 'novalidate' => true));?>
 <div class="form-group">
    <?php echo $this->Form->input('documento_nro' , array('label' => false, 'class' => 'form-control', 'Placeholder' => 'Ingrese un nº de documento...'));	?>
 </div>

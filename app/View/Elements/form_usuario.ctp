@@ -6,7 +6,7 @@
 	<div id="login" class="animated bounceInDown">
 		<div class="titulo">TraEs</div><br>
 	<div class="animated fadeIn"><span  class="img_login glyphicon glyphicon-user"></span></div>
-		<?php echo $this->Form->create('User', array('action'=> 'login'));?>
+		<?php echo $this->Form->create('User', array('url'=> 'login'));?>
 
 		 	<div id="resultado"></div>
 
